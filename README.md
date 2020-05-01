@@ -20,6 +20,18 @@ Integrantes del equipo: // agregar descripción
 - Pablo D'Amico
 - Mariano Martínez
 
-Algunos sitios web existentes como referencia:
-- https://www.in-gravity.com/
--- tienda online con local en Madrid, mismo rubro que nuestro cliente
+
+Algunos sitios web existentes como referencia
+---------------------------------------------
+Referencia del cliente:
+- https://www.facebook.com/crazypeopleshop/?ref=br_rs
+-- cuenta Facebook actual del cliente, para conocer su material, estética y comunicación actual
+
+Otras tiendas online del mismo rubro, con local:
+- https://www.in-gravity.com/ (Madrid, España)
+- https://www.lacasadelospatines.com/ (Buenos Aires, Argentina)
+
+Marcas de productos que vende el cliente
+- https://www.powerslide.com/
+- http://www.sebaskates.com/
+
