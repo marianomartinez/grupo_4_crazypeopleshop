@@ -27,9 +27,11 @@ Referencia del cliente:
 - https://www.facebook.com/crazypeopleshop/?ref=br_rs
 -- cuenta Facebook actual del cliente, para conocer su material, estética y comunicación actual
 
+
 Otras tiendas online del mismo rubro, con local:
 - https://www.in-gravity.com/ (Madrid, España)
 - https://www.lacasadelospatines.com/ (Buenos Aires, Argentina)
+- https://www.quelle.de/mode-freizeit/accessoires/ (Alemania,Burgkunstadt)
 
 Marcas de productos que vende el cliente
 - https://www.powerslide.com/
