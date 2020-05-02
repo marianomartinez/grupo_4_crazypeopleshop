@@ -37,3 +37,6 @@ Marcas de productos que vende el cliente
 - https://www.powerslide.com/
 - http://www.sebaskates.com/
 
+Registro Usuario
+https://auth.ripio.com/#/register
+
