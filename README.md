@@ -40,3 +40,6 @@ Marcas de productos que vende el cliente
 Registro Usuario
 https://auth.ripio.com/#/register
 
+Carrito
+https://www.amazon.com/gp/cart/view.html?ref_=nav_cart
+
