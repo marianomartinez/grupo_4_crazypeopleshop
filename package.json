@@ -1,0 +1,25 @@
+{
+  "name": "grupo_4_crazypeopleshop",
+  "version": "1.0.0",
+  "description": "Crazy People Shop proyecto integrador",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianomartinez/grupo_4_crazypeopleshop.git"
+  },
+  "author": "Grupo 4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marianomartinez/grupo_4_crazypeopleshop/issues"
+  },
+  "homepage": "https://github.com/marianomartinez/grupo_4_crazypeopleshop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
