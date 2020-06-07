@@ -12,7 +12,7 @@ const webRoutes = require('./routes/webRoutes');
 const usersRoutes = require('./routes/usersRoutes')
 //Usar ese archivo de rutas
 
-//app.use(webRoutes);
+app.use(webRoutes);
 //app.use('/usuarios', usersRoutes);
 
 //Levantar nuestro servidor
