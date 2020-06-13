@@ -4,6 +4,12 @@ const app = express();
 //Debemos decirle a node - Donde estan nuestros archivos estáticos
 app.use(express.static('public'));
 
+//PUT y POST
+
+//app.use(express.urlencoded({ extended: false }));
+//app.use(express.json());
+//app.use(methodOverride('_method'));
+
 //Setear cual va a corresponder al template engine -EJS
 app.set('view engine', 'ejs');
 
