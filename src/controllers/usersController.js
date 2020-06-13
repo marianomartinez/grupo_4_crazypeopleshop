@@ -14,8 +14,8 @@ const usersController = {
         //res.render(path.resolve(__dirname, '../views/web/nosotros'));
     },
     login: function (req, res) {
-        res.sendFile(path.resolve(__dirname, '../views/users/login.html'));
-        //res.render(path.resolve(__dirname, '../views/web/nosotros'));
+        //res.sendFile(path.resolve(__dirname, '../views/users/login.html'));
+        res.render(path.resolve(__dirname, '../views/users/login'),{Title:'Login'});
     }
 
 

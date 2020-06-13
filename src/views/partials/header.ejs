@@ -34,8 +34,12 @@
             <input class="form-control input-sm" type="search" placeholder="Buscar..." aria-label="Search">
             <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
         </form>
-        <a href="/users/login"><i class="far fa-user"></i></a>
+        <button data-toggle="modal" data-target="#loginModal"><i class="far fa-user"></i></button>
         <a href="#_cart_"><i class="fas fa-shopping-cart"></i></a>
     </div>
     </div>
 </nav>
+
+<!--Modal Login-->
+<% include('../users/login.html') %> 
+
