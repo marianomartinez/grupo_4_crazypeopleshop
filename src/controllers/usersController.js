@@ -10,8 +10,8 @@ const usersController = {
         //res.render(path.resolve(__dirname, '../views/web/nosotros'));
     },
     register: function (req, res) {
-        res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
-        //res.render(path.resolve(__dirname, '../views/web/nosotros'));
+        //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
+        res.render(path.resolve(__dirname, '../views/users/register'));
     },
     login: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/login.html'));

@@ -1,14 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="text" class="form-control" id="inputNombre" aria-describedby="nombreHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Apeliido</label>
+               <input type="text" class="form-control" id="inputApellido" aria-describedby="apellidoHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Apeliido</label>
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="eMailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Repetir Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword2">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <small id="emailHelp" class="form-text text-muted">Al seleccionar Aceptar y continuar a continuación, acepto los Términos de servicio, los Términos de Pago del Servicio la
+              Política de privacidad y la Política contra la discriminación de Crazy People.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 
-<body>
-    <h2>estructura register</h2>
-</body>
-
-</html>
+  
+          </form>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
