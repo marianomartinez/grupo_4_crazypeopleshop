@@ -1,0 +1,14 @@
+.btn-trash{
+    background: crimson;
+    border: none;
+}
+#products-cart article{
+    border-bottom: 1px solid black;
+}
+#products-cart article figure{
+    margin:0px;
+}
+#cart-header{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}

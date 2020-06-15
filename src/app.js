@@ -20,11 +20,13 @@ app.set('view engine', 'ejs');
 const webRoutes = require('./routes/webRoutes');
 const usersRoutes = require('./routes/usersRoutes')
 const productsRoutes = require('./routes/productsRoutes')
+const checkoutRoutes = require('./routes/checkoutRoutes')
 //Usar ese archivo de rutas
 
 app.use(webRoutes);
 app.use(productsRoutes);
 app.use(usersRoutes);
+app.use(checkoutRoutes);
 
 //Levantar nuestro servidor
 app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000'));
