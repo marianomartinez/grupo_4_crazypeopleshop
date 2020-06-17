@@ -12,3 +12,15 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+.boton{
+    border: none;
+    background-color: grey snow;
+    padding: 7px;
+    
+}
+.fin{
+    border:none;
+    background-color: rgb(204, 240, 204);
+    padding: 7px;
+    
+}
