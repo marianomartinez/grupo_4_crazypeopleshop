@@ -10,18 +10,46 @@
     border-bottom: 1px solid black;
 }
 .boton-cantidad{
-    border: rgb(135, 218, 233) 3px solid;
+    border: rgb(164, 167, 177) 1px solid;
     border-radius: 5px;
     background-color:white;
-    padding: 0px 5px;
+    padding: 2px 5px;
     
 }
 .finalizar-compra{
-    border:none;
-    background-color: rgb(204, 240, 204);
-    padding: 7px;
-    border-radius: 10px;
+    background-image: linear-gradient(#3e52a1,#2d3277);
+    border: 1px solid #2d3277;
+    padding: 5px 10px 7px;
+    font-size: 18px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.25em;
+    font-family: Arial,Helvetica,Nimbus Sans L,sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    color:white;
 }
 .tacho{
     background-color: white;
+}
+.fin{
+    color:#03b;
+    
+}
+.product{
+    
+    background-image: linear-gradient(#3e52a1,#2d3277);
+    border: 1px solid #2d3277;
+    padding: 5px 10px 7px;
+    font-size: 18px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.25em;
+    font-family: Arial,Helvetica,Nimbus Sans L,sans-serif;
+    border-radius: 5px;
+    text-decoration:none;
+    color:white;
+    
+    
+   
 }
