@@ -1,7 +1,4 @@
-.btn-trash{
-    background: white;
-    border: none;
-}
+
 #products-cart article{
     border-bottom: 1px solid black;
 }
@@ -12,15 +9,19 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-.boton{
-    border: none;
-    background-color: grey snow;
-    padding: 7px;
+.boton-cantidad{
+    border: rgb(135, 218, 233) 3px solid;
+    border-radius: 5px;
+    background-color:white;
+    padding: 0px 5px;
     
 }
-.fin{
+.finalizar-compra{
     border:none;
     background-color: rgb(204, 240, 204);
     padding: 7px;
-    
+    border-radius: 10px;
+}
+.tacho{
+    background-color: white;
 }
