@@ -15,6 +15,7 @@
     background-color:white;
     padding: 2px 5px;
     
+    
 }
 .finalizar-compra{
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -50,4 +51,7 @@
     text-decoration:none;
     color:white;
 
+}
+.cantidad{
+    width: 25%;
 }
