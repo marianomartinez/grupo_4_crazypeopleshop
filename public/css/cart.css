@@ -17,16 +17,16 @@
     
 }
 .finalizar-compra{
-    background-image: linear-gradient(#3e52a1,#2d3277);
-    border: 1px solid #2d3277;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border: 3px solid #7ba788;
     padding: 5px 10px 7px;
     font-size: 18px;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     line-height: 1.25em;
     font-family: Arial,Helvetica,Nimbus Sans L,sans-serif;
-    border-radius: 5px;
-    text-decoration: none;
+    border-radius: 15px;
+    text-decoration:none;
     color:white;
 }
 .tacho{
@@ -38,18 +38,20 @@
 }
 .product{
     
-    background-image: linear-gradient(#3e52a1,#2d3277);
-    border: 1px solid #2d3277;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border: 3px solid #7ba788;
     padding: 5px 10px 7px;
     font-size: 18px;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     line-height: 1.25em;
     font-family: Arial,Helvetica,Nimbus Sans L,sans-serif;
-    border-radius: 5px;
+    border-radius: 15px;
     text-decoration:none;
     color:white;
     
+    
+
     
    
 }
