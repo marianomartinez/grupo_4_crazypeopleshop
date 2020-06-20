@@ -10,5 +10,6 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 router.get('/users/login', usersController.login);
 router.get('/users/profile', usersController.profile);
 router.get('/users/register', usersController.register);
+router.get('/users/crud', usersController.crud);
 
 module.exports = router;
