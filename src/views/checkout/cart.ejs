@@ -11,17 +11,19 @@
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
 
-        <main class="container">
+        <main class="container mb-5">
 
-            <section class="row">
+            <section id="cart-header" class="row">
                 <div class="col-6 bg-white">
-                    <hr>
+                    
                     <h2>Carrito de Compras</h2>
-                    <hr>
+                   
                 </div>
-                <div class="col-6 bg-white d-flex align-items-center justify-content-end">
+                <div class="col-6 bg-white d-flex align-items-center justify-content-end ">
 
-                    <button>&times;</button>
+                    <button class="boton-cantidad">
+                        &times;
+                    </button>
 
                 </div>
             </section>
@@ -47,15 +49,15 @@
                             <h4>Chaya Lavender</h4>
                             <h4>(37)</h4>
                             <h4>$ 11.950,00</h4>
-                            <button>-</button>
+                            <button class="boton-cantidad">-</button>
                             <span>1</span>
-                            <button>+</button>
+                            <button class="boton-cantidad">+</button>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-end">
                         <h4>$11.950,00</h4>
-                        <button class="btn-trash">
-                            <i class="far fa-trash-alt"></i>
+                        <button class="btn-trash border-0 tacho">
+                        <i class="far fa-trash-alt"></i><span class="fin">Eliminar</span>
                         </button>
                     </div>
                 </article>
@@ -71,15 +73,15 @@
                             <h4>Chaya Lavender</h4>
                             <h4>(40)</h4>
                             <h4>$ 18.750,00</h4>
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                            <button class="boton-cantidad">-</button>
+                            <span>2</span>
+                            <button class="boton-cantidad">+</button>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-end">
                         <h4>$18.750,00</h4>
-                        <button class="btn-trash">
-                            <i class="far fa-trash-alt"></i>
+                        <button class="btn-trash border-0 tacho">
+                            <i class="far fa-trash-alt "></i><span class="fin">Eliminar</span>
                         </button>
                     </div>
                 </article>
@@ -102,17 +104,18 @@
                 </div>
                 <div class="col-6 bg-white d-flex align-items-center justify-content-end">
 
-                    <h5>$27.00,00</h5>
+                    <h5>$27.000,00</h5>
 
                 </div>
             </section>
-            <section class="row">
-                <div class="col-6 bg-white">
-                    <a href="/">ver mas productos</a>
+
+            <section class="row  py-5 mx-0">
+                <div class="col-6 ">
+                    <a class="product" href="/">ver mas productos</a>
                 </div>
                 <div class="col-6 bg-white d-flex align-items-center justify-content-end">
 
-                    <button>Finalizar Compra</button>
+                    <button class="finalizar-compra">Finalizar Compra</button>
 
                 </div>
             </section>
