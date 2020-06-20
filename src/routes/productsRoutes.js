@@ -9,5 +9,6 @@ const productsController = require(path.resolve(__dirname, '../controllers/produ
 
 
 router.get('/productDetail', productsController.productDetail);
+router.get('/products/crud', productsController.crud);
 
 module.exports = router;
