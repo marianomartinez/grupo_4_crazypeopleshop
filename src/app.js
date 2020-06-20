@@ -19,11 +19,17 @@ app.set('view engine', 'ejs');
 //Rutas  - Requerir archivo donde esta la ruta
 const webRoutes = require('./routes/webRoutes');
 const usersRoutes = require('./routes/usersRoutes')
+// MM AGREGA DESDE ACA
+const categoriesRoutes = require('./routes/categoriesRoutes')
+// MM HASTA ACA
 const productsRoutes = require('./routes/productsRoutes')
 const checkoutRoutes = require('./routes/checkoutRoutes')
 //Usar ese archivo de rutas
 
 app.use(webRoutes);
+// MM AGREGA DESDE ACA
+app.use(categoriesRoutes);
+// MM HASTA ACA
 app.use(productsRoutes);
 app.use(usersRoutes);
 app.use(checkoutRoutes);
