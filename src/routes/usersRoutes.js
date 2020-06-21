@@ -11,5 +11,6 @@ router.get('/users/login', usersController.login);
 router.get('/users/profile', usersController.profile);
 router.get('/users/register', usersController.register);
 router.get('/users/crud', usersController.crud);
+router.post('/users/crud', usersController.save);
 
 module.exports = router;

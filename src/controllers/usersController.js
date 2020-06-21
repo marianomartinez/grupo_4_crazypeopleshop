@@ -21,6 +21,26 @@ const usersController = {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios } );
     },
+    save: function (req, res) {
+
+        let usuarioNuevo = {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: req.body.password
+
+        }
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        usuariosActuales.push(usuarioNuevo);
+
+        let usuarioJSON = JSON.stringify(usuariosActuales)
+
+        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        res.redirect('/users/crud');
+
+    }
+
 
 }
 module.exports = usersController;
