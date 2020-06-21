@@ -23,15 +23,20 @@ const usersController = {
     },
     save: function (req, res) {
 
+
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        
         let usuarioNuevo = {
+            id: (usuariosActuales.length) + 1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
             password: req.body.password
 
         }
-
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        
+        
         usuariosActuales.push(usuarioNuevo);
 
         let usuarioJSON = JSON.stringify(usuariosActuales)

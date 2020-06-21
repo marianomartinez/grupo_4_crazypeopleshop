@@ -18,6 +18,7 @@
                 <table class='table mt-5'>
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>eMail</th>
@@ -31,16 +32,17 @@
             
                         <% usuarios.forEach(usuario => { %>
                         <tr>
+                            <td><%=usuario.id %></td>
                             <td><%=usuario.first_name %></td>
                             <td><%=usuario.last_name %></td>
                             <td><%=usuario.email %></td>
-                            <td><a href="#">
+                            <td><a href="/users/detail/<%=usuario.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="#">
+                            <td><a href="/users/edit/<%=usuario.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="#">
+                            <td><a href="/users/delete/<%=usuario.id%> ">
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a></td>
             
