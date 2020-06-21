@@ -1,12 +1,1 @@
-[{"first_name":"Mariano","last_name":"Martinez","email":"marianomartinez@gmail.com","password":"qqq"},{
-        "first_name": "Pablo",
-        "last_name": "DAmico",
-        "email": "papacho@gmail.com",
-        "password": "qqq"
-    },
-{
-    "first_name": "Paola",
-    "last_name": "Garay",
-    "email": "piru@gmail.com",
-    "password": "qqq"
-}]
+[{"first_name":"Mariano","last_name":"Martinez","email":"marianomartinez@gmail.com","password":"qqq"},{"first_name":"Pablo","last_name":"DAmico","email":"papacho@gmail.com","password":"qqq"},{"first_name":"Paola","last_name":"Garay","email":"piru@gmail.com","password":"qqq"},{"first_name":"Roberto","last_name":"Perfumo","email":"papapa@ldldld","password":"lslls"},{"first_name":"Pedro","last_name":"Roggiano","email":"pedri@gg","password":"dd"}]

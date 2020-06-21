@@ -10,36 +10,32 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="/users/crud" method="post">
             <div class="form-group">
-              <label for="exampleInputEmail1">Nombre</label>
-              <input type="text" class="form-control" id="inputNombre" aria-describedby="nombreHelp">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Apeliido</label>
-               <input type="text" class="form-control" id="inputApellido" aria-describedby="apellidoHelp">
+              <input type="text" class="form-control" name="first_name" placeholder="Nombre" required="required">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Apeliido</label>
-              <input type="email" class="form-control" id="inputEmail" aria-describedby="eMailHelp">
+              <input type="text" class="form-control" name="last_name" placeholder="Apellido" required="required">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Repetir Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword2">
+              <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
             </div>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <small id="emailHelp" class="form-text text-muted">Al seleccionar Aceptar y continuar a continuación, acepto los Términos de servicio, los Términos de Pago del Servicio la
-              Política de privacidad y la Política contra la discriminación de Crazy People.</small>
+            <div class="form-group">
+              <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña"
+                required="required">
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 
-  
+              <label class="checkbox-inline"><input type="checkbox" required="required"> Acepto los <a href="#">Terminos y
+                  condiciones</a> y las <a href="#">Políticas de Privacidad</a> de Crazy People.</label>
+            </div>
+            <div class="form-group ml-3">
+            
+              <button type="submit" class="btn btn-primary">Registrarse</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
           </form>
         </div>
   
