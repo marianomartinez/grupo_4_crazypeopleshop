@@ -13,8 +13,8 @@
 
         <main>
             <h1 class="text-center text-success display-5 mt-5 pt-2"> Administrador de Usuarios</h1>
-            
-       
+
+
             <div class="container-fluid">
                 <table class='table mt-5'>
                     <thead>
@@ -27,37 +27,37 @@
                             <th>Editar</th>
                             <th>Borrar</th>
                         </tr>
-            
+
                     </thead>
                     <tbody>
-            
-                        <% usuarios.forEach(usuario => { %>
+
+                      
                         <tr>
-                            <td><%=usuario.id %></td>
-                            <td><%=usuario.first_name %></td>
-                            <td><%=usuario.last_name %></td>
-                            <td><%=usuario.email %></td>
-                            <td><a href="/users/detail/<%=usuario.id%> ">
+                            <td><%=usuarioShow.id %></td>
+                            <td><%=usuarioShow.first_name %></td>
+                            <td><%=usuarioShow.last_name %></td>
+                            <td><%=usuarioShow.email %></td>
+                            <td><a href="/users/detail/<%=usuarioShow.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/users/edit/<%=usuario.id%> ">
+                            <td><a href="/users/edit/<%=usuarioShow.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/users/delete/<%=usuario.id%> ">
+                            <td><a href="/users/delete/<%=usuarioShow.id%> ">
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a></td>
-            
+
                         </tr>
-            
-                        <% });%>
-            
-            
+
+                      
+
+
                     </tbody>
-            
+
                 </table>
             </div>
-            
-         
+
+
 
         </main>
 
@@ -69,7 +69,7 @@
 
         <!-- Fin del Container -->
     </div>
-            <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 
 </html>

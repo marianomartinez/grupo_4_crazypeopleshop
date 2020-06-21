@@ -44,6 +44,15 @@ const usersController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
         res.redirect('/users/crud');
 
+    },
+    show: function (req, res) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+
+        let usuarioId = req.params.id;
+        const usuarioShow = usuariosActuales.find(usuario =>usuario.id == usuarioId);
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario'})
+        
     }
 
 
