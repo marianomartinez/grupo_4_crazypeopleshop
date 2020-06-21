@@ -48,13 +48,31 @@ const usersController = {
     show: function (req, res) {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-
         let usuarioId = req.params.id;
         const usuarioShow = usuariosActuales.find(usuario =>usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario'})
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar'})
         
+    },
+
+    delete: function (req, res) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
+        
+        let usuarioJSON = JSON.stringify(usuariosNuevos)
+        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        res.redirect('/users/crud');
+    },
+    edit: function (req, res) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+
     }
-
-
 }
+
+
 module.exports = usersController;

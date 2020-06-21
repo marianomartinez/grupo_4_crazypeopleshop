@@ -4,7 +4,7 @@
   "description": "Crazy People Shop proyecto integrador",
   "main": "src/app.js",
   "scripts": {
-    "test": "nodemon src/app.js"
+    "test": "nodemon src/app.js -e js,ejs,json"
   },
   "repository": {
     "type": "git",
