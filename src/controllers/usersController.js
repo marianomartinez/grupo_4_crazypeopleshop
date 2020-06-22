@@ -26,9 +26,12 @@ const usersController = {
 
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         
+        usuarioUltimo = usuarioUltimo.pop();
+
         let usuarioNuevo = {
-            id: (usuariosActuales.length) + 1,
+            id: usuarioUltimo.id + 1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
