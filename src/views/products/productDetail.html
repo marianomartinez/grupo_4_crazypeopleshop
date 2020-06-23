@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include ('../partials/head')  %>
 </head>
 
-<body>
+<body class="fonditoss">
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header') %>
     <main class="container">
         <article class="row mb-5 d-flex justify-content-center">
             <figure class="card-img-top col-12 col-md-8"><img class="w-100"
@@ -23,6 +24,14 @@
             </div>
         </article>
     </main>
-</body>
+    <!-- Footer de footer.ejs -->
+    <%- include ('../partials/footer') %>
 
+    <!-- Scripts de scripts.ejs -->
+    <%- include ('../partials/scripts') %>
+
+    <!-- Fin del Container -->
+    </div>
+
+</body>
 </html>

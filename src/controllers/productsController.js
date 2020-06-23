@@ -6,8 +6,8 @@ const fs = require('fs');
 const productsController = {
 
     productDetail: function (req, res) {
-        res.sendFile(path.resolve(__dirname, '../views/products/productDetail.html'));
-        //res.render(path.resolve(__dirname, '../views/web/nosotros'));
+        // res.sendFile(path.resolve(__dirname, '../views/products/productDetail.html'));
+        res.render(path.resolve(__dirname, '../views/products/productDetail'), { Title: 'Detalle de producto' });
     },
     crud: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/login.html'));
