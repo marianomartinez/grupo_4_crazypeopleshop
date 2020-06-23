@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+</head>
+
+<body class="fonditoss">
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header') %>
+    <main class="container">
+        <article class="row d-flex justify-content-center">
+            <figure class="card-img-top col-12 col-md-7 bg-white m-0 pt-3">
+                <img class="w-100" src="/img/products/patines/inline/ps-powerskating-r4-lg.jpg" alt="">
+            </figure>
+            <section class="card-body col-12 col-md-5 bg-white m-0 p-3">
+                <div class="card-title text-center pt-5">
+                    <h2>Marca y modelo</h2>
+                </div>
+                <div class="cardPrecio text-center">
+                    <p>$36.770</p>
+                </div>
+                <form class="form-group" action="" method="POST">
+                    <label class="my-1" for="sel1">Color:</label>
+                    <select class="form-control" id="sel1">
+                        <option selected disabled>-elegir color-</option>
+                        <option value="negro-rojo">Negro/rojo</option>
+                        <option value="azul-blanco">Azul/blanco</option>
+                    </select>
+                    <label class="my-1" for="sel1">Talle:</label>
+                    <select class="form-control mb-4" id="sel1">
+                        <option selected disabled>-elegir talle-</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                    </select>
+                    <input class="w-100" type="submit" value="Agregar al carrito">
+                </form>
+            </section>
+            <section class="row col-12 bg-white">
+                <p>
+                    The cheapest, high performance racing skate in history. Making the jump from a fitness skate into a speed skate is often
+                    daunting, not only from a technical point of view, but people are often discouraged, by the increase in cost. The FINAL
+                    skate will change that! It has been priced aggressively to ensure that skaters can feel comfortable with the decision to
+                    enter the speed skating world. Examples of the flow down tech in this skate is the use of the upper from our PULS skate,
+                    and the Elite Casted MG frames which are race proven. The skate itself has been designed to be more relaxed in fitting
+                    to ensure maximum comfort.
+                </p>
+            </section>
+        </article>
+    </main>
+    <!-- Footer de footer.ejs -->
+    <%- include ('../partials/footer') %>
+
+    <!-- Scripts de scripts.ejs -->
+    <%- include ('../partials/scripts') %>
+
+    <!-- Fin del Container -->
+    </div>
+
+</body>
+</html>
