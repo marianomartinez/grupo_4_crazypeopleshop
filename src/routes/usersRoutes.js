@@ -14,6 +14,7 @@ router.get('/users/crud', usersController.crud);
 router.post('/users/crud', usersController.save);
 router.get('/users/detail/:id', usersController.show);
 router.get('/users/delete/:id', usersController.delete);
-router.put('/users/edit/:id', usersController.edit);
+router.get('/users/edit/:id', usersController.edit);
+router.put('/users/edit/:id', usersController.update);
 
 module.exports = router;

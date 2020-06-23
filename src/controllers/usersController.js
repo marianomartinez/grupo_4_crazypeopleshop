@@ -74,6 +74,21 @@ const usersController = {
         const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
 
+    },
+    update: function (req, res) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        req.body.id = req.params.id;
+        let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen
+            if (usuario.id == req.body.id) {
+                return usuario = req.body;
+            }
+            return usuario;
+        });
+        usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON);
+        res.redirect('/users/crud');   
+
     }
 }
 
