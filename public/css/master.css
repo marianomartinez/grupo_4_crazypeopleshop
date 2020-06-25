@@ -5,8 +5,8 @@
 @import "/css/nosotros.css";
 @import "/css/productDetail.css";
 @import "/css/carousel.css";
-@import "/css/productsCRUD.css";
-/* *{font-family: "indie flower",sans-serif;}*/
+@import "/css/CRUDagregar.css";
+*{font-family: 'Josefin Sans',sans-serif;}
 
 
 a:hover{
