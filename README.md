@@ -15,6 +15,8 @@ El público principal de la tienda, y por lo tanto del sitio web, será:
 + en niveles tanto recreativo como profesional
 + gusto por la actividad social y deportiva en exteriores
 
+## Link al tablero Trello del equipo
+https://trello.com/b/gJ0OWkN6/crazy-people
 
 ### Integrantes del equipo: 
 - Paola Garay
