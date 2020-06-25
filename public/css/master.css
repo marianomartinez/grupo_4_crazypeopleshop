@@ -9,3 +9,6 @@
 /* *{font-family: "indie flower",sans-serif;}*/
 
 
+a:hover{
+    color: inherit;
+}
