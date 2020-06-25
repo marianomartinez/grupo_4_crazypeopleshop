@@ -6,9 +6,16 @@
 @import "/css/productDetail.css";
 @import "/css/carousel.css";
 @import "/css/CRUDagregar.css";
+
 *{font-family: 'Josefin Sans',sans-serif;}
 
 
 a:hover{
     color: inherit;
+}
+.paovh20{
+    height:20vh;
+}
+.paovh80{
+    height:80vh;
 }
