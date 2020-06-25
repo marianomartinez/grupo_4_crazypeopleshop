@@ -9,3 +9,11 @@
     color:white;
     
 }
+
+.MM-menu-btn{
+    color: white;
+    border: 1px white solid;
+    border-radius: 4px;
+    padding: 2px 4px;
+    text-shadow: #555 2px 2px 3px;
+}
