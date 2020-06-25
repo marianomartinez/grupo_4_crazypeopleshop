@@ -1,7 +1,6 @@
 .agreg{
-    
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border: 3px solid #7ba788;
+    background: rgb(160, 212, 236);
+    border: 3px solid #cac5c5;
     padding: 5px 10px 7px;
     font-size: 18px;
     text-rendering: auto;
