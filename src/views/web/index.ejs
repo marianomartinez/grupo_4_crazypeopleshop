@@ -3,17 +3,18 @@
 <head>
 <%- include ('../partials/head')  %>
 </head>
-<body class="fondito">
+<body>
     
     
-    <div class="container-fluid">
+    <div class="container ">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
 
         <!-- Carousel de carousel.ejs -->
-        <%- include ('../partials/carousel')  %>
+        
 
-        <main>
+        <main class="fonditos">
+            <%- include ('../partials/carousel')  %>
                         <!-- Conoce nuestros productos y las 3 categorías-->
             <section class="container">
                 <div class="row my-5">
@@ -22,7 +23,7 @@
                 <!-- 3 categorías-->
                 <section class="row justify-content-between col-12 m-auto">
                     
-                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 category-product">
+                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 mb-5 category-product">
                         <a href="/category/iSkates">
                             <figure><img class="card-img-top pt-1" src="/img/web/temp-iskate-cat-200x200.jpg"
                                     alt="Inline Skates"></figure>
@@ -31,7 +32,7 @@
                         </div>
                         </a>
                     </div>
-                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 category-product">
+                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 mb-5 category-product">
                         <a href="/category/qSkates">
                             <figure><img class="card-img-top pt-1" src="/img/web/temp-qskate-cat-200x200.jpg"
                                     alt="Quad Skates"></figure>
@@ -40,7 +41,7 @@
                         </div>
                         </a>
                     </div>
-                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 category-product">
+                    <div class="card col-12 col-md-4 border-white m-0 p-0 px-1 col-lg-3 mb-5 category-product">
                         <a href="/category/accesories">
                             <figure><img class="card-img-top pt-1" src="/img/web/temp-acc-cat-200x200.jpg"
                                     alt="Accesorios"></figure>
