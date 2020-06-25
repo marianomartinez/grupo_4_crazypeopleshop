@@ -21,6 +21,15 @@ const usersController = {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios } );
     },
+    // MM agrega desde acá
+    add: function (req, res) {
+        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
+            Title: 'Usuarios',
+            usuarios: usuarios
+        });
+    },
+    // MM hasta acá
     save: function (req, res) {
 
 
