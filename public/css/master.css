@@ -16,10 +16,10 @@ a:hover{
 .paovh20{
     height:20vh;
 }
+
+/*esa clase genera conflicto y corre el footer.*/
 .paovh80{
     height:80vh;
 }
 
-.pruebaGise{
-    background-color: khaki;
-}
+
