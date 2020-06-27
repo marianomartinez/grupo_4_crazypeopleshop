@@ -1,11 +1,19 @@
 .linea{
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
-.color-naveg{
+/*.color-naveg{
     text-shadow: #555 2px 2px 3px;
     
-}
+}*/
 .nav-link{
     color:white;
     
+}
+
+.MM-menu-btn{
+    color: white;
+    border: 1px white solid;
+    border-radius: 4px;
+    padding: 2px 4px;
+    text-shadow: #555 2px 2px 3px;
 }

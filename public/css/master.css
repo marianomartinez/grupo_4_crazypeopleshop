@@ -4,6 +4,22 @@
 @import "/css/category.css";
 @import "/css/nosotros.css";
 @import "/css/productDetail.css";
-/* *{font-family: "indie flower",sans-serif;}*/
+@import "/css/carousel.css";
+@import "/css/CRUDagregar.css";
+
+*{font-family: 'Josefin Sans',sans-serif;}
+
+
+a:hover{
+    color: inherit;
+}
+.paovh20{
+    height:20vh;
+}
+
+/*esa clase genera conflicto y corre el footer.*/
+.paovh80{
+    height:80vh;
+}
 
 

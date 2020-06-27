@@ -1,8 +1,7 @@
-.fondito{
-    background-image: url("/img/web/logo/agua.jpg"); 
+.fonditos{
+    background-image: url("/img/web/logo/agua40.png"); 
     background-size: 2.5%; 
-    
-                
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
     
 }
 .lineas{

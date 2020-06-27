@@ -13,47 +13,43 @@
         <section class="row">
             <article class="col-12  card pt-5">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Creación Producto</h1>
-        
-        
+                    <h1 class="card-title text-center">Creación Usuario</h1>
                 </div>
             </article>
         </section>
         
-        <section class="bg-home pt-4">
-            <div class="container">
+        <section class="bg-home">
+            <div class="container py-4">
                 <div class="row">
-                    <div class="col-12 col-md-4 mx-md-auto bg-light ">
-                        <div class="signup-form">
-        
-                            <form action="/products/crud" method="post">
+                    <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light ">
+                        <div class="signup-form pb-4">
+                            <form action="/users/crud" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="marca" placeholder="Marca"
+                                    <input type="text" class="form-control" name="first_name" placeholder="Nombre"
                                         required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="modelo" placeholder="Modelo"
-                                        required="required">
-                                </div>
-        
-                                <div class="form-group">
-                                            <input type="text" class="form-control" name="descripcion" placeholder="Descripcion" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="talle" placeholder="Talle"
+                                    <input type="text" class="form-control" name="last_name" placeholder="Apellido"
                                         required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="color" placeholder="Color"
+                                    <input type="email" class="form-control" name="email" placeholder="e-Mail"
                                         required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="precio" placeholder="Precio"
+                                    <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña"
                                         required="required">
                                 </div>
-        
-                                <div class="form-group">
+                                <div class="form-group text-center">
+                                    <input type="checkbox" class="form-check-input" name="admin"
+                                        placeholder="" required="required">
+                                    <label class="form-check-label" for="exampleCheck1">Es administrador</label>
+                                </div>
+                                <div class="form-group d-inline">
                                     <button type="submit" class="btn btn btn-info">Crear</button>
+                                </div>
+                                <div class="form-group d-inline">
+                                    <a type="button" class="btn btn btn-danger" href="/users/crud">Volver</a>
                                 </div>
                             </form>
         
@@ -64,15 +60,7 @@
             </div>
         </section>
     <!-- Footer -->
-    <footer class="row">
-        <article class="col-12 jumbotron ">
-            <div class="container">
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-                </p>
-            </div>
-        </article>
-    </footer>
+    
     <!-- Scripts para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

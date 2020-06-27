@@ -13,6 +13,15 @@ const productsController = {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos });
     },
+    // MM agrega desde acá
+    add: function (req, res) {
+        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), {
+            Title: 'Usuarios',
+            usuarios: usuarios
+        });
+    },
+    // MM hasta acá
     register: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
         res.render(path.resolve(__dirname, '../views/products/register'), { Title: 'Productos'});

@@ -1,0 +1,15 @@
+.agreg{
+    background: rgb(16, 91, 231);
+    border: 3px solid #7ba788;
+    padding: 5px 10px 7px;
+    font-size: 18px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.25em;
+    font-family: Arial,Helvetica,Nimbus Sans L,sans-serif;
+    border-radius: 15px;
+    text-decoration:none;
+    color:white;
+    
+
+}
