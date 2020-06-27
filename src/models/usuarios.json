@@ -1,1 +1,24 @@
-[{"id":3,"first_name":"Edu","last_name":"Edu","email":"Edu@gmail","password":"l"},{"id":4,"first_name":"roberto","last_name":"roberto","email":"ooo@dd","password":"k"},{"id":5,"first_name":"kkk","last_name":"kk","email":"kk@kkkk","password":"k"}]
+[
+  {
+    "id": 3,
+    "first_name": "Edu",
+    "last_name": "Edu",
+    "email": "Edu@gmail",
+    "password": "l"
+  },
+  {
+    "first_name": "roberto",
+    "last_name": "Perfumo",
+    "email": "ooo@dd",
+    "password": "ka",
+    "confirm_password": "aa",
+    "id": "4"
+  },
+  {
+    "id": 6,
+    "first_name": "Mariano",
+    "last_name": "Martinez",
+    "email": "mariano@gmail.com",
+    "password": "jj"
+  }
+]

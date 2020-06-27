@@ -1,0 +1,16 @@
+[
+
+    {
+        "id": 1,
+        "categoria": "inline Skates"
+
+    },
+    {
+        "id": 2,
+        "categoria": "Quad Skates"
+    },
+    {
+        "id": 3,
+        "categoria": "Accesorios Skates"
+    }
+]
