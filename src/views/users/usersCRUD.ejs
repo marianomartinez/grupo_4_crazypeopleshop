@@ -28,6 +28,7 @@
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>eMail</th>
+                            <th>Tipo</th>
                             <th>Ver</th>
                             <th>Editar</th>
                             <th>Borrar</th>
@@ -42,6 +43,7 @@
                             <td><%=usuario.first_name %></td>
                             <td><%=usuario.last_name %></td>
                             <td><%=usuario.email %></td>
+                            <td><%=usuario.administra %></td>
                             <td><a href="/users/detail/<%=usuario.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>

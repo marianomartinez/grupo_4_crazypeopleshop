@@ -35,11 +35,19 @@
                                     <input type="email" class="form-control" name="email" placeholder="Email" required="required"value = "<%=usuarioEdit.email%>">
                                 </div>
                                 <div class="form-group">
+                                    <input type="tel" class="form-control" name="telefono" placeholder="Telefono" required="required"
+                                        value="<%=usuarioEdit.telefono%>">
+                                </div>
+                                <div class="form-group">
                                     <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required" value = "<%=usuarioEdit.password%>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" required="required">
-                                </div>     
+                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirma Contraseña" required="required" value = "<%=usuarioEdit.password%>">
+                                </div>  
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="confirm_password" placeholder="Tipo Usuario"
+                                                required="required" value="<%=usuarioEdit.administra%>" disabled>
+                                </div>
                                 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn btn-info">Actualizar</button>

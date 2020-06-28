@@ -38,13 +38,20 @@ const usersController = {
         let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         
         usuarioUltimo = usuarioUltimo.pop();
+        
+
+ 
 
         let usuarioNuevo = {
             id: usuarioUltimo.id + 1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            confirm_password: req.body.confirm_password,
+            confirm_password: req.body.telefono,
+            administra: req.body.user
+
 
         }
         

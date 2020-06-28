@@ -1,25 +1,20 @@
-[ 
-{ 
-    "id": 3,
-    "first_name": "Edu",
-    "last_name": "Edu",
-    "email": "Edu@gmail",
-    "password": "l"
+[
+  {
+    "first_name": "hj",
+    "last_name": "hjh",
+    "email": "hj@a",
+    "telefono": "23434343",
+    "password": "klk",
+    "confirm_password": "klk",
+    "id": "9"
   },
   {
-    "first_name": "roberto",
-    "last_name": "Perfumo",
-    "email": "ooo@dd",
-    "password": "ka",
-    "confirm_password": "aa",
-    "id": "4"
-  },
-  {
-    "id": 6,
-    "first_name": "Mariano",
-    "last_name": "Martinez",
-    "email": "mariano@gmail.com",
-    "password": "jj"
+    "id": 10,
+    "first_name": "po",
+    "last_name": "pop",
+    "email": "p@ss",
+    "password": "lll",
+    "confirm_password": "ll",
+    "administra": "user"
   }
 ]
-
