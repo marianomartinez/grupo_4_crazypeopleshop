@@ -21,6 +21,10 @@ const categoriesController = {
         res.render(path.resolve(__dirname, '../views/products/CategoryAccesories'), {
             Title: 'Categorías'
         });
-    }
+    },
+    crud: function (req, res) {
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Categorias', categorias: categorias });
+    },
 }
 module.exports = categoriesController;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header')  %>
+
+
+        <main>
+            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Categorías</h1>
+            <section>
+
+                <a class="display-5 mt-5 agreg" href="/products/categoriasCRUD/add">Agregar Categoría</a>
+
+            </section>
+
+
+            <div class="container-fluid">
+                <table class='table mt-5'>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Categoría</th>
+                             <th>Descripcion</th>
+                             <th>Ver</th>
+                            <th>Editar</th>
+                            <th>Borrar</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+                        <% categorias.forEach(categoria => { %>
+                        <tr>
+                            <td><%=categoria.id %></td>
+                            <td><%=categoria.categoria %></td>
+                             <td><%=categorias.descripcion %></td>
+ 
+                            <td><a href="/categories/detail/<%=categoria.id%> ">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </a></td>
+                            <td><a href="/products/edit/<%=categoria.id%> ">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                </a></td>
+                            <td><a href="/products/delete/<%=categoria.id%> ">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </a></td>
+
+                        </tr>
+
+                        <% });%>
+
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+
+        </main>
+
+        <!-- Scripts de scripts.ejs -->
+        <%- include ('../partials/scripts') %>
+
+        <!-- Fin del Container -->
+    </div>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>

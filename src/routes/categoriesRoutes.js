@@ -11,5 +11,6 @@ const categoriesController = require(path.resolve(__dirname, '../controllers/cat
 router.get('/category/iSkates', categoriesController.showCategoryISkates);
 router.get('/category/qSkates', categoriesController.showCategoryQSkates);
 router.get('/category/accesories', categoriesController.showCategoryAccesories);
+router.get('/categories/crud', categoriesController.crud);
 
 module.exports = router;
