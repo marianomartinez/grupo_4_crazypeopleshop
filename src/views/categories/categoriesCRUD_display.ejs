@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header')  %>
+
+
+        <main>
+            <h1 class="text-center text-success display-5 mt-5 pt-2"> Categoría</h1>
+            <section class="bg-home pt-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8 mx-auto bg-light">
+                            <div class="card">
+                                <ul class="list-group">
+                                    <li class="list-group-item">ID: <%=categoriaShow.id %> </li>
+                                    <li class="list-group-item">Categoría: <%=categoriaShow.categoria %> </li>
+                                    <li class="list-group-item">Descripcion: <%=categoriaShow.descripcion %> </li>
+                                    <li class="list-group-item">Fecha de Alta: </li>
+                                    <li class="list-group-item ">Imagen: <img class="img-thumbnail"
+                                            src="/img/web/<%= categoriaShow.imagen%>" alt=""></li>
+
+                                </ul>
+
+                            </div>
+
+                            <a class="btn btn-primary mt-1 mx-md-auto" href="/categories/crud">Regresar</a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+        </main>
+
+        <!-- Footer de footer.ejs -->
+        <%- include ('../partials/footer') %>
+
+        <!-- Scripts de scripts.ejs -->
+        <%- include ('../partials/scripts') %>
+
+        <!-- Fin del Container -->
+    </div>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>

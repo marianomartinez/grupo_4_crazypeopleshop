@@ -26,5 +26,48 @@ const categoriesController = {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Categorias', categorias: categorias });
     },
+    show: function (req, res) {
+
+        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        let categoriaId = req.params.id;
+        const categoriaShow = categoriasActuales.find(categoria => categoria.id == categoriaId);
+        res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_display'), { categoriaShow: categoriaShow, Title: 'Categoría-Visualizar' })
+
+    },
+    add: function (req, res) {
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'), {
+            Title: 'Categorías',
+            categorias: categorias
+        });
+    },
+    save: function (req, res) {
+
+
+
+        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        let categoriaUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+
+        categoriaUltimo = categoriaUltimo.pop();
+
+
+
+
+        let categoriaNuevo = {
+            id: categoriaUltimo.id + 1,
+            categoria: req.body.categoria,
+            descripcion: req.body.descripcion,
+            imagen: req.file ? req.file.filename : ""
+        }
+
+        categoriasActuales.push(categoriaNuevo);
+
+        let categoriaJSON = JSON.stringify(categoriasActuales)
+
+        fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriaJSON)
+        res.redirect('/categories/crud');
+
+    },
+
 }
 module.exports = categoriesController;
