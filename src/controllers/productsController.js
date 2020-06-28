@@ -3,6 +3,7 @@ const fs = require('fs');
 
 
 
+
 const productsController = {
 
     productDetail: function (req, res) {
@@ -15,17 +16,22 @@ const productsController = {
     },
     // MM agrega desde acá
     add: function (req, res) {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), {
-            Title: 'Usuarios',
-            usuarios: usuarios
+        let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+
+        let categorias = categoria.sort(function (a, b) {
+            if (a.categoria > b.categoria) {
+                return 1;
+            }
+            if (a.categoria < b.categoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
         });
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Productos', categorias: categorias } );
     },
     // MM hasta acá
-    register: function (req, res) {
-        //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
-        res.render(path.resolve(__dirname, '../views/products/register'), { Title: 'Productos'});
-    },
+
     save: function (req, res) {
         
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
@@ -35,6 +41,7 @@ const productsController = {
 
         let productoNuevo = {
             id: productoUltimo.id + 1,
+            categoria : req.body.categoria,
             marca: req.body.marca,
             modelo: req.body.modelo,
             descripcion: req.body.descripcion,
