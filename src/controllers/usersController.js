@@ -49,8 +49,9 @@ const usersController = {
             email: req.body.email,
             password: req.body.password,
             confirm_password: req.body.confirm_password,
-            confirm_password: req.body.telefono,
-            administra: req.body.user
+            telefono: req.body.telefono,
+            administra: req.body.user,
+            imagen: req.file ? req.file.filename : ""
 
 
         }
@@ -83,7 +84,7 @@ const usersController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
         res.redirect('/users/crud');
     },
-    edit: function (req, res) {
+    edit: function (req, res,next) {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         let usuarioId = req.params.id;
@@ -97,7 +98,15 @@ const usersController = {
         req.body.id = req.params.id;
         let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen
             if (usuario.id == req.body.id) {
-                return usuario = req.body;
+                
+                    usuario.first_name = req.body.first_name,
+                    usuario.last_name = req.body.last_name,
+                    usuario.email = req.body.email,
+                    usuario.password =  req.body.password,
+                    usuario.telefono = req.body.telefono,
+                    usuario.administra = req.body.user,
+                    usuario.imagen = req.file ? req.file.filename : ""
+                //return usuario = req.body;
             }
             return usuario;
         });

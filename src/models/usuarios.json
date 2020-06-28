@@ -6,15 +6,26 @@
     "telefono": "23434343",
     "password": "klk",
     "confirm_password": "klk",
-    "id": "9"
+    "id": 9
   },
   {
-    "id": 10,
-    "first_name": "po",
-    "last_name": "pop",
-    "email": "p@ss",
+    "first_name": "Pablo",
+    "last_name": "DAmico",
+    "email": "pablodamico@hotmail.com",
+    "telefono": "11345678",
     "password": "lll",
-    "confirm_password": "ll",
-    "administra": "user"
+    "confirm_password": "lll",
+    "id": 10,
+    "imagen": "imagen-1593369829965.JPG"
+  },
+  {
+    "id": 11,
+    "first_name": "Jorge",
+    "last_name": "Lopez",
+    "email": "ppp@sss",
+    "password": "pppp",
+    "confirm_password": "pppp",
+    "imagen": "imagen-1593369979719.jpg",
+    "telefono": "11111111111111111"
   }
 ]
