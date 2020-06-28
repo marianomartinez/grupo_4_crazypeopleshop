@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+var logMiddleware = require('./middlewares/logMiddleware')
 
 //Debemos decirle a node - Donde estan nuestros archivos estáticos
 app.use(express.static('public'));
+
+//Middlewares creados
+app.use(logMiddleware);
 
 //PUT y POST
 
