@@ -50,7 +50,7 @@ const usersController = {
             password: req.body.password,
             confirm_password: req.body.confirm_password,
             telefono: req.body.telefono,
-            administra: req.body.user,
+            administra: req.body.admin ? true : false,
             imagen: req.file ? req.file.filename : ""
 
 
@@ -104,7 +104,7 @@ const usersController = {
                     usuario.email = req.body.email,
                     usuario.password =  req.body.password,
                     usuario.telefono = req.body.telefono,
-                    usuario.administra = req.body.user,
+                    usuario.administra = req.body.admin ? true : false,
                     usuario.imagen = req.file ? req.file.filename : ""
                 //return usuario = req.body;
             }
@@ -115,6 +115,7 @@ const usersController = {
         res.redirect('/users/crud');   
 
     }
+  
 }
 
 

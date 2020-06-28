@@ -36,4 +36,5 @@ router.get('/users/delete/:id', usersController.delete);
 router.get('/users/edit/:id', usersController.edit);
 router.put('/users/edit/:id', upload.single('imagen'),usersController.update);
 
+
 module.exports = router;

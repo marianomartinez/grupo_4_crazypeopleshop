@@ -12,7 +12,8 @@ const productsController = {
     },
     crud: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos });
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos,categorias:categorias });
     },
     // MM agrega desde acá
     add: function (req, res) {
