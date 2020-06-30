@@ -55,7 +55,7 @@ const productsController = {
 
         productosActuales.push(productoNuevo);
 
-        let productoJSON = JSON.stringify(productosActuales)
+        let productoJSON = JSON.stringify(productosActuales,null,2)
 
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
@@ -98,7 +98,7 @@ const productsController = {
         let productoId = req.params.id;
         const productosNuevos = productosActuales.filter(producto => producto.id != productoId)
 
-        let productoJSON = JSON.stringify(productosNuevos)
+        let productoJSON = JSON.stringify(productosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
     },

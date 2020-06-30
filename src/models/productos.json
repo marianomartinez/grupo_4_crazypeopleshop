@@ -1,1 +1,436 @@
-[{"id":1,"categoria":"3","marca":"ll","modelo":"ll","descripcion":"ll","talle":"45","color":"kkk","precio":"kkk"},{"id":2,"categoria":"3","marca":"Nike","modelo":"Max","descripcion":"skdlsñkdñlskdñlskds","talle":"45","color":"Rojo","precio":"45"}]
+[
+  {
+    "id": 3,
+    "categoria": "3",
+    "marca": "Powerslide",
+    "modelo": "FSK Alpha MG 243",
+    "descripcion": "Frame FSK Alpha MG 243",
+    "color": "negro",
+    "precio": "3000"
+  },
+  {
+    "id": 5,
+    "categoria": "3",
+    "marca": "Powerslide",
+    "modelo": "Racing Rapid",
+    "descripcion": "Frame Racing Rapid",
+    "color": "negro",
+    "precio": "3200"
+  },
+  {
+    "id": 6,
+    "categoria": "3",
+    "marca": "Powerslide",
+    "modelo": "FSK Pleasure Tool",
+    "descripcion": "Frame Pleasure Tool SC110",
+    "color": "rojo",
+    "precio": "3100"
+  },
+  {
+    "id": 7,
+    "categoria": "3",
+    "marca": "Prime",
+    "modelo": "Tribune",
+    "descripcion": "Ruedas Prime Tribune",
+    "color": "amarillo",
+    "precio": "1100"
+  },
+  {
+    "id": 8,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Code",
+    "descripcion": "Ruedas Matter Code",
+    "color": "blanco",
+    "precio": "1200"
+  },
+  {
+    "id": 9,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Juice",
+    "descripcion": "Ruedas Matter Juice",
+    "color": "amarillo",
+    "precio": "1100"
+  },
+  {
+    "id": 10,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Zafiro",
+    "descripcion": "Ruedas Matter Zafiro",
+    "color": "azul",
+    "precio": "1100"
+  },
+  {
+    "id": 11,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Crazy Glue",
+    "descripcion": "Ruedas Matter Crazy Glue",
+    "color": "violeta",
+    "precio": "1100"
+  },
+  {
+    "id": 12,
+    "categoria": "3",
+    "marca": "Powerslide",
+    "modelo": "CST Air 150mm",
+    "descripcion": "Ruedas Offroad CST Air",
+    "color": "negro",
+    "precio": "1500"
+  },
+  {
+    "id": 13,
+    "categoria": "3",
+    "marca": "Chaya",
+    "modelo": "Ophira",
+    "descripcion": "Frame para quad",
+    "color": "plata",
+    "precio": "3000"
+  },
+  {
+    "id": 14,
+    "categoria": "3",
+    "marca": "Chaya",
+    "modelo": "Zena",
+    "descripcion": "Frame para quad",
+    "color": "bronce",
+    "precio": "3000"
+  },
+  {
+    "id": 15,
+    "categoria": "3",
+    "marca": "Chaya",
+    "modelo": "Bomb Stopper Rojo",
+    "descripcion": "Freno para quad - COLORES!!!",
+    "color": "rojo",
+    "precio": "500"
+  },
+  {
+    "id": 16,
+    "categoria": "3",
+    "marca": "Chaya",
+    "modelo": "Bomb Stopper Turquesa",
+    "descripcion": "Freno para quad",
+    "color": "turquesa",
+    "precio": "500"
+  },
+  {
+    "id": 18,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Octo Propel Alloy",
+    "descripcion": "Ruedas para quad",
+    "color": "negro",
+    "precio": "500"
+  },
+  {
+    "id": 19,
+    "categoria": "3",
+    "marca": "Matter",
+    "modelo": "Juice Cosmo",
+    "descripcion": "Ruedas para quad",
+    "color": "blanco",
+    "precio": "500"
+  },
+  {
+    "id": 20,
+    "categoria": "3",
+    "marca": "Powerslide",
+    "modelo": "Swell Bracelet",
+    "descripcion": "Brazalete Powerslide Swell",
+    "color": "turquesa",
+    "precio": "100"
+  },
+  {
+    "id": 21,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Reign Anax",
+    "descripcion": "Patines de hockey",
+    "talle": "37",
+    "color": "negro",
+    "precio": "10000"
+  },
+  {
+    "id": 22,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Reign Anax",
+    "descripcion": "Patines de hockey",
+    "talle": "43",
+    "color": "negro",
+    "precio": "10000"
+  },
+  {
+    "id": 23,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Reign Atlas",
+    "descripcion": "Patines de hockey",
+    "talle": "42",
+    "color": "negro",
+    "precio": "11000"
+  },
+  {
+    "id": 24,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Hardcore Evo Pro",
+    "descripcion": "Patines de slalom",
+    "talle": "45",
+    "color": "negro",
+    "precio": "15000"
+  },
+  {
+    "id": 25,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Imperial Evo",
+    "descripcion": "Patines de Freeskate",
+    "talle": "40",
+    "color": "cromo",
+    "precio": "12000"
+  },
+  {
+    "id": 26,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Imperial Megacruiser",
+    "descripcion": "Patines de freeskate",
+    "talle": "42",
+    "color": "rosa",
+    "precio": "10000"
+  },
+  {
+    "id": 27,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Metropolis",
+    "descripcion": "Patines de freeskate",
+    "talle": "40",
+    "color": "negro",
+    "precio": "9000"
+  },
+  {
+    "id": 28,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Next SUV",
+    "descripcion": "Patines de offroad",
+    "talle": "36",
+    "color": "negro",
+    "precio": "13000"
+  },
+  {
+    "id": 29,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Nordic XC Trail",
+    "descripcion": "Patines de offroad XC",
+    "talle": "39",
+    "color": "negro",
+    "precio": "14000"
+  },
+  {
+    "id": 30,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "One Wave",
+    "descripcion": "Patines de fitness - COLORES!!!",
+    "talle": "39",
+    "color": "negro/verde",
+    "precio": "8000"
+  },
+  {
+    "id": 31,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Reign Perseus",
+    "descripcion": "Patines de hockey",
+    "talle": "41",
+    "color": "negro",
+    "precio": "10000"
+  },
+  {
+    "id": 32,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Phuzion Universe",
+    "descripcion": "Patines de fitness - COLORES!!!",
+    "talle": "36",
+    "color": "rojo",
+    "precio": "6000"
+  },
+  {
+    "id": 33,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Swell 110",
+    "descripcion": "Patines 110 - COLORES!!!",
+    "talle": "39",
+    "color": "negro/turquesa",
+    "precio": "11000"
+  },
+  {
+    "id": 34,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Swell 125",
+    "descripcion": "Patines de 125 - COLORES!!!",
+    "talle": "38",
+    "color": "rosa",
+    "precio": "11000"
+  },
+  {
+    "id": 35,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Urban Kids",
+    "descripcion": "Patines freeskate para niños",
+    "talle": "36",
+    "color": "negro",
+    "precio": "7000"
+  },
+  {
+    "id": 36,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "ViPro Carbon",
+    "descripcion": "Patines de carrera - COLORES!!!",
+    "talle": "40",
+    "color": "negro",
+    "precio": "20000"
+  },
+  {
+    "id": 37,
+    "categoria": "1",
+    "marca": "Powerslide",
+    "modelo": "Reign Zeus",
+    "descripcion": "Patines de hockey",
+    "talle": "38",
+    "color": "gris",
+    "precio": "10000"
+  },
+  {
+    "id": 38,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Jump",
+    "descripcion": "Patines quad - COLORES!!!",
+    "talle": "38",
+    "color": "negro",
+    "precio": "10000"
+  },
+  {
+    "id": 39,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Melrose Elite",
+    "descripcion": "Patines quad clásicos - COLORES!!!",
+    "talle": "38",
+    "color": "durazno",
+    "precio": "10000"
+  },
+  {
+    "id": 40,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Onix",
+    "descripcion": "Patines quad Derby",
+    "talle": "38",
+    "color": "negro",
+    "precio": "9000"
+  },
+  {
+    "id": 41,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Ruby",
+    "descripcion": "Patiens quad - COLORES!!!",
+    "talle": "36",
+    "color": "blanco",
+    "precio": "9000"
+  },
+  {
+    "id": 42,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Vintage Glide",
+    "descripcion": "Patines quad",
+    "talle": "38",
+    "color": "cromo/holo",
+    "precio": "10000"
+  },
+  {
+    "id": 43,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Glide Denim",
+    "descripcion": "Patiens quad",
+    "talle": "37",
+    "color": "gris",
+    "precio": "9000"
+  },
+  {
+    "id": 44,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Unicorn Glide Kids",
+    "descripcion": "Patines quad niños",
+    "talle": "36",
+    "color": "blanco",
+    "precio": "7000"
+  },
+  {
+    "id": 45,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Jade",
+    "descripcion": "Patines quad Derby",
+    "talle": "38",
+    "color": "negro",
+    "precio": "10000"
+  },
+  {
+    "id": 46,
+    "categoria": "2",
+    "marca": "Chaya",
+    "modelo": "Vintage eat",
+    "descripcion": "Patines quad",
+    "talle": "39",
+    "color": "brown",
+    "precio": "9000"
+  },
+  {
+    "id": 47,
+    "categoria": "2",
+    "marca": "Playlife",
+    "modelo": "Classic",
+    "descripcion": "Patines classic",
+    "talle": "40",
+    "color": "blanco",
+    "precio": "12000"
+  },
+  {
+    "id": 48,
+    "categoria": "2",
+    "marca": "Powerslide",
+    "modelo": "Quad Minnie",
+    "descripcion": "Patines para niños",
+    "talle": "36",
+    "color": "negro/rojo",
+    "precio": "7000"
+  },
+  {
+    "id": 50,
+    "categoria": "2",
+    "marca": "Powerslide",
+    "modelo": "Quad Rich",
+    "descripcion": "Patines quad",
+    "talle": "36",
+    "color": "multi",
+    "precio": "8000"
+  }
+]

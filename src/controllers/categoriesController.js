@@ -62,7 +62,7 @@ const categoriesController = {
 
         categoriasActuales.push(categoriaNuevo);
 
-        let categoriaJSON = JSON.stringify(categoriasActuales)
+        let categoriaJSON = JSON.stringify(categoriasActuales, null, 2)
 
         fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriaJSON)
         res.redirect('/categories/crud');
