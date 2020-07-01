@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+</head>
+
+<body >
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header') %>
+
+        
+        <main class="fonditos">
+        <!-- Galería de productos -->
+            <section class="container">
+                <div class="row">
+                    <h2 class="section-title mx-auto py-5 text-center"><%= Title %></h2>
+                </div>
+                <div class="row justify-content-between">
+                    <% galleryShow.forEach (product => { %> 
+                    <article class="card col-12 col-md-5 col-lg-auto mb-5 category-product">
+                        <a href="/products/<%= product.categoria %>/<%= product.id %>">
+                            <figure class="card-img-top d-flex justify-content-center"><img
+                                    src="/img/products/patines/inline/images (7).jpg" alt=""></figure>
+                            <div class="card-body">
+                                <div class="card-title text-center">
+                                    <h4><%= product.marca + ' ' + product.modelo %></h4>
+                                </div>
+                                <div class="cardPrecio text-center">
+                                    <p>$<%= product.precio %></p>
+                                    <button class="butt"> 10% OFF </button>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <% }) %>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Footer de footer.ejs -->
+    <%- include ('../partials/footer') %>
+
+    <!-- Scripts de scripts.ejs -->
+    <%- include ('../partials/scripts') %>
+
+    <!-- Fin del Container -->
+    </div>
+
+</body>
+</html>
