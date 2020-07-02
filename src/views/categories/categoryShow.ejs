@@ -21,8 +21,15 @@
                     <% galleryShow.forEach (product => { %> 
                     <article class="card col-12 col-md-5 col-lg-auto mb-5 category-product">
                         <a href="/products/<%= product.categoria %>/<%= product.id %>">
+                            <figure class="card-img-top d-flex justify-content-center"><img class="mm-imgLimit"
+                                    src="/img/prod_img/<%= product.images[0] %>.jpg"
+                                    alt="<%= product.marca + ' ' + product.modelo + ' ' + product.precio %>"></figure>
+                            
+                            <!-- 
                             <figure class="card-img-top d-flex justify-content-center"><img
                                     src="/img/products/patines/inline/images (7).jpg" alt=""></figure>
+                            -->
+
                             <div class="card-body">
                                 <div class="card-title text-center">
                                     <h4><%= product.marca + ' ' + product.modelo %></h4>

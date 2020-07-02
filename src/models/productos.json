@@ -97,7 +97,7 @@
     "descripcion": "Frame para quad",
     "color": "plata",
     "precio": "3000",
-    "images": ["accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view1_xxl", "accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view0_xxl"]
+    "images": ["accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view0_xxl", "accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view1_xxl"]
   },
   {
     "id": 14,
@@ -212,7 +212,7 @@
     "talle": "40",
     "color": "cromo",
     "precio": "12000",
-    "images": ["iSkates/fitness/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view0_xxl", "iSkates/fitness/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view1_xxl", "iSkates/fitness/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view2_xxl", "iSkates/fitness/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view3_xxl"]
+    "images": ["iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view0_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view1_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view2_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view3_xxl"]
   },
   {
     "id": 26,
@@ -223,7 +223,7 @@
     "talle": "42",
     "color": "rosa",
     "precio": "10000",
-    "images": ["iSkates/fitness/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view0_xxl", "iSkates/fitness/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view1_xxl", "iSkates/fitness/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view2_xxl", "iSkates/fitness/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view3_xxl"]
+    "images": ["iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view0_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view1_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view2_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view3_xxl"]
   },
   {
     "id": 27,
@@ -234,7 +234,7 @@
     "talle": "40",
     "color": "negro",
     "precio": "9000",
-    "images": ["iSkates/fitness/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view0_xxl", "iSkates/fitness/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view1_xxl", "iSkates/fitness/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view2_xxl", "iSkates/fitness/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view3_xxl"]
+    "images": ["iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view0_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view1_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view2_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view3_xxl"]
   },
   {
     "id": 28,
@@ -267,7 +267,7 @@
     "talle": "39",
     "color": "negro/verde",
     "precio": "8000",
-    "images": ["iSkates/fitness/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view0_xxl", "iSkates/fitness/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view1_xxl", "iSkates/fitness/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view2_xxl", "iSkates/fitness/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view3_xxl"]
+    "images": ["iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view0_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view1_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view2_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view3_xxl"]
   },
   {
     "id": 31,
@@ -289,7 +289,7 @@
     "talle": "36",
     "color": "rojo",
     "precio": "6000",
-    "images": ["iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view1_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view0_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view2_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view3_xxl"]
+    "images": ["iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view0_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view1_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view2_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view3_xxl"]
   },
   {
     "id": 33,
