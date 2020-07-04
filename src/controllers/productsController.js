@@ -5,11 +5,24 @@ const fs = require('fs');
 
 
 const productsController = {
+    productShow: function (req, res) {
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
+        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let categoriaId = req.params.category;
+        let fromCategory = categoriasActuales.find(categoria => categoria.id == categoriaId);
+        let productId = req.params.id;
+        let productToShow = productos.find(producto => producto.id == productId);
+        res.render(path.resolve(__dirname, '../views/products/productShow'), {productToShow, fromCategory , Title: productToShow.marca + ' ' + productToShow.modelo });
+    },
 
+    // El controlador de abajo fue reemplazado por "productShow"
+    /*
     productDetail: function (req, res) {
         // res.sendFile(path.resolve(__dirname, '../views/products/productDetail.html'));
         res.render(path.resolve(__dirname, '../views/products/productDetail'), { Title: 'Detalle de producto' });
     },
+    */
+
     crud: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
@@ -55,7 +68,7 @@ const productsController = {
 
         productosActuales.push(productoNuevo);
 
-        let productoJSON = JSON.stringify(productosActuales)
+        let productoJSON = JSON.stringify(productosActuales,null,2)
 
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
@@ -98,7 +111,7 @@ const productsController = {
         let productoId = req.params.id;
         const productosNuevos = productosActuales.filter(producto => producto.id != productoId)
 
-        let productoJSON = JSON.stringify(productosNuevos)
+        let productoJSON = JSON.stringify(productosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
     },

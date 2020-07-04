@@ -11,3 +11,8 @@
     text-decoration:none;
     color:white;
 }
+
+.mm-imgLimit{
+    width: auto;
+    max-height: 300px;
+}
