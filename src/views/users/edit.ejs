@@ -25,6 +25,8 @@
                     <div class="col-12 col-md-4 mx-md-auto bg-light ">
                         <div class="signup-form">
                             <form action="/users/edit/<%=usuarioEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
+                               
+                                                         
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="first_name" placeholder="Nombre" required="required" value = "<%=usuarioEdit.first_name%>" >
                                 </div>
@@ -48,7 +50,8 @@
                                     <input type="text" class="form-control" name="confirm_password" placeholder="Tipo Usuario"
                                                 required="required" value="<%=usuarioEdit.administra%>" disabled>
                                 </div>
-                                                                <div class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/users/<%= usuarioEdit.imagen%>" alt="">
+   
+                                                                <div class="list-group-item ">Imágen: <img class="img-thumbnail" src="/img/users/<%= usuarioEdit.imagen%>" alt="">
                                                                 </div>
                                 <div class="form-group">
                                     <input type="file" class="form-control" name="imagen" placeholder="Imagen"

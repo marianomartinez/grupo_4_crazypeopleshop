@@ -7,13 +7,13 @@ const fs = require('fs');
 const productsController = {
     productShow: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-        let categoriaId = req.params.category;
-        let fromCategory = categoriasActuales.find(categoria => categoria.id == categoriaId);
-        let productId = req.params.id;
-        let productToShow = productos.find(producto => producto.id == productId);
-        res.render(path.resolve(__dirname, '../views/products/productShow'), {productToShow, fromCategory , Title: productToShow.marca + ' ' + productToShow.modelo });
-    },
+         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+         let categoriaId = req.params.category;
+         let fromCategory = categoriasActuales.find(categoria => categoria.id == categoriaId);
+         let productId = req.params.id;
+         let productToShow = productos.find(producto => producto.id == productId);
+         res.render(path.resolve(__dirname, '../views/products/productShow'), {productToShow, fromCategory , Title: productToShow.marca + ' ' + productToShow.modelo });
+     },
 
     // El controlador de abajo fue reemplazado por "productShow"
     /*
@@ -79,7 +79,7 @@ const productsController = {
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productoShow = productosActuales.find(producto => producto.id == productoId);
-        res.render(path.resolve(__dirname, '..', 'views', 'products', 'detail'), { productoShow: productoShow, Title: 'Producto-Visualizar' })
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-detail'), { productoShow: productoShow, Title: 'Producto-Visualizar' })
 
     },
     edit: function (req, res) {

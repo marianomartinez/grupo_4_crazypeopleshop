@@ -1,1 +1,89 @@
-[{"id":12,"first_name":"Edu","last_name":"Vir","email":"kkk@fff","password":"aaa","administra":"admin","imagen":"imagen-1593376831719.JPG"},{"id":13,"first_name":"Jorge","last_name":"Granados","email":"pp@ww","password":"oooo","administra":true,"imagen":""},{"id":14,"first_name":"Papacho","last_name":"DAmico","email":"papapa@dddd","password":"pppp","administra":true,"imagen":"imagen-1593378941195.JPG"},{"id":15,"first_name":"Poli","last_name":"Armentano","email":"pp@sss","password":"pp","confirm_password":"pp","administra":false,"imagen":""},{"id":16,"first_name":"Roberto","last_name":"Perfumo","email":"rober@perfumo","password":"oo","confirm_password":"oo","administra":false,"imagen":"imagen-1593379233550.jpg","telefono":"11111111"},{"id":17,"administra":false,"imagen":""}]
+[
+  {
+    "id": 12,
+    "first_name": "Edu",
+    "last_name": "Vir",
+    "email": "kkk@fff",
+    "password": "aaa",
+    "administra": "admin",
+    "imagen": "imagen-1593376831719.JPG"
+  },
+  {
+    "id": 13,
+    "first_name": "Jorge",
+    "last_name": "Granados",
+    "email": "pp@ww",
+    "password": "oooo",
+    "administra": true,
+    "imagen": ""
+  },
+  {
+    "id": 14,
+    "first_name": "Papacho",
+    "last_name": "DAmico",
+    "email": "papapa@dddd",
+    "password": "pppp",
+    "administra": true,
+    "imagen": "imagen-1593378941195.JPG"
+  },
+  {
+    "id": 15,
+    "first_name": "Poli",
+    "last_name": "Armentano",
+    "email": "pp@sss",
+    "password": "pp",
+    "confirm_password": "pp",
+    "administra": false,
+    "imagen": ""
+  },
+  {
+    "id": 16,
+    "first_name": "Roberto",
+    "last_name": "Perfumo",
+    "email": "rober@perfumo",
+    "password": "oo",
+    "confirm_password": "oo",
+    "administra": false,
+    "imagen": "imagen-1593379233550.jpg",
+    "telefono": "11111111"
+  },
+  {
+    "id": 17,
+    "first_name": "Pablo ",
+    "last_name": "DAmico",
+    "email": "pablodamico@hotmail.com",
+    "password": "papa",
+    "confirm_password": "papa",
+    "administra": false,
+    "imagen": "imagen-1593878937465.JPG",
+    "telefono": "1131651749"
+  },
+  {
+    "id": 18,
+    "first_name": "Lorena",
+    "last_name": "Paola",
+    "email": "lorepaola@gmail.com",
+    "password": "9999",
+    "administra": true,
+    "imagen": "imagen-1593878975603.png"
+  },
+  {
+    "id": 19,
+    "first_name": "Jorge",
+    "last_name": "Granados",
+    "email": "jorge@granados",
+    "password": "jorge",
+    "administra": false,
+    "imagen": ""
+  },
+  {
+    "id": 20,
+    "first_name": "Marian",
+    "last_name": "Martinez",
+    "email": "marian@dddd",
+    "password": "aaaa",
+    "administra": false,
+    "imagen": "imagen-1593880237165.png",
+    "telefono": "111111111"
+  }
+]
