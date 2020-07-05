@@ -7,7 +7,9 @@
     "descripcion": "Frame FSK Alpha MG 243",
     "images": [
       "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
-    ]
+    ],
+    "color": "",
+    "precio": "100"
   },
   {
     "id": 11,
@@ -15,21 +17,23 @@
     "marca": "Powerslide",
     "modelo": "Racing Rapid",
     "descripcion": "Frame Racing Rapid",
-    "precio": "3200",
+    "precio": "101",
     "images": [
       "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ],
-    "color": "rojo"
+    "color": ""
   },
   {
     "id": 12,
-    "id_subcategoria": 1,
+    "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "FSK Pleasure Tool",
     "descripcion": "Frame Pleasure Tool SC110",
     "images": [
       "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
-    ]
+    ],
+    "color": "",
+    "precio": "102"
   },
   {
     "id": 13,
@@ -48,6 +52,30 @@
     "marca": "INLINE PABLO",
     "modelo": "INLINE PABLO",
     "descripcion": "OOOqe",
+    "images": [
+      "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
+    ]
+  },
+  {
+    "id": 15,
+    "id_subcategoria": 2,
+    "marca": "JORGE",
+    "modelo": "JORGE",
+    "descripcion": "OO",
+    "color": "VERDE",
+    "precio": "212",
+    "images": [
+      "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
+    ]
+  },
+  {
+    "id": 16,
+    "id_subcategoria": "2",
+    "marca": "ddd",
+    "modelo": "nike",
+    "descripcion": "oooo",
+    "color": "rojo",
+    "precio": "345",
     "images": [
       "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ]

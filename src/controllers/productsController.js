@@ -188,7 +188,7 @@ const productsController = {
         req.body.id = req.params.id;
         let productoUpdate = productosActuales.map(producto => {    //id nombre descripcion precio imagen
             if (producto.id == req.body.id) {
-                producto.id_subcategoria = req.body.subcategoria,
+                producto.id_subcategoria = Number(req.body.subcategoria),
                 producto.marca = req.body.marca,
                 producto.modelo = req.body.modelo,
                 producto.descripcion = req.body.descripcion,

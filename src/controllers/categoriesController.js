@@ -11,11 +11,19 @@ const categoriesController = {
 
         let categoriaId = req.params.id;
         let categoriaShow = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
-        let subCategorias = subcategoriasActuales.find(subcategoria => subcategoria.id_categoria == categoriaId);
+        let subCategorias = subcategoriasActuales.filter(subcategoria => subcategoria.id_categoria == categoriaId);
         
-        const galleryShow = productos.filter(producto => Number(producto.id_subcategoria) == subCategorias.id_subcategoria);
-
-        //res.sendFile(path.resolve(__dirname, '../views/products/category.html'));
+        //const galleryShow = productos.filter(producto => producto.id_subcategoria == subCategorias.id_subcategoria);
+        let galleryShow = [];
+        productos.forEach(producto => {
+            for (i = 0; i < subCategorias.length; i++){
+                if(producto.id_subcategoria == subCategorias[i].id_subcategoria){
+                    galleryShow.push(producto)
+                    
+                }
+            }    
+        });
+        
         res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {productos: productos, galleryShow: galleryShow,Title: categoriaShow.categoria});
     },
 
