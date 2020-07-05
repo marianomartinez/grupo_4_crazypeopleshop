@@ -25,12 +25,8 @@ const productsController = {
 
     crud: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
-        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos,categorias:categorias });
-    },
-    // MM agrega desde acá
-    add: function (req, res) {
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
 
         let categorias = categoria.sort(function (a, b) {
             if (a.categoria > b.categoria) {
@@ -42,7 +38,49 @@ const productsController = {
             // a debe ser igual a b
             return 0;
         });
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Productos', categorias: categorias } );
+
+        let subcategorias = subcategoria.sort(function (a, b) {
+            if (a.subcategoria > b.subcategoria) {
+                return 1;
+            }
+            if (a.subcategoria < b.subcategoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
+        });
+
+
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos, categorias: categorias, subcategorias: subcategorias });
+    },
+    // MM agrega desde acá
+    add: function (req, res) {
+        let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+
+        let categorias = categoria.sort(function (a, b) {
+            if (a.categoria > b.categoria) {
+                return 1;
+            }
+            if (a.categoria < b.categoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
+        });
+
+        let subcategorias = subcategoria.sort(function (a, b) {
+            if (a.subcategoria > b.subcategoria) {
+                return 1;
+            }
+            if (a.subcategoria < b.subcategoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
+        });
+
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Productos', categorias: categorias, subcategorias:subcategorias } );
     },
     // MM hasta acá
 
@@ -55,13 +93,14 @@ const productsController = {
 
         let productoNuevo = {
             id: productoUltimo.id + 1,
-            categoria : req.body.categoria,
+            id_subcategoria : req.body.subcategoria,
             marca: req.body.marca,
             modelo: req.body.modelo,
             descripcion: req.body.descripcion,
-            talle: req.body.talle,
             color:req.body.color,
-            precio: req.body.precio
+            precio: req.body.precio,
+            images: ["accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"]
+            
 
         }
 
@@ -83,11 +122,37 @@ const productsController = {
 
     },
     edit: function (req, res) {
+        
+        let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+    
+    
+            let categorias = categoria.sort(function (a, b) {
+            if (a.categoria > b.categoria) {
+                return 1;
+            }
+            if (a.categoria < b.categoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
+        });
+        let subcategorias = subcategoria.sort(function (a, b) {
+            if (a.subcategoria > b.subcategoria) {
+                return 1;
+            }
+            if (a.subcategoria < b.subcategoria) {
+                return -1;
+            }
+            // a debe ser igual a b
+            return 0;
+        });
+
 
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productoEdit = productosActuales.find(producto => producto.id == productoId);
-        res.render(path.resolve(__dirname, '..', 'views', 'products', 'edit'), { productoEdit: productoEdit, Title: 'Producto-Edición' })
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit: productoEdit, Title: 'Producto-Edición',categorias:categorias,subcategorias:subcategorias })
 
     },
     update: function (req, res) {
@@ -96,7 +161,15 @@ const productsController = {
         req.body.id = req.params.id;
         let productoUpdate = productosActuales.map(producto => {    //id nombre descripcion precio imagen
             if (producto.id == req.body.id) {
-                return producto = req.body;
+                producto.id_subcategoria = req.body.subcategoria,
+                producto.marca = req.body.marca,
+                producto.modelo = req.body.modelo,
+                producto.descripcion = req.body.descripcion,
+                producto.color = req.body.color,
+                producto.precio= req.body.precio,
+                producto.images= ["accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"]                
+              
+                //return producto = req.body;
             }
             return producto;
         });

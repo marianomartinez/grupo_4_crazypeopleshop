@@ -1,26 +1,24 @@
 [
   {
-    "id": 1,
+    "id_categoria": 1,
     "categoria": "Inline Skates",
     "descripcion": "Categoria inLine Skates",
     "imagen": "temp-iskate-cat-200x200.jpg"
   },
   {
-    "id": 2,
+    "id_categoria": 2,
     "categoria": "Quad Skates",
     "descripcion": "Categoria Quad Skates",
     "imagen": "temp-qskate-cat-200x200.jpg"
   },
   {
-    "id": 3,
+    "id_categoria": 3,
     "categoria": "Accesorios",
     "descripcion": "Categoria Accesorios Skates",
     "imagen": "temp-acc-cat-200x200.jpg"
-  },
-  {
-    "id": 4,
-    "categoria": "324",
-    "descripcion": "24",
-    "imagen": ""
   }
+  
+
+  
+    
 ]

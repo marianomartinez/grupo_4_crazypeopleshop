@@ -34,7 +34,8 @@
     "password": "pp",
     "confirm_password": "pp",
     "administra": false,
-    "imagen": ""
+    "imagen": "imagen-1593913193315.jpg",
+    "telefono": "33"
   },
   {
     "id": 16,
