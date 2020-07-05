@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include ('../partials/head')  %>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <%- include('../partials/header.ejs')%>
+
+        <!-- Cuerpo principal -->
+        <section class="row">
+            <article class="col-12  card pt-5">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Detalle de Producto</h1>
+
+
+                </div>
+            </article>
+        </section>
+
+        <section class="bg-home pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 mx-md-auto bg-light ">
+                        <div class="signup-form">
+                            <form >
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip">ID</label>
+                                        <input type="text" class="form-control" name="id" value="<%=productoShow.id%>"
+                                            disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-10">
+                                        <label for="inputZip">Categoría</label>
+                                        <% let subcat = productoShow.id_subcategoria %>
+                                        <% let cate = subcategorias.find(c =>c.id_subcategoria == subcat).id_categoria%>
+                                        <input type="text" class="form-control" name="categoria" disabled
+                                             value="<%=categorias.find(d =>d.id_categoria == cate).categoria %>"
+                                                selected>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                    <label for="inputZip">SubCategoría</label>
+                                    <input type="text" class="form-control" name="subcategoria" value = "<%=subcategorias.find(c =>c.id_subcategoria == productoShow.id_subcategoria).subcategoria %>"" disabled>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Marca</label>
+                                    <input type="text" class="form-control" disabled name="marca" placeholder="marca"
+                                        value="<%=productoShow.marca%>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Modelo</label>
+                                    <input type="text" class="form-control" disabled name="modelo" placeholder="modelo"
+                                        value="<%=productoShow.modelo%>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Descripción</label>
+                                    <input type="text" class="form-control" disabled name="descripcion"
+                                        placeholder="descripción del producto" value="<%=productoShow.descripcion%>">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Color</label>
+                                        <input type="text" class="form-control" disabled name="color"
+                                            value="<%=productoShow.color%>">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="inputZip">Precio</label>
+                                        <input type="text" class="form-control" disabled name="precio"
+                                            value="<%=productoShow.precio%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="list-group-item ">Imágen: <img class="img-thumbnail"
+                                            src="/img/prod_img/<%= productoShow.images[0] %>.jpg" alt="">
+
+                                    </div>
+                                   
+                                    <div class="form-group d-inline">
+                                    <a type="button" class="btn btn btn-danger" href="/products/crud">Volver</a>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <!-- Footer -->
+    <footer class="row">
+        <article class="col-12 jumbotron ">
+            <div class="container">
+                <h1 class="display-4">Fluid jumbotron</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                </p>
+            </div>
+        </article>
+    </footer>
+    <!-- Scripts para Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

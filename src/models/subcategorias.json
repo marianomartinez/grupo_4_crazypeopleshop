@@ -1,0 +1,39 @@
+[
+{
+        "id_subcategoria": 1,
+        "id_categoria": 3,
+    "subcategoria": "s-Accesorios - varios",
+    "descripcion": "OAccesorios - varios",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    
+    "id_subcategoria": 2,
+"id_categoria": 3,
+    "subcategoria": "s-Accesorios - qAcc",
+    "descripcion": "OAccesorios - qAcc",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    
+    "id_subcategoria": 3,
+    "id_categoria" : 3,
+    "subcategoria": "s-Accesorios - iAcc",
+    "descripcion": "OAccesorios - iAcc",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    "id_subcategoria": 4,
+    "id_categoria": 1,
+    "subcategoria": "s-Inline Skates - SUBCAT1",
+    "descripcion": "Inline Skates - SUBCAT1",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    "id_subcategoria": 5,
+    "id_categoria": 2,
+    "subcategoria": "s-Quad Skates - SUBCAT1",
+    "descripcion": "IQuad Skates- SUBCAT1",
+    "imagen": "temp-acc-cat-200x200.jpg"
+}
+]

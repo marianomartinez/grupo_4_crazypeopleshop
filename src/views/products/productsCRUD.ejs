@@ -26,10 +26,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Categoría</th>
+                            <th>SubCategoría</th>
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Descripcion</th>
-                            <th>Talle</th>
                             <th>Precio</th>
                             <th>Ver</th>
                             <th>Editar</th>
@@ -40,18 +40,21 @@
                     <tbody>
 
                         <% productos.forEach(producto => { %>
+                        <% let subcat = producto.id_subcategoria %>
+                        <% let cate = subcategorias.find(c =>c.id_subcategoria == subcat).id_categoria%>
+                          
                         <tr>
                             <td><%=producto.id %></td>
-                            <td><%=categorias.find(c =>c.id == producto.categoria).categoria %></td>
-                            <td><%=producto.marca %></td>
+                            <td><%= categorias.find(c =>c.id_categoria == cate).categoria %></td>
+                           <td><%= subcategorias.find(c =>c.id_subcategoria == producto.id_subcategoria).subcategoria %></td>
+                             <td><%=producto.marca %></td>
                             <td><%=producto.modelo %></td>
                             <td><%=producto.descripcion %></td>
-                            <td><%=producto.talle %></td>
                             <td><%=producto.precio %></td>
-                            <td><a href="/products/detail/<%=producto.id%> ">
+                            <td><a href="/products/productsCRUDdetail/<%=producto.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/products/edit/<%=producto.id%> ">
+                            <td><a href="/products/productsCRUDedit/<%=producto.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
                             <td><a href="/products/delete/<%=producto.id%> ">

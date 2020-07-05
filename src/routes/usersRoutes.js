@@ -3,6 +3,9 @@ const router = express.Router();
 const path = require('path');
 let multer = require('multer');
 
+//Express validator
+let { check, validationResult, body } = require('express-validator');
+
 //Multer Code
 
 const storage = multer.diskStorage({
@@ -25,16 +28,21 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 
 router.get('/users/login', usersController.login);
 router.get('/users/profile', usersController.profile);
-router.get('/users/register', usersController.register);
+router.get('/users/register',usersController.register);
 router.get('/users/crud', usersController.crud);
-// MM agrega esta ruta
 router.get('/users/usersCRUD/add', usersController.add);
-// MM agrega hasta acá
-router.post('/users/crud', upload.single('imagen'),usersController.save);
 router.get('/users/detail/:id', usersController.show);
 router.get('/users/delete/:id', usersController.delete);
 router.get('/users/edit/:id', usersController.edit);
 router.put('/users/edit/:id', upload.single('imagen'),usersController.update);
+router.post('/users/register', upload.single('imagen'), 
+[
+    check('first_name').isLength({min:1}).withMessage('el nombre no puede quedar vacío'),
+    check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
+    check('email').isEmail().withMessage('el formato del mail es erroneo'),
+    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
+],usersController.save);
+
 
 
 module.exports = router;

@@ -1,6 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
+//Express validator
+let { check, validationResult, body } = require('express-validator');
+
 
 
 const usersController = {
@@ -25,24 +28,18 @@ const usersController = {
     add: function (req, res) {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
-            Title: 'Usuarios',
-            usuarios: usuarios
+            Title: 'Registro'
         });
     },
     // MM hasta acá
     save: function (req, res) {
-
-
-
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
         
-        usuarioUltimo = usuarioUltimo.pop();
-        
-
- 
-
-        let usuarioNuevo = {
+            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+            let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+            usuarioUltimo = usuarioUltimo.pop();
+            let usuarioNuevo = {
             id: usuarioUltimo.id + 1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -52,17 +49,20 @@ const usersController = {
             telefono: req.body.telefono,
             administra: req.body.admin ? true : false,
             imagen: req.file ? req.file.filename : ""
+            }
+            usuariosActuales.push(usuarioNuevo);
 
+            let usuarioJSON = JSON.stringify(usuariosActuales)
 
+            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+            res.redirect('/users/crud');
+        } else{
+           
+            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
+                Title: 'Registro',
+                errors:errors.errors            
+            });
         }
-        
-        
-        usuariosActuales.push(usuarioNuevo);
-
-        let usuarioJSON = JSON.stringify(usuariosActuales)
-
-        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-        res.redirect('/users/crud');
 
     },
     show: function (req, res) {
