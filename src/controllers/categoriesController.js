@@ -7,9 +7,13 @@ const categoriesController = {
     showCategory: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let subcategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+
         let categoriaId = req.params.id;
         let categoriaShow = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
-        const galleryShow = productos.filter(producto => Number(producto.id_subcategoria) == categoriaId);
+        let subCategorias = subcategoriasActuales.find(subcategoria => subcategoria.id_categoria == categoriaId);
+        
+        const galleryShow = productos.filter(producto => Number(producto.id_subcategoria) == subCategorias.id_subcategoria);
 
         //res.sendFile(path.resolve(__dirname, '../views/products/category.html'));
         res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {productos: productos, galleryShow: galleryShow,Title: categoriaShow.categoria});
