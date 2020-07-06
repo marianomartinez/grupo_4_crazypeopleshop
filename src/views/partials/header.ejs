@@ -25,12 +25,12 @@
                 <input class="form-control input-sm" type="search" placeholder="Buscar..." aria-label="Search">
                 <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
             </form>
-            <button data-toggle="modal" data-target="#registerModal" class="border-0  bg-white"><i
-                    class="fas fa-user-plus regist"></i></button>
+
             <button data-toggle="modal" data-target="#loginModal" class="border-0 bg-white"><i
                     class="fas fa-sign-in-alt regist"></i></button>
-
+            <a href="/users/register"><i class="fas fa-user-plus regist"></i></a>
             <a href="/cart"><i class="fas fa-shopping-cart text-success"></i></a>
+            
         </div>
         </div>
     </nav>
@@ -38,7 +38,7 @@
 
 <!--Modal Login-->
 <%- include('../users/login') %> 
-<%- include('../users/register') %> 
+
 
 
 <!-- Header - NavBar Segunda linea-->

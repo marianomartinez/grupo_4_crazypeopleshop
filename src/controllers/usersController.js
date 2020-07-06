@@ -14,7 +14,10 @@ const usersController = {
     },
     register: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
-        res.render(path.resolve(__dirname, '../views/users/register'));
+        res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'), {
+            Title: 'Registro'
+           
+        });
     },
     login: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/login.html'));
@@ -29,6 +32,7 @@ const usersController = {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
             Title: 'Registro'
+           
         });
     },
     // MM hasta acá
