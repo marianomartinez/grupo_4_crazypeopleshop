@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 var logMiddleware = require('./middlewares/logMiddleware')
+var cookieAuthMiddleware = require('./middlewares/cookieAuthMiddleware')
 
 //Sesion
 var session= require('express-session');
@@ -9,11 +10,15 @@ app.use(session({
     resave: true,
     saveUninitialized: true}));
 
+ //cookies
+ var cookieParser = require('cookie-parser')
+ app.use(cookieParser());
+
+
 //Debemos decirle a node - Donde estan nuestros archivos estáticos
 app.use(express.static('public'));
 
-//Middlewares creados
-app.use(logMiddleware);
+
 
 //PUT y POST
 
@@ -44,6 +49,11 @@ app.use(categoriesRoutes);
 app.use(productsRoutes);
 app.use(usersRoutes);
 app.use(checkoutRoutes);
+
+//Middlewares creados
+app.use(logMiddleware);
+app.use(cookieAuthMiddleware);
+
 
 //Levantar nuestro servidor
 app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000'));

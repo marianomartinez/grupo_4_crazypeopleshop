@@ -142,7 +142,13 @@ const usersController = {
                     errors: [{msg:'Credenciales Inválidas'}]
                 });
             }
+            //sesion usuario actual
             req.session.usuarioLogueado = usuarioaLoguearse;
+            //veo si tildo recordame en el login
+            if(req.body.recordame != undefined){
+                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:600000})
+            }
+            //entro al home y le paso el usuario que se logueo
             res.redirect('/'), {user: usuarioaLoguearse}; 
         } else {
 
