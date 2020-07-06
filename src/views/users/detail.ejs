@@ -3,16 +3,17 @@
 
 <head>
     <%- include ('../partials/head')  %>
+    <link rel="stylesheet" href="/css/user.css">
 </head>
 
 <body>
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
+      
 
-
-        <main>
-            <h1 class="text-center text-success display-5 mt-5 pt-2"> Detalle de Usuario</h1>
+        <main class="fonditos">
+            <h1 class="text-center text-dark display-5  pt-2"> Detalle de Usuario</h1>
             <section class="bg-home pt-4">
                 <div class="container">
                     <div class="row">
@@ -27,7 +28,7 @@
                                           <li class="list-group-item">Teléfono: <%=usuarioShow.telefono %> </li>
                                           <li class="list-group-item">Fecha de Alta: </li>
                                           <li class="list-group-item">Tipo Usuario: <%=usuarioShow.administra %> </li>
-                                          <li class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/users/<%= usuarioShow.imagen%>" alt=""></li>
+                                          <li class="list-group-item ">Imagen: <figure class="avatar"><img  src="/img/users/<%= usuarioShow.imagen%>" alt=""></figure></li>
                                          
                                     </ul>
 
