@@ -9,6 +9,11 @@ const webController = require(path.resolve(__dirname, '../controllers/webControl
 router.get('/', webController.index);
 router.get('/nosotros', webController.nosotros);
 router.get('/contact', webController.contact);
+router.get('/check', function(req,res){
+
+    res.send (req.session.usuarioLogueado)
+});
+
 
 
 module.exports = router;

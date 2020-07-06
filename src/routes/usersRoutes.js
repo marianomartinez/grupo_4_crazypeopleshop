@@ -35,6 +35,13 @@ router.get('/users/usersCRUD/add', usersController.add);
 router.get('/users/detail/:id', usersController.show);
 router.get('/users/delete/:id', usersController.delete);
 router.get('/users/edit/:id', usersController.edit);
+
+//PUT Y POST
+router.post('/users/login',[
+    check('email').isEmail().withMessage('el formato del mail es erroneo'),
+    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
+], usersController.processLogin);
+
 router.put('/users/edit/:id', upload.single('imagen'),usersController.update);
 router.post('/users/register', upload.single('imagen'), 
 [

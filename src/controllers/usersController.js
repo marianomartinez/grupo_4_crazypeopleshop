@@ -20,7 +20,7 @@ const usersController = {
         });
     },
     login: function (req, res) {
-        //res.sendFile(path.resolve(__dirname, '../views/users/login.html'));
+       
         res.render(path.resolve(__dirname, '../views/users/login'),{Title:'Login'});
     },
     crud: function (req, res) {
@@ -118,7 +118,43 @@ const usersController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON);
         res.redirect('/users/crud');   
 
+    },
+    processLogin: function (req, res, next) {
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+            for (let i = 0; i<usuariosActuales.length;i++){
+                if(usuariosActuales[i].email == req.body.email){
+                    if (usuariosActuales[i].password == req.body.password){
+                        var usuarioaLoguearse = usuariosActuales[i];
+                        
+                        
+                        
+                    }
+                }
+            }
+
+            
+            if (usuarioaLoguearse == undefined){
+                return res.render(path.resolve(__dirname, '../views/users/login'), {
+                    Title: 'Login',
+                    errors: [{msg:'Credenciales Inválidas'}]
+                });
+            }
+            req.session.usuarioLogueado = usuarioaLoguearse;
+            res.redirect('/check'), {user: usuarioaLoguearse}; 
+        } else {
+
+            return res.render(path.resolve(__dirname, '../views/users/login'), {
+                Title: 'Login',
+                errors: errors.errors
+            });
+        }
+
     }
+    
+
   
 }
 

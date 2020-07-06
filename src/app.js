@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 var logMiddleware = require('./middlewares/logMiddleware')
 
+//Sesion
+var session= require('express-session');
+app.use(session({
+    secret: 'Nuestro mensaje Secreto',
+    resave: true,
+    saveUninitialized: true}));
+
 //Debemos decirle a node - Donde estan nuestros archivos estáticos
 app.use(express.static('public'));
 
