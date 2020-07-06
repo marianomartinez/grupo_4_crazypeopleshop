@@ -3,18 +3,22 @@
 
 <head>
     <%- include ('../partials/head')  %>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container">
         <%- include('../partials/header.ejs')%>
 
         <!-- Cuerpo principal -->
+        <main class="fonditos">
+
+        
         <section class="row">
-            <article class="col-12  card pt-5">
-                <div class="card-body">
-                    <h1 class="card-title text-center">Creación Usuario</h1>
+            <article class="col-12 py-0">
+                <div>
+                    <h1 class="text-center">Creación Usuario</h1>
                 </div>
             </article>
         </section>
@@ -28,7 +32,7 @@
                             <form action="/users/register" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <% if (typeof errors != 'undefined') { %>
-                                        <ul class="list-group-item">
+                                        <ul class="list-group-item text-danger">
                                             <% for (let i = 0; i < errors.length; i++){ %>
                                             <li><%=errors[i].msg %> </li>
                                             <% } %>
@@ -79,6 +83,7 @@
             </div>
             </div>
         </section>
+    </main>
     <!-- Footer -->
     
     <!-- Scripts para Bootstrap -->
