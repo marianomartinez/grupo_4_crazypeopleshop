@@ -6,7 +6,8 @@ const path = require('path');
 const webController = require(path.resolve(__dirname, '../controllers/webController'));
 
 // Métodos en nuestros controladores: index - show - edit - delete 
-router.get('/', webController.index);
+router.get('/', webController.index)
+
 router.get('/nosotros', webController.nosotros);
 router.get('/contact', webController.contact);
 router.get('/check', function(req,res){

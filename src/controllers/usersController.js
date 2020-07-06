@@ -143,7 +143,7 @@ const usersController = {
                 });
             }
             req.session.usuarioLogueado = usuarioaLoguearse;
-            res.redirect('/check'), {user: usuarioaLoguearse}; 
+            res.redirect('/'), {user: usuarioaLoguearse}; 
         } else {
 
             return res.render(path.resolve(__dirname, '../views/users/login'), {

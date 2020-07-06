@@ -16,7 +16,13 @@
                         <!-- Conoce nuestros productos y las 3 categorías-->
             <section class="container">
                 <div class="row my-5">
-                    <h1 class="mx-auto p-0 text-center">Conoce nuestros productos</h1>
+                    <h1 class="mx-auto p-0 text-center">Conoce nuestros productos <% if (typeof usuario != 'undefined') { %>
+                    
+                    <%=usuario.first_name%>
+                    
+                    
+                    <% } %></h1>
+                              
                 </div>
                 <!-- 3 categorías-->
                 <section class="row justify-content-between col-12 m-auto">
