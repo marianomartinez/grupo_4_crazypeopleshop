@@ -30,6 +30,12 @@
                     class="fas fa-sign-in-alt regist"></i></button>
             <a href="/users/register"><i class="fas fa-user-plus regist"></i></a>
             <a href="/cart"><i class="fas fa-shopping-cart text-success"></i></a>
+            <p><% if (typeof usuario != 'undefined') { %>
+            
+            <%='Hola'+ usuario.first_name + ' ' + usuario.last_name %>
+            
+            
+            <% } %></p>
             
         </div>
         </div>
