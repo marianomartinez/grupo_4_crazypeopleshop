@@ -67,11 +67,13 @@
                             <option selected disabled>-elegir color-</option>
                             <option value="<%= productToShow.color %>"><%= productToShow.color %></option>
                         </select>
-                        <label class="my-1" for="sel1">Talle:</label>
-                        <select class="form-control mb-4" id="sel1">
-                            <option selected disabled>-elegir talle-</option>
-                            <option value="<%= productToShow.talle %>"><%= productToShow.talle %></option>
-                        </select>
+                            <label class="my-1" for="sel1">Talle:</label>
+                            <select class="form-control mb-4" id="sel1">
+                                <option selected disabled>-elegir talle-</option>
+                                <% for (i=0;i<productToShow.talle.length;i++) { %>
+                                <option value="<%= productToShow.talle[i] %>"><%= productToShow.talle[i] %></option>
+                                <% }; %>
+                            </select>
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">
                     </form>
                 </section>
