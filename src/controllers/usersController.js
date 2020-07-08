@@ -36,7 +36,41 @@ const usersController = {
         });
     },
     // MM hasta acá
-    save: function (req, res) {
+    create: function (req, res) {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+
+            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+            let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+            usuarioUltimo = usuarioUltimo.pop();
+            let usuarioNuevo = {
+                id: usuarioUltimo.id + 1,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: req.body.password,
+                confirm_password: req.body.confirm_password,
+                telefono: req.body.telefono,
+                fecha_alta: Date(),
+                administra: req.body.admin ? true : false,
+                imagen: req.file ? req.file.filename : ""
+            }
+            usuariosActuales.push(usuarioNuevo);
+
+            let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
+
+            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+            res.redirect('/users/crud');
+        } else {
+
+            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
+                Title: 'Registro',
+                errors: errors.errors
+            });
+        }
+
+    },
+    newguest: function (req, res) {
         let errors = validationResult(req);
         if(errors.isEmpty()){
         
@@ -51,6 +85,7 @@ const usersController = {
             password: req.body.password,
             confirm_password: req.body.confirm_password,
             telefono: req.body.telefono,
+            fecha_alta : Date(),
             administra: req.body.admin ? true : false,
             imagen: req.file ? req.file.filename : ""
             }
@@ -59,10 +94,10 @@ const usersController = {
             let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
 
             fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-            res.redirect('/users/crud');
+            res.redirect('/');
         } else{
            
-            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
+            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'), {
                 Title: 'Registro',
                 errors:errors.errors            
             });
