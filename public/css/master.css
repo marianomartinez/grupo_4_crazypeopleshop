@@ -24,3 +24,19 @@ a:hover{
 }
 
 
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+
+}
+
+.avatar img {
+    width: 100%;
+    position: absolute;
+    left: 0rem;
+    top: 0px;
+    transform: translateX(-30%);
+}

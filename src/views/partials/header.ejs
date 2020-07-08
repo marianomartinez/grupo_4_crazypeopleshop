@@ -32,10 +32,8 @@
             <a href="/cart"><i class="fas fa-shopping-cart text-success"></i></a>
             <p><% if (typeof usuario != 'undefined') { %>
             
-            <%='Hola'+ usuario.first_name + ' ' + usuario.last_name %>
-            
-            
-            <% } %></p>            
+            <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
+            <% }; %></p>            
             
         </div>
         </div>

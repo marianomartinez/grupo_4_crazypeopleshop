@@ -111,5 +111,15 @@
     "password": "123456",
     "administra": false,
     "imagen": "imagen-1594056907975.jpg"
+  },
+  {
+    "id": 30,
+    "first_name": "123",
+    "last_name": "123",
+    "email": "adfasd@sdf.awq",
+    "password": "123qwe",
+    "administra": false,
+    "imagen": "imagen-1594222153526.jpg",
+    "telefono": "123123213"
   }
 ]
