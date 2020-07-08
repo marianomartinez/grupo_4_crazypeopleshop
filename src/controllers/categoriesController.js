@@ -67,6 +67,16 @@ const categoriesController = {
             categorias: categorias
         });
     },
+    delete: function (req, res) {
+
+        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        let categoriaId = req.params.id;
+        const categoriasNuevos = categoriasActuales.filter(categoria => categoria.id_categoria != categoriaId)
+
+        let categoriasJSON = JSON.stringify(categoriasNuevos, null, 2)
+        fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriasJSON)
+        res.redirect('/categories/crud');
+    },
     save: function (req, res) {
 
 

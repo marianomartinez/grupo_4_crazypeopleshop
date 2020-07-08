@@ -16,11 +16,5 @@
     "categoria": "Accesorios",
     "descripcion": "Categoria Accesorios Skates",
     "imagen": "temp-acc-cat-200x200.jpg"
-  },
-  {
-    "id_categoria": 4,
-    "imagen": "imagen-1593920481260.png",
-    "categoria": "AAA",
-    "descripcion": "NUEVA"
   }
 ]
