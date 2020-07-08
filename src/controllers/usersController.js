@@ -56,7 +56,7 @@ const usersController = {
             }
             usuariosActuales.push(usuarioNuevo);
 
-            let usuarioJSON = JSON.stringify(usuariosActuales)
+            let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
 
             fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
             res.redirect('/users/crud');
@@ -84,7 +84,7 @@ const usersController = {
         let usuarioId = req.params.id;
         const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
         
-        let usuarioJSON = JSON.stringify(usuariosNuevos)
+        let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
         res.redirect('/users/crud');
     },
