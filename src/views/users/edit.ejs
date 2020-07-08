@@ -71,17 +71,16 @@
                                     value="<%=usuarioEdit.password%>">
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">Administrador</label>
-                                        <input type="text" class="form-control" name="administra"
-                                            value="<%=usuarioEdit.administra%>">
-                                    </div>
                                     <div class="form-group ml-4">
-                                        <input type="checkbox" class="form-check-input" name="admin" placeholder="" value ="false">
+                                       
+                                        <input type="checkbox" class="form-check-input" name="admin" placeholder="" 
+                                        <%if(usuarioEdit.administra == true){ %> 
+                                        checked>
+                                       <% } %> 
                                         <label class="form-check-label" for="exampleCheck1">Es administrador</label>
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-12">
                                         <label for="inputZip">Fecha Alta</label>
                                         <input type="text" class="form-control" name="fecha_alta"
                                             value="<%=usuarioEdit.fecha_alta%>" disabled> 
