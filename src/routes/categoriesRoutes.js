@@ -33,5 +33,6 @@ router.get('/categories/categoriasCRUD/add', categoriesController.add);
 router.get('/categories/detail/:id', categoriesController.show);
 router.put('/categories/edit/:id', upload.single('imagen'), categoriesController.update);
 router.get('/categories/edit/:id', categoriesController.edit);
+router.get('/categories/delete/:id', categoriesController.delete);
 
 module.exports = router;
