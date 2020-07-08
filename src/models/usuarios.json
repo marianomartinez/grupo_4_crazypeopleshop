@@ -3,11 +3,11 @@
     "id": 16,
     "first_name": "Roberto",
     "last_name": "Perfumo",
-    "email": "rober@perfumo",
-    "password": "oo",
+    "email": "rober@perfumo.com",
+    "password": "oo00000000",
     "confirm_password": "oo",
     "administra": false,
-    "imagen": "imagen-1593379233550.jpg",
+    "imagen": "imagen-1594231669152.jpg",
     "telefono": "11111111"
   },
   {
@@ -172,5 +172,16 @@
     "fecha_alta": "Wed Jul 08 2020 13:54:28 GMT-0300 (GMT-03:00)",
     "administra": true,
     "imagen": "imagen-1594227268144.jpg"
+  },
+  {
+    "id": 39,
+    "first_name": "Pedro",
+    "last_name": "Troglio",
+    "email": "pedro@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Wed Jul 08 2020 14:18:38 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "",
+    "telefono": ""
   }
 ]

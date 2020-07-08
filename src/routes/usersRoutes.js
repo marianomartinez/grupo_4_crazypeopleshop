@@ -42,7 +42,14 @@ router.post('/users/login',[
     check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
 ], usersController.processLogin);
 
-router.put('/users/edit/:id', upload.single('imagen'),usersController.update);
+router.put('/users/edit/:id', upload.single('imagen'),
+    [
+        check('first_name').isLength({ min: 1 }).withMessage('el nombre no puede quedar vacío'),
+        check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
+        check('email').isEmail().withMessage('el formato del mail es erroneo'),
+        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
+
+    ],usersController.update);
 router.post('/users/register', upload.single('imagen'), 
 [
     check('first_name').isLength({min:1}).withMessage('el nombre no puede quedar vacío'),
