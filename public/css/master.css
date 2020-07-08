@@ -1,11 +1,11 @@
 @import "/css/index.css";
 @import "/css/footer.css";
 @import "/css/navBarTop.css";
-@import "/css/category.css";
+@import "/css/categoryShow.css";
 @import "/css/nosotros.css";
-@import "/css/productDetail.css";
+@import "/css/productShow.css";
 @import "/css/carousel.css";
-@import "/css/CRUDagregar.css";
+@import "/css/CRUD.css";
 
 
 *{font-family: 'Josefin Sans',sans-serif;}
