@@ -132,16 +132,15 @@ const usersController = {
 
     },
     update: function (req, res) {
-
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         req.body.id = req.params.id;
         let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen
             if (usuario.id == req.body.id) {
-                
-                    usuario.first_name = req.body.first_name,
+
+                usuario.first_name = req.body.first_name,
                     usuario.last_name = req.body.last_name,
                     usuario.email = req.body.email,
-                    usuario.password =  req.body.password,
+                    usuario.password = req.body.password,
                     usuario.telefono = req.body.telefono,
                     usuario.administra = req.body.admin ? true : false,
                     usuario.imagen = req.file ? req.file.filename : ""
@@ -149,10 +148,29 @@ const usersController = {
             }
             return usuario;
         });
-        usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON);
-        res.redirect('/users/crud');   
 
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+
+            usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
+            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON);
+            res.redirect('/users/crud');   
+        }
+        else {
+            
+            let usuarioId = req.params.id;
+            const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+            console.log(usuarioEdit);
+            console.log(errors);
+            
+            return res.render(path.resolve(__dirname, '../views/users/edit'), {
+                Title: 'Registro',
+                errors: errors.errors,
+                usuarioEdit : usuarioEdit
+            });
+        }
+    
+    
     },
     processLogin: function (req, res, next) {
 
