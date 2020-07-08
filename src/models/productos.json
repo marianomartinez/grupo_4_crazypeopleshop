@@ -4,7 +4,7 @@
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Ruby",
-    "descripcion": "Patines quad - COLORES!!!",
+    "descripcion": "Patines quad - COLORES!!! SHDJKSHDJKHSDJKHSJDHSJKDHJKSHDJKSDHJKSDHJKSDHKJSDHJKSDHJKSDHJKSDHKJSDHSJK",
     "color": "negro",
     "talle": [
       37,
@@ -15,11 +15,9 @@
       45,
       46
     ],
-    "precio": "9000",
+    "precio": "9001",
     "images": [
-      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view0_xxl",
-      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view1_xxl",
-      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view2_xxl"
+      "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ]
   },
   {

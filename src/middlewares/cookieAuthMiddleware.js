@@ -13,8 +13,9 @@ if(req.cookies.recordame != undefined && req.session.usuarioLogueado == undefine
     }
 
     req.session.usuarioLogueado = usuarioaLoguearse;
+    next();
 }
-
+    next();
 }
 
 module.exports = cookieAuthMiddleware;

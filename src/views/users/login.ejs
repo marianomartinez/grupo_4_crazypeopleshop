@@ -1,46 +1,87 @@
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action = "/users/login" method="POST">
-                    <div class="form-group">
-                        <% if (typeof errors != 'undefined') { %>
-                            <ul class="list-group-item">
-                                <% for (let i = 0; i < errors.length; i++){ %>
-                                <li><%=errors[i].msg %> </li>
-                                <% } %>
-                            </ul>
-                        <% } %>
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include ('../partials/head')  %>
+    <link rel="stylesheet" href="/css/CRUD.css">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <%- include('../partials/header.ejs')%>
+        <main class=" fonditos mb-5  ">
+            <!-- Cuerpo principal -->
+            <section class="row">
+                <article class="col-12 py-0">
+                    <div>
+                        <h1 class="text-center">Ingreso</h1>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Correo electrónico</label>
-                        <input type="email" class="form-control" name = "email" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca compartidos con terceros.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" name = "password" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" name = "recordame" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Recordar mi correo electrónico</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    
-                </form>
-            </div>
+                </article>
+            </section>
 
 
-        </div>
+            <section class="bg-home">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light ">
+                            <div class="signup-form pb-4">
+                                <form action="/users/login" method="POST">
+                                    <div class="form-group">
+                                        <% if (typeof errors != 'undefined') { %>
+                                        <ul class="list-group-item text-danger">
+                                            <% for (let i = 0; i < errors.length; i++){ %>
+                                            <li><%=errors[i].msg %> </li>
+                                            <% } %>
+                                        </ul>
+                                        <% } %>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Correo electrónico</label>
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca compartidos con terceros.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Contraseña</label>
+                                        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" name="recordame" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Recordar mi correo electrónico</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/users/register">Nuevo por aquí? Registrate</a>
+                                    <a class="dropdown-item" href="#">¿Olvidaste tu Contraseña?</a>
+                                
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
-</div>
+    </main>
+    </section>
 
+    <!-- Footer -->
+    <%- include ('../partials/footer') %>
 
+    <!-- Scripts para Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -26,10 +26,10 @@
                 <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
             </form>
 
-            <button data-toggle="modal" data-target="#loginModal" class="border-0 bg-white"><i
-                    class="fas fa-sign-in-alt regist"></i></button>
-            <a href="/users/register"><i class="fas fa-user-plus regist"></i></a>
-            <a href="/cart"><i class="fas fa-shopping-cart text-success"></i></a>
+
+            <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2"></i></a>
+            <a href="/users/register"><i class="fas fa-user-plus regist ml-2"></i></a>
+            <a href="/cart"><i class="fas fa-shopping-cart text-success ml-2"></i></a>
             <% if (typeof usuario != 'undefined') { %>
                 <% if (usuario.imagen != " "){ %>
                 <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
@@ -46,8 +46,6 @@
     </nav>
 </header>
 
-<!--Modal Login-->
-<%- include('../users/login') %> 
 
 
 

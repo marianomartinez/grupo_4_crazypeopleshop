@@ -34,5 +34,8 @@ router.get('/categories/detail/:id', categoriesController.show);
 router.put('/categories/edit/:id', upload.single('imagen'), categoriesController.update);
 router.get('/categories/edit/:id', categoriesController.edit);
 router.get('/categories/delete/:id', categoriesController.delete);
+router.get('/subcategories/crud', categoriesController.crudsubcat);
+
+
 
 module.exports = router;

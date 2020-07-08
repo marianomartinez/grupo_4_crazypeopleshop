@@ -174,5 +174,35 @@
     "administra": false,
     "imagen": "imagen-1594240294836.jpg",
     "telefono": ""
+  },
+  {
+    "id": 41,
+    "first_name": "Ruben",
+    "last_name": "Gomez",
+    "email": "ruben@hotmail.com",
+    "password": "00000000",
+    "fecha_alta": "Wed Jul 08 2020 19:42:02 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": ""
+  },
+  {
+    "id": 42,
+    "first_name": "Julio",
+    "last_name": "garci",
+    "email": "ooo@julio.com",
+    "password": "00000000",
+    "fecha_alta": "Wed Jul 08 2020 19:45:55 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "imagen-1594248355346.JPG"
+  },
+  {
+    "id": 43,
+    "first_name": "Robert",
+    "last_name": "paredes",
+    "email": "rober@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Wed Jul 08 2020 19:48:33 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "imagen-1594248513259.jpg"
   }
 ]

@@ -52,6 +52,10 @@ const categoriesController = {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Categorias', categorias: categorias });
     },
+    crudsubcat: function (req, res) {
+        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
+        res.render(path.resolve(__dirname, '../views/categories/subcategoriesCRUD'), { Title: 'Sub Categorías', categorias: categorias });
+    },
     show: function (req, res) {
 
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))

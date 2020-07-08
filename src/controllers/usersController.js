@@ -71,9 +71,9 @@ const usersController = {
 
     },
     newguest: function (req, res) {
+ 
         let errors = validationResult(req);
-        if(errors.isEmpty()){
-        
+        if (errors.isEmpty()) {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             usuarioUltimo = usuarioUltimo.pop();
@@ -89,6 +89,7 @@ const usersController = {
             administra: req.body.admin ? true : false,
             imagen: req.file ? req.file.filename : ""
             }
+
             usuariosActuales.push(usuarioNuevo);
 
             let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
@@ -132,10 +133,7 @@ const usersController = {
 
     },
     update: function (req, res) {
-        console.log(req.body.admin);
-        
-        
-        
+       
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         req.body.id = req.params.id;
         let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen
@@ -203,12 +201,14 @@ const usersController = {
             req.session.usuarioLogueado = usuarioaLoguearse;
             //veo si tildo recordame en el login
             if(req.body.recordame != undefined){
+                
+                
                 res.cookie('recordame',usuarioaLoguearse.email,{maxAge:600000})
             }
             //entro al home y le paso el usuario que se logueo
             res.redirect('/'), {user: usuarioaLoguearse}; 
         } else {
-
+            
             return res.render(path.resolve(__dirname, '../views/users/login'), {
                 Title: 'Login',
                 errors: errors.errors
