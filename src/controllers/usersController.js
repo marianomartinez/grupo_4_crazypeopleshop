@@ -132,6 +132,10 @@ const usersController = {
 
     },
     update: function (req, res) {
+        console.log(req.body.admin);
+        
+        
+        
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         req.body.id = req.params.id;
         let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen

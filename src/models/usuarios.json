@@ -6,8 +6,8 @@
     "email": "rober@perfumo.com",
     "password": "oo00000000",
     "confirm_password": "oo",
-    "administra": false,
-    "imagen": "imagen-1594231669152.jpg",
+    "administra": true,
+    "imagen": "",
     "telefono": "11111111"
   },
   {
@@ -18,7 +18,7 @@
     "password": "00000000",
     "confirm_password": "00000000",
     "administra": false,
-    "imagen": "imagen-1594226210424.JPG",
+    "imagen": "",
     "telefono": "1131651749"
   },
   {
@@ -34,10 +34,10 @@
     "id": 20,
     "first_name": "Marian",
     "last_name": "Martinez",
-    "email": "marian@dddd",
-    "password": "aaaa",
-    "administra": false,
-    "imagen": "imagen-1593880237165.png",
+    "email": "marian@dddd.com",
+    "password": "aaaa00000",
+    "administra": true,
+    "imagen": "",
     "telefono": "111111111"
   },
   {
