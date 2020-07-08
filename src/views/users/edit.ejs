@@ -5,7 +5,7 @@
     <%- include ('../partials/head')  %>
 </head>
 
-<body>
+<body class="fonditos">
     <div class="container-fluid">
         <%- include('../partials/header.ejs')%>
 
@@ -28,7 +28,7 @@
                             <form action="/users/edit/<%=usuarioEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
                               <div class="form-group">
                                     <% if (typeof errors != 'undefined') { %>
-                                    <ul class="list-group-item">
+                                    <ul class="list-group-item text-danger">
                                     <% for (let i = 0; i < errors.length; i++){ %>
                                     <li><%=errors[i].msg %> </li>
                                     <% } %>

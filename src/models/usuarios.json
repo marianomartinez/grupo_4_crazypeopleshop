@@ -104,16 +104,6 @@
     "imagen": ""
   },
   {
-    "id": 29,
-    "first_name": "HILDA PAOLA",
-    "last_name": "GARAY",
-    "email": "garaypaolah@gmail.com",
-    "password": "123456",
-    "administra": false,
-    "imagen": "imagen-1594056907975.jpg"
-  },
- 
-  {
     "id": 31,
     "first_name": "YYY",
     "last_name": "YYYY",
@@ -172,6 +162,17 @@
     "fecha_alta": "Wed Jul 08 2020 14:18:38 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": "",
+    "telefono": ""
+  },
+  {
+    "id": 40,
+    "first_name": "prueba",
+    "last_name": "mm",
+    "email": "prueba@hotmail.com",
+    "password": "123456789",
+    "fecha_alta": "Wed Jul 08 2020 17:29:51 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "imagen-1594240294836.jpg",
     "telefono": ""
   }
 ]

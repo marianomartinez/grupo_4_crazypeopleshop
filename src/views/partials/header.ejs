@@ -30,10 +30,16 @@
                     class="fas fa-sign-in-alt regist"></i></button>
             <a href="/users/register"><i class="fas fa-user-plus regist"></i></a>
             <a href="/cart"><i class="fas fa-shopping-cart text-success"></i></a>
-            <p><% if (typeof usuario != 'undefined') { %>
-            
-            <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
-            <% }; %></p>            
+            <% if (typeof usuario != 'undefined') { %>
+                <% if (usuario.imagen != " "){ %>
+                <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
+                
+                <% }; %>
+                <% if (usuario.imagen == ""){ %>
+                 <figure class="avatar"><img src="/img/users/usuariovacio.png" alt=""></figure>
+                 
+                 <% }; %>
+             <% }; %>           
             
         </div>
         </div>

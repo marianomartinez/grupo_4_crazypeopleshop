@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/CRUD.css">
 </head>
 
-<body>
+<body class="fonditos">
     <div class="container-fluid">
         <%- include('../partials/header.ejs')%>
 
@@ -103,15 +103,8 @@
     </div>
     </section>
     <!-- Footer -->
-    <footer class="row">
-        <article class="col-12 jumbotron ">
-            <div class="container">
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-                </p>
-            </div>
-        </article>
-    </footer>
+    <%- include ('../partials/footer') %>
+
     <!-- Scripts para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
