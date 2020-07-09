@@ -7,6 +7,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view0_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view1_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view2_xxl"
     ]
@@ -19,6 +20,7 @@
     "color": "rojo",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "qSkates/derby/PS_Chaya_Jump/PS_810593_Chaya_JUMP_red_quad_Grindplate_2017_view0_xxl", "qSkates/derby/PS_Chaya_Jump/PS_810593_Chaya_JUMP_red_quad_Grindplate_2017_view1_xxl", "qSkates/derby/PS_Chaya_Jump/PS_810593_Chaya_JUMP_red_quad_Grindplate_2017_view2_xxl"
     ]
@@ -31,6 +33,7 @@
     "color": "negro",
     "talle": [],
     "precio": "3000",
+    "descuento": 15,
     "images": [
       "accesories/iAcc/iFrame_900797-243_FSK_AlphaMG243_frame_xxl"
     ]
@@ -44,6 +47,7 @@
     "color": "negro",
     "talle": [],
     "precio": "3000",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iFrame_904412_X_frame_3x100_2015_view1_xxl"
     ]
@@ -57,6 +61,7 @@
     "color": "negro",
     "talle": [],
     "precio": "3200",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iFrame_904538_PS_Racing_Rapid_frame_11_0_3x100mm_4x90mm_165mm_2018_view1_xxl"
     ]
@@ -69,6 +74,7 @@
     "color": "rojo",
     "talle": [],
     "precio": "3100",
+    "descuento": 12,
     "images": [
       "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ]
@@ -81,6 +87,7 @@
     "color": "amarillo",
     "talle": [],
     "precio": "1100",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_110012_PRIME_wheels_Tribune_76mm_74A_yellow_2017_view1_xxl"
     ]
@@ -93,6 +100,7 @@
     "color": "blanco",
     "talle": [],
     "precio": "1200",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_205198_Matter_CODE_white_wheel_100mm_F0_2014_view1_xxl"
     ]
@@ -105,6 +113,7 @@
     "color": "amarillo",
     "talle": [],
     "precio": "1100",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_205216_Matter_Juice_FSK_76mm_yellow_view1_xxl"
     ]
@@ -117,6 +126,7 @@
     "color": "azul",
     "talle": [],
     "precio": "1100",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_205219_Matter_wheel_Zafiro_2014_xxl"
     ]
@@ -129,6 +139,7 @@
     "color": "violeta",
     "talle": [],
     "precio": "1100",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_205223_PS_FSK_Matter_Crazy_Glue_wheel_72mm_2014_view1_xxl"
     ]
@@ -141,6 +152,7 @@
     "color": "negro",
     "talle": [],
     "precio": "1500",
+    "descuento": 10,
     "images": [
       "accesories/iAcc/iWheel_908317_PS_Off-Road_accessories_CST_Air_tire_150mm_2019_view1_xxl"
     ]
@@ -153,6 +165,7 @@
     "color": "plata",
     "talle": [],
     "precio": "3000",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view0_xxl", "accesories/qAcc/qFrame_810517_Chaya_Ophira_DCM_2_20degree_2015_view1_xxl"
     ]
@@ -165,6 +178,7 @@
     "color": "bronce",
     "talle": [],
     "precio": "3000",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qFrame_810537_Chaya_Zena_Plate_view1_xxl", "accesories/qAcc/qFrame_810537_Chaya_Zena_Plate_view2_xxl"
     ]
@@ -177,6 +191,7 @@
     "color": "rojo",
     "talle": [],
     "precio": "500",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qStop_810505_cherry_CHAYA_long_flat_bomb_stopper_2016_view1_xxl"
     ]
@@ -189,6 +204,7 @@
     "color": "turquesa",
     "talle": [],
     "precio": "500",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qStop_810506_kiwi_long_flat_bomb_stopper_2016_view1_xxl"
     ]
@@ -201,6 +217,7 @@
     "color": "blanco",
     "talle": [],
     "precio": "20000",
+    "descuento": 15,
     "images": [
       "iSkates/racing/PS_Speed_XX/PS_904403_PS_Speed_XX_man_2015_view0_xxl", "iSkates/racing/PS_Speed_XX/PS_904403_PS_Speed_XX_man_2015_view1_xxl", "iSkates/racing/PS_Speed_XX/PS_904403_PS_Speed_XX_man_2015_view2_xxl", "iSkates/racing/PS_Speed_XX/PS_904403_PS_Speed_XX_man_2015_view3_xxl"
     ]
@@ -213,6 +230,7 @@
     "color": "negro",
     "talle": [],
     "precio": "500",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qWheel_630509_Octo_Propel_Alloy_wheel_2018_view1_xxl"
     ]
@@ -225,6 +243,7 @@
     "color": "blanco",
     "talle": [],
     "precio": "500",
+    "descuento": 10,
     "images": [
       "accesories/qAcc/qWheel_205501_Juice_Cosmo_xxl"
     ]
@@ -237,6 +256,7 @@
     "color": "turquesa",
     "talle": ["S", "M", "L"],
     "precio": "100",
+    "descuento": 10,
     "images": [
       "accesories/varios/bracelet_200616_Swell_bracelet_2019_view1_xxl"
     ]
@@ -249,6 +269,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 5,
     "images": [
       "iSkates/hockey/PS_Anax/PS_120005_Reign_hockey_Anax_2017_view0_xxl", "iSkates/hockey/PS_Anax/PS_120005_Reign_hockey_Anax_2017_view1_xxl", "iSkates/hockey/PS_Anax/PS_120005_Reign_hockey_Anax_2017_view2_xxl", "iSkates/hockey/PS_Anax/PS_120005_Reign_hockey_Anax_2017_view3_xxl"
     ]
@@ -261,6 +282,7 @@
     "color": "celeste",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_125/PS_510012_PS_Swell_125_aqua_2017_view0_xxl", "iSkates/fitness/PS_Swell_125/PS_510012_PS_Swell_125_aqua_2017_view1_xxl", "iSkates/fitness/PS_Swell_125/PS_510012_PS_Swell_125_aqua_2017_view2_xxl", "iSkates/fitness/PS_Swell_125/PS_510012_PS_Swell_125_aqua_2017_view3_xxl"
     ]
@@ -273,6 +295,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/hockey/PS_Atlas/PS_120014_Reign_hockey_Atlas_2019_view0_xxl", "iSkates/hockey/PS_Atlas/PS_120014_Reign_hockey_Atlas_2019_view1_xxl", "iSkates/hockey/PS_Atlas/PS_120014_Reign_hockey_Atlas_2019_view2_xxl", "iSkates/hockey/PS_Atlas/PS_120014_Reign_hockey_Atlas_2019_view3_xxl"
     ]
@@ -285,6 +308,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "15000",
+    "descuento": 10,
     "images": [
       "iSkates/freeskate/PS_HC_Evo_Pro/PS_908277_PS_Urban_HC_EVO_Pro_2019_view0_xxl", "iSkates/freeskate/PS_HC_Evo_Pro/PS_908277_PS_Urban_HC_EVO_Pro_2019_view1_xxl", "iSkates/freeskate/PS_HC_Evo_Pro/PS_908277_PS_Urban_HC_EVO_Pro_2019_view2_xxl", "iSkates/freeskate/PS_HC_Evo_Pro/PS_908277_PS_Urban_HC_EVO_Pro_2019_view3_xxl"
     ]
@@ -297,6 +321,7 @@
     "color": "cromo",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "12000",
+    "descuento": 10,
     "images": [
       "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view0_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view1_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view2_xxl", "iSkates/freeskate/PS_Imperial_Evo/PS_908130_PS_Urban_Imperial_EVO_chrome_2016_view3_xxl"
     ]
@@ -309,6 +334,7 @@
     "color": "rosa",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view0_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view1_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view2_xxl", "iSkates/freeskate/PS_Imperial_Mega/PS_908129_FSK_Imperial_Megacruiser_125_pink_2017_view3_xxl"
     ]
@@ -321,6 +347,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view0_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view1_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view2_xxl", "iSkates/freeskate/PS_Metro/PS_908073_PS_FSK_Metropolis_2015_view3_xxl"
     ]
@@ -333,6 +360,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "13000",
+    "descuento": 10,
     "images": [
       "iSkates/offroad/PS_Next_SUV/PS_908234_PS_Next_SUV_Edge_2018_view0_xxl", "iSkates/offroad/PS_Next_SUV/PS_908234_PS_Next_SUV_Edge_2018_view1_xxl", "iSkates/offroad/PS_Next_SUV/PS_908234_PS_Next_SUV_Edge_2018_view2_xxl", "iSkates/offroad/PS_Next_SUV/PS_908234_PS_Next_SUV_Edge_2018_view3_xxl"
     ]
@@ -345,6 +373,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "14000",
+    "descuento": 10,
     "images": [
       "iSkates/offroad/PS_Nordic_XC/PS_908144_PS_Nordic_XC_Trail_II_2015_view0_xxl", "iSkates/offroad/PS_Nordic_XC/PS_908144_PS_Nordic_XC_Trail_II_2015_view1_xxl", "iSkates/offroad/PS_Nordic_XC/PS_908144_PS_Nordic_XC_Trail_II_2015_view2_xxl", "iSkates/offroad/PS_Nordic_XC/PS_908144_PS_Nordic_XC_Trail_II_2015_view3_xxl"
     ]
@@ -357,6 +386,7 @@
     "color": "negro/verde",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "8000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view0_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view1_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view2_xxl", "iSkates/fitness/PS_One_Wave/PS_940607_PS_One_Wave_Skate_Adult_men_2017_view3_xxl"
     ]
@@ -369,6 +399,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "iSkates/hockey/PS_Perseus/PS_120012_Reign_hockey_Perseus_2017_view0_xxl", "iSkates/hockey/PS_Perseus/PS_120012_Reign_hockey_Perseus_2017_view1_xxl", "iSkates/hockey/PS_Perseus/PS_120012_Reign_hockey_Perseus_2017_view2_xxl", "iSkates/hockey/PS_Perseus/PS_120012_Reign_hockey_Perseus_2017_view3_xxl"
     ]
@@ -381,6 +412,7 @@
     "color": "rojo",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "6000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view0_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view1_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view2_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940640_Phuzion_Universe_red_4wheeler_2019_view3_xxl"
     ]
@@ -393,6 +425,7 @@
     "color": "negro/gris",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_110/PS_510002_Powerslide_Swell_110_black_2016_view0_xxl", "iSkates/fitness/PS_Swell_110/PS_510002_Powerslide_Swell_110_black_2016_view1_xxl", "iSkates/fitness/PS_Swell_110/PS_510002_Powerslide_Swell_110_black_2016_view2_xxl", "iSkates/fitness/PS_Swell_110/PS_510002_Powerslide_Swell_110_black_2016_view3_xxl"
     ]
@@ -405,6 +438,7 @@
     "color": "rosa",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_125/PS_510005_Powerslide_Swell_125_peach_2016_view0_xxl", "iSkates/fitness/PS_Swell_125/PS_510005_Powerslide_Swell_125_peach_2016_view1_xxl", "iSkates/fitness/PS_Swell_125/PS_510005_Powerslide_Swell_125_peach_2016_view2_xxl", "iSkates/fitness/PS_Swell_125/PS_510005_Powerslide_Swell_125_peach_2016_view3_xxl"
     ]
@@ -417,6 +451,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "7000",
+    "descuento": 10,
     "images": [
       "iSkates/freeskate/PS_Urban_Kids/PS_940637_PS_Urban_kids_Jet_black_2019_view0_xxl", "iSkates/freeskate/PS_Urban_Kids/PS_940637_PS_Urban_kids_Jet_black_2019_view1_xxl", "iSkates/freeskate/PS_Urban_Kids/PS_940637_PS_Urban_kids_Jet_black_2019_view2_xxl", "iSkates/freeskate/PS_Urban_Kids/PS_940637_PS_Urban_kids_Jet_black_2019_view3_xxl"
     ]
@@ -429,6 +464,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "20000",
+    "descuento": 10,
     "images": [
       "iSkates/racing/PS_Vi_Pro/PS_500099_Vi_Pro_Carbon_II_2015_view0_xxl", "iSkates/racing/PS_Vi_Pro/PS_500099_Vi_Pro_Carbon_II_2015_view1_xxl", "iSkates/racing/PS_Vi_Pro/PS_500099_Vi_Pro_Carbon_II_2015_view2_xxl", "iSkates/racing/PS_Vi_Pro/PS_500099_Vi_Pro_Carbon_II_2015_view3_xxl"
     ]
@@ -441,6 +477,7 @@
     "color": "gris",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "iSkates/hockey/PS_Zeus/PS_120003_Reign_hockey_Zeus_Trinity_2017_view0_xxl", "iSkates/hockey/PS_Zeus/PS_120003_Reign_hockey_Zeus_Trinity_2017_view1_xxl", "iSkates/hockey/PS_Zeus/PS_120003_Reign_hockey_Zeus_Trinity_2017_view2_xxl", "iSkates/hockey/PS_Zeus/PS_120003_Reign_hockey_Zeus_Trinity_2017_view3_xxl"
     ]
@@ -453,6 +490,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 15,
     "images": [
       "qSkates/derby/PS_Chaya_Jump/PS_810592_Chaya_JUMP_black_quad_Grindplate_2017_view0_xxl", "qSkates/derby/PS_Chaya_Jump/PS_810592_Chaya_JUMP_black_quad_Grindplate_2017_view1_xxl", "qSkates/derby/PS_Chaya_Jump/PS_810592_Chaya_JUMP_black_quad_Grindplate_2017_view2_xxl"
     ]
@@ -465,6 +503,7 @@
     "color": "durazno",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810578_Chaya_Melrose_Elite_Peaches_Cream_view0_xxl", "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810578_Chaya_Melrose_Elite_Peaches_Cream_view1_xxl", "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810578_Chaya_Melrose_Elite_Peaches_Cream_view2_xxl"
     ]
@@ -477,6 +516,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "qSkates/derby/PS_Chaya_Onyx/PS_810520_Chaya_Onyx_skate_2017_view0_xxl", "qSkates/derby/PS_Chaya_Onyx/PS_810520_Chaya_Onyx_skate_2017_view1_xxl", "qSkates/derby/PS_Chaya_Onyx/PS_810520_Chaya_Onyx_skate_2017_view2_xxl"
     ]
@@ -489,6 +529,7 @@
     "color": "blanco",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "qSkates/derby/PS_Chaya_Ruby/PS_810558_Chaya_Rollerskate_Ruby_white_2017_view0_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810558_Chaya_Rollerskate_Ruby_white_2017_view1_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810558_Chaya_Rollerskate_Ruby_white_2017_view2_xxl"
     ]
@@ -501,6 +542,7 @@
     "color": "cromo/holo",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Glide_Chrome/PS_810594_Chaya_Vintage_Gilde_Chrome_2019_view0_xxl", "qSkates/lifestyle/PS_Glide_Chrome/PS_810594_Chaya_Vintage_Gilde_Chrome_2019_view1_xxl", "qSkates/lifestyle/PS_Glide_Chrome/PS_810594_Chaya_Vintage_Gilde_Chrome_2019_view2_xxl"
     ]
@@ -513,6 +555,7 @@
     "color": "gris",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Glide_Denim/PS_810595_Glide_Denim_2018_view0_xxl", "qSkates/lifestyle/PS_Glide_Denim/PS_810595_Glide_Denim_2018_view1_xxl", "qSkates/lifestyle/PS_Glide_Denim/PS_810595_Glide_Denim_2018_view2_xxl"
     ]
@@ -525,6 +568,7 @@
     "color": "blanco",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "7000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Glide_Kids/PS_810598_Glide_Unicorn_Kids_2018_view0_xxl", "qSkates/lifestyle/PS_Glide_Kids/PS_810598_Glide_Unicorn_Kids_2018_view1_xxl", "qSkates/lifestyle/PS_Glide_Kids/PS_810598_Glide_Unicorn_Kids_2018_view2_xxl"
     ]
@@ -537,6 +581,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "qSkates/derby/PS_Jade/PS_810585_Chaya_Jade_Rollerskate_2018_view0_xxl", "qSkates/derby/PS_Jade/PS_810585_Chaya_Jade_Rollerskate_2018_view1_xxl", "qSkates/derby/PS_Jade/PS_810585_Chaya_Jade_Rollerskate_2018_view2_xxl"
     ]
@@ -549,6 +594,7 @@
     "color": "brown",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "9000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Neat/PS_810587_chaya_vintage_neat_2018_view0_xxl", "qSkates/lifestyle/PS_Neat/PS_810587_chaya_vintage_neat_2018_view1_xxl", "qSkates/lifestyle/PS_Neat/PS_810587_chaya_vintage_neat_2018_view2_xxl"
     ]
@@ -561,6 +607,7 @@
     "color": "blanco",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "12000",
+    "descuento": 10,
     "images": [
       "qSkates/classic/PS_Playlife_Classic/PS_880244_Playlife_Classic_White_kids_2020_view0_xxl", "qSkates/classic/PS_Playlife_Classic/PS_880244_Playlife_Classic_White_kids_2020_view1_xxl", "qSkates/classic/PS_Playlife_Classic/PS_880244_Playlife_Classic_White_kids_2020_view2_xxl"
     ]
@@ -573,6 +620,7 @@
     "color": "negro/rojo",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "7000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Quad_Minnie/PS_910500_Minnie_Quad_xxl"
     ]
@@ -585,6 +633,7 @@
     "color": "negro",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_125/PS_510006_PS_Swell_dark_lava_125_2017_view0_xxl", "iSkates/fitness/PS_Swell_125/PS_510006_PS_Swell_dark_lava_125_2017_view1_xxl", "iSkates/fitness/PS_Swell_125/PS_510006_PS_Swell_dark_lava_125_2017_view2_xxl", "iSkates/fitness/PS_Swell_125/PS_510006_PS_Swell_dark_lava_125_2017_view3_xxl"
     ]
@@ -597,6 +646,7 @@
     "color": "multi",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "8000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Quad_Rich/PS_940502_PS_Quad_RICH_2014_view0_xxl", "qSkates/lifestyle/PS_Quad_Rich/PS_940502_PS_Quad_RICH_2014_view1_xxl", "qSkates/lifestyle/PS_Quad_Rich/PS_940502_PS_Quad_RICH_2014_view2_xxl"
     ]
@@ -609,6 +659,7 @@
     "color": "violeta",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "10000",
+    "descuento": 10,
     "images": [
       "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810579_Chaya_Melrose_Elite_Grape_Soda_view0_xxl", "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810579_Chaya_Melrose_Elite_Grape_Soda_view1_xxl", "qSkates/lifestyle/PS_Chaya_Melrose_Elite/PS_810579_Chaya_Melrose_Elite_Grape_Soda_view2_xxl"
     ]
@@ -621,6 +672,7 @@
     "color": "negro/magenta",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "8000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_One_Wave/PS_940608_PS_One_Wave_Skate_Adult_women_2017_view0_xxl", "iSkates/fitness/PS_One_Wave/PS_940608_PS_One_Wave_Skate_Adult_women_2017_view1_xxl", "iSkates/fitness/PS_One_Wave/PS_940608_PS_One_Wave_Skate_Adult_women_2017_view2_xxl", "iSkates/fitness/PS_One_Wave/PS_940608_PS_One_Wave_Skate_Adult_women_2017_view3_xxl"
     ]
@@ -633,6 +685,7 @@
     "color": "blanco",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "6000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Phuzion-Universe/PS_940641_Phuzion_Universe_white_4wheeler_2019_view0_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940641_Phuzion_Universe_white_4wheeler_2019_view1_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940641_Phuzion_Universe_white_4wheeler_2019_view2_xxl", "iSkates/fitness/PS_Phuzion-Universe/PS_940641_Phuzion_Universe_white_4wheeler_2019_view3_xxl"
     ]
@@ -645,6 +698,7 @@
     "color": "negro/turquesa",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_110/PS_510003_Powerslide_Swell_110_mint_2016_view0_xxl", "iSkates/fitness/PS_Swell_110/PS_510003_Powerslide_Swell_110_mint_2016_view1_xxl", "iSkates/fitness/PS_Swell_110/PS_510003_Powerslide_Swell_110_mint_2016_view2_xxl", "iSkates/fitness/PS_Swell_110/PS_510003_Powerslide_Swell_110_mint_2016_view3_xxl"
     ]
@@ -657,6 +711,7 @@
     "color": "rosa",
     "talle": [37, 38, 39, 42, 44, 45, 46],
     "precio": "11000",
+    "descuento": 10,
     "images": [
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view0_xxl", "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view1_xxl", "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view2_xxl", "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view3_xxl"
     ]
