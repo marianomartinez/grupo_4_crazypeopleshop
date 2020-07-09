@@ -27,9 +27,9 @@
             </form>
 
 
-            <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2"></i></a>
+            <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2" id="headerlogin" ></i></a>
             <a href="/users/register"><i class="fas fa-user-plus regist ml-2"></i></a>
-            <a href="/cart"><i class="fas fa-shopping-cart text-success ml-2"></i></a>
+            <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
             <% if (typeof usuario != 'undefined') { %>
                 <% if (usuario.imagen != " "){ %>
                 <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>

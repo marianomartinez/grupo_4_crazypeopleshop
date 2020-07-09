@@ -6,6 +6,7 @@
 @import "/css/productShow.css";
 @import "/css/carousel.css";
 @import "/css/CRUD.css";
+@import "/css/header.css";
 
 
 *{font-family: 'Josefin Sans',sans-serif;}
@@ -24,24 +25,4 @@ a:hover{
 }
 
 
-.avatar {
-    
-    
-    overflow: hidden;
-    border-radius: 50%;
-    position: relative;
 
-    margin-left: 7px;
-    width:30px;
-    height:30px;
-    padding:10px;
-
-}
-
-.avatar img {
-    width: 100%;
-    position: absolute;
-    left: 0rem;
-    top: 0px;
-    transform: translateX(-30%);
-}
