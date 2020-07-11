@@ -21,7 +21,9 @@ const usersController = {
     },
     login: function (req, res) {
        
-        res.render(path.resolve(__dirname, '../views/users/login'),{Title:'Login'});
+        res.render(path.resolve(__dirname, '../views/users/login'),{Title:'Login',usuarioMail:req.cookies.recordame});
+        
+ 
     },
     crud: function (req, res) {
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
@@ -204,9 +206,9 @@ const usersController = {
                 
                 
                 res.cookie('recordame',usuarioaLoguearse.email,{maxAge:600000})
-            }
+            } else { res.cookie('recordame', 'vacio', { maxAge: 600000 })}
             //entro al home y le paso el usuario que se logueo
-            res.redirect('/'), {user: usuarioaLoguearse}; 
+            res.redirect('/') 
         } else {
             
             return res.render(path.resolve(__dirname, '../views/users/login'), {

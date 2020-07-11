@@ -204,5 +204,15 @@
     "fecha_alta": "Wed Jul 08 2020 19:48:33 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": "imagen-1594248513259.jpg"
+  },
+  {
+    "id": 44,
+    "first_name": "Pedro",
+    "last_name": "Monzon",
+    "email": "pedrito@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Sat Jul 11 2020 14:35:00 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": ""
   }
 ]
