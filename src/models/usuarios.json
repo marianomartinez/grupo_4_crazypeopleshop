@@ -214,5 +214,15 @@
     "fecha_alta": "Sat Jul 11 2020 14:35:00 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": ""
+  },
+  {
+    "id": 45,
+    "first_name": "Diego",
+    "last_name": "Maradona",
+    "email": "diego@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Sun Jul 12 2020 16:34:55 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "imagen-1594582495546.JPG"
   }
 ]

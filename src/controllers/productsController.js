@@ -99,6 +99,15 @@ const productsController = {
             descripcion: req.body.descripcion,
             color:req.body.color,
             precio: req.body.precio,
+            talle: [
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46
+            ],
             images: ["accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"]
             
 

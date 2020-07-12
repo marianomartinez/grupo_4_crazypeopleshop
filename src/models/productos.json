@@ -18,7 +18,9 @@
     "precio": "9000",
     "descuento": 10,
     "images": [
-      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view0_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view1_xxl", "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view2_xxl"
+      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view0_xxl",
+      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view1_xxl",
+      "qSkates/derby/PS_Chaya_Ruby/PS_810569_Chaya_indoor_quad_Ruby_black_2017_view2_xxl"
     ]
   },
   {
@@ -1164,6 +1166,27 @@
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view1_xxl",
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view2_xxl",
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view3_xxl"
+    ]
+  },
+  {
+    "id": 56,
+    "id_subcategoria": 3,
+    "marca": "PABLO",
+    "modelo": "DAMICO MAX",
+    "descripcion": "EL MEJOR PATIN",
+    "color": "VERDE",
+    "precio": "123",
+    "talle": [
+      37,
+      38,
+      39,
+      42,
+      44,
+      45,
+      46
+    ],
+    "images": [
+      "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ]
   }
 ]

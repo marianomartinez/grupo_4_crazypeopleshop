@@ -196,6 +196,7 @@ const usersController = {
             if (usuarioaLoguearse == undefined){
                 return res.render(path.resolve(__dirname, '../views/users/login'), {
                     Title: 'Login',
+                    usuarioMail: req.cookies.recordame,
                     errors: [{msg:'Credenciales Inválidas'}]
                 });
             }
@@ -213,6 +214,7 @@ const usersController = {
             
             return res.render(path.resolve(__dirname, '../views/users/login'), {
                 Title: 'Login',
+                usuarioMail: req.cookies.recordame,
                 errors: errors.errors
             });
         }

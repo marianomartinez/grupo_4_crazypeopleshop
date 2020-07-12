@@ -56,11 +56,15 @@
                                         <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                                     </div>
                                     <div class="form-group form-check">
-                                        <input type="checkbox" class="form-check-input" name="recordame" id="exampleCheck1">
+                                        <input type="checkbox" class="form-check-input" name="recordame" id="exampleCheck1"
+                                        <%if(usuarioMail != 'vacio'){ %>
+                                        checked>
+                                        <% } %>
                                         <label class="form-check-label" for="exampleCheck1">Recordar mi correo electrónico</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Ingresar</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                    <a type="button" class="btn btn-danger" href="/">Cerrar</a>
+                                        
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/users/register">Nuevo por aquí? Registrate</a>
                                     <a class="dropdown-item" href="#">¿Olvidaste tu Contraseña?</a>
