@@ -68,7 +68,7 @@
                     <div class="cardPrecio text-center">
                         <p>$<%= productToShow.precio %></p>
                     </div>
-                    <form class="form-group" action="" method="POST">
+                    <form class="form-group" action="/cart/additemCart/<%= productToShow.id%>" method="POST">
                         <label class="my-1" for="sel1">Color:</label>
                         <select class="form-control" id="sel1">
                             <option selected disabled>-elegir color-</option>
@@ -82,6 +82,7 @@
                                 <% }; %>
                             </select>
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">
+                        <a type="button" class="w-100 botcar text-center" href="/category/<%=fromCategory.id_categoria%>">Volver</a>
                     </form>
                 </section>
                 <section class="row col-12 bg-white">
