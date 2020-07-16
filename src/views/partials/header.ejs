@@ -26,9 +26,12 @@
                 <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
             </form>
 
-
+           <% /*if (usuario != undefined){ */%>
             <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2" id="headerlogin" ></i></a>
             <a href="/users/register"><i class="fas fa-user-plus regist ml-2"></i></a>
+           <%/*}*/%>
+            <a href="/users/logout"></a><i class="fas fa-sign-out-alt"id="headerlogout"></i></a>
+           
             <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
             <% if (typeof usuario != 'undefined') { %>
                 <% if (usuario.imagen != " "){ %>

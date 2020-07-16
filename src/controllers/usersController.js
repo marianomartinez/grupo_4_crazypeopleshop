@@ -202,6 +202,7 @@ const usersController = {
             }
             //sesion usuario actual
             req.session.usuarioLogueado = usuarioaLoguearse;
+            
             //veo si tildo recordame en el login
             if(req.body.recordame != undefined){
                 

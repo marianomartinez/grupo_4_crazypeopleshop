@@ -2,7 +2,7 @@
     background-color: black;
 }
 .regist{
-    color:rgb(70, 157, 238);
+    color:#00c4ff;
 }
 .regist:hover{
     color: rgb(0, 0, 0);
@@ -17,7 +17,7 @@
 
 
 #headercart{
-    color: rgb(82, 204, 45);
+    color: #00ff00;
 }
 
 #headercart:hover{
@@ -42,6 +42,14 @@
     left: 0rem;
     top: 0px;
     transform: translateX(-30%);
+}
+
+#headerlogout{
+    color: #ff0039;
+}
+
+#headerlogout:hover{
+    color: rgb(238, 221, 70);
 }
 
 
