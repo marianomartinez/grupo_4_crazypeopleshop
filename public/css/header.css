@@ -8,7 +8,7 @@
     color: rgb(0, 0, 0);
 }
 #headerlogin:hover{
-    color: rgb(238, 221, 70);
+    color: rgb(236, 23, 23);
 }
 #headerlogin{
     color: rgb(0, 0, 0);
@@ -17,11 +17,11 @@
 
 
 #headercart{
-    color: #00ff00;
+    color: #2aaa2a;
 }
 
 #headercart:hover{
-    color: rgb(238, 221, 70);
+    color: rgb(14, 13, 13);
 }
 
 
@@ -41,7 +41,21 @@
     position: absolute;
     left: 0rem;
     top: 0px;
-    transform: translateX(-30%);
+    transform: translateX(-1%);
+
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+
+    
+}
+.avatext{
+    font-size: 9px;
+    text:red;
+ 
+}
+#headeravatext:hover{
+    color: rgb(0, 0, 0);
 }
 
 #headerlogout{

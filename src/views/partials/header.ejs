@@ -33,7 +33,7 @@
         <% } %> 
            
             <% if (typeof usuario != 'undefined') { %>
-            <a href="/users/logout" class="ml-2">Cerrar Sesión</a>
+            <a href="/users/logout"><i class="ml-2 avatext"id="headeravatext">Cerrar Sesión</i></a>
             <% } %>
 
             <% if (typeof usuario != 'undefined') { %>
@@ -49,7 +49,7 @@
                 
                 <% }; %>
                 <% if (usuario.imagen == ""){ %>                   
-                 <figure class="avatar mr-5"><img src="/img/users/usuariovacio.png" alt=""></figure>
+                 <figure class="avatar ml-5"><img src="/img/users/usuariovacio.png" alt=""></figure>
                  
                  <% }; %>
              <% }; %>           

@@ -171,8 +171,8 @@
     "email": "prueba@hotmail.com",
     "password": "123456789",
     "fecha_alta": "Wed Jul 08 2020 17:29:51 GMT-0300 (GMT-03:00)",
-    "administra": false,
-    "imagen": "imagen-1594347359904.png",
+    "administra": true,
+    "imagen": "",
     "telefono": ""
   },
   {
@@ -224,5 +224,15 @@
     "fecha_alta": "Sun Jul 12 2020 16:34:55 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": "imagen-1594582495546.JPG"
+  },
+  {
+    "id": 46,
+    "first_name": "HILDA PAOLA",
+    "last_name": "GARAY",
+    "email": "veron_pao_8420@outlook.com",
+    "password": "123456789",
+    "fecha_alta": "Sat Jul 18 2020 16:14:35 GMT-0300 (hora estándar de Argentina)",
+    "administra": false,
+    "imagen": "imagen-1595099675404.jpg"
   }
 ]
