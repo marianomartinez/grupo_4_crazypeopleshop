@@ -34,16 +34,22 @@
            
             <% if (typeof usuario != 'undefined') { %>
             <a href="/users/logout" class="ml-2">Cerrar Sesión</a>
-            <% } %> 
+            <% } %>
 
-            <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
+            <% if (typeof usuario != 'undefined') { %>
+               <a href="/cart"><i class="fas fa-shopping-cart regist mr-3"id="headercart"></i></a>
+               <% } else { %> 
+                <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
+                <% } %>
+                
+
             <% if (typeof usuario != 'undefined') { %>
                 <% if (usuario.imagen != " "){ %>
-                <figure class="avatar"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
+                <figure class="avatar mr-5"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
                 
                 <% }; %>
-                <% if (usuario.imagen == ""){ %>
-                 <figure class="avatar"><img src="/img/users/usuariovacio.png" alt=""></figure>
+                <% if (usuario.imagen == ""){ %>                   
+                 <figure class="avatar mr-5"><img src="/img/users/usuariovacio.png" alt=""></figure>
                  
                  <% }; %>
              <% }; %>           
