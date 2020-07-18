@@ -220,9 +220,20 @@ const usersController = {
             });
         }
 
-    }
+   },
+    
+logout: function (req, res, next) {
+    
+    let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+    req.session.usuarioLogueado = undefined;
+    return res.render(path.resolve(__dirname, '../views/web/index'), {
+        Title: 'Home',
+        usuario: req.session.usuarioLogueado,
+        categories
+    });
     
 
+}
   
 }
 

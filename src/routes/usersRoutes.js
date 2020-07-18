@@ -36,7 +36,9 @@ router.get('/users/detail/:id', usersController.show);
 router.get('/users/delete/:id', usersController.delete);
 router.get('/users/edit/:id', usersController.edit);
 
+
 //PUT Y POST
+router.get('/users/logout', usersController.logout);
 router.post('/users/login',[
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
     check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')

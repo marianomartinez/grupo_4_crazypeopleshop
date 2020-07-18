@@ -4,7 +4,7 @@
     "first_name": "Roberto",
     "last_name": "Perfumo",
     "email": "rober@perfumo.com",
-    "password": "oo00000000",
+    "password": "00000000",
     "confirm_password": "oo",
     "administra": true,
     "imagen": "",
@@ -18,7 +18,7 @@
     "password": "00000000",
     "confirm_password": "00000000",
     "administra": false,
-    "imagen": "",
+    "imagen": "imagen-1594853795618.JPG",
     "telefono": "1131651749"
   },
   {
