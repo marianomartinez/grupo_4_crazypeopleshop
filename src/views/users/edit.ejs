@@ -46,16 +46,25 @@
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Nombre</label>
                                         <input type="text" class="form-control" name="first_name" placeholder = "Nombre" value="<%=usuarioEdit.first_name%>">
+                                        <% if(typeof errors != 'undefined' && errors.first_name){  %>
+                                        <span class="text-danger"> <%=errors.first_name.msg%> </span>
+                                        <% } %>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Apellido</label>
                                         <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%=usuarioEdit.last_name%>">
+                                                <% if(typeof errors != 'undefined' && errors.last_name){  %>
+                                                <span class="text-danger"> <%=errors.last_name.msg%> </span>
+                                                <% } %>
                                     </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="inputAddress">Correo Electrónico</label>
                                     <input type="text" class="form-control" name="email" placeholder="Corro Electrónico"
                                         value="<%=usuarioEdit.email%>">
+                                    <% if(typeof errors != 'undefined' && errors.email){  %>
+                                        <span class="text-danger"> <%=errors.email.msg%> </span>
+                                    <% } %>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="inputAddress">Teléfono</label>
@@ -66,6 +75,9 @@
                                     <label for="inputAddress2">Contraseña</label>
                                     <input type="password" class="form-control" name="password"
                                         placeholder="Ingrese contraseña (6 a 15 caracteres)" value="<%=usuarioEdit.password%>">
+                                        <% if(typeof errors != 'undefined' && errors.password){  %>
+                                        <span class="text-danger"> <%=errors.password.msg%> </span>
+                                        <% } %>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputAddress2">Reingrese Contraseña</label>
@@ -90,9 +102,9 @@
                                 </div>
 
                                 <div class="form-group">
-                              
-                                        <div class="list-group-item ">Imágen: <img class="img-thumbnail" src="/img/users/<%= usuarioEdit.imagen%>" alt="">
-                                        <input type="file" class="form-control" name="imagen" placeholder="Imagen" value="<%=usuarioEdit.imagen%>">
+                                        
+                                        <div class="list-group-item ">Imágen: <img class="img-thumbnail" value = "/img/users/<%= usuarioEdit.imagen%>"  src="/img/users/<%= usuarioEdit.imagen%>" alt="">
+                                        <input type="file" class="form-control" name="imagen" placeholder="Imagen" value = <%=usuarioEdit.imagen%> >
                                 </div>
 
                                     <div class="form-group d-inline">

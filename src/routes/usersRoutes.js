@@ -41,8 +41,32 @@ router.get('/users/edit/:id', usersController.edit);
 router.get('/users/logout', usersController.logout);
 router.post('/users/login',[
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
-    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
-], usersController.processLogin);
+    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+    body('email').custom(function (value) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        for (let i = 0; i < usuariosActuales.length; i++) {
+            if (usuariosActuales[i].email == value) {
+                return true;
+            }
+
+        }
+        return false;
+
+    }).withMessage('el correo eléctrónico no se encuentra registrado'),
+    body('password').custom(function (value) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        for (let i = 0; i < usuariosActuales.length; i++) {
+            if (usuariosActuales[i].password == value) {
+                return true;
+            }
+
+        }
+        return false;
+
+    }).withMessage('la contraseña es incorrecta')
+] , usersController.processLogin);
 
 router.put('/users/edit/:id', upload.single('imagen'),
     [
@@ -58,19 +82,21 @@ router.post('/users/register', upload.single('imagen'),
     check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
     check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-    body('email').custom(function(value){
-        
-    let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-    for(let i = 0; i< usuariosActuales.length; i++){
-        if(usuariosActuales[i].email== value){
-            return false;
-        } 
-        
-    }
-            return true;
 
-    }).withMessage('el correo eléctrónico ya se encuentra registrado')
-],usersController.newguest);
+    body('email').custom(function (value) {
+
+    let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+    for (let i = 0; i < usuariosActuales.length; i++) {
+        if (usuariosActuales[i].email == value) {
+            return false;
+        }
+
+    }
+    return true;
+
+}).withMessage('el correo eléctrónico ya se encuentra registrado')
+] 
+,usersController.newguest);
 
 router.post('/users/create', upload.single('imagen'),
     [
@@ -78,6 +104,7 @@ router.post('/users/create', upload.single('imagen'),
         check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
         check('email').isEmail().withMessage('el formato del mail es erroneo'),
         check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+
         body('email').custom(function (value) {
 
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))

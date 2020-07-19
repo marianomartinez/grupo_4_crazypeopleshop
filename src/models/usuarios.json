@@ -12,13 +12,13 @@
   },
   {
     "id": 17,
-    "first_name": "Pablo ",
-    "last_name": "DAAmico",
+    "first_name": "Pablo",
+    "last_name": "DAmico",
     "email": "pablodamico@hotmail.com",
     "password": "00000000",
     "confirm_password": "00000000",
-    "administra": false,
-    "imagen": "imagen-1594853795618.JPG",
+    "administra": true,
+    "imagen": "imagen-1595120075152.JPG",
     "telefono": "1131651749"
   },
   {
@@ -234,5 +234,25 @@
     "fecha_alta": "Sat Jul 18 2020 16:14:35 GMT-0300 (hora estándar de Argentina)",
     "administra": false,
     "imagen": "imagen-1595099675404.jpg"
+  },
+  {
+    "id": 47,
+    "first_name": "Jorge",
+    "last_name": "pppp",
+    "email": "ppppp@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Sat Jul 18 2020 21:13:57 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": ""
+  },
+  {
+    "id": 48,
+    "first_name": "a",
+    "last_name": "b",
+    "email": "pablodamicoq@hotmail.com",
+    "password": "000000000",
+    "fecha_alta": "Sat Jul 18 2020 21:24:48 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": ""
   }
 ]

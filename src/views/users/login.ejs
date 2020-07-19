@@ -31,29 +31,33 @@
                             <div class="signup-form pb-4">
                                 <form action="/users/login" method="POST">
                                     <div class="form-group">
-                                        <% if (typeof errors != 'undefined') { %>
+                                      
+                                    </div>
+                                    <div class="form-group">
+                                        <% if (typeof errors != 'undefined' && errors.password && errors.email ) { %>
                                         <ul class="list-group-item text-danger">
-                                            <% for (let i = 0; i < errors.length; i++){ %>
-                                            <li><%=errors[i].msg %> </li>
-                                            <% } %>
+                                          
+                                            <li> Credenciales Inválidas </li>
+                                            
                                         </ul>
                                         <% } %>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="exampleInputEmail1">Correo electrónico</label>
-                                        <input type="email" class="form-control" name="email" 
-                                       <% if (usuarioMail =='vacio'){%>
-                                        value=""
-                                       <%} else {  %>
-                                        value=" <%=usuarioMail%>"
-                                       <% } %>  
-
-                                         id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <input type="email" placeholder = "Correo Electrónico" class="form-control" name="email" 
+                                        value = "<%=typeof old == 'undefined' ? null : old.email%>">
+                                        <% if(typeof errors != 'undefined' && errors.email){  %>
+                                            <span class = "text-danger" > <%=errors.email.msg%> </span> 
+                                        <% } %> 
+                                         
                                         <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca compartidos con terceros.</small>
                                     </div>
+                                   
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Contraseña</label>
-                                        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                                        <label for="exampleInputEmail1">Contraseña</label>
+                                        <input type="password" placeholder = "Contraseña" class="form-control" name="password" 
+                                        value= "<%= typeof old == 'undefined' ? null : old.password%>">
+                                            <% if(typeof errors != 'undefined' && errors.password){  %> 
+                                            <span class="text-danger"> <%=errors.password.msg%> </span>
+                                        <% } %>
                                     </div>
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" name="recordame" id="exampleCheck1"

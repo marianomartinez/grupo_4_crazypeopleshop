@@ -67,7 +67,8 @@ const usersController = {
 
             return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
                 Title: 'Registro',
-                errors: errors.errors
+                errors: errors.mapped(),
+                old: req.body    
             });
         }
 
@@ -102,7 +103,8 @@ const usersController = {
            
             return res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'), {
                 Title: 'Registro',
-                errors:errors.errors            
+                errors:errors.mapped(),
+                old : req.body           
             });
         }
 
@@ -147,7 +149,7 @@ const usersController = {
                     usuario.password = req.body.password,
                     usuario.telefono = req.body.telefono,
                     usuario.administra = req.body.admin ? true : false,
-                    usuario.imagen = req.file ? req.file.filename : ""
+                    usuario.imagen = req.file ? req.file.filename : " "
                 //return usuario = req.body;
             }
             return usuario;
@@ -163,13 +165,12 @@ const usersController = {
         else {
             
             let usuarioId = req.params.id;
-            const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
-            console.log(usuarioEdit);
-            console.log(errors);
+            const usuarioEdit = usuarioUpdate.find(usuario => usuario.id == usuarioId);
+          
             
             return res.render(path.resolve(__dirname, '../views/users/edit'), {
                 Title: 'Registro',
-                errors: errors.errors,
+                errors: errors.mapped(),
                 usuarioEdit : usuarioEdit
             });
         }
@@ -194,10 +195,13 @@ const usersController = {
 
             
             if (usuarioaLoguearse == undefined){
+               
                 return res.render(path.resolve(__dirname, '../views/users/login'), {
                     Title: 'Login',
-                    usuarioMail: req.cookies.recordame,
-                    errors: [{msg:'Credenciales Inválidas'}]
+                    usuarioMail: req.body.email,
+                    password: req.body.password,
+                    old : req.body,
+                    errors: {msg : 'Credenciales Inválidas'}
                 });
             }
             //sesion usuario actual
@@ -215,8 +219,10 @@ const usersController = {
             
             return res.render(path.resolve(__dirname, '../views/users/login'), {
                 Title: 'Login',
-                usuarioMail: req.cookies.recordame,
-                errors: errors.errors
+                usuarioMail: req.body.email,
+                password : req.body.password,
+                old: req.body,
+                errors: errors.mapped()
             });
         }
 
