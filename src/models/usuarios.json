@@ -234,5 +234,15 @@
     "fecha_alta": "Sat Jul 18 2020 16:14:35 GMT-0300 (hora estándar de Argentina)",
     "administra": false,
     "imagen": "imagen-1595099675404.jpg"
+  },
+  {
+    "id": 47,
+    "first_name": "HILDA PAOLA",
+    "last_name": "GARAY",
+    "email": "garaypaolah@gmail.com",
+    "password": "123456789",
+    "fecha_alta": "Sat Jul 18 2020 17:49:52 GMT-0300 (hora estándar de Argentina)",
+    "administra": false,
+    "imagen": "imagen-1595105392168.jpg"
   }
 ]
