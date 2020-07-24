@@ -228,7 +228,7 @@ const usersController = {
                 if(usuariosActuales[i].email == req.body.email){
                     if (usuariosActuales[i].password == req.body.password){
                         var usuarioaLoguearse = usuariosActuales[i];
-                        
+                    
                         
                         
                     }
@@ -243,7 +243,8 @@ const usersController = {
                     usuarioMail: req.body.email,
                     password: req.body.password,
                     old : req.body,
-                    errors: {msg : 'Credenciales Inválidas'}
+                    errors: errors.mapped()
+                    //errors: {msg : 'Credenciales Inválidas'}
                 });
             }
             //sesion usuario actual
