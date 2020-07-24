@@ -254,5 +254,16 @@
     "fecha_alta": "Sat Jul 18 2020 21:24:48 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": ""
+  },
+  {
+    "id": 49,
+    "first_name": "Roy",
+    "last_name": "Gonzalez",
+    "email": "roy@gmail.com",
+    "password": "00000000",
+    "fecha_alta": "Fri Jul 24 2020 19:02:39 GMT-0300 (GMT-03:00)",
+    "administra": true,
+    "imagen": "imagen-1595628598547.png",
+    "telefono": ""
   }
 ]
