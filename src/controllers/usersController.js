@@ -1,5 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+const db = require('../database/models/')
+
+const user = db.user;
+
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
@@ -25,18 +29,33 @@ const usersController = {
         
  
     },
+    
     crud: function (req, res) {
+
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios } );
+        res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
+        
+            //user.findAll()
+            //.then(usuarios => {
+              //  res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
+           // })
+            //.catch(error => res.send(error))
+     
     },
+
+       
+    
     // MM agrega desde acá
     add: function (req, res) {
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        //let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
             Title: 'Registro'
-           
+         
         });
     },
+
+  
+
     // MM hasta acá
     create: function (req, res) {
         let errors = validationResult(req);
@@ -114,19 +133,35 @@ const usersController = {
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         let usuarioId = req.params.id;
         const usuarioShow = usuariosActuales.find(usuario =>usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar'})
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
+
+        //user
+        //.findByPk(req.params.id)
+        //.then(usuarioShow =>{
+          //  res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
+        //})
+        
         
     },
 
     delete: function (req, res) {
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        let usuarioId = req.params.id;
-        const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
+        //let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        //let usuarioId = req.params.id;
+        //const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
         
-        let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
-        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        //let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
+        //fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        user
+        .destroy({
+            where :{
+            id : req.params.id
+        },
+        force : true
+    }).then(confirm => {
         res.redirect('/users/crud');
+    })
+        
     },
     edit: function (req, res,next) {
 
@@ -134,6 +169,13 @@ const usersController = {
         let usuarioId = req.params.id;
         const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+
+       // user
+         //   .findByPk(req.params.id)
+           // .then(usuarioEdit => {
+             //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+            //})
+        
 
     },
     update: function (req, res) {

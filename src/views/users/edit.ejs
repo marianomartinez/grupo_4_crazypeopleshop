@@ -97,12 +97,12 @@
                                     <div class="form-group col-md-12">
                                         <label for="inputZip">Fecha Alta</label>
                                         <input type="text" class="form-control" name="fecha_alta"
-                                            value="<%=usuarioEdit.fecha_alta%>" disabled> 
+                                            value="<%=usuarioEdit.createdAt%>" disabled> 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                        
+                                        <label for="" name = "imagen_old" value=<%=usuarioEdit.imagen%>>fffff</label>
                                         <div class="list-group-item ">Imágen: <img class="img-thumbnail" value = "/img/users/<%= usuarioEdit.imagen%>"  src="/img/users/<%= usuarioEdit.imagen%>" alt="">
                                         <input type="file" class="form-control" name="imagen" placeholder="Imagen" value = <%=usuarioEdit.imagen%> >
                                 </div>
