@@ -44,14 +44,9 @@
                 
 
             <% if (locals.usuarioLogueado != 'undefined') { %>
-                <% if (locals.usuarioLogueado.imagen != " "){ %>
-                <figure class="avatar mr-5 text-align-center"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></figure>
                 
-                <% }; %>
-                <% if (locals.usuarioLogueado.imagen == ""){ %>                   
-                 <figure class="avatars mr-5 text-align-center"><img src="/img/users/usuariovacio.png" alt=""></figure>
-                 
-                 <% }; %>
+                <figure class="avatar mr-5 text-align-center"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></figure>
+            
              <% }; %>           
             
         </div>

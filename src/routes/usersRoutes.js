@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 let multer = require('multer');
 let fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
@@ -47,9 +48,8 @@ router.post('/users/login',[
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         for (let i = 0; i < usuariosActuales.length; i++) {
             if (usuariosActuales[i].email == value) {
+                if (bcrypt.compareSync(req.body.password , usuariosActuales[i].password)) {
                 
-               if (req.body.password == usuariosActuales[i].password){
-                  
                    return true;
                };
                    
@@ -101,6 +101,14 @@ router.post('/users/create', upload.single('imagen'),
         check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
         check('email').isEmail().withMessage('el formato del mail es erroneo'),
         check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+
+
+        body('password').custom(function (value, {req}) {
+            if(req.body.password2 == value) {
+                return true
+            }
+            return false
+        }).withMessage('Las contraseñas no coinciden'),
 
         body('email').custom(function (value) {
 

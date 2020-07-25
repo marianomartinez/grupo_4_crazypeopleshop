@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models/')
+const bcrypt = require('bcryptjs');
 
 const user = db.user;
 
@@ -69,12 +70,11 @@ const usersController = {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
-                password: req.body.password,
-                confirm_password: req.body.confirm_password,
+                password: bcrypt.hashSync(req.body.password, 10),
                 telefono: req.body.telefono,
                 fecha_alta: Date(),
                 administra: req.body.admin ? true : false,
-                imagen: req.file ? req.file.filename : ""
+                imagen: req.file ? req.file.filename : "usuariovacio1.png"
             }
             usuariosActuales.push(usuarioNuevo);
 
@@ -104,12 +104,11 @@ const usersController = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: req.body.password,
-            confirm_password: req.body.confirm_password,
+            password: bcrypt.hashSync(req.body.password, 10),
             telefono: req.body.telefono,
             fecha_alta : Date(),
             administra: req.body.admin ? true : false,
-            imagen: req.file ? req.file.filename : ""
+            imagen: req.file ? req.file.filename : "usuariovacio1.png"
             }
 
             usuariosActuales.push(usuarioNuevo);
@@ -188,7 +187,7 @@ const usersController = {
                 usuario.first_name = req.body.first_name,
                     usuario.last_name = req.body.last_name,
                     usuario.email = req.body.email,
-                    usuario.password = req.body.password,
+                    usuario.password = bcrypt.hashSync(req.body.password, 10),
                     usuario.telefono = req.body.telefono,
                     usuario.administra = req.body.admin ? true : false,
                     usuario.imagen = req.file ? req.file.filename : req.body.image_old
@@ -227,7 +226,7 @@ const usersController = {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             for (let i = 0; i<usuariosActuales.length;i++){
                 if(usuariosActuales[i].email == req.body.email){
-                    if (usuariosActuales[i].password == req.body.password){
+                    if (bcrypt.compareSync(req.body.password , usuariosActuales[i].password)) {
                         var usuarioaLoguearse = usuariosActuales[i];
                     
                         
