@@ -43,18 +43,13 @@
                 <% } %>
                 
 
-            <% if (typeof locals.usuarioLogueado != 'undefined') { %>
+            <% if (locals.usuarioLogueado != 'undefined') { %>
                 <% if (locals.usuarioLogueado.imagen != " "){ %>
-                <figure class="avatar mr-5 text-aline-center"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></figure>
+                <figure class="avatar mr-5 text-align-center"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></figure>
                 
                 <% }; %>
-<<<<<<< HEAD
-                <% if (usuario.imagen == ""){ %>                   
-                 <figure class="avatars mr-5 text-aline-center"><img src="/img/users/usuariovacio1.png" alt=""></figure>
-=======
                 <% if (locals.usuarioLogueado.imagen == ""){ %>                   
-                 <figure class="avatar ml-5"><img src="/img/users/usuariovacio.png" alt=""></figure>
->>>>>>> df57c0a269c5cf87e3a755b5d9acb2f0c18ccab0
+                 <figure class="avatars mr-5 text-align-center"><img src="/img/users/usuariovacio.png" alt=""></figure>
                  
                  <% }; %>
              <% }; %>           

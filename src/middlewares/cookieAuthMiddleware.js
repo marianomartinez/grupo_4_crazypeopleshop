@@ -11,10 +11,12 @@ module.exports = (req,res,next) =>{
     } else if(req.cookies.recordame){
         let usuarioLogueado = usuariosActuales.find(usuarioLogueado => usuarioLogueado.email == req.cookies.recordame)
         
+        if (usuarioLogueado != undefined){
         delete usuarioLogueado.password;
         req.session.usuarioLogueado = usuarioLogueado;
         res.locals.usuarioLogueado = usuarioLogueado;
-        return next();
+         } 
+         return next();
     } else{
         return next();
     }

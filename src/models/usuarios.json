@@ -275,7 +275,8 @@
     "email": "garaypaolah@gmail.com",
     "password": "123456789",
     "fecha_alta": "Fri Jul 24 2020 19:56:04 GMT-0300 (hora estándar de Argentina)",
-    "administra": false,
-    "imagen": ""
+    "administra": true,
+    "imagen": "imagen-1595686554439.jpg",
+    "telefono": ""
   }
 ]
