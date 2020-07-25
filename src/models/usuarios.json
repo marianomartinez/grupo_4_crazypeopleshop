@@ -360,5 +360,25 @@
     "administra": false,
     "imagen": "imagen-1595692074784.jpg",
     "telefono": ""
+  },
+  {
+    "id": 60,
+    "first_name": "Edu",
+    "last_name": "Virgilio",
+    "email": "edu6@gmail.com",
+    "password": "$2a$10$aR8VIR7GRhyYcj0ln8NTAevCRC1xHmclmZpmQOXjNOM2P21TWg6WS",
+    "fecha_alta": "Sat Jul 25 2020 13:03:53 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "usuariovacio1.png"
+  },
+  {
+    "id": 61,
+    "first_name": "Diego",
+    "last_name": "Latorre",
+    "email": "diego@mail.com",
+    "password": "$2a$10$ktJpYbFIO5O.6cstKkFpzOVFsRve18mM9UkTsS.MZvTXJ/0dkhUEW",
+    "fecha_alta": "Sat Jul 25 2020 13:06:21 GMT-0300 (GMT-03:00)",
+    "administra": false,
+    "imagen": "usuariovacio1.png"
   }
 ]

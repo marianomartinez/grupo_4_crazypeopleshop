@@ -79,7 +79,13 @@ router.post('/users/register', upload.single('imagen'),
     check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
     check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-
+    body('password').custom(function (value, { req }) {
+        if (req.body.password2 == value) {
+            return true
+        }
+        return false
+    }).withMessage('Las contraseñas no coinciden'),
+    
     body('email').custom(function (value) {
 
     let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
