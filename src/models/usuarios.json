@@ -7,8 +7,8 @@
     "password": "00000000",
     "confirm_password": "oo",
     "administra": true,
-    "imagen": "",
-    "telefono": "11111111"
+    "imagen": "imagen-1595684429075.jpg",
+    "telefono": "1111111199"
   },
   {
     "id": 17,
@@ -40,15 +40,6 @@
     "administra": true,
     "imagen": "",
     "telefono": "111111111"
-  },
-  {
-    "id": 22,
-    "first_name": "PP",
-    "last_name": "PP",
-    "email": "PP@PP",
-    "password": "PPPPPPP",
-    "administra": false,
-    "imagen": ""
   },
   {
     "id": 23,

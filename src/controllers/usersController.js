@@ -146,21 +146,21 @@ const usersController = {
 
     delete: function (req, res) {
 
-        //let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        //let usuarioId = req.params.id;
-        //const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
         
-        //let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
-        //fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-        user
-        .destroy({
-            where :{
-            id : req.params.id
-        },
-        force : true
-    }).then(confirm => {
+        let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
+        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        //user
+        //.destroy({
+          //  where :{
+            //id : req.params.id
+       // },
+        //force : true
+    //}).then(confirm => {
         res.redirect('/users/crud');
-    })
+    //})
         
     },
     edit: function (req, res,next) {
@@ -191,7 +191,7 @@ const usersController = {
                     usuario.password = req.body.password,
                     usuario.telefono = req.body.telefono,
                     usuario.administra = req.body.admin ? true : false,
-                    usuario.imagen = req.file ? req.file.filename : " "
+                    usuario.imagen = req.file ? req.file.filename : req.body.image_old
                 //return usuario = req.body;
             }
             return usuario;
