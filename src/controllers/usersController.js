@@ -222,6 +222,7 @@ const usersController = {
     processLogin: function (req, res, next) {
 
         let errors = validationResult(req);
+        
         if (errors.isEmpty()) {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             for (let i = 0; i<usuariosActuales.length;i++){
@@ -237,8 +238,7 @@ const usersController = {
 
             
             if (usuarioaLoguearse == undefined){
-               
-                return res.render(path.resolve(__dirname, '../views/users/login'), {
+                    return res.render(path.resolve(__dirname, '../views/users/login'), {
                     Title: 'Login',
                     usuarioMail: req.body.email,
                     password: req.body.password,

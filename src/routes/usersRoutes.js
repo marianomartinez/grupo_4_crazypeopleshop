@@ -42,30 +42,26 @@ router.get('/users/logout', usersController.logout);
 router.post('/users/login',[
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
     check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-    body('email').custom(function (value) {
+    body('email').custom(function (value,{req}) {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         for (let i = 0; i < usuariosActuales.length; i++) {
             if (usuariosActuales[i].email == value) {
-                return true;
+                //console.log(usuariosActuales[i]);
+               if (req.body.password == usuariosActuales[i].password){
+                   return true;
+               };
+                   
+                
+               
             }
 
         }
+        
         return false;
 
-    }).withMessage('el correo eléctrónico no se encuentra registrado'),
-    body('password').custom(function (value) {
+    }).withMessage('el correo eléctrónico no se encuentra registrado')
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        for (let i = 0; i < usuariosActuales.length; i++) {
-            if (usuariosActuales[i].password == value) {
-                return true;
-            }
-
-        }
-        return false;
-
-    }).withMessage('la contraseña es incorrecta')
 ] , usersController.processLogin);
 
 router.put('/users/edit/:id', upload.single('imagen'),
