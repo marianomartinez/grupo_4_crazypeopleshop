@@ -146,21 +146,21 @@ const usersController = {
 
     delete: function (req, res) {
 
-        //let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        //let usuarioId = req.params.id;
-        //const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
         
-        //let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
-        //fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-        user
-        .destroy({
-            where :{
-            id : req.params.id
-        },
-        force : true
-    }).then(confirm => {
+        let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
+        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
+        //user
+        //.destroy({
+          //  where :{
+            //id : req.params.id
+       // },
+        //force : true
+    //}).then(confirm => {
         res.redirect('/users/crud');
-    })
+    //})
         
     },
     edit: function (req, res,next) {
@@ -191,7 +191,7 @@ const usersController = {
                     usuario.password = req.body.password,
                     usuario.telefono = req.body.telefono,
                     usuario.administra = req.body.admin ? true : false,
-                    usuario.imagen = req.file ? req.file.filename : " "
+                    usuario.imagen = req.file ? req.file.filename : req.body.image_old
                 //return usuario = req.body;
             }
             return usuario;
@@ -222,6 +222,7 @@ const usersController = {
     processLogin: function (req, res, next) {
 
         let errors = validationResult(req);
+        
         if (errors.isEmpty()) {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             for (let i = 0; i<usuariosActuales.length;i++){
@@ -237,8 +238,7 @@ const usersController = {
 
             
             if (usuarioaLoguearse == undefined){
-               
-                return res.render(path.resolve(__dirname, '../views/users/login'), {
+                    return res.render(path.resolve(__dirname, '../views/users/login'), {
                     Title: 'Login',
                     usuarioMail: req.body.email,
                     password: req.body.password,
@@ -247,15 +247,17 @@ const usersController = {
                     //errors: {msg : 'Credenciales Inválidas'}
                 });
             }
-            //sesion usuario actual
+            //sesion usuario actual. Se guarda en el servidor.
+            //no guardo el password en la sesion
+
+            delete usuarioaLoguearse.password;
             req.session.usuarioLogueado = usuarioaLoguearse;
             
             //veo si tildo recordame en el login
+            //Guardo cookies usuario que se loguea
             if(req.body.recordame != undefined){
-                
-                
-                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:600000})
-            } else { res.cookie('recordame', 'vacio', { maxAge: 600000 })}
+                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:1000 * 60 * 60 * 24})
+            } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 })}
             //entro al home y le paso el usuario que se logueo
             res.redirect('/') 
         } else {
@@ -271,16 +273,12 @@ const usersController = {
 
    },
     
-logout: function (req, res, next) {
+logout: function (req, res) {
     
+    req.session.destroy();
+    res.cookie('recordame',null, {maxAge:-1});
     let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-    req.session.usuarioLogueado = undefined;
-    return res.render(path.resolve(__dirname, '../views/web/index'), {
-        Title: 'Home',
-        usuario: req.session.usuarioLogueado,
-        categories
-    });
-    
+    res.redirect('/')
 
 }
   

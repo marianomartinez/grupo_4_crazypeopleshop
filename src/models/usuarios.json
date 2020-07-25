@@ -7,8 +7,8 @@
     "password": "00000000",
     "confirm_password": "oo",
     "administra": true,
-    "imagen": "",
-    "telefono": "11111111"
+    "imagen": "imagen-1595684429075.jpg",
+    "telefono": "1111111199"
   },
   {
     "id": 17,
@@ -25,10 +25,11 @@
     "id": 19,
     "first_name": "Jorge",
     "last_name": "Granados",
-    "email": "jorge@granados",
-    "password": "jorge",
+    "email": "jorge@granados.com",
+    "password": "00000000",
     "administra": false,
-    "imagen": ""
+    "imagen": "imagen-1595648270438.png",
+    "telefono": ""
   },
   {
     "id": 20,
@@ -39,15 +40,6 @@
     "administra": true,
     "imagen": "",
     "telefono": "111111111"
-  },
-  {
-    "id": 22,
-    "first_name": "PP",
-    "last_name": "PP",
-    "email": "PP@PP",
-    "password": "PPPPPPP",
-    "administra": false,
-    "imagen": ""
   },
   {
     "id": 23,
