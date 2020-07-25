@@ -47,8 +47,9 @@ router.post('/users/login',[
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         for (let i = 0; i < usuariosActuales.length; i++) {
             if (usuariosActuales[i].email == value) {
-                //console.log(usuariosActuales[i]);
+                
                if (req.body.password == usuariosActuales[i].password){
+                  
                    return true;
                };
                    

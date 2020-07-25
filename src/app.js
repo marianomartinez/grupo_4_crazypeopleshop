@@ -6,7 +6,7 @@ var cookieAuthMiddleware = require('./middlewares/cookieAuthMiddleware')
 //Sesion
 var session= require('express-session');
 app.use(session({
-    secret: 'Nuestro mensaje Secreto',
+    secret: 'supersecret',
     resave: true,
     saveUninitialized: true}));
 
@@ -14,10 +14,13 @@ app.use(session({
  var cookieParser = require('cookie-parser')
  app.use(cookieParser());
 
+//Middlewares creados
+app.use(logMiddleware);
+app.use(cookieAuthMiddleware);
+
 
 //Debemos decirle a node - Donde estan nuestros archivos estáticos
 app.use(express.static('public'));
-
 
 
 //PUT y POST
@@ -50,9 +53,8 @@ app.use(productsRoutes);
 app.use(usersRoutes);
 app.use(checkoutRoutes);
 
-//Middlewares creados
-app.use(logMiddleware);
-app.use(cookieAuthMiddleware);
+
+
 
 //Levantar nuestro servidor
 app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000'));

@@ -7,7 +7,7 @@
 <body>
       <div class="container">
         <!-- Header de header.ejs -->
-        <%- include ('../partials/header',{usuario})  %>
+        <%- include ('../partials/header')  %>
 
         <!-- Carousel de carousel.ejs -->
         
@@ -17,9 +17,9 @@
                         <!-- Conoce nuestros productos y las 3 categorías-->
             <section class="container">
                 <div class="col-12 text-center text-md-left py-4 ">
-                    <h1 class="mx-auto p-0 text-center mad">Conoce nuestros productos <% if (typeof usuario != 'undefined') { %>
+                    <h1 class="mx-auto p-0 text-center mad">Conoce nuestros productos <% if (locals.usuarioLogueado) { %>
                          
-                    <%=usuario.first_name%>
+                    <%=locals.usuarioLogueado.first_name%>
                     
                     
                     <% } %></h1>

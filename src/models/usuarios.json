@@ -25,10 +25,11 @@
     "id": 19,
     "first_name": "Jorge",
     "last_name": "Granados",
-    "email": "jorge@granados",
-    "password": "jorge",
+    "email": "jorge@granados.com",
+    "password": "00000000",
     "administra": false,
-    "imagen": ""
+    "imagen": "imagen-1595648270438.png",
+    "telefono": ""
   },
   {
     "id": 20,

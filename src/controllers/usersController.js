@@ -247,15 +247,17 @@ const usersController = {
                     //errors: {msg : 'Credenciales Inválidas'}
                 });
             }
-            //sesion usuario actual
+            //sesion usuario actual. Se guarda en el servidor.
+            //no guardo el password en la sesion
+
+            delete usuarioaLoguearse.password;
             req.session.usuarioLogueado = usuarioaLoguearse;
             
             //veo si tildo recordame en el login
+            //Guardo cookies usuario que se loguea
             if(req.body.recordame != undefined){
-                
-                
-                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:600000})
-            } else { res.cookie('recordame', 'vacio', { maxAge: 600000 })}
+                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:1000 * 60 * 60 * 24})
+            } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 })}
             //entro al home y le paso el usuario que se logueo
             res.redirect('/') 
         } else {
@@ -271,16 +273,12 @@ const usersController = {
 
    },
     
-logout: function (req, res, next) {
+logout: function (req, res) {
     
+    req.session.destroy();
+    res.cookie('recordame',null, {maxAge:-1});
     let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-    req.session.usuarioLogueado = undefined;
-    return res.render(path.resolve(__dirname, '../views/web/index'), {
-        Title: 'Home',
-        usuario: req.session.usuarioLogueado,
-        categories
-    });
-    
+    res.redirect('/')
 
 }
   

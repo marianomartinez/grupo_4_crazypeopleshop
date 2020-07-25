@@ -7,7 +7,7 @@
                 <!-- Si usamos imagen jpg reemplazar <img src="_logo_" alt="_logo de la marca_"></a> -->
                 <!-- Por ahora uso este SVG -->
                 
-                <%- include ('../partials/svgLogo')  %>
+            <%- include ('../partials/svgLogo')  %>
                 
                 
             </a>
@@ -27,28 +27,28 @@
             </form>
 
            
-        <% if (typeof usuario == 'undefined') { %>
+        <% if (locals.usuarioLogueado == false) { %>
             <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2" id="headerlogin" ></i></a>
             <a href="/users/register"><i class="fas fa-user-plus regist ml-2"></i></a>
         <% } %> 
            
-            <% if (typeof usuario != 'undefined') { %>
+            <% if (locals.usuarioLogueado) { %>
             <a href="/users/logout" class="ml-2 avatext text-center" id="headeravatext">Cerrar Sesión</a>
             <% } %>
 
-            <% if (typeof usuario != 'undefined') { %>
+            <% if (locals.usuarioLogueado) { %>
                <a href="/cart"><i class="fas fa-shopping-cart regist mr-3"id="headercart"></i></a>
                <% } else { %> 
                 <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
                 <% } %>
                 
 
-            <% if (typeof usuario != 'undefined') { %>
-                <% if (usuario.imagen != " "){ %>
-                <figure class="avatar mr-5 text-aline-center"><img src="/img/users/<%= usuario.imagen %>" alt=""></figure>
+            <% if (typeof locals.usuarioLogueado != 'undefined') { %>
+                <% if (locals.usuarioLogueado.imagen != " "){ %>
+                <figure class="avatar mr-5 text-aline-center"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></figure>
                 
                 <% }; %>
-                <% if (usuario.imagen == ""){ %>                   
+                <% if (locals.usuarioLogueado.imagen == ""){ %>                   
                  <figure class="avatar ml-5"><img src="/img/users/usuariovacio.png" alt=""></figure>
                  
                  <% }; %>
