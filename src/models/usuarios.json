@@ -282,9 +282,9 @@
   {
     "id": 52,
     "first_name": "Mariano",
-    "last_name": "MartinezV",
+    "last_name": "Martinez",
     "email": "mariano@mail.com",
-    "password": "$2a$10$s55Ub1oycz8bwvwEBRcit.fqq4391zf7BCM.9l/sbkzl2NiLtSNHy",
+    "password": "$2a$10$E.7aNsRMS1xFW3a42L9Rle665bO0TAOxZGjTrAtmOPow2ENg8zL46",
     "fecha_alta": "Sat Jul 25 2020 11:52:40 GMT-0300 (Argentina Standard Time)",
     "administra": false,
     "imagen": "usuariovacio1.png",

@@ -20,7 +20,7 @@ const usersController = {
         */
        
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
-        let usuarioId = req.params.id;
+        let usuarioId = req.session.usuarioLogueado.id;
         const usuarioShow = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..','views','users','profileShow'), {
             usuarioShow: usuarioShow,
@@ -31,7 +31,7 @@ const usersController = {
     profileEdit: function (req, res, next) {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
-        let usuarioId = req.params.id;
+        let usuarioId = req.session.usuarioLogueado.id;
         const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
             usuarioEdit: usuarioEdit,
@@ -39,7 +39,7 @@ const usersController = {
         })
 
         // user
-        //   .findByPk(req.params.id)
+        //   .findByPk(req.params.id) // !!! seguramente acá usemos req.session.usuarioLogueado.id
         // .then(usuarioEdit => {
         //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
         //})
@@ -49,7 +49,7 @@ const usersController = {
     profileUpdate: function (req, res) {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
-        req.body.id = req.params.id;
+        req.body.id = req.session.usuarioLogueado.id;
         let usuarioUpdate = usuariosActuales.map(usuario => { //id nombre descripcion precio imagen
             if (usuario.id == req.body.id) {
 
@@ -70,7 +70,7 @@ const usersController = {
 
             usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
             fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usuarioJSON);
-            res.redirect('/users/profileShow/' + req.params.id);
+            res.redirect('/users/profileShow');
         } else {
 
             let usuarioId = req.params.id;
@@ -123,10 +123,8 @@ const usersController = {
          
         });
     },
-
-  
-
     // MM hasta acá
+    
     create: function (req, res) {
         let errors = validationResult(req);
         if (errors.isEmpty()) {

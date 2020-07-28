@@ -29,8 +29,8 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 // Métodos en nuestros controladores: index - show - edit - delete 
 
 router.get('/users/login', usersController.login);
-router.get('/users/profileShow/:id', usersController.profileShow);
-router.get('/users/profileEdit/:id', usersController.profileEdit);
+router.get('/users/profileShow', usersController.profileShow);
+router.get('/users/profileEdit', usersController.profileEdit);
 router.get('/users/register',usersController.register);
 router.get('/users/crud', usersController.crud);
 router.get('/users/usersCRUD/add', usersController.add);
@@ -64,8 +64,8 @@ router.post('/users/login',[
 
     }).withMessage('el correo eléctrónico no se encuentra registrado')
 
-], usersController.processLogin);
-// router.post('/users/profileShow/:id', usersController.profileShow);
+    ], usersController.processLogin);
+
 // router.post('/users/profileEdit/:id', usersController.profileEdit);
 
 router.put('/users/profileUpdate/:id', upload.single('imagen'),
