@@ -282,12 +282,13 @@
   {
     "id": 52,
     "first_name": "Mariano",
-    "last_name": "Martinez",
+    "last_name": "MartinezV",
     "email": "mariano@mail.com",
-    "password": "$2a$10$Id666pgOF59tYTmX6OW9G.aoh3IfcIPtutvquTejU7NpEOKOOOhGK",
+    "password": "$2a$10$s55Ub1oycz8bwvwEBRcit.fqq4391zf7BCM.9l/sbkzl2NiLtSNHy",
     "fecha_alta": "Sat Jul 25 2020 11:52:40 GMT-0300 (Argentina Standard Time)",
     "administra": false,
-    "imagen": ""
+    "imagen": "usuariovacio1.png",
+    "telefono": "1123452345"
   },
   {
     "id": 53,
@@ -307,7 +308,7 @@
     "password": "$2a$10$nL58BB6vmdly/fO0Ts9xkOAITP0oeEnIjBKLh8IBw.CWOAIfAO.Sm",
     "fecha_alta": "Sat Jul 25 2020 12:09:26 GMT-0300 (Argentina Standard Time)",
     "administra": true,
-    "imagen": "",
+    "imagen": "usuariovacio1.png",
     "telefono": ""
   },
   {

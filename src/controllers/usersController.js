@@ -13,9 +13,78 @@ let { check, validationResult, body } = require('express-validator');
 
 const usersController = {
 
-    profile: function (req, res) {
+    profileShow: function (req, res) {
+        /* // !!! Esto estaba de antes. Confirmar si no hace falta para borrar.
         res.sendFile(path.resolve(__dirname, '../views/users/profile.html'));
         //res.render(path.resolve(__dirname, '../views/web/nosotros'));
+        */
+       
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuarioShow = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        res.render(path.resolve(__dirname, '..','views','users','profileShow'), {
+            usuarioShow: usuarioShow,
+            Title: 'Usuario-Visualizar'
+        })
+
+    },
+    profileEdit: function (req, res, next) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
+        let usuarioId = req.params.id;
+        const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
+            usuarioEdit: usuarioEdit,
+            Title: 'Usuario-Edición'
+        })
+
+        // user
+        //   .findByPk(req.params.id)
+        // .then(usuarioEdit => {
+        //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+        //})
+
+
+    },
+    profileUpdate: function (req, res) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
+        req.body.id = req.params.id;
+        let usuarioUpdate = usuariosActuales.map(usuario => { //id nombre descripcion precio imagen
+            if (usuario.id == req.body.id) {
+
+                usuario.first_name = req.body.first_name,
+                    usuario.last_name = req.body.last_name,
+                    usuario.email = req.body.email,
+                    usuario.password = bcrypt.hashSync(req.body.password, 10),
+                    usuario.telefono = req.body.telefono,
+                    usuario.administra = req.body.admin ? true : false,
+                    usuario.imagen = req.file ? req.file.filename : req.body.image_old
+                //return usuario = req.body;
+            }
+            return usuario;
+        });
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+
+            usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
+            fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usuarioJSON);
+            res.redirect('/users/profileShow/' + req.params.id);
+        } else {
+
+            let usuarioId = req.params.id;
+            const usuarioEdit = usuarioUpdate.find(usuario => usuario.id == usuarioId);
+
+
+            return res.render(path.resolve(__dirname, '../views/users/edit'), {
+                Title: 'Registro',
+                errors: errors.mapped(),
+                usuarioEdit: usuarioEdit
+            });
+        }
+
+
     },
     register: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));

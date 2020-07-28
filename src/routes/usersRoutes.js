@@ -29,7 +29,8 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 // Métodos en nuestros controladores: index - show - edit - delete 
 
 router.get('/users/login', usersController.login);
-router.get('/users/profile', usersController.profile);
+router.get('/users/profileShow/:id', usersController.profileShow);
+router.get('/users/profileEdit/:id', usersController.profileEdit);
 router.get('/users/register',usersController.register);
 router.get('/users/crud', usersController.crud);
 router.get('/users/usersCRUD/add', usersController.add);
@@ -63,43 +64,66 @@ router.post('/users/login',[
 
     }).withMessage('el correo eléctrónico no se encuentra registrado')
 
-] , usersController.processLogin);
+], usersController.processLogin);
+// router.post('/users/profileShow/:id', usersController.profileShow);
+// router.post('/users/profileEdit/:id', usersController.profileEdit);
+
+router.put('/users/profileUpdate/:id', upload.single('imagen'),
+    [
+        check('first_name').isLength({min: 1}).withMessage('el nombre no puede quedar vacío'),
+        check('last_name').isLength({min: 1}).withMessage('el apellido no puede quedar vacío'),
+        check('email').isEmail().withMessage('el formato del mail es erroneo'),
+        check('password').isLength({min: 6,max: 15}).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+        body('password').custom(function (value, { req }) {
+        if (req.body.password2 == value) {
+            return true
+        }
+        return false
+        }).withMessage('Las contraseñas no coinciden'),
+
+    ], usersController.profileUpdate);
 
 router.put('/users/edit/:id', upload.single('imagen'),
     [
         check('first_name').isLength({ min: 1 }).withMessage('el nombre no puede quedar vacío'),
         check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
         check('email').isEmail().withMessage('el formato del mail es erroneo'),
-        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres')
-
-    ],usersController.update);
-router.post('/users/register', upload.single('imagen'), 
-[
-    check('first_name').isLength({min:1}).withMessage('el nombre no puede quedar vacío'),
-    check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
-    check('email').isEmail().withMessage('el formato del mail es erroneo'),
-    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-    body('password').custom(function (value, { req }) {
+        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+        body('password').custom(function (value, { req }) {
         if (req.body.password2 == value) {
             return true
         }
         return false
-    }).withMessage('Las contraseñas no coinciden'),
-    
-    body('email').custom(function (value) {
+        }).withMessage('Las contraseñas no coinciden'),
 
-    let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-    for (let i = 0; i < usuariosActuales.length; i++) {
-        if (usuariosActuales[i].email == value) {
-            return false;
+    ],usersController.update);
+router.post('/users/register', upload.single('imagen'), 
+    [
+        check('first_name').isLength({min:1}).withMessage('el nombre no puede quedar vacío'),
+        check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
+        check('email').isEmail().withMessage('el formato del mail es erroneo'),
+        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+        body('password').custom(function (value, { req }) {
+            if (req.body.password2 == value) {
+                return true
+            }
+            return false
+        }).withMessage('Las contraseñas no coinciden'),
+
+        body('email').custom(function (value) {
+
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        for (let i = 0; i < usuariosActuales.length; i++) {
+            if (usuariosActuales[i].email == value) {
+                return false;
+            }
+
         }
+        return true;
 
-    }
-    return true;
-
-}).withMessage('el correo eléctrónico ya se encuentra registrado')
-] 
-,usersController.newguest);
+    }).withMessage('el correo eléctrónico ya se encuentra registrado')
+    ] 
+    ,usersController.newguest);
 
 router.post('/users/create', upload.single('imagen'),
     [
