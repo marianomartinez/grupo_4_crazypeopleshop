@@ -8,12 +8,9 @@
 <body class="fonditos mb-1">
     <div class="container-fluid">
         <%- include('../partials/header.ejs')%>
-
         <!-- Cuerpo principal -->
-
         <div class="col-12 text-center text-md-left py-4 ">
             <h1 class="col-12 text-center mad">Editar mi perfil</h1>
-
             <section class="bg-home pt-4">
                 <div class="container">
                     <div class="row">
@@ -25,7 +22,7 @@
                                         <% if (typeof errors != 'undefined') { %>
                                         <ul class="list-group-item text-danger">
                                             <% for (let i = 0; i < errors.length; i++){ %>
-                                            <li><%=errors[i].msg %> </li>
+                                            <li><%=errors[i].msg %></li>
                                             <% } %>
                                         </ul>
                                         <% } %>
@@ -81,40 +78,27 @@
                                                 placeholder="Reingrese contraseña (6 a 15 caracteres)"
                                                 value="<%=usuarioEdit.password%>">
                                         </div>
-
                                         <div class="form-row">
-                                            <!--
-                                            <div class="form-group ml-4">
-
-                                                <input type="checkbox" class="form-check-input" name="admin"
-                                                    placeholder="" <%if(usuarioEdit.administra == true){ %> checked>
-                                                <% } %>
-                                                <label class="form-check-label" for="exampleCheck1">Es
-                                                    administrador</label>
-                                            </div>
-                                            -->
                                             <div class="form-group col-md-12">
                                                 <label for="inputZip">Fecha Alta</label>
                                                 <input type="text" class="form-control" name="fecha_alta"
                                                     value="<%=usuarioEdit.createdAt%>" disabled>
                                             </div>
                                         </div>
-
                                         <div class="form-group">
-                                            <div class="list-group-item ">Imágen: <img class="img-thumbnail"
+                                            <div class="list-group-item ">Imagen: <img class="img-thumbnail"
                                                     value="/img/users/<%= usuarioEdit.imagen%>"
                                                     src="/img/users/<%= usuarioEdit.imagen%>" alt="">
                                                 <input type="hidden" name="image_old" value=<%=usuarioEdit.imagen%>>
                                                 <input type="file" class="form-control" name="imagen"
                                                     placeholder="Imagen" value=<%=usuarioEdit.imagen%>>
                                             </div>
-
-                                            <div class="form-group d-inline">
-                                                <button type="submit" class="btn btn btn-primary">Guardar</button>
-                                            </div>
                                             <div class="form-group d-inline">
                                                 <a type="button" class="btn btn btn-danger"
                                                     href="/users/profileShow">Volver</a>
+                                            </div>
+                                            <div class="form-group d-inline">
+                                                <button type="submit" class="btn btn btn-primary">Guardar</button>
                                             </div>
                                         </div>
                                     </div>
