@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+    <link rel="stylesheet" href="/css/CRUD.css">
+</head>
+
+<body class="fonditos">
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header')  %>
+
+
+        <main>
+            <!--<h1 class="text-center text-dark display-5 mt-5 pt-2"> Subcategoría</h1>-->
+            <div class="col-12 text-center text-md-left py-4 ">
+                <h1 class="col-12 text-center mad">Subcategoría</h1>
+
+   <section class="bg-home pt-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8 mx-auto bg-light">
+                            <div class="card">
+                                <ul class="list-group">
+                                    <li class="list-group-item">ID: <%=subcategoriaShow.id %> </li>
+                                    <li class="list-group-item">Subcategoría: <%=subcategoriaShow.subcategoria %> </li>
+                                    <li class="list-group-item">Categoría a la que pertenece: <%=categoriaShow.categoria %> </li>
+                                    <li class="list-group-item">Descripcion: <%=subcategoriaShow.descripcion %> </li>
+                                    <li class="list-group-item">Fecha de Alta: </li>
+                                    <li class="list-group-item ">Imagen: <img class="img-thumbnail"
+                                            src="/img/web/<%= subcategoriaShow.imagen%>" alt=""></li>
+
+                                </ul>
+
+                            </div>
+
+                            <a class="btn btn btn-danger" href="/subcategories/crud">Volver</a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+        </main>
+
+        <!-- Footer de footer.ejs -->
+        <%- include ('../partials/footer') %>
+
+        <!-- Scripts de scripts.ejs -->
+        <%- include ('../partials/scripts') %>
+
+        <!-- Fin del Container -->
+    </div>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>

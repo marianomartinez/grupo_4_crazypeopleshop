@@ -1,0 +1,39 @@
+[
+{
+    "id": 1,
+    "id_categoria": 3,
+    "subcategoria": "Acc-varios",
+    "descripcion": "Accesorios varios",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    
+    "id": 2,
+    "id_categoria": 3,
+    "subcategoria": "Acc-Quad Skates",
+    "descripcion": "Accesorios para Quad Skates",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    
+    "id": 3,
+    "id_categoria" : 3,
+    "subcategoria": "Acc-Inline Skates",
+    "descripcion": "Accesorios para Inline Skates",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    "id": 4,
+    "id_categoria": 1,
+    "subcategoria": "Inline Skates",
+    "descripcion": "Inline Skates",
+    "imagen": "temp-acc-cat-200x200.jpg"
+},
+{
+    "id": 5,
+    "id_categoria": 2,
+    "subcategoria": "Quad Skates",
+    "descripcion": "Quad Skates",
+    "imagen": "temp-acc-cat-200x200.jpg"
+}
+]

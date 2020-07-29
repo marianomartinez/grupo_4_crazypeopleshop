@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Ruby",
@@ -25,6 +26,7 @@
   },
   {
     "id": 2,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Jump",
@@ -49,6 +51,7 @@
   },
   {
     "id": 3,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "FSK Alpha MG 243",
@@ -63,6 +66,7 @@
   },
   {
     "id": 4,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "3x110",
@@ -77,6 +81,7 @@
   },
   {
     "id": 5,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "Racing Rapid",
@@ -91,6 +96,7 @@
   },
   {
     "id": 6,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "FSK Pleasure Tool",
@@ -105,6 +111,7 @@
   },
   {
     "id": 7,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Prime",
     "modelo": "Tribune",
@@ -119,6 +126,7 @@
   },
   {
     "id": 8,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Matter",
     "modelo": "Code",
@@ -133,6 +141,7 @@
   },
   {
     "id": 9,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Matter",
     "modelo": "Juice",
@@ -147,6 +156,7 @@
   },
   {
     "id": 10,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Matter",
     "modelo": "Zafiro",
@@ -161,6 +171,7 @@
   },
   {
     "id": 11,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Matter",
     "modelo": "Crazy Glue",
@@ -175,6 +186,7 @@
   },
   {
     "id": 12,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "Powerslide",
     "modelo": "CST Air 150mm",
@@ -189,6 +201,7 @@
   },
   {
     "id": 13,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Chaya",
     "modelo": "Ophira",
@@ -204,6 +217,7 @@
   },
   {
     "id": 14,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Chaya",
     "modelo": "Zena",
@@ -219,6 +233,7 @@
   },
   {
     "id": 15,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Chaya",
     "modelo": "Bomb Stopper Rojo",
@@ -233,6 +248,7 @@
   },
   {
     "id": 16,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Chaya",
     "modelo": "Bomb Stopper Turquesa",
@@ -247,6 +263,7 @@
   },
   {
     "id": 17,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Speed XX",
@@ -264,6 +281,7 @@
   },
   {
     "id": 18,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Matter",
     "modelo": "Octo Propel Alloy",
@@ -278,6 +296,7 @@
   },
   {
     "id": 19,
+    "id_categoria": 3,
     "id_subcategoria": 2,
     "marca": "Matter",
     "modelo": "Juice Cosmo",
@@ -292,6 +311,7 @@
   },
   {
     "id": 20,
+    "id_categoria": 3,
     "id_subcategoria": 1,
     "marca": "Powerslide",
     "modelo": "Swell Bracelet",
@@ -310,6 +330,7 @@
   },
   {
     "id": 21,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Reign",
     "modelo": "Anax",
@@ -335,6 +356,7 @@
   },
   {
     "id": 22,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 125",
@@ -360,6 +382,7 @@
   },
   {
     "id": 23,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Reign",
     "modelo": "Atlas",
@@ -385,6 +408,7 @@
   },
   {
     "id": 24,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Hardcore Evo Pro",
@@ -410,6 +434,7 @@
   },
   {
     "id": 25,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Imperial Evo",
@@ -435,6 +460,7 @@
   },
   {
     "id": 26,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Imperial Megacruiser",
@@ -460,6 +486,7 @@
   },
   {
     "id": 27,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Metropolis",
@@ -485,6 +512,7 @@
   },
   {
     "id": 28,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Next SUV",
@@ -510,6 +538,7 @@
   },
   {
     "id": 29,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Nordic XC Trail",
@@ -535,6 +564,7 @@
   },
   {
     "id": 30,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "One Wave",
@@ -560,6 +590,7 @@
   },
   {
     "id": 31,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Reign",
     "modelo": "Perseus",
@@ -585,6 +616,7 @@
   },
   {
     "id": 32,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Phuzion Universe",
@@ -610,6 +642,7 @@
   },
   {
     "id": 33,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 110",
@@ -635,6 +668,7 @@
   },
   {
     "id": 34,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 125",
@@ -660,6 +694,7 @@
   },
   {
     "id": 35,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Urban Kids",
@@ -685,6 +720,7 @@
   },
   {
     "id": 36,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "ViPro Carbon",
@@ -710,6 +746,7 @@
   },
   {
     "id": 37,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Reign",
     "modelo": "Zeus",
@@ -735,6 +772,7 @@
   },
   {
     "id": 38,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Jump",
@@ -759,6 +797,7 @@
   },
   {
     "id": 39,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Melrose Elite",
@@ -783,6 +822,7 @@
   },
   {
     "id": 40,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Onix",
@@ -807,6 +847,7 @@
   },
   {
     "id": 41,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Ruby",
@@ -831,6 +872,7 @@
   },
   {
     "id": 42,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Vintage Glide",
@@ -855,6 +897,7 @@
   },
   {
     "id": 43,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Glide Denim",
@@ -879,6 +922,7 @@
   },
   {
     "id": 44,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Unicorn Glide Kids",
@@ -903,6 +947,7 @@
   },
   {
     "id": 45,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Jade",
@@ -927,6 +972,7 @@
   },
   {
     "id": 46,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Vintage Neat",
@@ -951,6 +997,7 @@
   },
   {
     "id": 47,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Playlife",
     "modelo": "Classic",
@@ -975,6 +1022,7 @@
   },
   {
     "id": 48,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Quad Minnie",
@@ -997,6 +1045,7 @@
   },
   {
     "id": 49,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 125",
@@ -1022,6 +1071,7 @@
   },
   {
     "id": 50,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Quad Rich",
@@ -1046,6 +1096,7 @@
   },
   {
     "id": 51,
+    "id_categoria": 2,
     "id_subcategoria": 5,
     "marca": "Chaya",
     "modelo": "Melrose Elite",
@@ -1070,6 +1121,7 @@
   },
   {
     "id": 52,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "One Wave",
@@ -1095,6 +1147,7 @@
   },
   {
     "id": 53,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Phuzion Universe",
@@ -1120,6 +1173,7 @@
   },
   {
     "id": 54,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 110",
@@ -1145,6 +1199,7 @@
   },
   {
     "id": 55,
+    "id_categoria": 1,
     "id_subcategoria": 4,
     "marca": "Powerslide",
     "modelo": "Swell 110",
@@ -1170,6 +1225,7 @@
   },
   {
     "id": 56,
+    "id_categoria": 3,
     "id_subcategoria": 3,
     "marca": "PABLO",
     "modelo": "DAMICO MAX",

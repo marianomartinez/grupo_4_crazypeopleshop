@@ -5,6 +5,25 @@ const fs = require('fs');
 
 const categoriesController = {
     showCategory: function (req, res) {
+        // let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
+        // let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        // let subcategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+
+        // let categoriaId = req.params.id;
+        // let categoriaShow = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
+        // let subCategorias = subcategoriasActuales.filter(subcategoria => subcategoria.id_categoria == categoriaId);
+        
+        // //const galleryShow = productos.filter(producto => producto.id_subcategoria == subCategorias.id);
+        // let galleryShow = [];
+        // productos.forEach(producto => {
+        //     for (i = 0; i < subCategorias.length; i++){
+        //         if(producto.id_subcategoria == subCategorias[i].id){
+        //             galleryShow.push(producto)
+                    
+        //         }
+        //     }    
+        // });
+
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
@@ -12,49 +31,20 @@ const categoriesController = {
         let categoriaId = req.params.id;
         let categoriaShow = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
         let subCategorias = subcategoriasActuales.filter(subcategoria => subcategoria.id_categoria == categoriaId);
-        
-        //const galleryShow = productos.filter(producto => producto.id_subcategoria == subCategorias.id_subcategoria);
+
+        //const galleryShow = productos.filter(producto => producto.id_subcategoria == subCategorias.id);
         let galleryShow = [];
         productos.forEach(producto => {
-            for (i = 0; i < subCategorias.length; i++){
-                if(producto.id_subcategoria == subCategorias[i].id_subcategoria){
-                    galleryShow.push(producto)
-                    
-                }
-            }    
+            if (producto.id_categoria == categoriaShow.id_categoria) {
+                galleryShow.push(producto)
+            }
         });
         
         res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {productos: productos, galleryShow: galleryShow,Title: categoriaShow.categoria});
     },
-
-    // Los 3 controladores de abajo fueron reemplazados por el de arriba
-    /*showCategoryISkates: function (req, res) {
-        //res.sendFile(path.resolve(__dirname, '../views/products/category.html'));
-        res.render(path.resolve(__dirname, '../views/products/CategoryISkates'), {
-            Title: 'Categorías'
-        });
-    },
-    showCategoryQSkates: function (req, res) {
-        //res.sendFile(path.resolve(__dirname, '../views/products/category.html'));
-        res.render(path.resolve(__dirname, '../views/products/CategoryQSkates'), {
-            Title: 'Categorías'
-        });
-    },
-    showCategoryAccesories: function (req, res) {
-        //res.sendFile(path.resolve(__dirname, '../views/products/category.html'));
-        res.render(path.resolve(__dirname, '../views/products/CategoryAccesories'), {
-            Title: 'Categorías'
-        });
-    },
-    */
-
     crud: function (req, res) {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Categorias', categorias: categorias });
-    },
-    crudsubcat: function (req, res) {
-        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        res.render(path.resolve(__dirname, '../views/categories/subcategoriesCRUD'), { Title: 'Sub Categorías', categorias: categorias });
     },
     show: function (req, res) {
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head')  %>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header de header.ejs -->
+        <%- include ('../partials/header')  %>
+
+
+        <main class="fonditos">
+            <!--<h1 class="text-center text-dark display-5  pt-2"> Detalle de Usuario</h1>-->
+            <div class="col-12 text-center text-md-left py-4 ">
+                <h1 class="col-12 text-center mad">Mi perfil</h1>
+                <section class="bg-home pt-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8 mx-auto bg-light">
+                                <div class="card">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">ID Usuario: <%=usuarioShow.id %> </li>
+                                        <li class="list-group-item">Nombre: <%=usuarioShow.first_name %> </li>
+                                        <li class="list-group-item">Apellido: <%=usuarioShow.last_name %> </li>
+                                        <li class="list-group-item">Correo Electrónico: <%=usuarioShow.email %> </li>
+                                        <!--
+                                        <li class="list-group-item">Contraseña: <%=usuarioShow.password %> </li>
+                                        -->
+                                        <li class="list-group-item">Teléfono: <%=usuarioShow.telefono %> </li>
+                                        <li class="list-group-item">Fecha de Alta: <%=usuarioShow.createdAt %> </li>
+                                        <!--
+                                        <li class="list-group-item">Tipo Usuario: <%=usuarioShow.admin %> </li>
+                                        -->
+                                        <li class="list-group-item ">Imagen: <figure class="avatar"><img
+                                                    src="/img/users/<%= usuarioShow.imagen%>" alt=""></figure>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/">Inicio</a>
+                                <a class="btn bg-primary text-white mt-1 mx-md-auto" href="/users/profileEdit">Editar</a>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </section>
+
+
+
+        </main>
+
+        <!-- Footer de footer.ejs -->
+        <%- include ('../partials/footer') %>
+
+        <!-- Scripts de scripts.ejs -->
+        <%- include ('../partials/scripts') %>
+
+        <!-- Fin del Container -->
+    </div>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>
