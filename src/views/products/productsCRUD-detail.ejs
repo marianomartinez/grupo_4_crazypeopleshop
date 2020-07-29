@@ -40,7 +40,7 @@
                                     <div class="form-group col-md-10">
                                         <label for="inputZip">Categoría</label>
                                         <% let subcat = productoShow.id_subcategoria %>
-                                        <% let cate = subcategorias.find(c =>c.id_subcategoria == subcat).id_categoria%>
+                                        <% let cate = subcategorias.find(c =>c.id == subcat).id_categoria%>
                                         <input type="text" class="form-control" name="categoria" disabled
                                              value="<%=categorias.find(d =>d.id_categoria == cate).categoria %>"
                                                 selected>
@@ -48,7 +48,7 @@
 
                                     <div class="form-group col-md-12">
                                     <label for="inputZip">SubCategoría</label>
-                                    <input type="text" class="form-control" name="subcategoria" value = "<%=subcategorias.find(c =>c.id_subcategoria == productoShow.id_subcategoria).subcategoria %>"" disabled>
+                                    <input type="text" class="form-control" name="subcategoria" value = "<%=subcategorias.find(c =>c.id == productoShow.id_subcategoria).subcategoria %>"" disabled>
                                     </div>
 
 

@@ -16,7 +16,7 @@
             <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Sub Categorías</h1>
             <section>
 
-                <a class="display-5 mt-5 agreg" href="/categories/categoriasCRUD/add">Agregar Sub Categoría</a>
+                <a class="display-5 mt-5 agreg" href="/subcategories/subcategoriesCRUD/add">Agregar Sub Categoría</a>
 
             </section>
 
@@ -26,7 +26,8 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Categoría</th>
+                            <th>Subcategoría</th>
+                            <th>(Categoría)</th>
                             <th>Descripcion</th>
                             <th>Ver</th>
                             <th>Editar</th>
@@ -36,19 +37,21 @@
                     </thead>
                     <tbody>
 
-                        <% categorias.forEach(categoria => { %>
+                        <% subcategorias.forEach(subcategoria => { %>
                         <tr>
-                            <td><%=categoria.id_categoria %></td>
-                            <td><%=categoria.categoria %></td>
-                            <td><%=categoria.descripcion %></td>
+                            <td><%= subcategoria.id %></td>
+                            <td><%= subcategoria.subcategoria %></td>
+                            <% let categoriaPrint = categorias.find(categoria => categoria.id_categoria == subcategoria.id_categoria); %>
+                            <td><%= categoriaPrint.categoria %></td>
+                            <td><%= subcategoria.descripcion %></td>
 
-                            <td><a href="/categories/detail/<%=categoria.id_categoria%> ">
+                            <td><a href="/subcategories/detail/<%=subcategoria.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/categories/edit/<%=categoria.id_categoria%> ">
+                            <td><a href="/subcategories/edit/<%=subcategoria.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/categories/delete/<%=categoria.id_categoria%> ">
+                            <td><a href="/subcategories/delete/<%=subcategoria.id%> ">
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a></td>
 

@@ -40,6 +40,7 @@ const webRoutes = require('./routes/webRoutes');
 const usersRoutes = require('./routes/usersRoutes')
 // MM AGREGA DESDE ACA
 const categoriesRoutes = require('./routes/categoriesRoutes')
+const subcategoriesRoutes = require('./routes/subcategoriesRoutes')
 // MM HASTA ACA
 const productsRoutes = require('./routes/productsRoutes')
 const checkoutRoutes = require('./routes/checkoutRoutes')
@@ -48,6 +49,7 @@ const checkoutRoutes = require('./routes/checkoutRoutes')
 app.use(webRoutes);
 // MM AGREGA DESDE ACA
 app.use(categoriesRoutes);
+app.use(subcategoriesRoutes);
 // MM HASTA ACA
 app.use(productsRoutes);
 app.use(usersRoutes);

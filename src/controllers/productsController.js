@@ -10,7 +10,7 @@ const productsController = {
          let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
          let subCategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
          let subcategoriaId = req.params.category;
-         let fromCategory = subCategoriasActuales.find(subcategoria => subcategoria.id_subcategoria == subcategoriaId);
+         let fromCategory = subCategoriasActuales.find(subcategoria => subcategoria.id == subcategoriaId);
          let productId = req.params.id;
          let productToShow = productos.find(producto => producto.id == productId);
         res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, fromCategory, Title: productToShow.marca + ' ' + productToShow.modelo });
@@ -94,6 +94,7 @@ const productsController = {
 
         let productoNuevo = {
             id: productoUltimo.id + 1,
+            id_categoria : req.body.categoria,
             id_subcategoria : req.body.subcategoria,
             marca: req.body.marca,
             modelo: req.body.modelo,
@@ -198,6 +199,7 @@ const productsController = {
         req.body.id = req.params.id;
         let productoUpdate = productosActuales.map(producto => {    //id nombre descripcion precio imagen
             if (producto.id == req.body.id) {
+                producto.id_categoria = Number(req.body.categoria),
                 producto.id_subcategoria = Number(req.body.subcategoria),
                 producto.marca = req.body.marca,
                 producto.modelo = req.body.modelo,

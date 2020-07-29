@@ -40,7 +40,7 @@
             <label for="inputState">Categoria</label>
             <select id="inputState" class="form-control" name = "categoria" required >
             <% let subcat = productoEdit.id_subcategoria %>
-            <% let cate = subcategorias.find(c =>c.id_subcategoria == subcat).id_categoria%>
+            <% let cate = subcategorias.find(c =>c.id == subcat).id_categoria%>
                 <option value = "<%=categorias.find(d =>d.id_categoria == cate).id_categoria %>" selected><%=categorias.find(d =>d.id_categoria == cate).categoria %></option>
                  <%categorias.forEach(categoria => { %>
                <option value="<%= categoria.id_categoria %>"><%= categoria.categoria %></option>
@@ -51,11 +51,11 @@
         <div class="form-group col-md-4">
             <label for="inputState">Subcategoría</label>
             <select id="inputState" class="form-control" name="subcategoria" required>
-                <option value="<%=subcategorias.find(c =>c.id_subcategoria == productoEdit.id_subcategoria).id_subcategoria %>" selected>
-                    <%=subcategorias.find(c =>c.id_subcategoria == productoEdit.id_subcategoria).subcategoria %></option>
+<!-- !!! -->    <option value="<%=subcategorias.find(c =>c.id == productoEdit.id_subcategoria).id_subcategoria %>" selected> <!-- el último "id_subcategoria" posiblemente deba cambiar a "id"-->
+                <%=subcategorias.find(c =>c.id == productoEdit.id_subcategoria).subcategoria %></option>
             
                 <%subcategorias.forEach(subcategoria => { %>
-                <option value="<%= subcategoria.id_subcategoria %>"><%= subcategoria.subcategoria %></option>
+                <option value="<%= subcategoria.id %>"><%= subcategoria.subcategoria %></option>
                 <% }); %>
             </select>
         </div>
