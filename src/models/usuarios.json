@@ -218,16 +218,6 @@
     "imagen": "imagen-1594582495546.JPG"
   },
   {
-    "id": 46,
-    "first_name": "HILDA PAOLA",
-    "last_name": "GARAY",
-    "email": "veron_pao_8420@outlook.com",
-    "password": "123456789",
-    "fecha_alta": "Sat Jul 18 2020 16:14:35 GMT-0300 (hora estándar de Argentina)",
-    "administra": false,
-    "imagen": "imagen-1595099675404.jpg"
-  },
-  {
     "id": 47,
     "first_name": "Jorge",
     "last_name": "pppp",
@@ -267,17 +257,6 @@
     "fecha_alta": "Fri Jul 24 2020 19:55:17 GMT-0300 (hora estándar de Argentina)",
     "administra": false,
     "imagen": ""
-  },
-  {
-    "id": 51,
-    "first_name": "HILDA PAOLA",
-    "last_name": "GARAY",
-    "email": "garaypaolah@gmail.com",
-    "password": "123456789",
-    "fecha_alta": "Fri Jul 24 2020 19:56:04 GMT-0300 (hora estándar de Argentina)",
-    "administra": true,
-    "imagen": "imagen-1595686554439.jpg",
-    "telefono": ""
   },
   {
     "id": 52,
@@ -351,5 +330,26 @@
     "fecha_alta": "Sat Jul 25 2020 13:06:21 GMT-0300 (GMT-03:00)",
     "administra": false,
     "imagen": "usuariovacio1.png"
+  },
+  {
+    "id": 62,
+    "first_name": "hola",
+    "last_name": "hola",
+    "email": "hola@hola.com",
+    "password": "$2a$10$bij6V3nOZsVtiFxN1u3Ba.xliYVcTlIXGPPS58POnoWOtYDHgL2gy",
+    "fecha_alta": "Mon Jul 27 2020 13:46:48 GMT-0300 (hora estándar de Argentina)",
+    "administra": false,
+    "imagen": "usuariovacio1.png"
+  },
+  {
+    "id": 63,
+    "first_name": "hola",
+    "last_name": "holas",
+    "email": "holadmin@hola.com",
+    "password": "$2a$10$wSOCD8yGmqxqd7hItUL2IOH252B9HglHzMsD8o8VTO7NBucyN4I1W",
+    "fecha_alta": "Mon Jul 27 2020 13:48:17 GMT-0300 (hora estándar de Argentina)",
+    "administra": false,
+    "imagen": "imagen-1596055134473.jpg",
+    "telefono": ""
   }
 ]
