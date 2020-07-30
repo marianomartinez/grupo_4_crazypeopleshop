@@ -52,7 +52,7 @@ const productsController = {
         });
 
 
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Productos', productos: productos, categorias: categorias, subcategorias: subcategorias });
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Admin-Productos', productos: productos, categorias: categorias, subcategorias: subcategorias });
     },
     // MM agrega desde acá
     add: function (req, res) {
@@ -81,7 +81,7 @@ const productsController = {
             return 0;
         });
 
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Productos', categorias: categorias, subcategorias:subcategorias } );
+        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Producto-Crear', categorias: categorias, subcategorias:subcategorias } );
     },
     // MM hasta acá
 
@@ -190,7 +190,7 @@ const productsController = {
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productoEdit = productosActuales.find(producto => producto.id == productoId);
-        res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit: productoEdit, Title: 'Producto-Edición',categorias:categorias,subcategorias:subcategorias })
+        res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit: productoEdit, Title: 'Producto-Editar',categorias:categorias,subcategorias:subcategorias })
 
     },
     update: function (req, res) {

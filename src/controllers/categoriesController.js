@@ -44,7 +44,7 @@ const categoriesController = {
     },
     crud: function (req, res) {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Categorias', categorias: categorias });
+        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Admin-Categorias', categorias: categorias });
     },
     show: function (req, res) {
 
@@ -57,7 +57,7 @@ const categoriesController = {
     add: function (req, res) {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'), {
-            Title: 'Categorías',
+            Title: 'Categoría-Crear',
             categorias: categorias
         });
     },
@@ -103,7 +103,7 @@ const categoriesController = {
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         let categoriaId = req.params.id;
         const categoriaEdit = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
-        res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Edición'})
+        res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Editar'})
 
     },
     update: function (req, res) {

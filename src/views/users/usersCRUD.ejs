@@ -43,7 +43,7 @@
                             <td><%=usuario.first_name %></td>
                             <td><%=usuario.last_name %></td>
                             <td><%=usuario.email %></td>
-                            <td><%=usuario.administra %></td>
+                        <td><% if(usuario.administra == true){ %><%= 'Admin' %><% } else { %><%= 'Cliente' %><% }; %></td>
                             <td><a href="/users/detail/<%=usuario.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>

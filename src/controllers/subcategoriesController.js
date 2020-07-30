@@ -46,12 +46,12 @@ const subcategoriesController = {
     crud: function (req, res) {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
-        res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD'), { Title: 'Sub Categorías', categorias: categorias, subcategorias: subcategorias });
+        res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD'), { Title: 'Admin-Subcategorías', categorias: categorias, subcategorias: subcategorias });
     },
     add: function (req, res) {
         let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
-        res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD_add'), {Title: 'Subcategorías', categorias: categorias, subcategorias: subcategorias});
+        res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD_add'), {Title: 'Subcategoría-Crear', categorias: categorias, subcategorias: subcategorias});
     },
     show: function (req, res) {
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
@@ -101,7 +101,7 @@ const subcategoriesController = {
         let subcategoriaId = req.params.id;
         let subcategoriaEdit = subcategoriasActuales.find(subcategoria => subcategoria.id == subcategoriaId);
         // let categoriaEdit = categoriasActuales.find(categoria => categoria.id_categoria == subcategoriaEdit.id_categoria);
-        res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_edit'), { categorias: categoriasActuales, subcategoriaEdit: subcategoriaEdit, Title: 'Subcategoria-Edición'})
+        res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_edit'), { categorias: categoriasActuales, subcategoriaEdit: subcategoriaEdit, Title: 'Subcategoría-Editar'})
 
     },
     update: function (req, res) {

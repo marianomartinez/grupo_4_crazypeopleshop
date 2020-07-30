@@ -14,17 +14,12 @@ let { check, validationResult, body } = require('express-validator');
 const usersController = {
 
     profileShow: function (req, res) {
-        /* // !!! Esto estaba de antes. Confirmar si no hace falta para borrar.
-        res.sendFile(path.resolve(__dirname, '../views/users/profile.html'));
-        //res.render(path.resolve(__dirname, '../views/web/nosotros'));
-        */
-       
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
         let usuarioId = req.session.usuarioLogueado.id;
         const usuarioShow = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..','views','users','profileShow'), {
             usuarioShow: usuarioShow,
-            Title: 'Usuario-Visualizar'
+            Title: 'Mi perfil'
         })
 
     },
@@ -32,10 +27,12 @@ const usersController = {
 
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
         let usuarioId = req.session.usuarioLogueado.id;
-        const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        let usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        usuarioEdit.password = '';
+        console.log(usuarioEdit);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
             usuarioEdit: usuarioEdit,
-            Title: 'Usuario-Edición'
+            Title: 'Editar mi perfil'
         })
 
         // user
@@ -47,12 +44,10 @@ const usersController = {
 
     },
     profileUpdate: function (req, res) {
-
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
+        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')));
         req.body.id = req.session.usuarioLogueado.id;
         let usuarioUpdate = usuariosActuales.map(usuario => { //id nombre descripcion precio imagen
             if (usuario.id == req.body.id) {
-
                 usuario.first_name = req.body.first_name,
                     usuario.last_name = req.body.last_name,
                     usuario.email = req.body.email,
@@ -64,7 +59,6 @@ const usersController = {
             }
             return usuario;
         });
-
         let errors = validationResult(req);
         if (errors.isEmpty()) {
 
@@ -72,19 +66,14 @@ const usersController = {
             fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usuarioJSON);
             res.redirect('/users/profileShow');
         } else {
-
             let usuarioId = req.params.id;
             const usuarioEdit = usuarioUpdate.find(usuario => usuario.id == usuarioId);
-
-
-            return res.render(path.resolve(__dirname, '../views/users/edit'), {
+            return res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
                 Title: 'Registro',
                 errors: errors.mapped(),
                 usuarioEdit: usuarioEdit
             });
         }
-
-
     },
     register: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
@@ -103,7 +92,7 @@ const usersController = {
     crud: function (req, res) {
 
         let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
+        res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Admin-Usuarios', usuarios: usuarios });
         
             //user.findAll()
             //.then(usuarios => {
@@ -119,7 +108,7 @@ const usersController = {
     add: function (req, res) {
         //let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
-            Title: 'Registro'
+            Title: 'Usuario-Crear'
          
         });
     },
@@ -187,7 +176,7 @@ const usersController = {
         } else{
            
             return res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'), {
-                Title: 'Registro',
+                Title: 'Registrate',
                 errors:errors.mapped(),
                 old : req.body           
             });
@@ -234,7 +223,7 @@ const usersController = {
         let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         let usuarioId = req.params.id;
         const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+        res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Editar' })
 
        // user
          //   .findByPk(req.params.id)
