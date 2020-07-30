@@ -351,5 +351,16 @@
     "administra": false,
     "imagen": "imagen-1596055134473.jpg",
     "telefono": ""
+  },
+  {
+    "id": 64,
+    "first_name": "Profesores",
+    "last_name": "DH",
+    "email": "profesoresadmin@dh.com",
+    "password": "$2a$10$/f74w8zcAgJcU6leZ2L.deyceKnpSwyO5mC/GTlNYu8MC/EOEu7my",
+    "fecha_alta": "Thu Jul 30 2020 18:21:57 GMT-0300 (Argentina Standard Time)",
+    "administra": true,
+    "imagen": "imagen-1596144297881.jpg",
+    "telefono": ""
   }
 ]
