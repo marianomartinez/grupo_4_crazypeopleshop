@@ -11,11 +11,11 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header') %>
-    <main class="fonditos">
+    <main class="fonditos paovh80">
         
         <section class="container">
             <article class="row d-flex justify-content-center">
-                <figure class="card-img-top col-12 col-md-7 bg-white mt-5 m-0 pt-3">
+                <figure class="card-img-top col-12 col-md-7 bg-white mt-5 m-0 pt-3 sombra">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
                         <% if (productToShow.images.length > 1) { %>
@@ -61,7 +61,7 @@
                 
                 
                 
-                <section class="card-body col-12 col-md-5 bg-white m-0 mt-5 p-3">
+                <section class="card-body col-12 col-md-5 bg-white m-0 mt-5 p-3 sombra">
                     <div class="card-title text-center pt-5">
                         <h2><%= productToShow.marca + ' ' + productToShow.modelo %></h2>
                     </div>
@@ -85,9 +85,13 @@
                         <a type="button" class="w-100 botcar text-center" href="/category/<%=productToShow.id_categoria%>">Volver</a>
                     </form>
                 </section>
-                <section class="row col-12 bg-white">
+                <section class="row col-12 bg-white mt-1 sombra">
                     <p>
                         <%= productToShow.descripcion %>
+                    </p>
+                    <p>
+                        The Powerslide Phuzion Xenon Men Triskate is a high-performance fitness skate. Constructed using a glass-fiber reinforced outer shell and cuff and combined with the TRINITY mounting system it provides an amazing stable platform that improves power transfer, reduces vibrations and creates a super low center of gravity for more and better balance. The Powerknit upper ensures a snug and supportive fit. Powerslides Elite casted aluminum frame is light weight and stiff. Powerslides 3x100mm 85A and WICKED ABEC 7 bearings make sure the skate is super-fast. Includes HABS brake. Phuzion: Comfortable Performance.
+
                     </p>
                 </section>
             </article>
