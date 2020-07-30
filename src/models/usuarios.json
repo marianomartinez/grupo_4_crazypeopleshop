@@ -351,5 +351,26 @@
     "administra": false,
     "imagen": "imagen-1596055134473.jpg",
     "telefono": ""
+  },
+  {
+    "id": 64,
+    "first_name": "dtgh",
+    "last_name": "ahth",
+    "email": "administracion@admin.com",
+    "password": "$2a$10$1KBUv1A06v7RVKBfF82Kte0/HM6j3rKUwCuG4qLow4pzIOSYr320q",
+    "fecha_alta": "Thu Jul 30 2020 14:16:18 GMT-0300 (hora estándar de Argentina)",
+    "administra": true,
+    "imagen": "usuariovacio1.png",
+    "telefono": ""
+  },
+  {
+    "id": 65,
+    "first_name": "35tq",
+    "last_name": "ertet",
+    "email": "holaa@holaa.com",
+    "password": "$2a$10$JN/kxCph8nTfsRGuuobbxeg7vaT89VEw9pXduC/x43nsX8An3OBpK",
+    "fecha_alta": "Thu Jul 30 2020 17:25:29 GMT-0300 (hora estándar de Argentina)",
+    "administra": false,
+    "imagen": "usuariovacio1.png"
   }
 ]

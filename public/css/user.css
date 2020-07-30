@@ -1,15 +1,17 @@
-.avatar{
-    width: 5rem;
-    height: 5rem;
-    overflow: hidden;
+.avatar {
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
-    position: relative;
-
+    
 }
+
 .avatar img{
-    width: 100%;
-    position: absolute;
-    left: 0rem;
-    top: 0px;
-    transform: translateX(-30%);
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    
 }

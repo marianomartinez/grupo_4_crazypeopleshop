@@ -33,7 +33,8 @@
         <% } %> 
            
             <% if (locals.usuarioLogueado) { %>
-            <a href="/users/logout" class="ml-2 avatext text-center" id="headeravatext">Cerrar Sesión</a>
+            <!--<a href="/users/logout" class="ml-2 avatext text-center" id="headeravatext">Cerrar Sesión</a>-->
+            <a href="/users/logout"><i class="fas fa-sign-out-alt regist mx-2" id="headerlogout" ></i></a>
             <% } %>
 
             <% if (locals.usuarioLogueado) { %>
@@ -45,7 +46,7 @@
 
             <% if (locals.usuarioLogueado != 'undefined') { %>
                 
-                <figure class="avatar mr-5 text-align-center"><a href="/users/profileShow"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt=""></a></figure>
+                <figure class="avatar mr-5 text-align-center"><a href="/users/profileShow"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt="" class="avatar"></a></figure>
             
              <% }; %>           
             
