@@ -4,6 +4,10 @@ const path = require('path');
 let multer = require('multer');
 let fs = require('fs');
 const bcrypt = require('bcryptjs');
+const db = require('../database/models/')
+
+
+const User = db.User;
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
@@ -20,8 +24,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage })
-
-
 
 //Requerir el modulo de los controladores
 const usersController = require(path.resolve(__dirname, '../controllers/usersController'));
@@ -41,121 +43,15 @@ router.get('/users/edit/:id', usersController.edit);
 
 //PUT Y POST
 router.get('/users/logout', usersController.logout);
-router.post('/users/login',[
-    check('email').isEmail().withMessage('el formato del mail es erroneo'),
-    check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-    body('email').custom(function (value,{req}) {
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        for (let i = 0; i < usuariosActuales.length; i++) {
-            if (usuariosActuales[i].email == value) {
-                if (bcrypt.compareSync(req.body.password , usuariosActuales[i].password)) {
-                
-                   return true;
-               };
-                   
-                
-               
-            }
+router.post('/users/login',require('../middlewares/userLogin'), usersController.processLogin);
 
-        }
-        
-        return false;
+router.put('/users/profileUpdate/:id', upload.single('imagen'),require('../middlewares/userProfileUpdate'), usersController.profileUpdate);
 
-    }).withMessage('el correo eléctrónico no se encuentra registrado')
+router.put('/users/edit/:id', upload.single('imagen'),require('../middlewares/userUpdate'),usersController.update);
 
-    ], usersController.processLogin);
+router.post('/users/register', upload.single('imagen'), require('../middlewares/userRegister'),usersController.newguest);
 
-// router.post('/users/profileEdit/:id', usersController.profileEdit);
-
-router.put('/users/profileUpdate/:id', upload.single('imagen'),
-    [
-        check('first_name').isLength({min: 1}).withMessage('el nombre no puede quedar vacío'),
-        check('last_name').isLength({min: 1}).withMessage('el apellido no puede quedar vacío'),
-        check('email').isEmail().withMessage('el formato del mail es erroneo'),
-        check('password').isLength({min: 6,max: 15}).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-        body('password').custom(function (value, { req }) {
-        if (req.body.password2 == value) {
-            return true
-        }
-        return false
-        }).withMessage('Las contraseñas no coinciden'),
-
-    ], usersController.profileUpdate);
-
-router.put('/users/edit/:id', upload.single('imagen'),
-    [
-        check('first_name').isLength({ min: 1 }).withMessage('el nombre no puede quedar vacío'),
-        check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
-        check('email').isEmail().withMessage('el formato del mail es erroneo'),
-        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-        body('password').custom(function (value, { req }) {
-        if (req.body.password2 == value) {
-            return true
-        }
-        return false
-        }).withMessage('Las contraseñas no coinciden'),
-
-    ],usersController.update);
-router.post('/users/register', upload.single('imagen'), 
-    [
-        check('first_name').isLength({min:1}).withMessage('el nombre no puede quedar vacío'),
-        check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
-        check('email').isEmail().withMessage('el formato del mail es erroneo'),
-        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-        body('password').custom(function (value, { req }) {
-            if (req.body.password2 == value) {
-                return true
-            }
-            return false
-        }).withMessage('Las contraseñas no coinciden'),
-
-        body('email').custom(function (value) {
-
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        for (let i = 0; i < usuariosActuales.length; i++) {
-            if (usuariosActuales[i].email == value) {
-                return false;
-            }
-
-        }
-        return true;
-
-    }).withMessage('el correo eléctrónico ya se encuentra registrado')
-    ] 
-    ,usersController.newguest);
-
-router.post('/users/create', upload.single('imagen'),
-    [
-        check('first_name').isLength({ min: 1 }).withMessage('el nombre no puede quedar vacío'),
-        check('last_name').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
-        check('email').isEmail().withMessage('el formato del mail es erroneo'),
-        check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
-
-
-        body('password').custom(function (value, {req}) {
-            if(req.body.password2 == value) {
-                return true
-            }
-            return false
-        }).withMessage('Las contraseñas no coinciden'),
-
-        body('email').custom(function (value) {
-
-            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            for (let i = 0; i < usuariosActuales.length; i++) {
-                if (usuariosActuales[i].email == value) {
-                    return false;
-                }
-
-            }
-            return true;
-
-        }).withMessage('el correo eléctrónico ya se encuentra registrado')
-    ], usersController.create);
-
-
-
-
+router.post('/users/create', upload.single('imagen'),require('../middlewares/userCreate'), usersController.create);
 
 module.exports = router;

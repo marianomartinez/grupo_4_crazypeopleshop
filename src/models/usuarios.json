@@ -17,7 +17,7 @@
     "email": "pablodamico@hotmail.com",
     "password": "$2a$10$ntRIoZG/53BslVJ.0nCwTuNqk1wfNZMzIoaw5iWmFpmT4KtKQW0he",
     "confirm_password": "00000000",
-    "administra": false,
+    "administra": true,
     "imagen": "imagen-1596233438974.png",
     "telefono": "1131651749"
   },
@@ -43,12 +43,13 @@
   },
   {
     "id": 23,
-    "first_name": "Martin",
-    "last_name": "Palermo",
-    "email": "martin@gmial.com",
-    "password": "00000000",
-    "administra": false,
-    "imagen": ""
+    "first_name": "pppp",
+    "last_name": "pppppp",
+    "email": "ppp@gmail.com",
+    "password": "$2a$10$yRp5SaofdLdicGYHgq3iKO1ItHqjKla6dmCakkCOwxoBpbHwYTNGi",
+    "administra": true,
+    "imagen": "",
+    "telefono": ""
   },
   {
     "id": 24,

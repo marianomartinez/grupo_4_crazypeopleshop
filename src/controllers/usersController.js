@@ -9,7 +9,7 @@ const User = db.User;
 //Express validator
 let { check, validationResult, body } = require('express-validator');
 
-
+// let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
 
 const usersController = {
 
@@ -90,96 +90,75 @@ const usersController = {
     },
     
     crud: function (req, res) {
-
-        // let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        // res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Admin-Usuarios', usuarios: usuarios });
         
-            User.findAll()
+        User.findAll()
             .then(usuarios => {
-               res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
-           })
+                res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
+            })
             .catch(error => res.send(error))
-     
+
     },
 
-       
-    
-    // MM agrega desde acá
     add: function (req, res) {
-        //let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
             Title: 'Usuario-Crear'
          
         });
     },
-    // MM hasta acá
-    
+  
+
     create: function (req, res) {
+
         let errors = validationResult(req);
         if (errors.isEmpty()) {
+            const _body = req.body
+            _body.password = bcrypt.hashSync(req.body.password, 10),
+            _body.role = _body.role ? 'true' : 'false',
+            _body.image = req.file ? req.file.filename : 'usuariovacio1.png'
+            User
+                .create(_body)
+                .then(usuario =>{
+                    res.redirect('/users/crud');
+                })
 
-            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            usuarioUltimo = usuarioUltimo.pop();
-            let usuarioNuevo = {
-                id: usuarioUltimo.id + 1,
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                telefono: req.body.telefono,
-                fecha_alta: Date(),
-                administra: req.body.admin ? true : false,
-                imagen: req.file ? req.file.filename : "usuariovacio1.png"
-            }
-            usuariosActuales.push(usuarioNuevo);
+        }
+        else {
 
-            let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
+            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'),
+                {
+                    Title: 'Registro',
+                    errors: errors.mapped(),
+                    old: req.body
+                });
 
-            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-            res.redirect('/users/crud');
-        } else {
-
-            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {
-                Title: 'Registro',
-                errors: errors.mapped(),
-                old: req.body    
-            });
         }
 
     },
     newguest: function (req, res) {
  
         let errors = validationResult(req);
+       
         if (errors.isEmpty()) {
-            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            let usuarioUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            usuarioUltimo = usuarioUltimo.pop();
-            let usuarioNuevo = {
-            id: usuarioUltimo.id + 1,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            telefono: req.body.telefono,
-            fecha_alta : Date(),
-            administra: req.body.admin ? true : false,
-            imagen: req.file ? req.file.filename : "usuariovacio1.png"
-            }
+            const _body = req.body
+            _body.password = bcrypt.hashSync(_body.password, 10),
+            _body.role = _body.role ? 'true' : 'false',
+                _body.image = req.file ? req.file.filename : 'usuariovacio1.png'
+            User
+                .create(_body)
+                .then(usuario => {
+                    res.redirect('/');
+                })
 
-            usuariosActuales.push(usuarioNuevo);
+        }
+        else {
 
-            let usuarioJSON = JSON.stringify(usuariosActuales, null, 2)
+            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'),
+                {
+                    Title: 'Registro',
+                    errors: errors.mapped(),
+                    old: req.body
+                });
 
-            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-            res.redirect('/');
-        } else{
-           
-            return res.render(path.resolve(__dirname, '../views/users/usersCRUD-register'), {
-                Title: 'Registrate',
-                errors:errors.mapped(),
-                old : req.body           
-            });
         }
 
     },
