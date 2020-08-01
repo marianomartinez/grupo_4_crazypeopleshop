@@ -6,26 +6,18 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        firstName: {
+        categoryName: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        lastName: {
-            type: dataTypes.STRING(45),
-            allowNull: false
+        description: {
+            type: dataTypes.STRING(500),
+            
         },
-        email: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-            // unique: 
-        },
-        password: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
-        role: dataTypes.STRING(45),
-        image: dataTypes.STRING(100),
-        phone: dataTypes.STRING(45)
+        image: {
+            type: dataTypes.STRING(500),
+            
+        }
 
 
     };
@@ -33,6 +25,11 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'Plates',
         timestamps: false
     };*/
-    const User = sequelize.define(alias, cols)
-    return User
+    const Category = sequelize.define(alias, cols)
+    return Category
 }
+
+
+
+
+
