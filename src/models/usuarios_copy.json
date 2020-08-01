@@ -17,7 +17,7 @@
         "email": "pablodamico@hotmail.com",
         "password": "00000000",
         "confirm_password": "00000000",
-        "administra": false,
+        "administra": true,
         "imagen": "imagen-1593878937465.JPG",
         "telefono": "1131651749"
     },

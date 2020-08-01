@@ -220,16 +220,16 @@ const usersController = {
     },
     edit: function (req, res,next) {
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        let usuarioId = req.params.id;
-        const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Editar' })
+        //let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        //let usuarioId = req.params.id;
+        //const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
+        //res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Editar' })//
 
-       // User
-         //   .findByPk(req.params.id)
-           // .then(usuarioEdit => {
-             //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
-            //})
+       User
+          .findByPk(req.params.id)
+         .then(usuarioEdit => {
+         res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+            })
         
 
     },
