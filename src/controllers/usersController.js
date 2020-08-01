@@ -3,7 +3,7 @@ const fs = require('fs');
 const db = require('../database/models/')
 const bcrypt = require('bcryptjs');
 
-const user = db.user;
+const User = db.User;
 
 
 //Express validator
@@ -35,7 +35,7 @@ const usersController = {
             Title: 'Editar mi perfil'
         })
 
-        // user
+        // User
         //   .findByPk(req.params.id) // !!! seguramente acá usemos req.session.usuarioLogueado.id
         // .then(usuarioEdit => {
         //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
@@ -94,7 +94,7 @@ const usersController = {
         // let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
         // res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Admin-Usuarios', usuarios: usuarios });
         
-            user.findAll()
+            User.findAll()
             .then(usuarios => {
                res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
            })
@@ -190,7 +190,7 @@ const usersController = {
         const usuarioShow = usuariosActuales.find(usuario =>usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
 
-        //user
+        //User
         //.findByPk(req.params.id)
         //.then(usuarioShow =>{
           //  res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
@@ -207,7 +207,7 @@ const usersController = {
         
         let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-        //user
+        //User
         //.destroy({
           //  where :{
             //id : req.params.id
@@ -225,7 +225,7 @@ const usersController = {
         const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
         res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Editar' })
 
-       // user
+       // User
          //   .findByPk(req.params.id)
            // .then(usuarioEdit => {
              //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })

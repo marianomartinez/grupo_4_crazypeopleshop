@@ -18,6 +18,36 @@ USE `crazypeople_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(45) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `image` varchar(500) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Inline Skates','Categoria Inline Skates','temp-iskate-cat-200x200.jpg',NULL,NULL,NULL),(2,'Quad Skates','Categoria Quad Skates','temp-qskate-cat-200x200.jpg',NULL,NULL,NULL),(3,'Accesorios','Categoria Accesorios Skates','temp-acc-cat-200x200.jpg',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -39,7 +69,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +78,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pablo','damico','pablodamico@hotmail.com','00000000','true',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'pablo','damico','pablodamico@hotmail.com','00000000','true',NULL,NULL,NULL,NULL,NULL),(2,'mariano','Martínez','marianoadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Paola','Garay','paolaadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +91,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-01 11:55:09
+-- Dump completed on 2020-08-01 12:46:45

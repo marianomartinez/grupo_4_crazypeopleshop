@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'User';
+    let alias = 'Category';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
         image: dataTypes.STRING(100),
         phone: dataTypes.STRING(45)
 
-        
+
     };
     /*let config = {
         tableName: 'Plates',
