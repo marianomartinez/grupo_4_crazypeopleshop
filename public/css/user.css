@@ -15,3 +15,13 @@
     border-radius: 50%;
     
 }
+
+
+.avatarprofile img{
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 200%;
+    -webkit-border-radius: 200%;
+    border-radius: 200%;
+    
+}

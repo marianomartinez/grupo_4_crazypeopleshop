@@ -10,6 +10,22 @@
     
 }
 
+.piquitoavatar{
+    color:black;
+
+}
+
+.desplegablepiquito{
+    position: relative;
+    z-index: 1;
+  
+}
+
+.zindexnavbar{
+      position: relative;
+    z-index: 0;
+}
+
 .MM-menu-btn{
     color: white;
     border: 1px white solid;
@@ -17,3 +33,4 @@
     padding: 2px 4px;
     text-shadow: #555 2px 2px 3px;
 }
+

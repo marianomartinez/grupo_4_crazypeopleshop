@@ -4,8 +4,11 @@
 <head>
     <%- include ('../partials/head')  %>
     <link rel="stylesheet" href="/css/CRUD.css">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/togglePassword.js"></script>
+
 </head>
+
 <body>
 
 
@@ -24,69 +27,74 @@
                 <h1 class="col-12 text-center mad">Iniciar Sesión</h1>
 
 
-            <section class="bg-home">
-                <div class="container py-4">
-                    <div class="row">
-                        <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light ">
-                            <div class="signup-form pb-4">
-                                <form action="/users/login" method="POST">
-                                    <div class="form-group">
-                                      
-                                    </div>
-                                    <div class="form-group">
-                                        <% if (typeof errors != 'undefined') { %>
-                                        <ul class="list-group-item text-danger">
-                                          
-                                            <li> Credenciales Inválidas </li>
-                                            
-                                        </ul>
-                                        <% } %>
-                                        <label for="exampleInputEmail1">Correo electrónico</label>
-                                        <input type="email" placeholder = "Correo Electrónico" class="form-control" name="email" 
-                                        value = "<%=typeof old == 'undefined' ? null : old.email%>">
-                                     
-                                         
-                                        <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca compartidos con terceros.</small>
-                                    </div>
-                                   
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Contraseña</label>
-                                        <input type="password" placeholder = "Contraseña" class="form-control" name="password" 
-                                        value= "<%= typeof old == 'undefined' ? null : old.password%>">
-                                     
-                                    </div>
-                                    <div class="form-group form-check">
-                                        <input type="checkbox" class="form-check-input" name="recordame" id="exampleCheck1"
-                                        <%if(usuarioMail != 'vacio'){ %>
-                                        checked>
-                                        <% } %>
-                                        <label class="form-check-label" for="exampleCheck1">Recordar mi correo electrónico</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                                    <a type="button" class="btn btn-danger" href="/">Cerrar</a>
-                                        
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/users/register">Nuevo por aquí? Registrate</a>
-                                    <a class="dropdown-item" href="#">¿Olvidaste tu Contraseña?</a>
-                                
-                                </form>
+                <section class="bg-home">
+                    <div class="container py-4">
+                        <div class="row">
+                            <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light ">
+                                <div class="signup-form pb-4">
+                                    <form action="/users/login" method="POST">
+
+                                        <div class="form-group">
+                                            <% if (typeof errors != 'undefined') { %>
+                                            <ul class="list-group-item text-danger">
+
+                                                <li> Credenciales Inválidas </li>
+
+                                            </ul>
+                                            <% } %>
+                                            <label for="exampleInputEmail1">Correo electrónico</label>
+                                            <input type="email" placeholder="Correo Electrónico" class="form-control"
+                                                name="email" value="<%=typeof old == 'undefined' ? null : old.email%>">
+
+
+                                            <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca
+                                                compartidos con terceros.</small>
+                                        </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Contraseña</label>
+                                                <i class="togglePassword fas fa-eye text-decoration-none eye"> </i>
+                                                <input type="password" placeholder="Contraseña" class="form-control password "" name="password"
+                                                value="<%= typeof old == 'undefined' ? null : old.password%>">
+                                                
+                                            </div>
+
+                                       
+                                          <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" name="recordame"
+                                                id="exampleCheck1" <%if(usuarioMail != 'vacio'){ %> checked>
+                                            <% } %>
+                                            <label class="form-check-label" for="exampleCheck1">Recordar mi correo
+                                                electrónico</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                                        <a type="button" class="btn btn-danger" href="/">Cerrar</a>
+
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/users/register">Nuevo por aquí? Registrate</a>
+                                        <a class="dropdown-item" href="#">¿Olvidaste tu Contraseña?</a>
+
+                                    </form>
 
 
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+            </div>
+        </main>
     </div>
-    </main>
-    </section>
+    
+</body>
+        <!-- Footer -->
+        
+        <%- include ('../partials/footer') %>
+        <%- include ('../partials/scripts') %>
 
-    <!-- Footer -->
-    <%- include ('../partials/footer') %>
-    <%- include ('../partials/scripts') %>
+        <!-- Scripts para Bootstrap -->
 
-    <!-- Scripts para Bootstrap -->
-   
 
 </html>

@@ -15,10 +15,10 @@
     "first_name": "Pablo",
     "last_name": "DAmico",
     "email": "pablodamico@hotmail.com",
-    "password": "$2a$10$yByHpiiHRNBOOK1Zj9mo1uYuInAtz74OHvyA0p7/TY/eiCOjXSLpm",
+    "password": "$2a$10$ntRIoZG/53BslVJ.0nCwTuNqk1wfNZMzIoaw5iWmFpmT4KtKQW0he",
     "confirm_password": "00000000",
-    "administra": true,
-    "imagen": "imagen-1595120075152.JPG",
+    "administra": false,
+    "imagen": "imagen-1596233438974.png",
     "telefono": "1131651749"
   },
   {

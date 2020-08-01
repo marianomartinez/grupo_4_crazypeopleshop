@@ -1,3 +1,13 @@
 main{
     height: 90vh;
 }
+
+
+.eye {
+    margin-left: 90%;
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -30px;
+}

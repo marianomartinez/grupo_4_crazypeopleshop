@@ -6,10 +6,10 @@
             <a class="" href="/">
                 <!-- Si usamos imagen jpg reemplazar <img src="_logo_" alt="_logo de la marca_"></a> -->
                 <!-- Por ahora uso este SVG -->
-                
-            <%- include ('../partials/svgLogo')  %>
-                
-                
+
+                <%- include ('../partials/svgLogo')  %>
+
+
             </a>
         </figure>
         <figure class="col-6 col-md-4 m-0 p-0">
@@ -26,34 +26,43 @@
                 <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
             </form>
 
-           
-        <% if (locals.usuarioLogueado == false) { %>
-            <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2" id="headerlogin" ></i></a>
+
+            <% if (locals.usuarioLogueado == false) { %>
+            <a href="/users/login"><i class="fas fa-sign-in-alt regist ml-2" id="headerlogin"></i></a>
             <a href="/users/register"><i class="fas fa-user-plus regist ml-2"></i></a>
-        <% } %> 
-           
-            <% if (locals.usuarioLogueado) { %>
-            <!--<a href="/users/logout" class="ml-2 avatext text-center" id="headeravatext">Cerrar Sesión</a>-->
-            <a href="/users/logout"><i class="fas fa-sign-out-alt regist mx-2" id="headerlogout" ></i></a>
             <% } %>
 
             <% if (locals.usuarioLogueado) { %>
-               <a href="/cart"><i class="fas fa-shopping-cart regist mr-3"id="headercart"></i></a>
-               <% } else { %> 
-                <a href="/cart"><i class="fas fa-shopping-cart regist ml-2"id="headercart"></i></a>
-                <% } %>
-                
+            <!--<a href="/users/logout" class="ml-2 avatext text-center" id="headeravatext">Cerrar Sesión</a>-->
+           
+            <figure class="avatar  text-align-center ml-3"><a href="/users/profileShow"><img
+                        src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt="" class="avatar"></a></figure>
+            
+            <ul class="navbar-nav ml-1 ">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle active piquitoavatar" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <!-- <i class="fas fa-user-circle ml-2"></i> -->
+                    </a>
+                    <div class="dropdown-menu border shadow-sm desplegablepiquito" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/users/profileShow">Mi Perfil<i class="fas fa-user-circle ml-2"></i></a>
+                        <a class="dropdown-item" href="/users/logout">Cerrar Sesión<i class="fas fa-sign-out-alt ml-2"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <a href="/cart"><i class="fas fa-shopping-cart regist ml-3" id="headercart"></i></a>
+            
+            
+            <% } %>
 
-            <% if (locals.usuarioLogueado != 'undefined') { %>
-                
-                <figure class="avatar mr-5 text-align-center"><a href="/users/profileShow"><img src="/img/users/<%= locals.usuarioLogueado.imagen %>" alt="" class="avatar"></a></figure>
-            
-             <% }; %>           
-            
+
+
+
+
         </div>
         </div>
     </nav>
-</header>
+
 
 
 
