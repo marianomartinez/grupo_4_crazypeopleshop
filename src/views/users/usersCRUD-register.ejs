@@ -34,17 +34,17 @@
             
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="first_name" placeholder="Nombre"
-                      value = "<%=typeof old == 'undefined' ? null : old.first_name%>">
-                      <% if(typeof errors != 'undefined' && errors.first_name){  %>
-                      <span class="text-danger"> <%=errors.first_name.msg%> </span>
+                  <input type="text" class="form-control" name="firstName" placeholder="Nombre"
+                      value = "<%=typeof old == 'undefined' ? null : old.firstName%>">
+                      <% if(typeof errors != 'undefined' && errors.firstName){  %>
+                      <span class="text-danger"> <%=errors.firstName.msg%> </span>
                       <% } %>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="last_name" placeholder="Apellido"
-                      value = "<%=typeof old == 'undefined' ? null : old.last_name%>">
-                      <% if(typeof errors != 'undefined' && errors.last_name){  %>
-                      <span class="text-danger"> <%=errors.last_name.msg%> </span>
+                  <input type="text" class="form-control" name="lastName" placeholder="Apellido"
+                      value = "<%=typeof old == 'undefined' ? null : old.lastName%>">
+                      <% if(typeof errors != 'undefined' && errors.lastName){  %>
+                      <span class="text-danger"> <%=errors.lastName.msg%> </span>
                       <% } %>
                 </div>
                 <div class="form-group">
