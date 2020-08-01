@@ -349,7 +349,7 @@
     "email": "holadmin@hola.com",
     "password": "$2a$10$wSOCD8yGmqxqd7hItUL2IOH252B9HglHzMsD8o8VTO7NBucyN4I1W",
     "fecha_alta": "Mon Jul 27 2020 13:48:17 GMT-0300 (hora estándar de Argentina)",
-    "administra": false,
+    "administra": true,
     "imagen": "imagen-1596055134473.jpg",
     "telefono": ""
   },
