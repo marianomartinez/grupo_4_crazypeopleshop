@@ -91,14 +91,14 @@ const usersController = {
     
     crud: function (req, res) {
 
-        let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Admin-Usuarios', usuarios: usuarios });
+        // let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+        // res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Admin-Usuarios', usuarios: usuarios });
         
-            //user.findAll()
-            //.then(usuarios => {
-              //  res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
-           // })
-            //.catch(error => res.send(error))
+            user.findAll()
+            .then(usuarios => {
+               res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
+           })
+            .catch(error => res.send(error))
      
     },
 
