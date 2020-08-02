@@ -231,7 +231,7 @@ const usersController = {
     processLogin: function (req, res, next) {
 
         let errors = validationResult(req);
-        console.log(errors);
+     
         if (errors.isEmpty()) {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
             for (let i = 0; i < usuariosActuales.length; i++) {

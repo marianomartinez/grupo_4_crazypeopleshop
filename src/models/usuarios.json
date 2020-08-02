@@ -1,16 +1,5 @@
 [
   {
-<<<<<<< HEAD
-    "id": 16,
-    "first_name": "Roberto",
-    "last_name": "Perfumo",
-    "email": "hol@hola.com",
-    "password": "00000000",
-    "confirm_password": "oo",
-    "administra": true,
-    "imagen": "imagen-1595684429075.jpg",
-    "telefono": "1111111199"
-=======
     "id": 1,
     "firstName": "Mariano",
     "lastName": "Martínez",
@@ -39,7 +28,6 @@
     "role": true,
     "image": "imagen-1596337762662.png",
     "phone": "1123452345"
->>>>>>> 5d6d76c09124ff8f00477c01d581b0fdbfc08b58
   },
   {
     "id": 17,
