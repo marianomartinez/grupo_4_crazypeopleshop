@@ -3,7 +3,7 @@
     "id": 16,
     "first_name": "Roberto",
     "last_name": "Perfumo",
-    "email": "rober@perfumo.com",
+    "email": "hol@hola.com",
     "password": "00000000",
     "confirm_password": "oo",
     "administra": true,
@@ -228,16 +228,7 @@
     "administra": false,
     "imagen": ""
   },
-  {
-    "id": 48,
-    "first_name": "a",
-    "last_name": "b",
-    "email": "pablodamicoq@hotmail.com",
-    "password": "000000000",
-    "fecha_alta": "Sat Jul 18 2020 21:24:48 GMT-0300 (GMT-03:00)",
-    "administra": false,
-    "imagen": ""
-  },
+ 
   {
     "id": 49,
     "first_name": "Roy",
@@ -347,7 +338,7 @@
     "first_name": "hola",
     "last_name": "holas",
     "email": "holadmin@hola.com",
-    "password": "$2a$10$wSOCD8yGmqxqd7hItUL2IOH252B9HglHzMsD8o8VTO7NBucyN4I1W",
+    "password": "00000000",
     "fecha_alta": "Mon Jul 27 2020 13:48:17 GMT-0300 (hora estándar de Argentina)",
     "administra": true,
     "imagen": "imagen-1596055134473.jpg",
