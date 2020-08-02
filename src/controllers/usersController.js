@@ -164,47 +164,29 @@ const usersController = {
     },
     show: function (req, res) {
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        let usuarioId = req.params.id;
-        const usuarioShow = usuariosActuales.find(usuario =>usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
-
-        //User
-        //.findByPk(req.params.id)
-        //.then(usuarioShow =>{
-          //  res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
-        //})
+        User
+        .findByPk(req.params.id)
+        .then(usuarioShow =>{
+            res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
+        })
         
         
     },
 
     delete: function (req, res) {
-
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        let usuarioId = req.params.id;
-        const usuariosNuevos = usuariosActuales.filter(usuario => usuario.id != usuarioId)
-        
-        let usuarioJSON = JSON.stringify(usuariosNuevos, null, 2)
-        fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON)
-        //User
-        //.destroy({
-          //  where :{
-            //id : req.params.id
-       // },
-        //force : true
-    //}).then(confirm => {
+        User
+        .destroy({
+            where :{
+            id : req.params.id
+        },
+        force : true
+    }).then(confirm => {
         res.redirect('/users/crud');
-    //})
+    })
         
     },
     edit: function (req, res,next) {
-
-        //let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        //let usuarioId = req.params.id;
-        //const usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
-        //res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Editar' })//
-
-       User
+        User
           .findByPk(req.params.id)
          .then(usuarioEdit => {
          res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
@@ -214,42 +196,35 @@ const usersController = {
     },
     update: function (req, res) {
        
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-        req.body.id = req.params.id;
-        let usuarioUpdate = usuariosActuales.map(usuario => {    //id nombre descripcion precio imagen
-            if (usuario.id == req.body.id) {
-
-                usuario.first_name = req.body.first_name,
-                    usuario.last_name = req.body.last_name,
-                    usuario.email = req.body.email,
-                    usuario.password = bcrypt.hashSync(req.body.password, 10),
-                    usuario.telefono = req.body.telefono,
-                    usuario.administra = req.body.admin ? true : false,
-                    usuario.imagen = req.file ? req.file.filename : req.body.image_old
-                //return usuario = req.body;
-            }
-            return usuario;
-        });
-
         let errors = validationResult(req);
+        console.log(errors);
         if (errors.isEmpty()) {
+            const _body = req.body
+            
+             _body.password = bcrypt.hashSync(req.body.password, 10),
+                _body.role = _body.role ? 'true' : 'false',
+                _body.image = req.file ? req.file.filename : req.body.image_old
+           
+           
+                User
+                .update(_body,{
+                    where : {id : req.params.id}
+                })
+                .then(usuario => {
+                  res.redirect('/');
+                })
 
-            usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '../models/usuarios.json'), usuarioJSON);
-            res.redirect('/users/crud');   
         }
         else {
-            
-            let usuarioId = req.params.id;
-            const usuarioEdit = usuarioUpdate.find(usuario => usuario.id == usuarioId);
-          
-            
-            return res.render(path.resolve(__dirname, '../views/users/edit'), {
-                Title: 'Registro',
-                errors: errors.mapped(),
-                usuarioEdit : usuarioEdit
-            });
+
+            User
+                .findByPk(req.params.id)
+                .then(usuarioEdit => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-EEdición', errors: errors.mapped() })
+                })
+
         }
+
     
     
     },

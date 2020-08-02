@@ -29,13 +29,7 @@
                         <div class="signup-form">
                             <form action="/users/edit/<%=usuarioEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
                               <div class="form-group">
-                                    <% if (typeof errors != 'undefined') { %>
-                                    <ul class="list-group-item text-danger">
-                                    <% for (let i = 0; i < errors.length; i++){ %>
-                                    <li><%=errors[i].msg %> </li>
-                                    <% } %>
-                                    </ul>
-                                    <% } %>
+
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
@@ -45,16 +39,16 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Nombre</label>
-                                        <input type="text" class="form-control" name="first_name" placeholder = "Nombre" value="<%=usuarioEdit.first_name%>">
-                                        <% if(typeof errors != 'undefined' && errors.first_name){  %>
-                                        <span class="text-danger"> <%=errors.first_name.msg%> </span>
+                                        <input type="text" class="form-control" name="firstName" placeholder = "Nombre" value="<%=usuarioEdit.firstName%>">
+                                        <% if(typeof errors != 'undefined' && errors.firstName){  %>
+                                        <span class="text-danger"> <%=errors.firstName.msg%> </span>
                                         <% } %>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Apellido</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Apellido" value="<%=usuarioEdit.last_name%>">
-                                                <% if(typeof errors != 'undefined' && errors.last_name){  %>
-                                                <span class="text-danger"> <%=errors.last_name.msg%> </span>
+                                        <input type="text" class="form-control" name="lastName" placeholder="Apellido" value="<%=usuarioEdit.lastName%>">
+                                                <% if(typeof errors != 'undefined' && errors.lastName){  %>
+                                                <span class="text-danger"> <%=errors.lastName.msg%> </span>
                                                 <% } %>
                                     </div>
 
@@ -68,8 +62,8 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="inputAddress">Teléfono</label>
-                                    <input type="text" class="form-control" name="telefono" placeholder="Telefono"
-                                        value="<%=usuarioEdit.telefono%>">
+                                    <input type="text" class="form-control" name="phone" placeholder="Telefono"
+                                        value="<%=usuarioEdit.phone%>">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputAddress2">Contraseña</label>
@@ -87,8 +81,8 @@
                                 <div class="form-row">
                                     <div class="form-group ml-4">
                                        
-                                        <input type="checkbox" class="form-check-input" name="admin" placeholder="" 
-                                        <%if(usuarioEdit.administra == true){ %> 
+                                        <input type="checkbox" class="form-check-input" name="role" placeholder="" 
+                                        <%if(usuarioEdit.role == 'true'){ %> 
                                         checked>
                                        <% } %> 
                                         <label class="form-check-label" for="exampleCheck1">Es administrador</label>
@@ -102,9 +96,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <div class="list-group-item ">Imágen: <img class="img-thumbnail" value = "/img/users/<%= usuarioEdit.imagen%>"  src="/img/users/<%= usuarioEdit.imagen%>" alt="">
-                                        <input type ="hidden" name = "image_old" value=<%=usuarioEdit.imagen%>>
-                                        <input type="file" class="form-control" name="imagen" placeholder="Imagen" value = <%=usuarioEdit.imagen%> >
+                                        <div class="list-group-item ">Imágen: <img class="img-thumbnail" value = "/img/users/<%= usuarioEdit.image%>"  src="/img/users/<%= usuarioEdit.image%>" alt="">
+                                        <input type ="hidden" name = "image_old" value=<%=usuarioEdit.image%>>
+                                        <input type="file" class="form-control" name="image" placeholder="Imagen" value = <%=usuarioEdit.image%> >
                                 </div>
 
                                     <div class="form-group d-inline">
