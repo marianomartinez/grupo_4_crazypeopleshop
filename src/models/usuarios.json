@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "id": 16,
     "first_name": "Roberto",
     "last_name": "Perfumo",
@@ -9,6 +10,36 @@
     "administra": true,
     "imagen": "imagen-1595684429075.jpg",
     "telefono": "1111111199"
+=======
+    "id": 1,
+    "firstName": "Mariano",
+    "lastName": "Martínez",
+    "email": "mariano@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
+    "role": true,
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
+  },
+  {
+    "id": 2,
+    "firstName": "Paola",
+    "lastName": "Garay",
+    "email": "paola@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
+    "role": true,
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
+  },
+  {
+    "id": 3,
+    "firstName": "Pablo",
+    "lastName": "Damico",
+    "email": "pablo@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
+    "role": true,
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
+>>>>>>> 5d6d76c09124ff8f00477c01d581b0fdbfc08b58
   },
   {
     "id": 17,
@@ -55,8 +86,8 @@
     "id": 24,
     "first_name": "Guillermo",
     "last_name": "Barros",
-    "email": "melli@gmial.com",
-    "password": "00000000",
+    "email": "diego@10.com",
+    "password": "$2a$10$EPVOoYOpjKf/pYfpJQfTKORzRgTNScsKaDc/wGCdXA.zro3lkfOK2",
     "administra": false,
     "imagen": ""
   },
@@ -82,8 +113,8 @@
     "id": 27,
     "first_name": "Pablo",
     "last_name": "Gismondi",
-    "email": "pablin@gmial.com",
-    "password": "00000000",
+    "email": "pocho@gmail.com",
+    "password": "$2a$10$X/Hwylb74ZspJzvqDXLpa.IXLdwSVW/tTAlwHicYtLBnNkHxosO/S",
     "administra": true,
     "imagen": "imagen-1594005149623.jpg"
   },

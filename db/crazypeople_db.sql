@@ -48,6 +48,36 @@ INSERT INTO `categories` VALUES (1,'Inline Skates','Categoria Inline Skates','te
 UNLOCK TABLES;
 
 --
+-- Table structure for table `subcategories`
+--
+
+DROP TABLE IF EXISTS `subcategories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subcategories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subcategoryName` varchar(45) NOT NULL,
+  `idCategory` int(11) unsigned NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subcategories`
+--
+
+LOCK TABLES `subcategories` WRITE;
+/*!40000 ALTER TABLE `subcategories` DISABLE KEYS */;
+INSERT INTO `subcategories` VALUES (1,'Acc-Varios',3,'Accesorios varios',NULL,NULL,NULL),(2,'Acc-Quad',3,'Accesorios para Quad Skates',NULL,NULL,NULL),(3,'Acc-Inline',3,'Accesorios para Inline Skates',NULL,NULL,NULL),(4,'Fitness',1,'Inline Skates - Fitness',NULL,NULL,NULL),(5,'Freeskate',1,'Inline Skates - Freeskate',NULL,NULL,NULL),(6,'Hockey',1,'Inline Skates - Hockey',NULL,NULL,NULL),(7,'Offroad',1,'Inline Skates - Offroad',NULL,NULL,NULL),(8,'Racing',1,'Inline Skates - Racing',NULL,NULL,NULL),(9,'Classic',2,'Quad Skates - Classic',NULL,NULL,NULL),(10,'Derby',2,'Quad Skates - Derby',NULL,NULL,NULL),(11,'Lifestyle',2,'Quad Skates - Lifestyle',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -69,7 +99,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +108,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pablo','damico','pablodamico@hotmail.com','00000000','true',NULL,NULL,NULL,NULL,NULL),(2,'mariano','Martínez','marianoadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Paola','Garay','paolaadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Mariano','Martínez','mariano@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345','2020-08-02 01:40:23','2020-08-02 01:40:23',NULL),(2,'Paola','Garay','paola@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Pablo','Damico','pablo@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -91,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-01 12:46:45
+-- Dump completed on 2020-08-01 22:56:33
