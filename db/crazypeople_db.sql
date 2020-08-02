@@ -99,7 +99,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +108,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Pablo','Damico','pablodamico@hotmail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(2,'Mariano','Martínez','marianoadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Paola','Garay','paolaadmin@mail.com','00000000','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(4,'ClienteN','ClienteA','cliente@mail.com','00000000','false',NULL,'1123452345',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Mariano','Martínez','mariano@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345','2020-08-02 01:40:23','2020-08-02 01:40:23',NULL),(2,'Paola','Garay','paola@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Pablo','Damico','pablo@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-01 19:21:02
+-- Dump completed on 2020-08-01 22:56:33

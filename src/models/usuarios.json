@@ -1,14 +1,33 @@
 [
   {
-    "id": 16,
-    "firstName": "Roberto",
-    "lastName": "Perfumo",
-    "email": "edu@gmail.com",
-    "password": "$2a$10$N26mWHKkpe.a5Yac4gWZ6uIiCNEdJ8sa8b4VGXuasg61LaLIv4gye",
-    "confirm_password": "oo",
+    "id": 1,
+    "firstName": "Mariano",
+    "lastName": "Martínez",
+    "email": "mariano@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
     "role": true,
-    "image": "imagen-1595684429075.jpg",
-    "phone": "1111111199"
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
+  },
+  {
+    "id": 2,
+    "firstName": "Paola",
+    "lastName": "Garay",
+    "email": "paola@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
+    "role": true,
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
+  },
+  {
+    "id": 3,
+    "firstName": "Pablo",
+    "lastName": "Damico",
+    "email": "pablo@admin.com",
+    "password": "$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni",
+    "role": true,
+    "image": "usuariovacio1.png",
+    "phone": "1123452345"
   },
   {
     "id": 17,
