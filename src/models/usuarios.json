@@ -1,14 +1,14 @@
 [
   {
     "id": 16,
-    "first_name": "Roberto",
-    "last_name": "Perfumo",
-    "email": "rober@perfumo.com",
-    "password": "00000000",
+    "firstName": "Roberto",
+    "lastName": "Perfumo",
+    "email": "edu@gmail.com",
+    "password": "$2a$10$N26mWHKkpe.a5Yac4gWZ6uIiCNEdJ8sa8b4VGXuasg61LaLIv4gye",
     "confirm_password": "oo",
-    "administra": true,
-    "imagen": "imagen-1595684429075.jpg",
-    "telefono": "1111111199"
+    "role": true,
+    "image": "imagen-1595684429075.jpg",
+    "phone": "1111111199"
   },
   {
     "id": 17,
@@ -55,8 +55,8 @@
     "id": 24,
     "first_name": "Guillermo",
     "last_name": "Barros",
-    "email": "melli@gmial.com",
-    "password": "00000000",
+    "email": "diego@10.com",
+    "password": "$2a$10$EPVOoYOpjKf/pYfpJQfTKORzRgTNScsKaDc/wGCdXA.zro3lkfOK2",
     "administra": false,
     "imagen": ""
   },
@@ -82,8 +82,8 @@
     "id": 27,
     "first_name": "Pablo",
     "last_name": "Gismondi",
-    "email": "pablin@gmial.com",
-    "password": "00000000",
+    "email": "pocho@gmail.com",
+    "password": "$2a$10$X/Hwylb74ZspJzvqDXLpa.IXLdwSVW/tTAlwHicYtLBnNkHxosO/S",
     "administra": true,
     "imagen": "imagen-1594005149623.jpg"
   },

@@ -256,27 +256,27 @@ const usersController = {
     processLogin: function (req, res, next) {
 
         let errors = validationResult(req);
-        
+        console.log(errors);
         if (errors.isEmpty()) {
             let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            for (let i = 0; i<usuariosActuales.length;i++){
-                if(usuariosActuales[i].email == req.body.email){
-                    if (bcrypt.compareSync(req.body.password , usuariosActuales[i].password)) {
+            for (let i = 0; i < usuariosActuales.length; i++) {
+                if (usuariosActuales[i].email == req.body.email) {
+                    if (bcrypt.compareSync(req.body.password, usuariosActuales[i].password)) {
                         var usuarioaLoguearse = usuariosActuales[i];
-                    
-                        
-                        
+
+
+
                     }
                 }
             }
 
-            
-            if (usuarioaLoguearse == undefined){
-                    return res.render(path.resolve(__dirname, '../views/users/login'), {
+
+            if (usuarioaLoguearse == undefined) {
+                return res.render(path.resolve(__dirname, '../views/users/login'), {
                     Title: 'Login',
                     usuarioMail: req.body.email,
                     password: req.body.password,
-                    old : req.body,
+                    old: req.body,
                     errors: errors.mapped()
                     //errors: {msg : 'Credenciales Inválidas'}
                 });
@@ -286,26 +286,29 @@ const usersController = {
 
             delete usuarioaLoguearse.password;
             req.session.usuarioLogueado = usuarioaLoguearse;
-            
+
             //veo si tildo recordame en el login
             //Guardo cookies usuario que se loguea
-            if(req.body.recordame != undefined){
-                res.cookie('recordame',usuarioaLoguearse.email,{maxAge:1000 * 60 * 60 * 24})
-            } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 })}
+            if (req.body.recordame != undefined) {
+                res.cookie('recordame', usuarioaLoguearse.email, { maxAge: 1000 * 60 * 60 * 24 })
+            } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 }) }
             //entro al home y le paso el usuario que se logueo
-            res.redirect('/') 
+            res.redirect('/')
         } else {
-            
+
             return res.render(path.resolve(__dirname, '../views/users/login'), {
                 Title: 'Login',
                 usuarioMail: req.body.email,
-                password : req.body.password,
+                password: req.body.password,
                 old: req.body,
                 errors: errors.mapped()
             });
         }
 
-   },
+    
+   
+},
+
     
 logout: function (req, res) {
     
