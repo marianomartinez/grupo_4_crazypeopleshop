@@ -1,5 +1,16 @@
 [
   {
+<<<<<<< HEAD
+    "id": 16,
+    "first_name": "Roberto",
+    "last_name": "Perfumo",
+    "email": "hol@hola.com",
+    "password": "00000000",
+    "confirm_password": "oo",
+    "administra": true,
+    "imagen": "imagen-1595684429075.jpg",
+    "telefono": "1111111199"
+=======
     "id": 1,
     "firstName": "Mariano",
     "lastName": "Martínez",
@@ -28,6 +39,7 @@
     "role": true,
     "image": "imagen-1596337762662.png",
     "phone": "1123452345"
+>>>>>>> 5d6d76c09124ff8f00477c01d581b0fdbfc08b58
   },
   {
     "id": 17,
@@ -247,16 +259,7 @@
     "administra": false,
     "imagen": ""
   },
-  {
-    "id": 48,
-    "first_name": "a",
-    "last_name": "b",
-    "email": "pablodamicoq@hotmail.com",
-    "password": "000000000",
-    "fecha_alta": "Sat Jul 18 2020 21:24:48 GMT-0300 (GMT-03:00)",
-    "administra": false,
-    "imagen": ""
-  },
+ 
   {
     "id": 49,
     "first_name": "Roy",
@@ -366,7 +369,7 @@
     "first_name": "hola",
     "last_name": "holas",
     "email": "holadmin@hola.com",
-    "password": "$2a$10$wSOCD8yGmqxqd7hItUL2IOH252B9HglHzMsD8o8VTO7NBucyN4I1W",
+    "password": "00000000",
     "fecha_alta": "Mon Jul 27 2020 13:48:17 GMT-0300 (hora estándar de Argentina)",
     "administra": true,
     "imagen": "imagen-1596055134473.jpg",
