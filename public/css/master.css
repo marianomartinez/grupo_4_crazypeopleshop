@@ -7,6 +7,8 @@
 @import "/css/carousel.css";
 @import "/css/CRUD.css";
 @import "/css/header.css";
+@import "/css/categoriesCRUD.css";
+@import "/css/userDetail.css";
 
 
 *{font-family: 'Josefin Sans',sans-serif;}
