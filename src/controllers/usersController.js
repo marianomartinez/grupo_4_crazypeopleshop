@@ -197,11 +197,17 @@ const usersController = {
     update: function (req, res) {
        
         let errors = validationResult(req);
-        console.log(errors);
+       
         if (errors.isEmpty()) {
             const _body = req.body
-            
-             _body.password = bcrypt.hashSync(req.body.password, 10),
+            if (_body.password == ''){
+                console.log('no cambio');
+                _body.password = _body.password_old
+            }else{
+                _body.password = bcrypt.hashSync(req.body.password, 10)
+
+            }
+          
                 _body.role = _body.role ? 'true' : 'false',
                 _body.image = req.file ? req.file.filename : req.body.image_old
            

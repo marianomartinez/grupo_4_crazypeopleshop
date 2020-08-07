@@ -32,10 +32,17 @@
 
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-2">
                                         <label for="inputZip">ID</label>
                                         <input type="text" class="form-control" name="id" value="<%=usuarioEdit.id%>"
                                             disabled>
+                                    </div>
+                                    <div class="form-group col-md-10">
+                                        <label for="inputAddress">Correo Electrónico</label>
+                                        <input type="text" class="form-control" name="email" placeholder="Corro Electrónico" value="<%=usuarioEdit.email%>">
+                                        <% if(typeof errors != 'undefined' && errors.email){  %>
+                                        <span class="text-danger"> <%=errors.email.msg%> </span>
+                                        <% } %>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Nombre</label>
@@ -52,35 +59,30 @@
                                                 <% } %>
                                     </div>
 
-                                <div class="form-group col-md-12">
-                                    <label for="inputAddress">Correo Electrónico</label>
-                                    <input type="text" class="form-control" name="email" placeholder="Corro Electrónico"
-                                        value="<%=usuarioEdit.email%>">
-                                    <% if(typeof errors != 'undefined' && errors.email){  %>
-                                        <span class="text-danger"> <%=errors.email.msg%> </span>
-                                    <% } %>
-                                </div>
+
                                 <div class="form-group col-md-12">
                                     <label for="inputAddress">Teléfono</label>
                                     <input type="text" class="form-control" name="phone" placeholder="Telefono"
                                         value="<%=usuarioEdit.phone%>">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-12">
                                     <label for="inputAddress2">Contraseña</label>
-                                    <input type="password" class="form-control" name="password"
-                                        placeholder="Ingrese contraseña (6 a 15 caracteres)" value="<%=usuarioEdit.password%>">
+                                    <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
+                                    <input type="password" class="form-control" name="password" 
+                                        placeholder="Nueva contraseña (6 a 15 caracteres)">
                                         <% if(typeof errors != 'undefined' && errors.password){  %>
                                         <span class="text-danger"> <%=errors.password.msg%> </span>
                                         <% } %>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-12">
                                     <label for="inputAddress2">Reingrese Contraseña</label>
-                                    <input type="password" class="form-control" name="password2" placeholder="Reingrese contraseña (6 a 15 caracteres)"
-                                    value="<%=usuarioEdit.password%>">
+                                    <input type="password" class="form-control" name="password2"  placeholder="Reingrese nueva contraseña (6 a 15 caracteres)"
+                                    >
                                 </div>
+                                                            
+                                                      
                                 <div class="form-row">
-                                    <div class="form-group ml-4">
-                                       
+                                    <div class="form-group ml-12">
                                         <input type="checkbox" class="form-check-input" name="role" placeholder="" 
                                         <%if(usuarioEdit.role == 'true'){ %> 
                                         checked>
@@ -88,11 +90,7 @@
                                         <label class="form-check-label" for="exampleCheck1">Es administrador</label>
                                     </div>
 
-                                    <div class="form-group col-md-12">
-                                        <label for="inputZip">Fecha Alta</label>
-                                        <input type="text" class="form-control" name="fecha_alta"
-                                            value="<%=usuarioEdit.createdAt%>" disabled> 
-                                    </div>
+       
                                 </div>
 
                                 <div class="form-group">
