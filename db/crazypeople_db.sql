@@ -119,7 +119,7 @@ CREATE TABLE `users` (
   `lastName` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `roleId` varchar(45) NOT NULL,
+  `roleId` int(11) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Mariano','Martínez','mariano@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345','2020-08-02 01:40:23','2020-08-02 01:40:23',NULL),(2,'Paola','Garay','paola@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Pablo','Damico','pablo@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni','true','usuariovacio1.png','1123452345',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Mariano','Martínez','mariano@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni',3,'usuariovacio1.png','1123452345','2020-08-02 01:40:23','2020-08-02 01:40:23',NULL),(2,'Paola','Garay','paola@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni',3,'usuariovacio1.png','1123452345',NULL,NULL,NULL),(3,'Pablo','Damico','pablo@admin.com','$2a$10$vm6d4JVjQTwmsDKzgE3T7OjkGErzBEbekSpASsUwYQiAQMOBdO9Ni',3,'usuariovacio1.png','1123452345',NULL,NULL,NULL),(4,'Pruebas','Cliente','pruebas@cliente.com','$2a$10$iivXbNoa2XPBBnapn9ddh.Zkr9W/IV4rJWhNtXjAGroZKAu.V3eLO',1,'usuariovacio1.png','1154325432','2020-08-08 17:21:25','2020-08-08 17:21:59',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -150,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-08 13:27:35
+-- Dump completed on 2020-08-08 14:23:36
