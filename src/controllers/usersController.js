@@ -211,8 +211,8 @@ const usersController = {
                 _body.password = bcrypt.hashSync(req.body.password, 10)
 
             }
-          
-                _body.role = _body.role ? 'true' : 'false',
+                console.log(_body.roleId);
+                _body.roleId = _body.roleId ? 3 : 1,
                 _body.image = req.file ? req.file.filename : req.body.image_old
            
            
