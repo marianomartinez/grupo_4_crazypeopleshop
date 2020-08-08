@@ -15,66 +15,69 @@ const { forEach } = require('../middlewares/userLogin');
 const usersController = {
 
     profileShow: function (req, res) {
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
-        let usuarioId = req.session.usuarioLogueado.id;
-        const usuarioShow = usuariosActuales.find(usuario => usuario.id == usuarioId);
-        res.render(path.resolve(__dirname, '..','views','users','profileShow'), {
-            usuarioShow: usuarioShow,
-            Title: 'Mi perfil'
-        })
 
+        User
+            .findAll({
+                where: { id: req.session.usuarioLogueado.id }
+            }).then(usuarioShow => {
+                res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileShow'), {
+                    usuarioShow: usuarioShow[0],
+                    Title: 'Mi perfil'
+                })
+
+            }).catch(error => res.send(error))
+ 
     },
     profileEdit: function (req, res, next) {
 
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
-        let usuarioId = req.session.usuarioLogueado.id;
-        let usuarioEdit = usuariosActuales.find(usuario => usuario.id == usuarioId);
-        usuarioEdit.password = '';
-        console.log(usuarioEdit);
-        res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
-            usuarioEdit: usuarioEdit,
-            Title: 'Editar mi perfil'
+      
+      
+         User
+             .findByPk(req.session.usuarioLogueado.id) 
+         .then(usuarioEdit => {
+           res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
         })
-
-        // User
-        //   .findByPk(req.params.id) // !!! seguramente acá usemos req.session.usuarioLogueado.id
-        // .then(usuarioEdit => {
-        //   res.render(path.resolve(__dirname, '..', 'views', 'users', 'edit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
-        //})
 
 
     },
     profileUpdate: function (req, res) {
-        let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')));
-        req.body.id = req.session.usuarioLogueado.id;
-        let usuarioUpdate = usuariosActuales.map(usuario => { //id nombre descripcion precio imagen
-            if (usuario.id == req.body.id) {
-                usuario.first_name = req.body.first_name,
-                    usuario.last_name = req.body.last_name,
-                    usuario.email = req.body.email,
-                    usuario.password = bcrypt.hashSync(req.body.password, 10),
-                    usuario.telefono = req.body.telefono,
-                    usuario.administra = req.body.admin ? true : false,
-                    usuario.imagen = req.file ? req.file.filename : req.body.image_old
-                //return usuario = req.body;
-            }
-            return usuario;
-        });
+        
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
 
-            usuarioJSON = JSON.stringify(usuarioUpdate, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usuarioJSON);
-            res.redirect('/users/profileShow');
-        } else {
-            let usuarioId = req.params.id;
-            const usuarioEdit = usuarioUpdate.find(usuario => usuario.id == usuarioId);
-            return res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
-                Title: 'Registro',
-                errors: errors.mapped(),
-                usuarioEdit: usuarioEdit
-            });
+        if (errors.isEmpty()) {
+            const _body = req.body
+            if (_body.password == '') {
+
+                _body.password = _body.password_old
+            } else {
+                _body.password = bcrypt.hashSync(req.body.password, 10)
+
+            }
+
+            
+                _body.image = req.file ? req.file.filename : req.body.image_old
+
+
+            User
+                .update(_body, {
+                    where: { id: req.params.id }
+                })
+                .then(usuario => {
+                    res.redirect('/users/profileShow');
+                })
+
         }
+        else {
+
+            User
+                .findByPk(req.params.id)
+                .then(usuarioEdit => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-EEdición', errors: errors.mapped() })
+                })
+
+        }
+
+
     },
     register: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/users/register.html'));
@@ -202,7 +205,7 @@ const usersController = {
         if (errors.isEmpty()) {
             const _body = req.body
             if (_body.password == ''){
-                console.log('no cambio');
+                
                 _body.password = _body.password_old
             }else{
                 _body.password = bcrypt.hashSync(req.body.password, 10)
@@ -218,7 +221,7 @@ const usersController = {
                     where : {id : req.params.id}
                 })
                 .then(usuario => {
-                  res.redirect('/');
+                  res.redirect('/users/crud');
                 })
 
         }
@@ -244,7 +247,7 @@ const usersController = {
                 .findAll({
                     where: { email: req.body.email}
                 }).then(usuariosActuales =>{
-                    
+
                     usuarioaLoguearse = usuariosActuales;
                     delete usuarioaLoguearse[0].password;
                     req.session.usuarioLogueado = usuarioaLoguearse[0];
