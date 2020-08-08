@@ -117,7 +117,7 @@ const usersController = {
         if (errors.isEmpty()) {
             const _body = req.body
             _body.password = bcrypt.hashSync(req.body.password, 10),
-            _body.role = _body.role ? 'true' : 'false',
+            _body.roleId = _body.roleId ? 3 : 1,
             _body.image = req.file ? req.file.filename : 'usuariovacio1.png'
             User
                 .create(_body)
@@ -145,7 +145,7 @@ const usersController = {
         if (errors.isEmpty()) {
             const _body = req.body
             _body.password = bcrypt.hashSync(_body.password, 10),
-            _body.role = _body.role ? 'true' : 'false',
+            _body.roleId = 1,
                 _body.image = req.file ? req.file.filename : 'usuariovacio1.png'
             User
                 .create(_body)

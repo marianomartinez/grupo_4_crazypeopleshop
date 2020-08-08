@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(500),
             allowNull: false
         },
-        role: dataTypes.STRING(45),
+        roleId: dataTypes.INTEGER,
         image: dataTypes.STRING(100),
         phone: dataTypes.STRING(45)
 
