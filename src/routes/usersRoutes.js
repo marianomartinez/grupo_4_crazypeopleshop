@@ -46,12 +46,12 @@ router.get('/users/logout', usersController.logout);
 
 router.post('/users/login',require('../middlewares/userLogin'), usersController.processLogin);
 
-router.put('/users/profileUpdate/:id', upload.single('imagen'),require('../middlewares/userProfileUpdate'), usersController.profileUpdate);
+router.put('/users/profileUpdate/:id', upload.single('image'),require('../middlewares/userProfileUpdate'), usersController.profileUpdate);
 
-router.put('/users/edit/:id', upload.single('imagen'),require('../middlewares/userUpdate'),usersController.update);
+router.put('/users/edit/:id', upload.single('image'),require('../middlewares/userUpdate'),usersController.update);
 
-router.post('/users/register', upload.single('imagen'), require('../middlewares/userRegister'),usersController.newguest);
+router.post('/users/register', upload.single('image'), require('../middlewares/userRegister'),usersController.newguest);
 
-router.post('/users/create', upload.single('imagen'),require('../middlewares/userCreate'), usersController.create);
+router.post('/users/create', upload.single('image'),require('../middlewares/userCreate'), usersController.create);
 
 module.exports = router;

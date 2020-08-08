@@ -3,14 +3,26 @@
 
 <head>
     <%- include ('../partials/head')  %>
+    <script src="/js/togglePassword.js"></script>
 </head>
 
 <body class="fonditos mb-1">
     <div class="container-fluid">
         <%- include('../partials/header.ejs')%>
+
         <!-- Cuerpo principal -->
+        <!--<section class="row">
+            <article class="col-12  card pt-5">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Edición de Usuarios</h1>
+
+
+                </div>
+            </article>
+        </section>-->
         <div class="col-12 text-center text-md-left py-4 paovh80">
-            <h1 class="col-12 text-center mad">Editar mi perfil</h1>
+            <h1 class="col-12 text-center mad">Edición de Usuarios</h1>
+
             <section class="bg-home pt-4">
                 <div class="container">
                     <div class="row">
@@ -18,25 +30,23 @@
                             <div class="signup-form">
                                 <form action="/users/profileUpdate/<%=usuarioEdit.id%>?_method=put" method="POST"
                                     enctype="multipart/form-data">
-                                    <!--
                                     <div class="form-group">
-                                        <% if (typeof errors != 'undefined') { %>
-                                        <ul class="list-group-item text-danger">
-                                            <% for (let i = 0; i < errors.length; i++){ %>
-                                            <li><%=errors[i].msg %></li>
-                                            <% } %>
-                                        </ul>
-                                        <% } %>
+
                                     </div>
-                                    -->
                                     <div class="form-row">
-                                        <!--
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-2">
                                             <label for="inputZip">ID</label>
                                             <input type="text" class="form-control" name="id"
                                                 value="<%=usuarioEdit.id%>" disabled>
                                         </div>
-                                        -->
+                                        <div class="form-group col-md-10">
+                                            <label for="inputAddress">Correo Electrónico</label>
+                                            <input type="text" class="form-control" name="email"
+                                                placeholder="Corro Electrónico" value="<%=usuarioEdit.email%>">
+                                            <% if(typeof errors != 'undefined' && errors.email){  %>
+                                            <span class="text-danger"> <%=errors.email.msg%> </span>
+                                            <% } %>
+                                        </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputCity">Nombre</label>
                                             <input type="text" class="form-control" name="firstName"
@@ -54,67 +64,62 @@
                                             <% } %>
                                         </div>
 
-                                        <div class="form-group col-md-12">
-                                            <label for="inputAddress">Correo Electrónico</label>
-                                            <input type="text" class="form-control" name="email"
-                                                placeholder="Corro Electrónico" value="<%=usuarioEdit.email%>">
-                                            <% if(typeof errors != 'undefined' && errors.email){  %>
-                                            <span class="text-danger"> <%=errors.email.msg%> </span>
-                                            <% } %>
-                                        </div>
+
                                         <div class="form-group col-md-12">
                                             <label for="inputAddress">Teléfono</label>
-                                            <input type="text" class="form-control" name="telefono"
-                                                placeholder="Telefono" value="<%=usuarioEdit.phone%>">
+                                            <input type="text" class="form-control" name="phone" placeholder="Telefono"
+                                                value="<%=usuarioEdit.phone%>">
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputAddress2">Contraseña</label>
+                                        <label for="inputAddress">Contraseña</label>
+                                        <div class="input-group col-12">
+                                            <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
                                             <input type="password" class="form-control" name="password"
-                                                placeholder="Ingrese contraseña (6 a 15 caracteres)"
-                                                value="<%=usuarioEdit.password%>">
-                                            <% if(typeof errors != 'undefined' && errors.password){  %>
-                                            <span class="text-danger"> <%=errors.password.msg%> </span>
-                                            <% } %>
+                                                placeholder="Nueva contraseña (6 a 15 caracteres)">
+                                        
+                                            <div class="input-group-append">
+                                                <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
+                                            </div>
+                                                <% if(typeof errors != 'undefined' && errors.password){  %>
+                                                <span class="text-danger"> <%=errors.password.msg%> </span>
+                                                <% } %>
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputAddress2">Reingrese Contraseña</label>
-                                            <input type="password" class="form-control" name="password2"
-                                                placeholder="Reingrese contraseña (6 a 15 caracteres)"
-                                                value="<%=usuarioEdit.password%>">
-                                        </div>
-                                        <!--
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label for="inputZip">Fecha Alta</label>
-                                                <input type="text" class="form-control" name="fecha_alta"
-                                                    value="<%=usuarioEdit.createdAt%>" disabled>
+                                <label for="inputAddress">Reingrese Contraseña</label>
+                                        <div class="input-group col-12">
+                                        
+                                            <input type="password" class="form-control password2" name="password2"
+                                                placeholder="Reingrese nueva contraseña (6 a 15 caracteres)">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text  bg-white" id="togglePassword2"><i class="fas fa-eye"> </i></span>
                                             </div>
                                         </div>
-                                        -->
+
+
+
                                         <div class="form-group">
-                                            <div class="list-group-item ">Imagen: <img class="img-thumbnail"
+                                            <div class="list-group-item ">Imágen: <img class="img-thumbnail"
                                                     value="/img/users/<%= usuarioEdit.image%>"
                                                     src="/img/users/<%= usuarioEdit.image%>" alt="">
                                                 <input type="hidden" name="image_old" value=<%=usuarioEdit.image%>>
-                                                <input type="file" class="form-control" name="imagen"
+                                                <input type="file" class="form-control" name="image"
                                                     placeholder="Imagen" value=<%=usuarioEdit.image%>>
+                                            </div>
+
+                                            <div class="form-group d-inline">
+                                                <button type="submit" class="btn btn btn-primary">Actualizar</button>
                                             </div>
                                             <div class="form-group d-inline">
                                                 <a type="button" class="btn btn btn-danger"
                                                     href="/users/profileShow">Volver</a>
                                             </div>
-                                            <div class="form-group d-inline">
-                                                <button type="submit" class="btn btn btn-primary">Guardar</button>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
         </div>
+        </section>
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
 
