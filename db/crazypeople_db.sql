@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `categories`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryName` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
@@ -48,6 +48,35 @@ INSERT INTO `categories` VALUES (1,'Inline Skates','Categoria Inline Skates','te
 UNLOCK TABLES;
 
 --
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `deletedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'client','CLIENT puede acceder a vistas públicas, agregar productos al carrito y realizar compras.',NULL,NULL,NULL),(2,'admin','ADMIN puede acceder a las vistas de administrador y editar el CRUD de productos, subcategorías y cat',NULL,NULL,NULL),(3,'superadmin','SUPERADMIN puede acceder a todas las vistas y editar todo. Agrega los permisos de ADMIN.',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `subcategories`
 --
 
@@ -56,8 +85,8 @@ DROP TABLE IF EXISTS `subcategories`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subcategories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subcategoryName` varchar(45) NOT NULL,
-  `idCategory` int(11) unsigned NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `categoryId` int(11) unsigned NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
@@ -90,7 +119,7 @@ CREATE TABLE `users` (
   `lastName` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` varchar(45) NOT NULL,
+  `roleId` varchar(45) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
@@ -121,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-01 22:56:33
+-- Dump completed on 2020-08-08 13:27:35
