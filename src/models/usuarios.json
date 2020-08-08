@@ -44,9 +44,9 @@
     "id": 19,
     "first_name": "Jorge",
     "last_name": "Granados",
-    "email": "jorge@granados.com",
-    "password": "00000000",
-    "administra": false,
+    "email": "jorge@jorge.com",
+    "password": "$2a$10$UowbZ.bgHFNgSHFuyQhEueI6qI9Qd110LKq7z4aVR3C1CMnpXVEiK",
+    "role": "true",
     "imagen": "imagen-1595648270438.png",
     "telefono": ""
   },

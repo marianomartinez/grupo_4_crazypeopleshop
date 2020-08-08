@@ -246,10 +246,10 @@ const usersController = {
                 }).then(usuariosActuales =>{
                     
                     usuarioaLoguearse = usuariosActuales;
-                    delete usuarioaLoguearse.password;
-                    req.session.usuarioLogueado = usuarioaLoguearse;
+                    delete usuarioaLoguearse[0].password;
+                    req.session.usuarioLogueado = usuarioaLoguearse[0];
                     if (req.body.recordame != undefined) {
-                        console.log('este es' + usuarioaLoguearse[0].email);
+                       
                         res.cookie('recordame', usuarioaLoguearse[0].email, { maxAge: 1000 * 60 * 60 * 24 })
                     } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 }) }
                     res.redirect('/')
