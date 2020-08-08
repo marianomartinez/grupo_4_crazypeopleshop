@@ -8,6 +8,7 @@ const User = db.User;
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
+const { forEach } = require('../middlewares/userLogin');
 
 // let usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
 
@@ -235,55 +236,38 @@ const usersController = {
     
     },
     processLogin: function (req, res, next) {
-
+        
         let errors = validationResult(req);
-     
         if (errors.isEmpty()) {
-            let usuariosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
-            for (let i = 0; i < usuariosActuales.length; i++) {
-                if (usuariosActuales[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, usuariosActuales[i].password)) {
-                        var usuarioaLoguearse = usuariosActuales[i];
+            var usuarioaLoguearse = [];
+            User
+                .findAll({
+                    where: { email: req.body.email}
+                }).then(usuariosActuales =>{
+                    
+                    usuarioaLoguearse = usuariosActuales;
+                    delete usuarioaLoguearse.password;
+                    req.session.usuarioLogueado = usuarioaLoguearse;
+                    if (req.body.recordame != undefined) {
+                        console.log('este es' + usuarioaLoguearse[0].email);
+                        res.cookie('recordame', usuarioaLoguearse[0].email, { maxAge: 1000 * 60 * 60 * 24 })
+                    } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 }) }
+                    res.redirect('/')
 
-
-
-                    }
-                }
-            }
-
-
-            if (usuarioaLoguearse == undefined) {
-                return res.render(path.resolve(__dirname, '../views/users/login'), {
-                    Title: 'Login',
-                    usuarioMail: req.body.email,
-                    password: req.body.password,
-                    old: req.body,
-                    errors: errors.mapped()
-                    //errors: {msg : 'Credenciales Inválidas'}
-                });
-            }
-            //sesion usuario actual. Se guarda en el servidor.
-            //no guardo el password en la sesion
-
-            delete usuarioaLoguearse.password;
-            req.session.usuarioLogueado = usuarioaLoguearse;
-
-            //veo si tildo recordame en el login
-            //Guardo cookies usuario que se loguea
-            if (req.body.recordame != undefined) {
-                res.cookie('recordame', usuarioaLoguearse.email, { maxAge: 1000 * 60 * 60 * 24 })
-            } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 }) }
-            //entro al home y le paso el usuario que se logueo
-            res.redirect('/')
+           
+                }).catch(error => res.send(error))
+                
+                //entro al home y le paso el usuario que se logueo
+            
         } else {
 
-            return res.render(path.resolve(__dirname, '../views/users/login'), {
-                Title: 'Login',
-                usuarioMail: req.body.email,
-                password: req.body.password,
-                old: req.body,
-                errors: errors.mapped()
-            });
+                return res.render(path.resolve(__dirname, '../views/users/login'), {
+                     Title: 'Login',
+                     usuarioMail: req.body.email,
+                     password: req.body.password,
+                     old: req.body,
+                     errors: errors.mapped()
+                 });
         }
 
     
