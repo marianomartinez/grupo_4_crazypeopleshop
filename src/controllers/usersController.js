@@ -95,7 +95,9 @@ const usersController = {
     
     crud: function (req, res) {
         
-        User.findAll()
+        User.findAll({
+            include : [{association:"role"}]
+        })
             .then(usuarios => {
                 res.render(path.resolve(__dirname, '../views/users/usersCRUD'), { Title: 'Usuarios', usuarios: usuarios });
             })
