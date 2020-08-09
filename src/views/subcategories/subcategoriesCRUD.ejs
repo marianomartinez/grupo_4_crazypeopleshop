@@ -27,7 +27,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Subcategoría</th>
-                            <th>(Categoría)</th>
+                            <th>Categoría</th>
                             <th>Descripcion</th>
                             <th>Ver</th>
                             <th>Editar</th>
@@ -40,10 +40,9 @@
                         <% subcategorias.forEach(subcategoria => { %>
                         <tr>
                             <td><%= subcategoria.id %></td>
-                            <td><%= subcategoria.subcategoria %></td>
-                            <% let categoriaPrint = categorias.find(categoria => categoria.id_categoria == subcategoria.id_categoria); %>
-                            <td><%= categoriaPrint.categoria %></td>
-                            <td><%= subcategoria.descripcion %></td>
+                            <td><%= subcategoria.name %></td>
+                            <td><%= subcategoria.category.name %></td>
+                            <td><%= subcategoria.description %></td>
 
                             <td><a href="/subcategories/detail/<%=subcategoria.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>

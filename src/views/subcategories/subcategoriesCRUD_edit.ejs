@@ -36,16 +36,16 @@
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="subcategoria">Subcategoría</label>
-                                        <input type="text" class="form-control" name="subcategoria"
-                                            placeholder="Subcategoría" value="<%=subcategoriaEdit.subcategoria%>">
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Subcategoría" value="<%=subcategoriaEdit.name%>">
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="categoria">Categoría a la que pertenece</label>
                                         <select class="form-control custom-select" name="categoria" required>
                                             <%categorias.forEach(categoria => { %>
-                                            <option value="<%= categoria.id_categoria %>"
-                                                <% if (categoria.id_categoria == subcategoriaEdit.id_categoria) { %>
-                                                <%= 'selected' %> <% }; %>><%= categoria.categoria %>
+                                            <option value="<%= categoria.id %>"
+                                                <% if (categoria.id == subcategoriaEdit.categoriaId) { %> <%= 'selected' %> <% }; %>>
+                                                <%= categoria.name %>
                                             </option>
                                             <% }); %>
                                         </select>
@@ -53,15 +53,15 @@
                                     <div class="form-group col-12">
                                         <label for="descripcion">Descripción</label>
                                         <input type="text" class="form-control" name="descripcion" placeholder="Descripción"
-                                            value="<%=subcategoriaEdit.descripcion%>">
+                                            value="<%=subcategoriaEdit.description%>">
                                     </div>
                              </div>
         
                              <div class="form-group">
                                     <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                        src="/img/web/<%= subcategoriaEdit.imagen%>" alt="">
+                                        src="/img/web/<%= subcategoriaEdit.image%>" alt="">
                                         <input type="file" class="form-control" name="imagen" placeholder="Imagen"
-                                        value="<%=subcategoriaEdit.imagen%>">
+                                        value="<%=subcategoriaEdit.image%>">
                                     </div>
                                 </div>
         
