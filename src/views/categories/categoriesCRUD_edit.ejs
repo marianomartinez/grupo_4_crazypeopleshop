@@ -29,31 +29,38 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mx-md-auto bg-light ">
                         <div class="signup-form">
-                            <form action="/categories/edit/<%=categoriaEdit.id_categoria%>?_method=put" method="POST" enctype="multipart/form-data">
+                            <form action="/categories/edit/<%=categoriaEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
         
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="inputZip">ID</label>
-                                        <input type="text" class="form-control" name="id" value="<%=categoriaEdit.id_categoria%>" disabled>
+                                        <input type="text" class="form-control" name="id" value="<%=categoriaEdit.id%>" disabled>
                                     </div>
                                      <div class="form-group">
                                         <label for="inputAddress"> Categoría </label>
-                                        <input type="text" class="form-control" name="categoria" placeholder="Categoria"
-                                            value="<%=categoriaEdit.categoria%>">
+                                        <input type="text" class="form-control" name="name" placeholder="Categoria"
+                                            value="<%=categoriaEdit.name%>">
+                                            <% if(typeof errors != 'undefined' && errors.name){  %>
+                                            <span class="text-danger"> <%=errors.name.msg%> </span>
+                                            <% } %>
                                     </div>
                                     
                                     <div class="form-group col-12">
                                         <label for="inputAddress">Descripción</label>
-                                        <input type="text" class="form-control" name="descripcion" placeholder="Descripción"
-                                            value="<%=categoriaEdit.descripcion%>">
+                                        <input type="text" class="form-control" name="description" placeholder="Descripción"
+                                            value="<%=categoriaEdit.description%>">
+                                            <% if(typeof errors != 'undefined' && errors.description){  %>
+                                            <span class="text-danger"> <%=errors.description.msg%> </span>
+                                            <% } %>
                                     </div>
                              </div>
         
                              <div class="form-group">
                                     <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                        src="/img/web/<%= categoriaEdit.imagen%>" alt="">
-                                        <input type="file" class="form-control" name="imagen" placeholder="Imagen"
-                                        value="<%=categoriaEdit.imagen%>">
+                                        src="/img/web/<%= categoriaEdit.image%>" alt="">
+                                        <input type="hidden" name="image_old" value=<%=categoriaEdit.image%>>
+                                        <input type="file" class="form-control" name="image" placeholder="Imagen"
+                                        value="<%=categoriaEdit.image%>">
                                     </div>
                                 </div>
         

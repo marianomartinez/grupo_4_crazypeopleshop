@@ -28,14 +28,12 @@ router.get('/category/:id', categoriesController.showCategory);
 //router.get('/category/accesories', categoriesController.showCategoryAccesories);
 
 router.get('/categories/crud', categoriesController.crud);
-router.post('/categories/crud', upload.single('imagen'), categoriesController.save);
 router.get('/categories/categoriasCRUD/add', categoriesController.add);
 router.get('/categories/detail/:id', categoriesController.show);
-router.put('/categories/edit/:id', upload.single('imagen'), categoriesController.update);
 router.get('/categories/edit/:id', categoriesController.edit);
 router.get('/categories/delete/:id', categoriesController.delete);
 // router.get('/subcategories/crud', categoriesController.crudsubcat);
-
-
+router.put('/categories/edit/:id', upload.single('image'), require('../middlewares/categoryUpdate'), categoriesController.update);
+router.post('/categories/crud', upload.single('image'), require('../middlewares/categoryCreate'),categoriesController.save);
 
 module.exports = router;

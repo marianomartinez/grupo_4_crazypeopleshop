@@ -1,5 +1,11 @@
 const path = require('path');
 const fs = require('fs');
+const db = require('../database/models/')
+
+const Category = db.Category;
+
+//Express validator
+let { check, validationResult, body } = require('express-validator');
 
 
 
@@ -43,86 +49,100 @@ const categoriesController = {
         res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {productos: productos, galleryShow: galleryShow,Title: categoriaShow.categoria});
     },
     crud: function (req, res) {
-        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Admin-Categorias', categorias: categorias });
+        Category.findAll()
+            .then(categorias => {
+                res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD'), { Title: 'Admin-Categorias', categorias: categorias });
+ })
+            .catch(error => res.send(error))
+
     },
     show: function (req, res) {
 
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        let categoriaId = req.params.id;
-        const categoriaShow = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
-        res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_display'), { categoriaShow: categoriaShow, Title: 'Categoría-Visualizar' })
+        Category
+            .findByPk(req.params.id)
+            .then(categoriaShow => {
+                res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_display'), { categoriaShow: categoriaShow, Title: 'Categoría-Visualizar' })
+ })
 
     },
     add: function (req, res) {
-        let categorias = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
         res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'), {
-            Title: 'Categoría-Crear',
-            categorias: categorias
-        });
+            Title: 'Categoría-Crear'
+                });
     },
     delete: function (req, res) {
 
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        let categoriaId = req.params.id;
-        const categoriasNuevos = categoriasActuales.filter(categoria => categoria.id_categoria != categoriaId)
-
-        let categoriasJSON = JSON.stringify(categoriasNuevos, null, 2)
-        fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriasJSON)
-        res.redirect('/categories/crud');
+        Category
+            .destroy({
+                where: {
+                    id: req.params.id
+                },
+                force: true
+            }).then(confirm => {
+                res.redirect('/categories/crud');
+            })
     },
     save: function (req, res) {
+        let errors = validationResult(req);
 
+        if (errors.isEmpty()) {
+            const _body = req.body
+            _body.image = req.file ? req.file.filename : 'categoriavacia.jpg'
+            Category
+                .create(_body)
+                .then(categoria => {
+                    res.redirect('/categories/crud');
+                })
 
-
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        let categoriaUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-
-        categoriaUltimo = categoriaUltimo.pop();
-
-
-
-
-        let categoriaNuevo = {
-            id_categoria: categoriaUltimo.id_categoria + 1,
-            categoria: req.body.categoria,
-            descripcion: req.body.descripcion,
-            imagen: req.file ? req.file.filename : ""
         }
+        else {
 
-        categoriasActuales.push(categoriaNuevo);
+            return res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'),
+                {
+                    Title: 'Nueva Categoría',
+                    errors: errors.mapped(),
+                    old: req.body
+                });
 
-        let categoriaJSON = JSON.stringify(categoriasActuales, null, 2)
-
-        fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriaJSON)
-        res.redirect('/categories/crud');
+        }
 
     },
     edit: function (req, res) {
+        Category
+            .findByPk(req.params.id)
+            .then(categoriaEdit => {
+                res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Editar' })
 
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        let categoriaId = req.params.id;
-        const categoriaEdit = categoriasActuales.find(categoria => categoria.id_categoria == categoriaId);
-        res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Editar'})
+            })
 
     },
     update: function (req, res) {
 
-        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')))
-        req.body.id = req.params.id;
-        let categoriaUpdate = categoriasActuales.map(categoria => {    //id nombre descripcion precio imagen
-            if (categoria.id_categoria == req.body.id) {
-                categoria.categoria = req.body.categoria,
-                categoria.descripcion = req.body.descripcion,
-                categoria.imagen = req.file ? req.file.filename : ""
+        let errors = validationResult(req);
 
-                //return producto = req.body;
-            }
-            return categoria;
-        });
-        categoriaJSON = JSON.stringify(categoriaUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/categorias.json'), categoriaJSON);
-        res.redirect('/categories/crud');
+        if (errors.isEmpty()) {
+            const _body = req.body
+              _body.image = req.file ? req.file.filename : req.body.image_old
+            Category
+                .update(_body, {
+                    where: { id: req.params.id }
+                })
+                .then(categoria => {
+                    res.redirect('/categories/crud');
+                })
+
+        }
+        else {
+
+            Category
+                .findByPk(req.params.id)
+                .then(categoriaEdit => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Edición', errors: errors.mapped() })
+                })
+
+        }
+
+
 
     }
 

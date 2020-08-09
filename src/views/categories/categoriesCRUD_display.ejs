@@ -23,12 +23,12 @@
                         <div class="col-8 mx-auto bg-light">
                             <div class="card">
                                 <ul class="list-group">
-                                    <li class="list-group-item">ID: <%=categoriaShow.id_categoria %> </li>
-                                    <li class="list-group-item">Categoría: <%=categoriaShow.categoria %> </li>
-                                    <li class="list-group-item">Descripcion: <%=categoriaShow.descripcion %> </li>
-                                    <li class="list-group-item">Fecha de Alta: </li>
+                                    <li class="list-group-item">ID: <%=categoriaShow.id %> </li>
+                                    <li class="list-group-item">Categoría: <%=categoriaShow.name %> </li>
+                                    <li class="list-group-item">Descripcion: <%=categoriaShow.description %> </li>
+                                    <li class="list-group-item">Fecha de Alta: <%=categoriaShow.createdAt %> </li>
                                     <li class="list-group-item ">Imagen: <img class="img-thumbnail"
-                                            src="/img/web/<%= categoriaShow.imagen%>" alt=""></li>
+                                            src="/img/web/<%= categoriaShow.image%>" alt=""></li>
 
                                 </ul>
 

@@ -38,17 +38,17 @@
 
                         <% categorias.forEach(categoria => { %>
                         <tr>
-                            <td><%=categoria.id_categoria %></td>
-                            <td><%=categoria.categoria %></td>
-                             <td><%=categoria.descripcion %></td>
+                            <td><%=categoria.id %></td>
+                            <td><%=categoria.name %></td>
+                             <td><%=categoria.description %></td>
  
-                            <td><a href="/categories/detail/<%=categoria.id_categoria%> ">
+                            <td><a href="/categories/detail/<%=categoria.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/categories/edit/<%=categoria.id_categoria%> ">
+                            <td><a href="/categories/edit/<%=categoria.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/categories/delete/<%=categoria.id_categoria%> ">
+                            <td><a href="/categories/delete/<%=categoria.id%> ">
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a></td>
 
