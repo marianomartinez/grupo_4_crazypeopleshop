@@ -3,7 +3,7 @@ const fs = require('fs');
 const db = require('../database/models/')
 
 const Subcategory = db.Subcategory;
-const Category = db.Subcategory;
+const Category = db.Category;
 //Express validator
 let { check, validationResult, body } = require('express-validator');
 
@@ -35,59 +35,67 @@ const subcategoriesController = {
 
     },
     add: function (req, res) {
-        res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'), {
-            Title: 'Categoría-Crear'
-        });
+        Category
+            .findAll()
+            .then(categorias => {
+                res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_add'), { categorias: categorias, Title: 'Subcategoria-Crear' })
+            }).catch(error => res.send(error))
+
+
     },
     delete: function (req, res) {
 
-        Category
+        Subcategory
             .destroy({
                 where: {
                     id: req.params.id
                 },
                 force: true
             }).then(confirm => {
-                res.redirect('/categories/crud');
+                res.redirect('/subcategories/crud');
             })
     },
     save: function (req, res) {
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
             const _body = req.body
-            _body.image = req.file ? req.file.filename : 'categoriavacia.jpg'
-            Category
+            _body.categoryId = req.body.categoria
+          //  _body.image = req.file ? req.file.filename : 'categoriavacia.jpg'
+            Subcategory
                 .create(_body)
-                .then(categoria => {
-                    res.redirect('/categories/crud');
+                .then(subcategoria => {
+                    res.redirect('/subcategories/crud');
                 })
 
         }
         else {
+            console.log(req.body);
+            Category
+                .findAll()
+                .then(categorias => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_add'),
+                        {
+                            Title: 'Nueva Subcategoría',
+                            errors: errors.mapped(),
+                            old: req.body,
+                            categorias: categorias
+                        })
+                })
 
-            return res.render(path.resolve(__dirname, '../views/categories/categoriesCRUD_add'),
-                {
-                    Title: 'Nueva Categoría',
-                    errors: errors.mapped(),
-                    old: req.body
-                });
-
-        }
-
+            }  
     },
     edit: function (req, res) {
        
         let Querycategorias = Category.findAll();
         let QuerysubcategoriaEdit = Subcategory.findByPk(req.params.id)
 
-        Promise.all([Querycategorias,QuerysubcategoriaEdit])
-        .then(function([categorias,subcategoriaEdit]){
-        res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_edit'), { subcategoriaEdit: subcategoriaEdit,categorias:categorias, Title: 'Subcategoria-Editar' })
+        Promise.all([Querycategorias, QuerysubcategoriaEdit])
+            .then(function ([categorias, subcategoriaEdit]) {
+                res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_edit'), { categorias: categorias, subcategoriaEdit: subcategoriaEdit, Title: 'Subcategoria-Editar' })
 
-        }
-    
-        )
+            }
+
+            )
     },
     update: function (req, res) {
 
@@ -95,23 +103,25 @@ const subcategoriesController = {
 
         if (errors.isEmpty()) {
             const _body = req.body
+            _body.categoryId = req.body.categoria
             _body.image = req.file ? req.file.filename : req.body.image_old
-            Category
+            Subcategory
                 .update(_body, {
                     where: { id: req.params.id }
                 })
-                .then(categoria => {
-                    res.redirect('/categories/crud');
+                .then(subcategoria => {
+                    res.redirect('/subcategories/crud');
                 })
 
         }
         else {
-
+            req.body.id = req.params.id
+            
             Category
-                .findByPk(req.params.id)
-                .then(categoriaEdit => {
-                    res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Edición', errors: errors.mapped() })
-                })
+                .findAll()
+                .then(categorias => {
+                    res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_edit'), { categorias: categorias,subcategoriaEdit : req.body, Title: 'Categoria-Edición', errors: errors.mapped() })
+                }).catch(error => res.send(error))
 
         }
 

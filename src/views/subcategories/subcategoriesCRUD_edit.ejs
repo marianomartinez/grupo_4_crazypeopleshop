@@ -38,33 +38,40 @@
                                         <label for="subcategoria">Subcategoría</label>
                                         <input type="text" class="form-control" name="name"
                                             placeholder="Subcategoría" value="<%=subcategoriaEdit.name%>">
+                                            <% if(typeof errors != 'undefined' && errors.name){  %>
+                                            <span class="text-danger"> <%=errors.name.msg%> </span>
+                                            <% } %>
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="categoria">Categoría a la que pertenece</label>
                                         <select class="form-control custom-select" name="categoria" required>
                                             <%categorias.forEach(categoria => { %>
                                             <option value="<%= categoria.id %>"
-                                                <% if (categoria.id == subcategoriaEdit.categoriaId) { %> <%= 'selected' %> <% }; %>>
-                                                <%= categoria.name %>
+                                                <% if (categoria.id == subcategoriaEdit.categoryId) { %> 
+                                                <%= 'selected' %> <% }; %>> <%= categoria.name %>
                                             </option>
                                             <% }); %>
                                         </select>
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="descripcion">Descripción</label>
-                                        <input type="text" class="form-control" name="descripcion" placeholder="Descripción"
+                                        <input type="text" class="form-control" name="description" placeholder="Descripción"
                                             value="<%=subcategoriaEdit.description%>">
+                                            <% if(typeof errors != 'undefined' && errors.description){  %>
+                                            <span class="text-danger"> <%=errors.description.msg%> </span>
+                                            <% } %>
                                     </div>
                              </div>
         
-                             <div class="form-group">
+                            <!--      <div class="form-group">
                                     <div class="list-group-item ">Imágen: <img class="img-thumbnail"
                                         src="/img/web/<%= subcategoriaEdit.image%>" alt="">
-                                        <input type="file" class="form-control" name="imagen" placeholder="Imagen"
+                                        <input type="file" class="form-control" name="image" placeholder="Imagen"
                                         value="<%=subcategoriaEdit.image%>">
+                                        <input type="hidden" name="image_old" value=<%=subcategoriaEdit.image%>>
                                     </div>
                                 </div>
-        
+                            -->
         
                               <div class="form-group d-inline">
                                     <button type="submit" class="btn btn btn-primary">Actualizar</button>

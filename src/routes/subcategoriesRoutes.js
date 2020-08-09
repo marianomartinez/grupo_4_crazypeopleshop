@@ -21,22 +21,15 @@ const upload = multer({
 //Requerir el modulo de los controladores
 const subcategoriesController = require(path.resolve(__dirname, '../controllers/subcategoriesController'));
 
-// Métodos en nuestros controladores: index - show - edit - delete 
 
-// router.get('/subcategory/:id', subcategoriesController.showSubcategory);
-// Las 3 rutas de abajo fueron reemplazadas por la de arriba
-//router.get('/category/iSkates', categoriesController.showCategoryISkates);
-//router.get('/category/qSkates', categoriesController.showCategoryQSkates);
-//router.get('/category/accesories', categoriesController.showCategoryAccesories);
 
 router.get('/subcategories/crud', subcategoriesController.crud);
-router.post('/subcategories/crud', upload.single('imagen'), subcategoriesController.save);
 router.get('/subcategories/subcategoriesCRUD/add', subcategoriesController.add);
 router.get('/subcategories/detail/:id', subcategoriesController.show);
-router.put('/subcategories/edit/:id', upload.single('imagen'), subcategoriesController.update);
 router.get('/subcategories/edit/:id', subcategoriesController.edit);
 router.get('/subcategories/delete/:id', subcategoriesController.delete);
 
-
+router.put('/subcategories/edit/:id', upload.single('image'), require('../middlewares/subcategoryUpdate'), subcategoriesController.update);
+router.post('/subcategories/crud', upload.single('image'), require('../middlewares/subcategoryCreate'),subcategoriesController.save);
 
 module.exports = router;
