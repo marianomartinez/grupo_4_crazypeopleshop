@@ -61,7 +61,6 @@ const categoriesController = {
                 let galleryShow = results.filter(product => 
                     product.subcategory.categoryId == selectedCategory.id
                 )
-                return res.send(galleryShow);
                 return res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {galleryShow, Title: selectedCategory.name})
             })
         })

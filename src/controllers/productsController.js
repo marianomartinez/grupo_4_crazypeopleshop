@@ -1,11 +1,16 @@
 const path = require('path');
 const fs = require('fs');
+const product = require('../database/models/product');
+const db = require('../database/models/')
 
-
+const Category = db.Category;
+const Subcategory = db.Subcategory;
+const Product = db.Product;
 
 
 const productsController = {
     productShow: function (req, res) {
+        /*
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subCategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
@@ -14,6 +19,13 @@ const productsController = {
         let productId = req.params.id;
         let productToShow = productos.find(producto => producto.id == productId);
         res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, fromCategory, Title: productToShow.marca + ' ' + productToShow.modelo });
+        */
+
+        Product.findByPk(req.params.id, {include: ['subcategory','images']})
+        .then(productToShow => {
+            // return res.send(productToShow)
+            return res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, Title: productToShow.brand + ' ' + productToShow.model })
+        })
     },
 
     // El controlador de abajo fue reemplazado por "productShow"
@@ -126,6 +138,7 @@ const productsController = {
     },
     show: function (req, res) {
 
+        
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
 
@@ -157,6 +170,9 @@ const productsController = {
         let productoId = req.params.id;
         const productoShow = productosActuales.find(producto => producto.id == productoId);
         res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-detail'), { productoShow: productoShow,categorias:categorias,subcategorias:subcategorias, Title: 'Producto-Visualizar' })
+        
+        
+        
 
     },
     edit: function (req, res) {

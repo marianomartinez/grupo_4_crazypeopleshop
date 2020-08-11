@@ -20,8 +20,8 @@ module.exports = (sequelize, dataTypes) => {
         Image.belongsToMany(models.Product, {
             as: "product",
             through: "product_image",
-            foreignKey: "id",
-            otherKey: "productId"
+            // foreignKey: "id", // con este y el de abajo me hacía lío con las imágenes
+            // otherKey: "productId" // con este y el de abajo me hacía lío con las imágenes
         });
         // Image.belongsTo(models.ProductImage, {
         //     as: "image",
