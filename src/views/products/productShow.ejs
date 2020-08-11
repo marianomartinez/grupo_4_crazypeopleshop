@@ -77,9 +77,9 @@
                             <label class="my-1" for="sel1">Talle:</label>
                             <select class="form-control mb-4" id="sel1">
                                 <option selected disabled>-elegir talle-</option>
-                                <!-- <% //for (i=0;i<productToShow.talle.length;i++) { %>
-                                <option value="<%= //productToShow.talle[i] %>"><%= //productToShow.talle[i] %></option>
-                                <% //}; %> -->
+                                <% for (i=0;i<productToShow.sizes.length;i++) { %>
+                                <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
+                                <% }; %>
                             </select>
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">
                         <a type="button" class="w-100 botcar text-center" href="/category/<%=productToShow.categoryId%>">Volver</a>   

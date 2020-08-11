@@ -6,33 +6,10 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        model: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
-        brand: {
-            type: dataTypes.STRING(45),
-            allowNull: false
-        },
-        price: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false
-        },
-        discount: {
-            type: dataTypes.INTEGER(11),
-            allowNull: true
-        },
-        show: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false
-        },
-        subcategoryId: {
+        eusize: {
             type: dataTypes.INTEGER,
             allowNull: false
-        },
-        description: {
-            type: dataTypes.STRING(1000),
-        },
+        }
     };
     /*let config = {
         tableName: 'size'
@@ -43,8 +20,8 @@ module.exports = (sequelize, dataTypes) => {
         Size.belongsToMany(models.Product, {
             as: "products",
             through: "product_size_stock",
-            foreignKey: "id",
-            otherKey: "productId"
+            // foreignKey: "id",
+            // otherKey: "productId"
         });
     }
 

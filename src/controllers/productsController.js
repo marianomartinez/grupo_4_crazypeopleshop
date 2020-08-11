@@ -21,9 +21,9 @@ const productsController = {
         res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, fromCategory, Title: productToShow.marca + ' ' + productToShow.modelo });
         */
 
-        Product.findByPk(req.params.id, {include: ['subcategory','images']})
+        Product.findByPk(req.params.id, {include: ['subcategory','images','sizes']})
         .then(productToShow => {
-            return res.send(productToShow)
+            // return res.send(productToShow)
             return res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, Title: productToShow.brand + ' ' + productToShow.model })
         })
     },
