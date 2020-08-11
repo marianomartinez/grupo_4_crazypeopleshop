@@ -7,14 +7,14 @@ const fs = require('fs');
 const productsController = {
     productShow: function (req, res) {
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
-         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-         let subCategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
-         let subcategoriaId = req.params.category;
-         let fromCategory = subCategoriasActuales.find(subcategoria => subcategoria.id == subcategoriaId);
-         let productId = req.params.id;
-         let productToShow = productos.find(producto => producto.id == productId);
+        let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        let subCategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+        let subcategoriaId = req.params.category;
+        let fromCategory = subCategoriasActuales.find(subcategoria => subcategoria.id == subcategoriaId);
+        let productId = req.params.id;
+        let productToShow = productos.find(producto => producto.id == productId);
         res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, fromCategory, Title: productToShow.marca + ' ' + productToShow.modelo });
-     },
+    },
 
     // El controlador de abajo fue reemplazado por "productShow"
     /*

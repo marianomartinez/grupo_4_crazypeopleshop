@@ -2,7 +2,7 @@
   {
     "id": 1,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Ruby",
     "descripcion": "Patines quad - COLORES!!!",
@@ -27,7 +27,7 @@
   {
     "id": 2,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Jump",
     "descripcion": "Patines quad - COLORES!!!",
@@ -264,7 +264,7 @@
   {
     "id": 17,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 8,
     "marca": "Powerslide",
     "modelo": "Speed XX",
     "descripcion": "Patines de carrera - COLORES!!!",
@@ -331,7 +331,7 @@
   {
     "id": 21,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 6,
     "marca": "Reign",
     "modelo": "Anax",
     "descripcion": "Patines de hockey",
@@ -383,7 +383,7 @@
   {
     "id": 23,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 6,
     "marca": "Reign",
     "modelo": "Atlas",
     "descripcion": "Patines de hockey",
@@ -409,7 +409,7 @@
   {
     "id": 24,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Hardcore Evo Pro",
     "descripcion": "Patines de slalom",
@@ -435,7 +435,7 @@
   {
     "id": 25,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Imperial Evo",
     "descripcion": "Patines de Freeskate",
@@ -461,7 +461,7 @@
   {
     "id": 26,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Imperial Megacruiser",
     "descripcion": "Patines de freeskate",
@@ -487,7 +487,7 @@
   {
     "id": 27,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Metropolis",
     "descripcion": "Patines de freeskate",
@@ -513,7 +513,7 @@
   {
     "id": 28,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 7,
     "marca": "Powerslide",
     "modelo": "Next SUV",
     "descripcion": "Patines de offroad",
@@ -539,7 +539,7 @@
   {
     "id": 29,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 7,
     "marca": "Powerslide",
     "modelo": "Nordic XC Trail",
     "descripcion": "Patines de offroad XC",
@@ -591,7 +591,7 @@
   {
     "id": 31,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 6,
     "marca": "Reign",
     "modelo": "Perseus",
     "descripcion": "Patines de hockey",
@@ -695,7 +695,7 @@
   {
     "id": 35,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 5,
     "marca": "Powerslide",
     "modelo": "Urban Kids",
     "descripcion": "Patines freeskate para niños",
@@ -721,7 +721,7 @@
   {
     "id": 36,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 8,
     "marca": "Powerslide",
     "modelo": "ViPro Carbon",
     "descripcion": "Patines de carrera - COLORES!!!",
@@ -747,7 +747,7 @@
   {
     "id": 37,
     "id_categoria": 1,
-    "id_subcategoria": 4,
+    "id_subcategoria": 6,
     "marca": "Reign",
     "modelo": "Zeus",
     "descripcion": "Patines de hockey",
@@ -773,7 +773,7 @@
   {
     "id": 38,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Jump",
     "descripcion": "Patines quad - COLORES!!!",
@@ -798,7 +798,7 @@
   {
     "id": 39,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Melrose Elite",
     "descripcion": "Patines quad clásicos - COLORES!!!",
@@ -823,7 +823,7 @@
   {
     "id": 40,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Onix",
     "descripcion": "Patines quad Derby",
@@ -848,7 +848,7 @@
   {
     "id": 41,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Ruby",
     "descripcion": "Patines quad - COLORES!!!",
@@ -873,7 +873,7 @@
   {
     "id": 42,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Vintage Glide",
     "descripcion": "Patines quad",
@@ -898,7 +898,7 @@
   {
     "id": 43,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Glide Denim",
     "descripcion": "Patines quad",
@@ -923,7 +923,7 @@
   {
     "id": 44,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Unicorn Glide Kids",
     "descripcion": "Patines quad niños",
@@ -948,7 +948,7 @@
   {
     "id": 45,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 10,
     "marca": "Chaya",
     "modelo": "Jade",
     "descripcion": "Patines quad Derby",
@@ -973,7 +973,7 @@
   {
     "id": 46,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Vintage Neat",
     "descripcion": "Patines quad",
@@ -998,7 +998,7 @@
   {
     "id": 47,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 9,
     "marca": "Playlife",
     "modelo": "Classic",
     "descripcion": "Patines classic",
@@ -1023,7 +1023,7 @@
   {
     "id": 48,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Powerslide",
     "modelo": "Quad Minnie",
     "descripcion": "Patines para niños",
@@ -1072,7 +1072,7 @@
   {
     "id": 50,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Powerslide",
     "modelo": "Quad Rich",
     "descripcion": "Patines quad",
@@ -1097,7 +1097,7 @@
   {
     "id": 51,
     "id_categoria": 2,
-    "id_subcategoria": 5,
+    "id_subcategoria": 11,
     "marca": "Chaya",
     "modelo": "Melrose Elite",
     "descripcion": "Patines quad clásicos - COLORES!!!",
@@ -1221,28 +1221,6 @@
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view1_xxl",
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view2_xxl",
       "iSkates/fitness/PS_Swell_110/PS_510021_Powerslide_Swell_Bright_Crimson_110_2018_view3_xxl"
-    ]
-  },
-  {
-    "id": 56,
-    "id_categoria": 3,
-    "id_subcategoria": 3,
-    "marca": "PABLO",
-    "modelo": "DAMICO MAX",
-    "descripcion": "EL MEJOR PATIN",
-    "color": "VERDE",
-    "precio": "123",
-    "talle": [
-      37,
-      38,
-      39,
-      42,
-      44,
-      45,
-      46
-    ],
-    "images": [
-      "accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"
     ]
   }
 ]

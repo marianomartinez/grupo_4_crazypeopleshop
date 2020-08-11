@@ -3,6 +3,9 @@ const fs = require('fs');
 const db = require('../database/models/')
 
 const Category = db.Category;
+const Subcategory = db.Subcategory;
+const Product = db.Product;
+
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
@@ -29,7 +32,9 @@ const categoriesController = {
         //         }
         //     }    
         // });
-
+        
+        // MM Usábamos el método de abajo con base en JSON
+        /*
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')));
         let categoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoriasActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
@@ -47,6 +52,32 @@ const categoriesController = {
         });
         
         res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {productos: productos, galleryShow: galleryShow,Title: categoriaShow.categoria});
+        */
+
+        Category.findByPk(req.params.id, {include: 'subcategory'})
+        .then(selectedCategory => {
+            Product.findAll({include: ['subcategory','images']})
+            .then(results => {
+                let galleryShow = results.filter(product => 
+                    product.subcategory.categoryId == selectedCategory.id
+                )
+                return res.send(galleryShow);
+                return res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {galleryShow, Title: selectedCategory.name})
+            })
+        })
+
+        // Product.findByPk(req.params.id, {include: 'images'})
+        // .then(product=> {
+        //     return res.send(product)
+        // })
+
+
+        // .findAll({include: 'images'})
+        // .then(galleryShow => {
+        //     return res.send(galleryShow);
+        //     return res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {galleryShow, Title: selectedCategory})
+        // })
+        .catch(error => res.send(error))
     },
     crud: function (req, res) {
         Category.findAll()
