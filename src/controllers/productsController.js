@@ -23,7 +23,7 @@ const productsController = {
 
         Product.findByPk(req.params.id, {include: ['subcategory','images']})
         .then(productToShow => {
-            // return res.send(productToShow)
+            return res.send(productToShow)
             return res.render(path.resolve(__dirname, '../views/products/productShow'), { productToShow, Title: productToShow.brand + ' ' + productToShow.model })
         })
     },
