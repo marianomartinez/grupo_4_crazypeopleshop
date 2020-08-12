@@ -37,6 +37,8 @@ const productsController = {
     */
 
     crud: function (req, res) {
+        
+        /*
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
@@ -62,9 +64,21 @@ const productsController = {
             // a debe ser igual a b
             return 0;
         });
-
-
+        
         res.render(path.resolve(__dirname, '../views/products/productsCRUD'), { Title: 'Admin-Productos', productos: productos, categorias: categorias, subcategorias: subcategorias });
+        */
+
+        let productsProm = Product.findAll({include: ['subcategory']});
+        let categoryProm = Category.findAll();
+        let subcategoryProm = Subcategory.findAll();
+        Promise.all([productsProm, categoryProm, subcategoryProm])
+        .then(([products,categories,subcategories]) => {
+            // return res.send(products);
+            return res.render(path.resolve(__dirname, '../views/products/productsCRUD'), {
+            Title: 'Admin-Productos',
+            products,categories,subcategories
+        })})
+
     },
     // MM agrega desde acá
     add: function (req, res) {

@@ -40,18 +40,23 @@
                     </thead>
                     <tbody>
 
-                        <% productos.forEach(producto => { %>
-                        <% let subcat = producto.id_subcategoria %>
-                        <% let cate = subcategorias.find(c =>c.id == subcat).id_categoria%>
+                        <% products.forEach(producto => { %>
+                        <% let subcat = producto.subcategoryId %>
+                        <% let cateId = subcategories.find(sc =>sc.id == subcat).categoryId %>
+                        <% console.log(cateId) %>
+                        <% let cate = categories.find(c =>c.id == cateId).name %>
+                        <% //let cate = subcategories.find(c =>c.id == subcat).categoryId %>
                           
                         <tr>
                             <td><%=producto.id %></td>
-                            <td><%= categorias.find(c =>c.id_categoria == cate).categoria %></td>
-                           <td><%= subcategorias.find(c =>c.id == producto.id_subcategoria).subcategoria %></td>
-                             <td><%=producto.marca %></td>
-                            <td><%=producto.modelo %></td>
-                            <td><%=producto.descripcion %></td>
-                            <td><%=producto.precio %></td>
+                            <td><%= cate %></td>
+                            <!--<td><%= //categories.find(c =>c.categoryId == cate).name %></td>-->
+                            <!--<td><%= //categorias.find(c =>c.id_categoria == cate).categoria %></td>-->
+                            <td><%= producto.subcategory.name %></td>
+                            <td><%=producto.brand %></td>
+                            <td><%=producto.model %></td>
+                            <td><%=producto.description %></td>
+                            <td><%=producto.price %></td>
                             <td><a href="/products/productsCRUDdetail/<%=producto.id%>">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
