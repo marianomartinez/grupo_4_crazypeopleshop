@@ -10,25 +10,25 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
+ 
+        <main class="fonditos py-3 px-5 paovh80">
 
-        <main class="fonditos mb-5 py-3 px-5 paovh80">
-
-            <section class="row bg-white">
+            <section class="row bg-white agreg caja mt-3">
                 <div class="col-6 bg-white">
                     
                     <h2 >Carrito de Compras</h2>
                    
                 </div>
-                <div class="col-6 bg-white d-flex align-items-center justify-content-end ">
+                <div class="col-6 bg-white d-flex align-items-center justify-content-end">
 
                     <button class="boton-cantidad">
                         &times;
                     </button>
 
                 </div>
-            </section>
-            <section id="cart-header" class="row bg-white">
-                <div class="col-6 bg-white">
+            
+            
+                <div class="col-6 bg-white ">
                     <h5>Producto</h5>
                 </div>
                 <div class="col-6 bg-white d-flex align-items-center justify-content-end">
@@ -36,9 +36,9 @@
                     <h5>Subtotal</h5>
 
                 </div>
-            </section>
+            
 
-            <section id="products-cart" class="row bg-white">
+            
 
                 <article class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100">
                     <div class="d-flex justify-content-between align-items-start">
@@ -103,10 +103,9 @@
                         </button>
                     </div>
                 </article>
-
-            </section>
-
-            <section class="row bg-white">
+            
+            
+            
                 <div class="col-6 bg-white">
                     <h5>Subtotal</h5>
                 </div>
@@ -115,8 +114,8 @@
                     <h5>$27.000,00</h5>
 
                 </div>
-            </section>
-            <section class="row bg-white">
+            
+          
                 <div class="col-6 bg-white">
                     <h5>Total</h5>
                 </div>
@@ -125,25 +124,21 @@
                     <h5>$27.000,00</h5>
 
                 </div>
-            </section>
 
-            <section class="row pt-5 bg-white">
-                
                 <div class="col-12 text-right bg-white">
 
                     <button class="finalizar-compra">Finalizar Compra</button>
     
                 </div>
-  
-                
-             </section>
-             <section class="row pt-5 py-4 bg-white">
+      
                 <div class="bg-white col-6 mx-auto text-center">
                     <a class="product" href="/">ver mas productos</a>
                 </div>
+            
              </section>
 
         </main>
+    
 
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
