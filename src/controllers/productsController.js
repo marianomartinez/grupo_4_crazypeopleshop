@@ -181,37 +181,49 @@ const productsController = {
 
     },
     edit: function (req, res) {
-        
+        /*
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
     
-    
-            let categorias = categoria.sort(function (a, b) {
-            if (a.categoria > b.categoria) {
-                return 1;
-            }
-            if (a.categoria < b.categoria) {
-                return -1;
-            }
+        let categorias = categoria.sort(function (a, b) {
+            if (a.categoria > b.categoria) {return 1;}
+            if (a.categoria < b.categoria) {return -1;}
             // a debe ser igual a b
             return 0;
         });
         let subcategorias = subcategoria.sort(function (a, b) {
-            if (a.subcategoria > b.subcategoria) {
-                return 1;
-            }
-            if (a.subcategoria < b.subcategoria) {
-                return -1;
-            }
+            if (a.subcategoria > b.subcategoria) {return 1;}
+            if (a.subcategoria < b.subcategoria) {return -1;}
             // a debe ser igual a b
             return 0;
         });
-
 
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productoEdit = productosActuales.find(producto => producto.id == productoId);
         res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit: productoEdit, Title: 'Producto-Editar',categorias:categorias,subcategorias:subcategorias })
+        */
+
+        let categoryProm = Category.findAll();
+        let subcategoryProm = Subcategory.findAll();
+        let productProm = Product.findByPk(req.params.id, {include: ['subcategory','images']})
+        Promise.all([categoryProm, subcategoryProm, productProm])
+        .then(([allCat,allSubcat, productoEdit]) => {
+            let categorias = allCat.sort(function (a, b) {
+                if (a.categoria > b.categoria) {return 1;}
+                if (a.categoria < b.categoria) {return -1;}
+                // a debe ser igual a b
+                return 0;
+            });
+    
+            let subcategorias = allSubcat.sort(function (a, b) {
+                if (a.subcategoria > b.subcategoria) {return 1;}
+                if (a.subcategoria < b.subcategoria) {return -1;}
+                // a debe ser igual a b
+                return 0;
+            });
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit, Title: 'Producto-Editar',categorias, subcategorias })
+        })
 
     },
     update: function (req, res) {

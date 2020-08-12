@@ -39,11 +39,12 @@
         <div class="form-group col-md-4" >
             <label for="inputState">Categoria</label>
             <select id="inputState" class="form-control" name = "categoria" required >
-            <% let subcat = productoEdit.id_subcategoria %>
-            <% let cate = subcategorias.find(c =>c.id == subcat).id_categoria%>
-                <option value = "<%=categorias.find(d =>d.id_categoria == cate).id_categoria %>" selected><%=categorias.find(d =>d.id_categoria == cate).categoria %></option>
+            <% let subcat = productoEdit.subcategoryId %>
+            <% let cateId = subcategorias.find(sc =>sc.id == subcat).categoryId%>
+                <option value="<%=categorias.find(c =>c.id == cateId).id %>" selected>
+                    <%=categorias.find(c =>c.id == cateId).name %></option>
                  <%categorias.forEach(categoria => { %>
-               <option value="<%= categoria.id_categoria %>"><%= categoria.categoria %></option>
+               <option value="<%= categoria.id %>"><%= categoria.name %></option>
                 <% }); %>
             </select>
         </div>
@@ -51,41 +52,41 @@
         <div class="form-group col-md-4">
             <label for="inputState">Subcategoría</label>
             <select id="inputState" class="form-control" name="subcategoria" required>
-<!-- !!! -->    <option value="<%=subcategorias.find(c =>c.id == productoEdit.id_subcategoria).id_subcategoria %>" selected> <!-- el último "id_subcategoria" posiblemente deba cambiar a "id"-->
-                <%=subcategorias.find(c =>c.id == productoEdit.id_subcategoria).subcategoria %></option>
+<!-- !!! -->    <option value="<%=subcategorias.find(c =>c.id == productoEdit.subcategoryId).subcategoryId %>" selected> <!-- el último "id_subcategoria" posiblemente deba cambiar a "id"-->
+                <%=subcategorias.find(c =>c.id == productoEdit.subcategoryId).name %></option>
             
                 <%subcategorias.forEach(subcategoria => { %>
-                <option value="<%= subcategoria.id %>"><%= subcategoria.subcategoria %></option>
+                <option value="<%= subcategoria.id %>"><%= subcategoria.name %></option>
                 <% }); %>
             </select>
         </div>
     </div>
     <div class="form-group">
         <label for="inputAddress">Marca</label>
-        <input type="text" class="form-control" name="marca" placeholder="marca" value="<%=productoEdit.marca%>">
+        <input type="text" class="form-control" name="marca" placeholder="marca" value="<%=productoEdit.brand%>">
     </div>
     <div class="form-group">
         <label for="inputAddress">Modelo</label>
-        <input type="text" class="form-control" name="modelo" placeholder="modelo" value="<%=productoEdit.modelo%>">
+        <input type="text" class="form-control" name="modelo" placeholder="modelo" value="<%=productoEdit.model%>">
     </div>
     <div class="form-group">
         <label for="inputAddress2">Descripción</label>
-        <input type="text" class="form-control" name="descripcion" placeholder="descripción del producto"value="<%=productoEdit.descripcion%>">
+        <input type="text" class="form-control" name="descripcion" placeholder="descripción del producto"value="<%=productoEdit.description%>">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCity">Color</label>
-            <input type="text" class="form-control" name="color" value="<%=productoEdit.color%>">
+            <input type="text" class="form-control" name="color" value="<%=//productoEdit.color%>">
         </div>
 
         <div class="form-group col-md-6">
             <label for="inputZip">Precio</label>
-            <input type="text" class="form-control" name="precio"value="<%=productoEdit.precio%>">
+            <input type="text" class="form-control" name="precio"value="<%=productoEdit.price%>">
         </div>
     </div>
 
     <div class="form-group">
-            <div class="list-group-item ">Imágen: <img class="img-thumbnail" src="/img/prod_img/<%= productoEdit.images[0] %>.jpg" alt="">
+            <div class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/prod_img/<%= productoEdit.images[0] %>.jpg" alt="">
                 <input type="file" class="form-control" name="imagen" placeholder="Imagen" value="<%=productoEdit.imagen%>">
             </div>
  
