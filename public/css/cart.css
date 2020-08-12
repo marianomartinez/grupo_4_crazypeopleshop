@@ -56,3 +56,17 @@
     width: 25%;
 }
 
+.caja{
+    
+    height: auto;
+    width: 1500px;
+    margin: 100px;
+    padding-bottom: 35px;
+   
+    
+  }
+
+  .fonditos {
+      height: auto !important;
+  }
+
