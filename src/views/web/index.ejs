@@ -30,11 +30,10 @@
                     
                     <% categories.forEach (category => { %>
                     <div class="card col-12 col-md-3 border-white m-0 p-0 px-1 mb-5 category-product">
-                        <a href="/category/<%= category.id_categoria %>">
-                            <figure><img class="card-img-top pt-1" src="/img/web/<%= category.imagen %>"
-                                    alt="Inline Skates"></figure>
+                        <a href="/category/<%= category.id %>">
+                            <figure><img class="card-img-top pt-1" src="/img/web/<%= category.image %>" alt=<%= category.name %>></figure>
                         <div class="card-body p-0">
-                            <h5 class="card-title text-center"><%= category.categoria %></h5>
+                            <h5 class="card-title text-center"><%= category.name %></h5>
                         </div>
                         </a>
                     </div>
