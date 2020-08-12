@@ -43,7 +43,6 @@
                         <% products.forEach(producto => { %>
                         <% let subcat = producto.subcategoryId %>
                         <% let cateId = subcategories.find(sc =>sc.id == subcat).categoryId %>
-                        <% console.log(cateId) %>
                         <% let cate = categories.find(c =>c.id == cateId).name %>
                         <% //let cate = subcategories.find(c =>c.id == subcat).categoryId %>
                           

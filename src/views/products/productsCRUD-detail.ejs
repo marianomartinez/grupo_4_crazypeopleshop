@@ -39,16 +39,17 @@
 
                                     <div class="form-group col-md-10">
                                         <label for="inputZip">Categoría</label>
-                                        <% let subcat = productoShow.id_subcategoria %>
-                                        <% let cate = subcategorias.find(c =>c.id == subcat).id_categoria%>
+                                        <% let subcat = productoShow.subcategoryId %>
+                                        <% let cateId = subcategorias.find(sc =>sc.id == subcat).categoryId%>
                                         <input type="text" class="form-control" name="categoria" disabled
-                                             value="<%=categorias.find(d =>d.id_categoria == cate).categoria %>"
-                                                selected>
+                                            value="<%=categorias.find(c =>c.id == cateId).name %>"
+                                               selected>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                    <label for="inputZip">SubCategoría</label>
-                                    <input type="text" class="form-control" name="subcategoria" value = "<%=subcategorias.find(c =>c.id == productoShow.id_subcategoria).subcategoria %>"" disabled>
+                                        <label for="inputZip">SubCategoría</label>
+                                        <input type="text" class="form-control" name="subcategoria" 
+                                            value = "<%=subcategorias.find(sc =>sc.id == productoShow.subcategoryId).name %>" disabled>
                                     </div>
 
 
@@ -56,35 +57,35 @@
                                 <div class="form-group">
                                     <label for="inputAddress">Marca</label>
                                     <input type="text" class="form-control" disabled name="marca" placeholder="marca"
-                                        value="<%=productoShow.marca%>">
+                                        value="<%=productoShow.brand%>">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress">Modelo</label>
                                     <input type="text" class="form-control" disabled name="modelo" placeholder="modelo"
-                                        value="<%=productoShow.modelo%>">
+                                        value="<%=productoShow.model%>">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputAddress2">Descripción</label>
                                     <input type="text" class="form-control" disabled name="descripcion"
-                                        placeholder="descripción del producto" value="<%=productoShow.descripcion%>">
+                                        placeholder="descripción del producto" value="<%=productoShow.description%>">
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputCity">Color</label>
                                         <input type="text" class="form-control" disabled name="color"
-                                            value="<%=productoShow.color%>">
+                                            value="<%=//productoShow.color%>">
                                     </div>
 
                                     <div class="form-group col-md-2">
                                         <label for="inputZip">Precio</label>
                                         <input type="text" class="form-control" disabled name="precio"
-                                            value="<%=productoShow.precio%>">
+                                            value="<%=productoShow.price%>">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                            src="/img/prod_img/<%= productoShow.images[0] %>.jpg" alt="">
+                                            src="/img/prod_img/<%= productoShow.images[0].filename %>.jpg" alt="">
 
                                     </div>
                                    

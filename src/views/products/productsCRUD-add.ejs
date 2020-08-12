@@ -36,7 +36,7 @@
                                         <option disabled selected>Seleccione Categoría</option>
                                 <%categorias.forEach(categoria => { %>
                                 
-                                <option value="<%= categoria.id_categoria %>"><%= categoria.categoria %></option>
+                                <option value="<%= categoria.categoryId %>"><%= categoria.name %></option>
                                 <% }); %>
                                 
                                 
@@ -48,7 +48,7 @@
                                         <option disabled selected>Seleccione Sub Categoría</option>
                                         <%subcategorias.forEach(subcategoria => { %>
                                         
-                                        <option value="<%= subcategoria.id %>"><%= subcategoria.subcategoria %></option>
+                                        <option value="<%= subcategoria.id %>"><%= subcategoria.name %></option>
                                         <% }); %>
                                     </select>
                                 </div>

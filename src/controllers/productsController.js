@@ -80,36 +80,31 @@ const productsController = {
         })})
 
     },
-    // MM agrega desde acá
+    
     add: function (req, res) {
-        let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
-        let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
+        // let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
+        // let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
 
-        let categorias = categoria.sort(function (a, b) {
-            if (a.categoria > b.categoria) {
-                return 1;
-            }
-            if (a.categoria < b.categoria) {
-                return -1;
-            }
-            // a debe ser igual a b
-            return 0;
-        });
-
-        let subcategorias = subcategoria.sort(function (a, b) {
-            if (a.subcategoria > b.subcategoria) {
-                return 1;
-            }
-            if (a.subcategoria < b.subcategoria) {
-                return -1;
-            }
-            // a debe ser igual a b
-            return 0;
-        });
-
-        res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Producto-Crear', categorias: categorias, subcategorias:subcategorias } );
+        let categoryProm = Category.findAll();
+        let subcategoryProm = Subcategory.findAll();
+        Promise.all([categoryProm, subcategoryProm])
+        .then(([allCat,allSubcat]) => {
+            let categorias = allCat.sort(function (a, b) {
+                if (a.categoria > b.categoria) {return 1;}
+                if (a.categoria < b.categoria) {return -1;}
+                // a debe ser igual a b
+                return 0;
+            });
+    
+            let subcategorias = allSubcat.sort(function (a, b) {
+                if (a.subcategoria > b.subcategoria) {return 1;}
+                if (a.subcategoria < b.subcategoria) {return -1;}
+                // a debe ser igual a b
+                return 0;
+            });
+            res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), {Title: 'Producto-Crear', categorias, subcategorias});
+        })
     },
-    // MM hasta acá
 
     save: function (req, res) {
         
@@ -151,42 +146,38 @@ const productsController = {
 
     },
     show: function (req, res) {
-
-        
+        /*
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
         let subcategoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/subcategorias.json')));
-
-
         let categorias = categoria.sort(function (a, b) {
-            if (a.categoria > b.categoria) {
-                return 1;
-            }
-            if (a.categoria < b.categoria) {
-                return -1;
-            }
+            if (a.categoria > b.categoria) {return 1;}
+            if (a.categoria < b.categoria) {return -1;}
             // a debe ser igual a b
             return 0;
         });
         let subcategorias = subcategoria.sort(function (a, b) {
-            if (a.subcategoria > b.subcategoria) {
-                return 1;
-            }
-            if (a.subcategoria < b.subcategoria) {
-                return -1;
-            }
+            if (a.subcategoria > b.subcategoria) {return 1;}
+            if (a.subcategoria < b.subcategoria) {return -1;}
             // a debe ser igual a b
             return 0;
         });
-
-
-
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productoShow = productosActuales.find(producto => producto.id == productoId);
         res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-detail'), { productoShow: productoShow,categorias:categorias,subcategorias:subcategorias, Title: 'Producto-Visualizar' })
+        */
         
-        
-        
+        let productProm = Product.findByPk(req.params.id, {include: ['subcategory','images']});
+        let categoriesProm = Category.findAll();
+        let subcategoriesProm = Subcategory.findAll();
+        Promise.all([productProm, categoriesProm, subcategoriesProm])
+        .then(([productoShow, categorias, subcategorias]) => {
+            // return res.send(products);
+            // res.send(productoShow);
+            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {
+            Title: 'Admin-Productos',
+            productoShow,categorias,subcategorias
+        })})
 
     },
     edit: function (req, res) {
