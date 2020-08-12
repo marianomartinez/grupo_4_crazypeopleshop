@@ -13,11 +13,11 @@ const subcategoriesController = {
     
     crud: function (req, res) {
 
-        Subcategory.findAll({
-            include: [{ association: "category" }]
-        })
-            .then(subcategorias => {
-                res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD'), { Title: 'Subcategorias', subcategorias: subcategorias });
+        let subcatProm = Subcategory.findAll({include: [{ association: "category" }]});
+        let catProm = Category.findAll();
+        Promise.all([subcatProm, catProm])
+            .then(([subcategorias, categorias])=> {
+                res.render(path.resolve(__dirname, '../views/subcategories/subcategoriesCRUD'), { Title: 'Subcategorias', subcategorias, categorias });
             })
             .catch(error => res.send(error))
        

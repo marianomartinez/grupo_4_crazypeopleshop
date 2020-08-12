@@ -38,10 +38,12 @@
                     <tbody>
 
                         <% subcategorias.forEach(subcategoria => { %>
+                            <% let cateId = subcategoria.categoryId %>
+                            <% let cate = categorias.find(c =>c.id == cateId).name %>
                         <tr>
                             <td><%= subcategoria.id %></td>
                             <td><%= subcategoria.name %></td>
-                            <td><%= subcategoria.category.name %></td>
+                            <td><%= cate %></td>
                             <td><%= subcategoria.description %></td>
 
                             <td><a href="/subcategories/detail/<%=subcategoria.id%> ">
