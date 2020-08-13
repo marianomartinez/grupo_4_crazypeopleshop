@@ -36,23 +36,25 @@
                     <label for="inputZip">ID</label>
                     <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" disabled>
                 </div>
-        <div class="form-group col-md-4" >
+
+                <!-- !!! Por si agregamos vista variable con FrontJS -->
+        <!-- <div class="form-group col-md-4" >
             <label for="inputState">Categoria</label>
-            <select id="inputState" class="form-control" name = "categoria" required >
-            <% let subcat = productoEdit.subcategoryId %>
-            <% let cateId = subcategorias.find(sc =>sc.id == subcat).categoryId%>
-                <option value="<%=categorias.find(c =>c.id == cateId).id %>" selected>
-                    <%=categorias.find(c =>c.id == cateId).name %></option>
-                 <%categorias.forEach(categoria => { %>
-               <option value="<%= categoria.id %>"><%= categoria.name %></option>
-                <% }); %>
+            <select id="inputState" class="form-control" name = "categoryId" required >
+            <% // let subcat = productoEdit.subcategoryId %>
+            <% // let cateId = subcategorias.find(sc =>sc.id == subcat).categoryId%>
+                <option value="<%= // categorias.find(c =>c.id == cateId).id %>" selected>
+                    <%= // categorias.find(c =>c.id == cateId).name %></option>
+                 <% // categorias.forEach(categoria => { %>
+               <option value="<%= // categoria.id %>"><%= // categoria.name %></option>
+                <% // }); %>
             </select>
-        </div>
+        </div> -->
         
         <div class="form-group col-md-4">
             <label for="inputState">Subcategoría</label>
-            <select id="inputState" class="form-control" name="subcategoria" required>
-<!-- !!! -->    <option value="<%=subcategorias.find(c =>c.id == productoEdit.subcategoryId).subcategoryId %>" selected> <!-- el último "id_subcategoria" posiblemente deba cambiar a "id"-->
+            <select id="inputState" class="form-control" name="subcategoryId" required>
+                <option value="<%=subcategorias.find(c =>c.id == productoEdit.subcategoryId).subcategoryId %>" selected>
                 <%=subcategorias.find(c =>c.id == productoEdit.subcategoryId).name %></option>
             
                 <%subcategorias.forEach(subcategoria => { %>
@@ -63,25 +65,25 @@
     </div>
     <div class="form-group">
         <label for="inputAddress">Marca</label>
-        <input type="text" class="form-control" name="marca" placeholder="marca" value="<%=productoEdit.brand%>">
+        <input type="text" class="form-control" name="brand" placeholder="marca" value="<%=productoEdit.brand%>">
     </div>
     <div class="form-group">
         <label for="inputAddress">Modelo</label>
-        <input type="text" class="form-control" name="modelo" placeholder="modelo" value="<%=productoEdit.model%>">
+        <input type="text" class="form-control" name="model" placeholder="modelo" value="<%=productoEdit.model%>">
     </div>
     <div class="form-group">
         <label for="inputAddress2">Descripción</label>
-        <input type="text" class="form-control" name="descripcion" placeholder="descripción del producto"value="<%=productoEdit.description%>">
+        <input type="text" class="form-control" name="description" placeholder="descripción del producto"value="<%=productoEdit.description%>">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputCity">Color</label>
-            <input type="text" class="form-control" name="color" value="<%=//productoEdit.color%>">
+            <label for="inputCity">Precio</label>
+            <input type="text" class="form-control" name="price" value="<%=productoEdit.price%>">
         </div>
 
         <div class="form-group col-md-6">
-            <label for="inputZip">Precio</label>
-            <input type="text" class="form-control" name="precio"value="<%=productoEdit.price%>">
+            <label for="inputZip">Descuento</label>
+            <input type="text" class="form-control" name="discount"value="<%=productoEdit.discount%>">
         </div>
     </div>
 

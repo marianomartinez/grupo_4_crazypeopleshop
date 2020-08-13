@@ -1,6 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const multer = require('multer');
+
+
+//Multer Code
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.resolve(__dirname, '..','..','public','img','prod_img','newProducts'));    //Aquí deben indicar donde van a guardar la imagen
+    },
+    filename: function (req, file, cb) {
+        cb(null, 'imagen' + '-' + Date.now() + path.extname(file.originalname));      //UNIQID() --- PHP
+    }
+})
+
+const upload = multer({ storage })
 
 //Requerir el modulo de los controladores
 const productsController = require(path.resolve(__dirname, '../controllers/productsController'));

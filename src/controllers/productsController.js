@@ -6,6 +6,7 @@ const db = require('../database/models/')
 const Category = db.Category;
 const Subcategory = db.Subcategory;
 const Product = db.Product;
+const Size = db.Size;
 
 
 const productsController = {
@@ -108,11 +109,10 @@ const productsController = {
 
     save: function (req, res) {
         
+        /*
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoUltimo = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
-
         productoUltimo = productoUltimo.pop();
-
         let productoNuevo = {
             id: productoUltimo.id + 1,
             id_categoria : req.body.categoria,
@@ -122,28 +122,27 @@ const productsController = {
             descripcion: req.body.descripcion,
             color:req.body.color,
             precio: req.body.precio,
-            talle: [
-                37,
-                38,
-                39,
-                42,
-                44,
-                45,
-                46
-            ],
+            talle: [37,38,39,42,44,45,46],
             images: ["accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"]
-            
-
         }
-
-
         productosActuales.push(productoNuevo);
-
         let productoJSON = JSON.stringify(productosActuales,null,2)
-
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
+        */
 
+        let newProduct = {
+            model: req.body.model,
+            brand: req.body.brand,
+            price: req.body.price,
+            discount: req.body.discount,
+            show: 0,
+            subcategoryId: req.body.subcategoryId,
+            description: req.body.description
+        }
+
+        Product.create(newProduct)
+        .then(()=>{return res.redirect('/products/crud')})
     },
     show: function (req, res) {
         /*
@@ -227,7 +226,7 @@ const productsController = {
 
     },
     update: function (req, res) {
-
+        /*
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         req.body.id = req.params.id;
         let productoUpdate = productosActuales.map(producto => {    //id nombre descripcion precio imagen
@@ -242,23 +241,40 @@ const productsController = {
                 producto.images= ["accesories/iAcc/iFrame_908170_FSK_Frame_Pleasure_Tool_SC_110_246mm_3x110_red_2016_view1_xxl"]                
               
                 //return producto = req.body;
+
             }
             return producto;
         });
         productoJSON = JSON.stringify(productoUpdate, null, 2);
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON);
         res.redirect('/products/crud');
+        */
 
+        let updateProduct = {
+            model: req.body.model,
+            brand: req.body.brand,
+            price: req.body.price,
+            discount: req.body.discount,
+            show: 0,
+            subcategoryId: req.body.subcategoryId,
+            description: req.body.description
+        }
+        Product.update(updateProduct, {where: {id: req.params.id}})
+        .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id));
+        
     } ,
     delete: function (req, res) {
-
+        /*
         let productosActuales = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/productos.json')))
         let productoId = req.params.id;
         const productosNuevos = productosActuales.filter(producto => producto.id != productoId)
-
         let productoJSON = JSON.stringify(productosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
-        res.redirect('/products/crud');
+        res.redirect('/products/crud');*/
+
+        Product.destroy({where: {id: req.params.id}, force: true})
+        .then(() => 
+        res.redirect('/products/crud'))
     },
 
 

@@ -24,7 +24,11 @@
                     <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
                         <a href="/products/<%= product.subcategoryId %>/<%= product.id %>">
                             <figure class="card-img-top d-flex justify-content-center"><img class="w-100 mh-auto"
-                                    src="/img/prod_img/<%= product.images[0].filename %>.jpg"
+                                <% if (product.images.length == 0) { %>
+                                src="/img/web/noImage.jpg"
+                                <% } else { %>
+                                src="/img/prod_img/<%= product.images[0].filename %>.jpg"
+                                <% }; %>
                                     alt="<%= product.brand + ' ' + product.model + ' $' + product.price %>"></figure>
                             
                             <!-- 
