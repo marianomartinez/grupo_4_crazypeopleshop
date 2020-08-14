@@ -58,9 +58,8 @@
     height: auto;
     width: 1100px;
     margin: 350px;
-    padding-bottom: 35px;
-   
-    
+    padding-bottom: 35px !important;
+  
   }
 
   .fonditos {
@@ -72,7 +71,11 @@
     background: linear-gradient(to bottom, #a6d4f2, white);
     height: 50px;
     text-overflow: initial;
-    padding: 12px;;
+    padding: 12px;
     
+  }
+
+  .pad-r-43 {
+      padding-right: 43px !important;
   }
 
