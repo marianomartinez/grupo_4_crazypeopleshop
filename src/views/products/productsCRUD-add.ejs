@@ -29,7 +29,7 @@
                     <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
                         <div class="signup-form">
 
-                            <form action="/products/crud" method="post">
+                            <form action="/products/crud" method="post" enctype="multipart/form-data">
 
                                 <!-- !!! Por si agregamos vista variable con FrontJS -->
                                 <!-- <div class="form-group">
@@ -74,6 +74,9 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="discount" placeholder="Descuento">
                                 </div>
+                                
+                                <label>Subir imágenes</label>
+                                <input type="file" name="image" multiple>
 
                                 <div class="form-group d-inline">
                                     <button type="submit" class="btn btn btn-info">Crear</button>

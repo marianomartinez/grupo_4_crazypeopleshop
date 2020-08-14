@@ -131,6 +131,8 @@ const productsController = {
         res.redirect('/products/crud');
         */
 
+        // let newImages = req.files;
+
         let newProduct = {
             model: req.body.model,
             brand: req.body.brand,
@@ -140,6 +142,8 @@ const productsController = {
             subcategoryId: req.body.subcategoryId,
             description: req.body.description
         }
+
+        
 
         Product.create(newProduct)
         .then(()=>{return res.redirect('/products/crud')})
