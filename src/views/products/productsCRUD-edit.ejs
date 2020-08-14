@@ -87,6 +87,34 @@
         </div>
     </div>
 
+    <% if(sizeStock.length > 0) { %>
+        <% sizeStock.forEach(rel => { %>
+            <div class="form-row">
+                <div class="d-none">
+                    <label for="inputZip">relId</label>
+                    <input type="text" class="form-control" name="relId" value="<%=rel.id%>">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Talle</label>
+                    <input type="text" class="form-control" disabled name="size" value="<%=rel.sizeId%>">
+                </div>
+            
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Stock</label>
+                    <input type="text" class="form-control" name="stock" value="<%=rel.stock%>">
+                </div>
+            </div>
+            <% }) %>
+        <% }; %>
+
+    <div class="form-row"></div>
+        <div class="form-group ml-4">
+            <input type="checkbox" class="form-check-input" name="show" placeholder="">
+            <label class="form-check-label" for="exampleCheck1">Hacer visible este producto</label>
+        </div>
+    </div>
+
     <div class="form-group">
             <div class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/prod_img/<%= productoEdit.images[0] %>.jpg" alt="">
                 <input type="file" class="form-control" name="imagen" placeholder="Imagen" value="<%=productoEdit.imagen%>">
@@ -97,7 +125,7 @@
 <button type="submit" class="btn btn btn-primary">Actualizar</button>
  </div>
     <div class="form-group d-inline">
-     <a type="button" class="btn btn btn-danger" href="/products/crud">Volver</a>
+     <a type="button" class="btn btn btn-danger" href="/products/productsCRUDdetail/<%=productoEdit.id%>">Volver</a>
  </div>
                                
 </form>

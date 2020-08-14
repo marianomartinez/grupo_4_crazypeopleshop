@@ -19,10 +19,10 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         }
     };
-    // let config = {
-    //     tableName: 'product_size_stock'
-    // };
-    const ProductSizeStock = sequelize.define(alias, cols)
+    let config = {
+        tableName: 'product_size_stock'
+    };
+    const ProductSizeStock = sequelize.define(alias, cols, config)
 
     ProductSizeStock.associate = function (models) {
         ProductSizeStock.hasMany(models.Product, {
@@ -32,6 +32,12 @@ module.exports = (sequelize, dataTypes) => {
         ProductSizeStock.hasMany(models.Size, {
             as: "size",
             foreignKey: "id"
+        });
+        ProductSizeStock.belongsTo(models.Size, {
+            as: "sizes",
+            // through: "product_size_stock",
+            foreignKey: "sizeid",
+            // otherKey: "productId"
         });
     }
 

@@ -15,18 +15,18 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Productos
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/category/1">Inline Skates</a>
                     <a class="dropdown-item" href="/category/2">Quad Skates</a>
                     <a class="dropdown-item" href="/category/3">Accesorios</a>
-                </div>
+                </div> -->
                 
                     <!-- !!! Reemplazar el DIV de arriba por el de abajo, quitando los comentarios de backend -->
-                    <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <% //global.navCategories.Category.forEach(category => { %>
-                        <a class="dropdown-item" href="/category/<%= //category.dataValues.id %>"><%= //category.dataValues.name %></a>
-                        <% //}); %>
-                    </div> -->
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <% navCat.forEach(category => { %>
+                        <a class="dropdown-item" href="/category/<%= category.id %>"><%= category.name %></a>
+                        <% }); %>
+                    </div>
                
             </li>
             <!--
