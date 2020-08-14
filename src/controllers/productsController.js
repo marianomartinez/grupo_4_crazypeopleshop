@@ -6,8 +6,8 @@ const db = require('../database/models/')
 const Category = db.Category;
 const Subcategory = db.Subcategory;
 const Product = db.Product;
+const ProductSizeStock = db.ProductSizeStock;
 const Size = db.Size;
-
 
 const productsController = {
     productShow: function (req, res) {
@@ -166,17 +166,16 @@ const productsController = {
         res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-detail'), { productoShow: productoShow,categorias:categorias,subcategorias:subcategorias, Title: 'Producto-Visualizar' })
         */
         
+        let promSizeStock = ProductSizeStock.findAll({where: {productId: req.params.id}});
+        let promSizes = Size.findAll();
         let productProm = Product.findByPk(req.params.id, {include: ['subcategory','images']});
         let categoriesProm = Category.findAll();
         let subcategoriesProm = Subcategory.findAll();
-        Promise.all([productProm, categoriesProm, subcategoriesProm])
-        .then(([productoShow, categorias, subcategorias]) => {
-            // return res.send(products);
-            // res.send(productoShow);
-            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {
-            Title: 'Admin-Productos',
-            productoShow,categorias,subcategorias
-        })})
+        Promise.all([promSizeStock, promSizes, productProm, categoriesProm, subcategoriesProm])
+        .then(([sizeStock, sizes, productoShow, categorias, subcategorias]) => {
+            // return res.send(sizeStock);
+
+            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Admin-Productos',sizeStock,sizes,productoShow,categorias,subcategorias})})
 
     },
     edit: function (req, res) {
@@ -203,11 +202,13 @@ const productsController = {
         res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit: productoEdit, Title: 'Producto-Editar',categorias:categorias,subcategorias:subcategorias })
         */
 
+        let promSizeStock = ProductSizeStock.findAll({where: {productId: req.params.id}});
+        let promSizes = Size.findAll();
         let categoryProm = Category.findAll();
         let subcategoryProm = Subcategory.findAll();
         let productProm = Product.findByPk(req.params.id, {include: ['subcategory','images']})
-        Promise.all([categoryProm, subcategoryProm, productProm])
-        .then(([allCat,allSubcat, productoEdit]) => {
+        Promise.all([promSizeStock, promSizes, categoryProm, subcategoryProm, productProm])
+        .then(([sizeStock, sizes, allCat, allSubcat, productoEdit]) => {
             let categorias = allCat.sort(function (a, b) {
                 if (a.categoria > b.categoria) {return 1;}
                 if (a.categoria < b.categoria) {return -1;}
@@ -221,7 +222,7 @@ const productsController = {
                 // a debe ser igual a b
                 return 0;
             });
-            res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit, Title: 'Producto-Editar',categorias, subcategorias })
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit, Title: 'Producto-Editar', sizeStock, sizes, categorias, subcategorias })
         })
 
     },
@@ -255,13 +256,22 @@ const productsController = {
             brand: req.body.brand,
             price: req.body.price,
             discount: req.body.discount,
-            show: 0,
+            show: req.body.show,
             subcategoryId: req.body.subcategoryId,
             description: req.body.description
         }
-        Product.update(updateProduct, {where: {id: req.params.id}})
-        .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id));
-        
+
+        let updateSizeStock = {
+            productId: req.params.id,
+            sizeId: req.body.size,
+            stock: req.body.stock
+        }
+
+        ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
+        .then(()=>{
+            Product.update(updateProduct, {where: {id: req.params.id}})
+            .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))
+        })        
     } ,
     delete: function (req, res) {
         /*

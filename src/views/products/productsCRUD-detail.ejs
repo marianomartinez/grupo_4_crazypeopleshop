@@ -83,6 +83,25 @@
                                     </div>
                                 </div>
 
+                                <% if(sizeStock.length > 0) { %>
+                                    <% sizeStock.forEach(rel => { %>
+                                        <% let size = sizes.find(size=>size.id == rel.sizeId).eusize; %>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputCity">Talle</label>
+                                                <input type="text" class="form-control" disabled name="size"
+                                                    value="<%=size%>">
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+                                                <label for="inputZip">Stock</label>
+                                                <input type="text" class="form-control" disabled name="stock"
+                                                    value="<%=rel.stock%>">
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                <% }; %>
+
                                 <div class="form-group">
                                     <% if (productoShow.images.length == 0) { %>
                                     <div class="list-group-item ">Imagen: <img class="img-thumbnail"
@@ -96,7 +115,9 @@
                                    
                                     <div class="form-group d-inline">
                                     <a type="button" class="btn btn btn-danger" href="/products/crud">Volver</a>
+                                    <a class="btn bg-primary text-white mx-md-auto" href="/products/productsCRUDedit/<%=productoShow.id%>">Editar</a>
                                 </div>
+
 
                             </form>
 

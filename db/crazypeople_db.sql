@@ -55,13 +55,13 @@ DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `filename` varchar(500) NOT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   `deletedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `product_size_stock` (
 
 LOCK TABLES `product_size_stock` WRITE;
 /*!40000 ALTER TABLE `product_size_stock` DISABLE KEYS */;
-INSERT INTO `product_size_stock` VALUES (1,1,43,23,NULL,NULL,NULL),(2,1,37,21,NULL,NULL,NULL),(3,17,38,12,NULL,NULL,NULL),(4,17,42,11,NULL,NULL,NULL),(5,17,47,5,NULL,NULL,NULL);
+INSERT INTO `product_size_stock` VALUES (1,1,43,15,NULL,'2020-08-13 20:35:12',NULL),(2,1,37,15,NULL,'2020-08-13 20:35:12',NULL),(3,17,38,12,NULL,NULL,NULL),(4,17,42,11,NULL,NULL,NULL),(5,17,47,5,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `product_size_stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Ruby','Chaya',9000,10,1,10,NULL,NULL,NULL,NULL),(2,'Jump negro','Chaya',10000,10,1,10,NULL,NULL,NULL,NULL),(3,'FSK Alpha MG 243','Powerslide',3000,15,1,3,NULL,NULL,NULL,NULL),(4,'3x110','Powerslide',3000,10,1,3,NULL,NULL,NULL,NULL),(5,'Racing Rapid','Powerslide',3200,10,1,3,NULL,NULL,NULL,NULL),(6,'Pleasure Tool','Powerslide',3100,12,1,3,NULL,NULL,NULL,NULL),(7,'Tribune','Prime',1100,10,1,3,NULL,NULL,NULL,NULL),(8,'Code','Matter',1200,10,1,3,NULL,NULL,NULL,NULL),(9,'Juice','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(10,'Zafiro','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(11,'Crazy Glue','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(12,'CST Air 150mm','Powerslide',1500,10,1,3,NULL,NULL,NULL,NULL),(13,'Ophira','Chaya',3000,10,1,2,NULL,NULL,NULL,NULL),(14,'Zena','Chaya',3000,10,1,2,NULL,NULL,NULL,NULL),(15,'Bomb Stopper rojo','Chaya',500,10,1,2,NULL,NULL,NULL,NULL),(16,'Bomb Stopper turquesa','Chaya',500,10,1,2,NULL,NULL,NULL,NULL),(17,'Speed XX','Powerslide',20000,15,1,8,NULL,NULL,NULL,NULL),(18,'Octo Propel Alloy','Matter',500,10,1,2,NULL,NULL,NULL,NULL),(19,'Juice Cosmo','Matter',500,10,1,2,NULL,NULL,NULL,NULL),(20,'Swell Bracelet','Powerslide',100,10,1,1,NULL,NULL,NULL,NULL),(21,'Anax','Reign',10000,5,1,6,NULL,NULL,NULL,NULL),(22,'Swell 125 celeste','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(23,'Atlas','Reign',11000,10,1,6,NULL,NULL,NULL,NULL),(24,'Hardcore Evo','Powerslide',15000,10,1,5,NULL,NULL,NULL,NULL),(25,'Imperial Evo','Powerslide',12000,10,1,5,NULL,NULL,NULL,NULL),(26,'Imperial Megacruiser','Powerslide',10000,10,1,5,NULL,NULL,NULL,NULL),(27,'Metropolis','Powerslide',9000,10,1,5,NULL,NULL,NULL,NULL),(28,'Next SUV','Powerslide',13000,10,1,7,NULL,NULL,NULL,NULL),(29,'Nordic XC Trail','Powerslide',14000,10,1,7,NULL,NULL,NULL,NULL),(30,'One Wave negro/verde','Powerslide',8000,10,1,4,NULL,NULL,NULL,NULL),(31,'Perseus','Reign',10000,10,1,6,NULL,NULL,NULL,NULL),(32,'Phuzion Universe blanco','Powerslide',6000,10,1,4,NULL,NULL,NULL,NULL),(33,'Swell 110 negro/gris','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(34,'Swell 125 rosa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(35,'Urban Kids','Powerslide',7000,10,1,5,NULL,NULL,NULL,NULL),(36,'ViPro Carbon','Powerslide',20000,10,1,8,NULL,NULL,NULL,NULL),(37,'Zeus','Reign',10000,10,1,6,NULL,NULL,NULL,NULL),(38,'Jump rojo','Chaya',10000,15,1,10,NULL,NULL,NULL,NULL),(39,'Melrose Elite durazno','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(40,'Onyx','Chaya',9000,10,1,10,NULL,NULL,NULL,NULL),(41,'Ruby','Chaya',9000,10,1,10,NULL,NULL,NULL,NULL),(42,'Vintage Glide Cromo','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(43,'Glide Denim','Chaya',9000,10,1,11,NULL,NULL,NULL,NULL),(44,'Unicorn Glide Kids','Chaya',7000,10,1,11,NULL,NULL,NULL,NULL),(45,'Jade','Chaya',10000,10,1,10,NULL,NULL,NULL,NULL),(46,'Vintage Neat','Chaya',9000,10,1,11,NULL,NULL,NULL,NULL),(47,'Classic','Playlife',12000,10,1,9,NULL,NULL,NULL,NULL),(48,'Quad Minnie','Powerslide',7000,10,1,11,NULL,NULL,NULL,NULL),(49,'Swell 125 negro/rojo','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(50,'Quad Rich','Powerslide',8000,10,1,11,NULL,NULL,NULL,NULL),(51,'Melrose Elite violeta','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(52,'One Wave negro/magenta','Chaya',8000,10,1,4,NULL,NULL,NULL,NULL),(53,'Phuzion Universe rojo','Powerslide',6000,10,1,4,NULL,NULL,NULL,NULL),(54,'Swell 110 negro/turquesa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(55,'Swell 110 rosa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL);
+INSERT INTO `products` VALUES (1,'Ruby','Chaya',9000,10,1,10,'',NULL,'2020-08-13 20:35:12',NULL),(2,'Jump negro','Chaya',10000,10,1,10,NULL,NULL,NULL,NULL),(3,'FSK Alpha MG 243','Powerslide',3000,15,1,3,NULL,NULL,NULL,NULL),(4,'3x110','Powerslide',3000,10,1,3,NULL,NULL,NULL,NULL),(5,'Racing Rapid','Powerslide',3200,10,1,3,NULL,NULL,NULL,NULL),(6,'Pleasure Tool','Powerslide',3100,12,1,3,NULL,NULL,NULL,NULL),(7,'Tribune','Prime',1100,10,1,3,NULL,NULL,NULL,NULL),(8,'Code','Matter',1200,10,1,3,NULL,NULL,NULL,NULL),(9,'Juice','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(10,'Zafiro','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(11,'Crazy Glue','Matter',1100,10,1,3,NULL,NULL,NULL,NULL),(12,'CST Air 150mm','Powerslide',1500,10,1,3,NULL,NULL,NULL,NULL),(13,'Ophira','Chaya',3000,10,1,2,NULL,NULL,NULL,NULL),(14,'Zena','Chaya',3000,10,1,2,NULL,NULL,NULL,NULL),(15,'Bomb Stopper rojo','Chaya',500,10,1,2,NULL,NULL,NULL,NULL),(16,'Bomb Stopper turquesa','Chaya',500,10,1,2,NULL,NULL,NULL,NULL),(17,'Speed XX','Powerslide',20000,15,1,8,NULL,NULL,NULL,NULL),(18,'Octo Propel Alloy','Matter',500,10,1,2,NULL,NULL,NULL,NULL),(19,'Juice Cosmo','Matter',500,10,1,2,NULL,NULL,NULL,NULL),(20,'Swell Bracelet','Powerslide',100,10,1,1,NULL,NULL,NULL,NULL),(21,'Anax','Reign',10000,5,1,6,NULL,NULL,NULL,NULL),(22,'Swell 125 celeste','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(23,'Atlas','Reign',11000,10,1,6,NULL,NULL,NULL,NULL),(24,'Hardcore Evo','Powerslide',15000,10,1,5,NULL,NULL,NULL,NULL),(25,'Imperial Evo','Powerslide',12000,10,1,5,NULL,NULL,NULL,NULL),(26,'Imperial Megacruiser','Powerslide',10000,10,1,5,NULL,NULL,NULL,NULL),(27,'Metropolis','Powerslide',9000,10,1,5,NULL,NULL,NULL,NULL),(28,'Next SUV','Powerslide',13000,10,1,7,NULL,NULL,NULL,NULL),(29,'Nordic XC Trail','Powerslide',14000,10,1,7,NULL,NULL,NULL,NULL),(30,'One Wave negro/verde','Powerslide',8000,10,1,4,NULL,NULL,NULL,NULL),(31,'Perseus','Reign',10000,10,1,6,NULL,NULL,NULL,NULL),(32,'Phuzion Universe blanco','Powerslide',6000,10,1,4,NULL,NULL,NULL,NULL),(33,'Swell 110 negro/gris','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(34,'Swell 125 rosa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(35,'Urban Kids','Powerslide',7000,10,1,5,NULL,NULL,NULL,NULL),(36,'ViPro Carbon','Powerslide',20000,10,1,8,NULL,NULL,NULL,NULL),(37,'Zeus','Reign',10000,10,1,6,NULL,NULL,NULL,NULL),(38,'Jump rojo','Chaya',10000,15,1,10,NULL,NULL,NULL,NULL),(39,'Melrose Elite durazno','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(40,'Onyx','Chaya',9000,10,1,10,NULL,NULL,NULL,NULL),(41,'Ruby','Chaya',9000,10,1,10,NULL,NULL,NULL,NULL),(42,'Vintage Glide Cromo','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(43,'Glide Denim','Chaya',9000,10,1,11,NULL,NULL,NULL,NULL),(44,'Unicorn Glide Kids','Chaya',7000,10,1,11,NULL,NULL,NULL,NULL),(45,'Jade','Chaya',10000,10,1,10,NULL,NULL,NULL,NULL),(46,'Vintage Neat','Chaya',9000,10,1,11,NULL,NULL,NULL,NULL),(47,'Classic','Playlife',12000,10,1,9,NULL,NULL,NULL,NULL),(48,'Quad Minnie','Powerslide',7000,10,1,11,NULL,NULL,NULL,NULL),(49,'Swell 125 negro/rojo','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(50,'Quad Rich','Powerslide',8000,10,1,11,NULL,NULL,NULL,NULL),(51,'Melrose Elite violeta','Chaya',10000,10,1,11,NULL,NULL,NULL,NULL),(52,'One Wave negro/magenta','Chaya',8000,10,1,4,NULL,NULL,NULL,NULL),(53,'Phuzion Universe rojo','Powerslide',6000,10,1,4,NULL,NULL,NULL,NULL),(54,'Swell 110 negro/turquesa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL),(55,'Swell 110 rosa','Powerslide',11000,10,1,4,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +248,7 @@ CREATE TABLE `subcategories` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `categoryId_idx` (`categoryId`),
   CONSTRAINT `categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,7 +283,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-12 18:41:39
+-- Dump completed on 2020-08-14 17:21:14

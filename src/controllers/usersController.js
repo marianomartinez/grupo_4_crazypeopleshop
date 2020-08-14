@@ -171,7 +171,7 @@ const usersController = {
     show: function (req, res) {
 
         User
-        .findByPk(req.params.id)
+        .findByPk(req.params.id,{include : [{association:"role"}]})
         .then(usuarioShow =>{
             res.render(path.resolve(__dirname, '..', 'views', 'users', 'detail'), { usuarioShow: usuarioShow, Title: 'Usuario-Visualizar' })
         })
