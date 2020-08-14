@@ -18,8 +18,6 @@
     
 }
 .finalizar-compra{
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border: 3px solid #7ba788;
     padding: 5px 10px 7px;
     font-size: 18px;
     text-rendering: auto;
@@ -29,6 +27,8 @@
     border-radius: 15px;
     text-decoration:none;
     color:white;
+    border: none;
+    
 }
 .tacho{
     background-color: white;
@@ -38,9 +38,6 @@
     
 }
 .product{
-    
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border: 3px solid #7ba788;
     padding: 5px 10px 7px;
     font-size: 18px;
     text-rendering: auto;
@@ -59,8 +56,8 @@
 .caja{
     
     height: auto;
-    width: 1500px;
-    margin: 100px;
+    width: 1100px;
+    margin: 350px;
     padding-bottom: 35px;
    
     
@@ -68,5 +65,14 @@
 
   .fonditos {
       height: auto !important;
+  }
+  .letra{
+    font-weight: 1000;
+    color:#4e4e4e;
+    background: linear-gradient(to bottom, #a6d4f2, white);
+    height: 50px;
+    text-overflow: initial;
+    padding: 12px;;
+    
   }
 
