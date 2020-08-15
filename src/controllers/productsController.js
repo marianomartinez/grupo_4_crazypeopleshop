@@ -8,6 +8,8 @@ const Subcategory = db.Subcategory;
 const Product = db.Product;
 const ProductSizeStock = db.ProductSizeStock;
 const Size = db.Size;
+const Image = db.Image;
+const ProductImage = db.ProductImage
 
 const productsController = {
     productShow: function (req, res) {
@@ -131,22 +133,39 @@ const productsController = {
         res.redirect('/products/crud');
         */
 
-        // let newImages = req.files;
-
-        let newProduct = {
-            model: req.body.model,
-            brand: req.body.brand,
-            price: req.body.price,
-            discount: req.body.discount,
-            show: 0,
-            subcategoryId: req.body.subcategoryId,
-            description: req.body.description
-        }
-
+       let newProduct = {
+           model: req.body.model,
+           brand: req.body.brand,
+           price: req.body.price,
+           discount: req.body.discount,
+           show: 0,
+           subcategoryId: req.body.subcategoryId,
+           description: req.body.description
+       }
+        Product.create(newProduct)
+        .then((prod)=>{
+            let newImages = req.files.map(each=> each.filename);
+            newImages.forEach(img=>{
+                let newImage = {filename: img};
+                Image.create(newImage)
+                .then(async(img)=>{
+                    let newRel = {
+                        productId: prod.id,
+                        imageId: img.id
+                    }
+                    console.log('Relacion:' + newRel);
+                    await ProductImage.create(newRel)
+                })
+            })
+        })
+        return res.redirect('/products/crud')
+                    
+        
+        // return res.send(newImage);
         
 
-        Product.create(newProduct)
-        .then(()=>{return res.redirect('/products/crud')})
+        
+        
     },
     show: function (req, res) {
         /*

@@ -15,19 +15,19 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         }
     };
-    // let config = {
-    //     tableName: 'product_image'
-    // };
-    const ProductImage = sequelize.define(alias, cols)
+    let config = {
+        tableName: 'product_image'
+    };
+    const ProductImage = sequelize.define(alias, cols, config)
 
     ProductImage.associate = function (models) {
         ProductImage.hasMany(models.Product, {
             as: "product",
-            foreignKey: "productId"
+            foreignKey: "id"
         });
         ProductImage.hasMany(models.Image, {
             as: "image",
-            foreignKey: "imageId"
+            foreignKey: "id"
         });
     }
 
