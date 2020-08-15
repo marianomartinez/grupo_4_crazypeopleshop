@@ -104,13 +104,17 @@
 
                                 <div class="form-group">
                                     <% if (productoShow.images.length == 0) { %>
-                                    <div class="list-group-item ">Imagen: <img class="img-thumbnail"
+                                        <!-- Si el producto no tiene imagen muestra esto -->
+                                    <div class="list-group-item col-md-6">Imagen: <img class="img-thumbnail"
                                             src="/img/web/noImage.jpg" alt="">
                                     </div>
                                     <% } else { %>
-                                    <div class="list-group-item ">Imagen: <img class="img-thumbnail"
-                                        src="/img/prod_img/<%= productoShow.images[0].filename %>.jpg" alt="">
-                                    </div>
+                                        <% productoShow.images.forEach(img=> {%>
+                                        <!-- Si el producto tiene imagen muestra sus imágenes -->
+                                        <div class="list-group-item col-md-6">Imagen: <img class="img-thumbnail"
+                                            src="/img/prod_img/<%= img.filename %>.jpg" alt="">
+                                        </div>
+                                    <% }); %>
                                     <% }; %>
                                    
                                     <div class="form-group d-inline">

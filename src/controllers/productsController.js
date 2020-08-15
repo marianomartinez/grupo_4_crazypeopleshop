@@ -159,14 +159,8 @@ const productsController = {
             })
         })
         return res.redirect('/products/crud')
-                    
-        
-        // return res.send(newImage);
-        
-
-        
-        
     },
+
     show: function (req, res) {
         /*
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));
@@ -199,8 +193,8 @@ const productsController = {
             // return res.send(sizeStock);
 
             return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Admin-Productos',sizeStock,sizes,productoShow,categorias,subcategorias})})
-
     },
+
     edit: function (req, res) {
         /*
         let categoria = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categorias.json')));

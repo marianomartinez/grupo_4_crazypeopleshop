@@ -31,9 +31,14 @@
                                     <li class="list-group-item">Categoría a la que pertenece: <%=subcategoriaShow.category.name %> </li>
                                     <li class="list-group-item">Descripcion: <%=subcategoriaShow.description %> </li>
                                     <li class="list-group-item">Fecha de Alta: </li>
-                                    <li class="list-group-item ">Imagen: <img class="img-thumbnail"
-                                            src="/img/web/<%= subcategoriaShow.image%>" alt=""></li>
-
+                                    <li class="list-group-item ">Imagen: 
+                                     <% if (!subcategoriaShow.image) { %>
+                                        <img class="img-thumbnail"
+                                            src="/img/web/noImage.jpg" alt=""></li>
+                                    <% } else { %>
+                                        <img class="img-thumbnail" src="/img/web/<%= subcategoriaShow.image%>"
+                                            alt=""></li>
+                                    <% }; %>
                                 </ul>
 
                             </div>
