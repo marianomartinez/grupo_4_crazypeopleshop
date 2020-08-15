@@ -8,10 +8,10 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '..','..','public','img','prod_img','newProducts'));    //Aquí deben indicar donde van a guardar la imagen
+        cb(null, path.resolve(__dirname, '..','..','public','img','prod_img'));    //Aquí deben indicar donde van a guardar la imagen
     },
     filename: function (req, file, cb) {
-        cb(null, 'imagen' + '-' + Date.now() + file.fieldname + path.extname(file.originalname)); //UNIQID() --- PHP
+        cb(null, 'newProducts/' + 'imagen' + '-' + Date.now() + file.fieldname + path.extname(file.originalname)); //UNIQID() --- PHP
     }
 })
 

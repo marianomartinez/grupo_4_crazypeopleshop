@@ -153,7 +153,6 @@ const productsController = {
                         productId: prod.id,
                         imageId: img.id
                     }
-                    console.log('Relacion:' + newRel);
                     await ProductImage.create(newRel)
                 })
             })
@@ -190,8 +189,6 @@ const productsController = {
         let subcategoriesProm = Subcategory.findAll();
         Promise.all([promSizeStock, promSizes, productProm, categoriesProm, subcategoriesProm])
         .then(([sizeStock, sizes, productoShow, categorias, subcategorias]) => {
-            // return res.send(sizeStock);
-
             return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Admin-Productos',sizeStock,sizes,productoShow,categorias,subcategorias})})
     },
 
@@ -241,7 +238,6 @@ const productsController = {
             });
             res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit, Title: 'Producto-Editar', sizeStock, sizes, categorias, subcategorias })
         })
-
     },
     update: function (req, res) {
         /*
@@ -298,13 +294,32 @@ const productsController = {
         let productoJSON = JSON.stringify(productosNuevos, null, 2)
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');*/
-
-        Product.destroy({where: {id: req.params.id}, force: true})
-        .then(() => 
-        res.redirect('/products/crud'))
+        
+        
+        let relProm = ProductImage.findAll({where: {productId: req.params.id}})
+        let prodProm = Product.findByPk(req.params.id);
+        Promise.all([prodProm,relProm])
+        .then(([prod,rels])=>{
+            let producto = prod;
+            let relations = rels;
+            // let imgId = relations[0].id;
+            // console.log('prod-'+producto.id);
+            // console.log('rel0-'+relations[0].id);
+            // console.log(imgId);
+            relations.forEach(rel=>{
+                Image.findAll({where: {id: rel.id}})
+                .then(async imgs=>{
+                    let imagenes = imgs;
+                    imagenes.forEach(imagen=>{
+                        ProductImage.destroy({where: {imageId: imagen.id}})
+                        .then(()=>{Image.destroy({where: {id: imagen.id}})})
+                    })
+                    await Product.destroy({where: {id: req.params.id}})
+                })
+            })
+        })
+        return res.redirect('/products/crud')
     },
-
-
-
 }
+
 module.exports = productsController;
