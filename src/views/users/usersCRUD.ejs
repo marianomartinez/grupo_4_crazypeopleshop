@@ -4,6 +4,7 @@
 <head>
     <%- include ('../partials/head')  %>
     <link rel="stylesheet" href="/css/CRUD.css">
+
 </head>
 
 <body>
@@ -12,10 +13,11 @@
         <%- include ('../partials/header')  %>
 
         <main class= "paovh80">
-            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Usuarios</h1>
+            <h1  class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Usuarios</h1>
             <section>
 
-                <a class="display-5 mt-5 agreg" href="/users/usersCRUD/add">Agregar Usuario</a>
+                <a class="display-5 mt-5 agreg "  href="/users/usersCRUD/add">Agregar Usuario</a>
+              
                 
             </section>
             
@@ -51,9 +53,10 @@
                             <td><a href="/users/edit/<%=usuario.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/users/delete/<%=usuario.id%> ">
+                            <td ><a  href="/users/delete/<%=usuario.id%> " class = "eliminarcheck" >
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a></td>
+                              
             
                         </tr>
             
@@ -75,6 +78,9 @@
         <!-- Fin del Container -->
     </div>
             <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+                <script src="/js/userDelete.js"></script>
+
+                
 </body>
 
 </html>
