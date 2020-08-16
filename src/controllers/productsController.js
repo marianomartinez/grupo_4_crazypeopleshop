@@ -299,17 +299,14 @@ const productsController = {
         res.redirect('/products/crud');*/
         
         
-        let relProm = ProductImage.findAll({where: {productId: req.params.id}})
         let prodProm = Product.findByPk(req.params.id);
+        let relProm = ProductImage.findAll({where: {productId: req.params.id}})
         Promise.all([prodProm,relProm])
         .then(([prod,rels])=>{
             let producto = prod;
             let relations = rels;
-            // let imgId = relations[0].id;
-            // console.log('prod-'+producto.id);
-            // console.log('rel0-'+relations[0].id);
-            // console.log(imgId);
-            relations.forEach(rel=>{
+            if(relations.length > 0){
+                relations.forEach(rel=>{
                 Image.findAll({where: {id: rel.id}})
                 .then(async imgs=>{
                     let imagenes = imgs;
@@ -320,8 +317,9 @@ const productsController = {
                     await Product.destroy({where: {id: req.params.id}})
                 })
             })
+            return res.redirect('/products/crud')
+            } else {Product.destroy({where: {id: req.params.id}}).then(()=> res.redirect('/products/crud'))}
         })
-        return res.redirect('/products/crud')
     },
     productSearch: function(req,res){
         let search = req.query.searchInput.toLowerCase();
