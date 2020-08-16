@@ -12,13 +12,19 @@
         <%- include ('../partials/header') %>
 
         
-        <main class="fonditos">
+        <main class="fonditos paovh80">
         <!-- Galería de productos -->
             <section class="container">
                 <div class="col-12 text-center text-md-left py-4 ">
                     <h2 class="section-title col-12  text-center mad"><%= Title %></h2>
                     
                 </div>
+
+                <% if(results.length == 0){ %>
+                <div>
+                    <p class="text-center mt-1">No encontramos esa marca o modelo, pero seguro tenemos otro para ofrecerte. Buscá de nuevo o ingresá a Productos.</p>
+                </div>
+            <% }; %>
                 <div class="row justify-content-between">
                     <% results.forEach (result => { %> 
                     <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
