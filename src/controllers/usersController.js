@@ -180,13 +180,14 @@ const usersController = {
     },
 
     delete: function (req, res) {
-        User
-        .destroy({
-            where :{
-            id : req.params.id
-        },
-        force : true
-    }).then(confirm => {
+ 
+         User
+         .destroy({
+             where :{
+             id : req.params.id
+         },
+         force : true
+     }).then(confirm => {
         res.redirect('/users/crud');
     })
         

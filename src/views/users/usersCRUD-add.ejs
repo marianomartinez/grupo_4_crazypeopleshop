@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
                         <div class="signup-form pb-4">
-                            <form action="/users/create" method="post" enctype="multipart/form-data">
+                            <form action="/users/create" class = "formulario" id = "formulario" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                   
                                  </div>
@@ -42,6 +42,7 @@
                                     <% if(typeof errors != 'undefined' && errors.firstName){  %>
                                         <span class="text-danger"> <%=errors.firstName.msg%> </span>
                                     <% } %>
+                                    <span id="errornombre"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="lastName" placeholder="Apellido"
@@ -49,6 +50,7 @@
                                         <% if(typeof errors != 'undefined' && errors.lastName){  %>
                                         <span class="text-danger"> <%=errors.lastName.msg%> </span>
                                         <% } %>
+                                        <span id="errorapellido"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="email" placeholder="e-Mail"
@@ -56,6 +58,7 @@
                                         <% if(typeof errors != 'undefined' && errors.email){  %>
                                         <span class="text-danger"> <%=errors.email.msg%> </span>
                                     <% } %>
+                                    <span id="erroremail"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña (6 a 15 caracteres)"
@@ -63,9 +66,11 @@
                                         <% if(typeof errors != 'undefined' && errors.password){  %>
                                         <span class="text-danger"> <%=errors.password.msg%> </span>
                                     <% } %>
+                                    <span id="errorpassword"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password2" placeholder="Reingrese contraseña (6 a 15 caracteres)">
+                                    <span id="errorpassword2"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="file" class="form-control" name="image" placeholder="Imagen">
@@ -109,6 +114,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script src="/js/userRegister.js"></script>
 </body>
 
 </html>
