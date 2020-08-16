@@ -21,9 +21,13 @@
 
         </figure>
         <div class="col-6 col-md-4 mx-0 my-auto p-0 d-flex justify-content-end align-items-center">
-            <form class="search-form m-0 pr-1">
-                <input class="form-control input-sm" type="search" placeholder="Buscar..." aria-label="Search">
+            <form class="search-form m-0 pr-1" action="/products/search" method="GET">
+                <input class="form-control input-sm" type="search" name="searchInput" maxlength="50"
+                    placeholder="Buscar..." aria-label="Search">
+                    <!-- <button class="btn btn-outline-dark" type="submit"><i class="fas fa-search"></i></button> -->
                 <!-- No pude resolver la lupa <button type="submit"><i class="fas fa-search"></i></button> -->
+                    <!-- <input type="text" name="searchInput" maxlength="50" placeholder="Search..."> -->
+                    <!-- <button>Search GET</button> -->
             </form>
 
 

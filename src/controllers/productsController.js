@@ -11,6 +11,8 @@ const Size = db.Size;
 const Image = db.Image;
 const ProductImage = db.ProductImage
 
+const { Op } = require("sequelize");
+
 const productsController = {
     productShow: function (req, res) {
         /*
@@ -133,15 +135,15 @@ const productsController = {
         res.redirect('/products/crud');
         */
 
-       let newProduct = {
-           model: req.body.model,
-           brand: req.body.brand,
-           price: req.body.price,
-           discount: req.body.discount,
-           show: 0,
-           subcategoryId: req.body.subcategoryId,
-           description: req.body.description
-       }
+        let newProduct = {
+            model: req.body.model,
+            brand: req.body.brand,
+            price: req.body.price,
+            discount: req.body.discount,
+            show: 0,
+            subcategoryId: req.body.subcategoryId,
+            description: req.body.description
+        }
         Product.create(newProduct)
         .then((prod)=>{
             let newImages = req.files.map(each=> each.filename);
@@ -263,28 +265,29 @@ const productsController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON);
         res.redirect('/products/crud');
         */
-
-        let updateProduct = {
-            model: req.body.model,
-            brand: req.body.brand,
-            price: req.body.price,
-            discount: req.body.discount,
-            show: req.body.show,
-            subcategoryId: req.body.subcategoryId,
-            description: req.body.description
-        }
-
-        let updateSizeStock = {
+       
+       let updateProduct = {
+           model: req.body.model,
+           brand: req.body.brand,
+           price: req.body.price,
+           discount: req.body.discount,
+           show: req.body.show,
+           subcategoryId: req.body.subcategoryId,
+           description: req.body.description
+       }
+       
+        if(req.body.relId != undefined){
+            let updateSizeStock = {
             productId: req.params.id,
             sizeId: req.body.size,
             stock: req.body.stock
         }
-
         ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
-        .then(()=>{
-            Product.update(updateProduct, {where: {id: req.params.id}})
-            .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))
-        })        
+        .then(()=>{})
+        };
+        
+        Product.update(updateProduct, {where: {id: req.params.id}})
+        .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
     } ,
     delete: function (req, res) {
         /*
@@ -320,6 +323,13 @@ const productsController = {
         })
         return res.redirect('/products/crud')
     },
+    productSearch: function(req,res){
+        let search = req.query.searchInput.toLowerCase();
+        Product
+        .findAll({where: {[Op.or]: [{model: {[Op.like]: `%${search}%`}},{brand: {[Op.like]: `%${search}%`}}]}, include: ['images']})
+        .then(results => {return res.render(path.resolve(__dirname, '..','views','categories','searchResultsShow'), {results, Title: 'Resultados'})})
+        .catch(error => res.send(error))
+    }
 }
 
 module.exports = productsController;
