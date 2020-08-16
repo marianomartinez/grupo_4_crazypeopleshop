@@ -28,19 +28,7 @@ window.addEventListener('load', function () {
                     ).then(result => formulario.submit());
                 }
             })
-
-
-
-
-
-
-
-
-
-
-
-
-            
+        
         }
 
         function validaciones(evento) {
