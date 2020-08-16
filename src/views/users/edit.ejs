@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
                         <div class="signup-form">
-                            <form action="/users/edit/<%=usuarioEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
+                            <form action="/users/edit/<%=usuarioEdit.id%>?_method=put" class = "formulario" id = "formulario" method="POST" enctype="multipart/form-data">
                               <div class="form-group">
 
                                 </div>
@@ -45,27 +45,31 @@
                                         <% if(typeof errors != 'undefined' && errors.email){  %>
                                         <span class="text-danger"> <%=errors.email.msg%> </span>
                                         <% } %>
+                                        <span id="erroremail"></span>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-12">
                                         <label for="inputCity">Nombre</label>
                                         <input type="text" class="form-control" name="firstName" placeholder = "Nombre" value="<%=usuarioEdit.firstName%>">
                                         <% if(typeof errors != 'undefined' && errors.firstName){  %>
                                         <span class="text-danger"> <%=errors.firstName.msg%> </span>
                                         <% } %>
+                                        <span id="errornombre"></span>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-12">
                                         <label for="inputCity">Apellido</label>
                                         <input type="text" class="form-control" name="lastName" placeholder="Apellido" value="<%=usuarioEdit.lastName%>">
                                                 <% if(typeof errors != 'undefined' && errors.lastName){  %>
                                                 <span class="text-danger"> <%=errors.lastName.msg%> </span>
                                                 <% } %>
+                                                <span id="errorapellido"></span>
                                     </div>
-
-
+                                
+                                    
                                 <div class="form-group col-md-12">
                                     <label for="inputAddress">Teléfono</label>
-                                    <input type="text" class="form-control" name="phone" placeholder="Telefono"
+                                    <input type="text" class="form-control" name="phone" placeholder="(011)-####-#### o vacío"
                                         value="<%=usuarioEdit.phone%>">
+                                        <span id="errortelefono"></span>
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="inputAddress2">Contraseña</label>
@@ -75,11 +79,13 @@
                                         <% if(typeof errors != 'undefined' && errors.password){  %>
                                         <span class="text-danger"> <%=errors.password.msg%> </span>
                                         <% } %>
+                                        <span id="errorpassword"></span>
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="inputAddress2">Reingrese Contraseña</label>
                                     <input type="password" class="form-control" name="password2"  placeholder="Reingrese nueva contraseña (6 a 15 caracteres)"
                                     >
+                                    <span id="errorpassword2"></span>
                                 </div>
                                                             
                                                       
@@ -125,6 +131,7 @@
     <!-- Fin del Container -->
     </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="/js/userEdit.js"></script>
     </body>
     
     </html>
