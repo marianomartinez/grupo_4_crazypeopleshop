@@ -28,6 +28,7 @@ router.get('/subcategories/subcategoriesCRUD/add', subcategoriesController.add);
 router.get('/subcategories/detail/:id', subcategoriesController.show);
 router.get('/subcategories/edit/:id', subcategoriesController.edit);
 router.get('/subcategories/delete/:id', subcategoriesController.delete);
+router.get('/api/subcategories/:id', subcategoriesController.allSubcategories);
 
 router.put('/subcategories/edit/:id', upload.single('image'), require('../middlewares/subcategoryUpdate'), subcategoriesController.update);
 router.post('/subcategories/crud', upload.single('image'), require('../middlewares/subcategoryCreate'),subcategoriesController.save);

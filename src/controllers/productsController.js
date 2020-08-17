@@ -187,8 +187,8 @@ const productsController = {
         let promSizeStock = ProductSizeStock.findAll({where: {productId: req.params.id}});
         let promSizes = Size.findAll();
         let productProm = Product.findByPk(req.params.id, {include: ['subcategory','images']});
-        let categoriesProm = Category.findAll();
-        let subcategoriesProm = Subcategory.findAll();
+        let categoriesProm = Category.findAll({include: 'subcategory'});
+        let subcategoriesProm = Subcategory.findAll({include: 'category'});
         Promise.all([promSizeStock, promSizes, productProm, categoriesProm, subcategoriesProm])
         .then(([sizeStock, sizes, productoShow, categorias, subcategorias]) => {
             return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Admin-Productos',sizeStock,sizes,productoShow,categorias,subcategorias})})

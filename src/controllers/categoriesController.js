@@ -169,12 +169,9 @@ const categoriesController = {
                 .then(categoriaEdit => {
                     res.render(path.resolve(__dirname, '..', 'views', 'categories', 'categoriesCRUD_edit'), { categoriaEdit: categoriaEdit, Title: 'Categoria-Edición', errors: errors.mapped() })
                 })
-
         }
-
-
-
+    },
+    allCategories: async (req, res) => {return res.json(await Category.findAll({where: {subcategoryId: req.params.id}}))
     }
-
 }
 module.exports = categoriesController;

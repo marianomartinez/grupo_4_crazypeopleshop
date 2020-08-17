@@ -32,6 +32,7 @@ router.get('/categories/categoriasCRUD/add', categoriesController.add);
 router.get('/categories/detail/:id', categoriesController.show);
 router.get('/categories/edit/:id', categoriesController.edit);
 router.get('/categories/delete/:id', categoriesController.delete);
+router.get('/api/categories/:id', categoriesController.allCategories);
 // router.get('/subcategories/crud', categoriesController.crudsubcat);
 router.put('/categories/edit/:id', upload.single('image'), require('../middlewares/categoryUpdate'), categoriesController.update);
 router.post('/categories/crud', upload.single('image'), require('../middlewares/categoryCreate'),categoriesController.save);
