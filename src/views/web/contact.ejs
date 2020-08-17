@@ -7,26 +7,47 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
-
-        <main class="fonditos paovh80">
-            <div class="col-12 text-center text-md-left py-3"></div>
-            <h1 class="col-12 text-center mad">CONTACTO</h1>
-            <h3 class="col-12 text-center mt-5">Nos podes encontrar en</h3>
-            <p class="mt-5 text-center">Av. cabildo 123 (CABA) Argentina |
-             Tel. 4004-5555/4004-2002 | E-mail:
-             <a href="mailto:info@crazypeople">info@crazypeople</a></p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.19943312473!2d-58.4396266841756!3d-34.57381996342513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5957f0f0e17%3A0xc7d8203e4e2f3c35!2sAv.%20Cabildo%20123%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1592945794795!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="col-12 text-center text-md-center mt-1"></iframe>
-            
-        </main>
+        <main class="fonditos px-5">
+<footer class="row">
+    <article class="col-12 col-md-6 pl-4 py-5 paovh80">
+      <h2 class="mad agreg">CONTACTANOS</h2>
+      <form  action="#" method="POST">
+        <div class="form-group py-2">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group py-3">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" class="form-control" id="nombre">
+        </div>
+        <div class="form-group py-3">
+          <label for="exampleFormControlTextarea1">Dejanos tu consulta</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar la consulta</button>
+      </form> 
+  
+    </article>
+    <article class="col-md-6 py-5">
+      <h2 class="mad agreg">AQUI NOS ENCONTRAMOS</h2>
+      <div class="embed-responsive embed-responsive-16by9 ">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.186626182048!2d-58.4458648850207!3d-34.54882986210255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb436efe09303%3A0xfb39818e7624ac76!2sDigital%20House!5e0!3m2!1ses!2sar!4v1591837208776!5m2!1ses!2sar" width="100" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+  
+    </article>
     
-        <!-- Footer de footer.ejs -->
-        <%- include ('../partials/footer') %>
+        
+</main>
 
-        <!-- Scripts de scripts.ejs -->
-        <%- include ('../partials/scripts') %>
-
-        <!-- Fin del Container -->
     </div>
-    
+</footer>
+<!-- Footer de footer.ejs -->
+<%- include ('../partials/footer') %>
+
+<!-- Scripts de scripts.ejs -->
+<%- include ('../partials/scripts') %>
+
+<!-- Fin del Container -->
 </body>
 </html>
