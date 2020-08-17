@@ -68,19 +68,18 @@
                     <div class="cardPrecio text-center">
                         <p>$<%= productToShow.price %></p>
                     </div>
-                    <form class="form-group" action="/cart/additemCart/<%= productToShow.id%>" method="POST">
-                        <label class="my-1" for="sel1">Color:</label>
-                        <select class="form-control" id="sel1">
-                            <option selected disabled>-elegir color-</option>
-                            <!-- <option value="<%= //productToShow.color %>"><%= //productToShow.color %></option> -->
-                        </select>
+                    <form class="form-group" action="/cart/additemCart/<%= productToShow.id%>" class = "formulario" id = "formulario" method="POST">
+                     
+                            <input type="hidden" id = "producto" value = "<%= productToShow.id %>">
                             <label class="my-1" for="sel1">Talle:</label>
-                            <select class="form-control mb-4" id="sel1">
+                            <select class="form-control mb-4" id="talle" name = "talle">
                                 <option selected disabled>-elegir talle-</option>
                                 <% for (i=0;i<productToShow.sizes.length;i++) { %>
                                 <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
                                 <% }; %>
+                                
                             </select>
+                            <span id="errortalle"></span>
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">
                         <a type="button" class="w-100 botcar text-center" href="/category/<%=productToShow.subcategory.categoryId%>">Volver</a>   
                     </form>
@@ -105,6 +104,8 @@
 
     <!-- Scripts de scripts.ejs -->
     <%- include ('../partials/scripts') %>
+
+    <script src="/js/cartAdditem.js"></script>
 
     <!-- Fin del Container -->
     </div>

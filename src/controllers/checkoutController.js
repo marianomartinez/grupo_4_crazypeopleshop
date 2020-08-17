@@ -6,6 +6,7 @@ module.exports= {
     additemCart: (req,res)=>{
         console.log('agrego item');
         console.log(req.params.id);
+        console.log(req.body.talle);
         
     }
 }
