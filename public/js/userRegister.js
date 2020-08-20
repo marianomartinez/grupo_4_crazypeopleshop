@@ -20,11 +20,11 @@ function validaciones(evento){
     
     //NOMBRE
     let errorNombre = document.getElementById('errornombre')
-    if (firstName.value == ''){
-        errores.push('el nombre no puede quedar vacío')
+    if (firstName.value.length < 2 ){
+        errores.push('el nombre debe tener al mínimo 2 letras')
         firstName.classList.add('is-invalid')
         errorNombre.classList.add('text-danger')
-        errorNombre.innerHTML = 'el nombre no puede quedar vacío'
+        errorNombre.innerHTML = 'el nombre debe tener al mínimo 2 letras'
 
         //errores['firstName'] = 'El nombre no puede estar vacío'
     }else{
@@ -34,11 +34,11 @@ function validaciones(evento){
     }
 //APELLIDO
     let errorApellido = document.getElementById('errorapellido')
-    if (lastName.value == '') {
-        errores.push('el apellido no puede quedar vacío')
+    if (lastName.value.length < 2 ) {
+        errores.push('el apellido debe tener al mínimo 2 letras')
         lastName.classList.add('is-invalid')
         errorApellido.classList.add('text-danger')
-        errorApellido.innerHTML = 'el apellido no puede quedar vacío'
+        errorApellido.innerHTML = 'el apellido debe tener al mínimo 2 letras'
 
    
     } else {
@@ -65,12 +65,12 @@ function validaciones(evento){
 
     //PASSWORD
     let errorPassword = document.getElementById('errorpassword')
-    let regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,15}$/
+    let regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
     if (!regPassword.test(password.value)) {
         errores.push('las password no cumple las reglas')
         password.classList.add('is-invalid')
         errorPassword.classList.add('text-danger')
-        errorPassword.innerHTML = 'la contraseña debe tener entre 6 y 15 caracteres,una minúscula,una mayúscula y un número'
+        errorPassword.innerHTML = 'la contraseña debe tener entre 8 y 20 caracteres,una minúscula,una mayúscula,un número y un caracter especial'
        
 
     } else {
