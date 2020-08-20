@@ -34,34 +34,32 @@
     <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="inputZip">ID</label>
-                    <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" disabled>
+                    <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" id="productId" disabled>
                 </div>
 
-                <!-- !!! Por si agregamos vista variable con FrontJS -->
-        <!-- <div class="form-group col-md-4" >
-            <label for="inputState">Categoria</label>
-            <select id="inputState" class="form-control" name = "categoryId" required >
-            <% // let subcat = productoEdit.subcategoryId %>
-            <% // let cateId = subcategorias.find(sc =>sc.id == subcat).categoryId%>
-                <option value="<%= // categorias.find(c =>c.id == cateId).id %>" selected>
-                    <%= // categorias.find(c =>c.id == cateId).name %></option>
-                 <% // categorias.forEach(categoria => { %>
-               <option value="<%= // categoria.id %>"><%= // categoria.name %></option>
-                <% // }); %>
-            </select>
-        </div> -->
-        
-        <div class="form-group col-md-4">
-            <label for="inputState">Subcategoría</label>
-            <select id="inputState" class="form-control" name="subcategoryId" required>
-                <%subcategorias.forEach(subcategoria => { %>
-                <option value="<%= subcategoria.id %>"
-                    <% if (subcategoria.id == productoEdit.subcategoryId) { %>
-                    <%= 'selected' %> <% }; %>><%= subcategoria.name %></option>
+        <div class="form-group col-md-6">
+            <label for="inputState">Categoría</label>
+            <select class="form-control custom-select" name="categoryId" id="selectedCat">
+                <% categorias.forEach(categoria => { %>
+                <option value="<%= categoria.id %>"
+                    <% if (categoria.id == productoEdit.subcategory.categoryId) { %>
+                    <%= 'selected' %> <% }; %>><%= categoria.name %></option>
                 <% }); %>
             </select>
         </div>
+        
+        <div class="form-group col-md-6">
+            <label for="inputState">Subcategoría</label>
+            <select class="form-control" name="subcategoryId" id="dynamicSubcat" required>
+                <%subcategorias.forEach(subcategoria => { %>
+                    <% if (subcategoria.categoryId == productoEdit.subcategory.categoryId) { %>
+                    <option value="<%= subcategoria.id %>" <% if (subcategoria.id == productoEdit.subcategoryId) { %>
+                        <%= 'selected' %> <% }; %>><%= subcategoria.name %></option>
+                    <% }}); %>
+            </select>
+        </div>
     </div>
+    
     <div class="form-group">
         <label for="inputAddress">Marca</label>
         <input type="text" class="form-control" name="brand" placeholder="marca" value="<%=productoEdit.brand%>">
@@ -86,26 +84,25 @@
         </div>
     </div>
 
-    <% if(sizeStock.length > 0) { %>
-        <% sizeStock.forEach(rel => { %>
-            <div class="form-row">
-                <div class="d-none">
-                    <label for="inputZip">relId</label>
-                    <input type="text" class="form-control" name="relId" value="<%=rel.id%>">
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="inputCity">Talle</label>
-                    <input type="text" class="form-control" disabled name="size" value="<%=rel.sizeId%>">
-                </div>
-            
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Stock</label>
-                    <input type="text" class="form-control" name="stock" value="<%=rel.stock%>">
-                </div>
-            </div>
-            <% }) %>
-        <% }; %>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="size">Talle</label>
+            <select class="form-control custom-select" name="size" id="selectedSize">
+                <option selected disabled>Talles</option>
+                <% sizeStock.forEach(size => { %>
+                    <option value="<%= size.sizeId %>"><%= size.sizeId %></option>
+                <% }); %>
+            </select>
+        </div>
+        <div class="form-group col-md-6" id="stockReturn">
+            <label for="inputZip">Stock</label>
+            <input type="text" class="form-control" name="stock" value="">
+        </div>
+        <div class="d-none" id="relReturn">
+            <label for="inputZip">Rel</label>
+            <input type="text" class="form-control" name="relId" value="">
+        </div>
+    </div>    
 
     <div class="form-row"></div>
         <div class="form-group ml-4">
@@ -158,6 +155,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+    <!-- Scripts para JS -->
+    <script src="/js/productEdit.js"></script>
 </body>
 
 </html>

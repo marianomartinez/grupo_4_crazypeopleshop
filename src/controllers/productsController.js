@@ -191,7 +191,7 @@ const productsController = {
         let subcategoriesProm = Subcategory.findAll({include: 'category'});
         Promise.all([promSizeStock, promSizes, productProm, categoriesProm, subcategoriesProm])
         .then(([sizeStock, sizes, productoShow, categorias, subcategorias]) => {
-            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Admin-Productos',sizeStock,sizes,productoShow,categorias,subcategorias})})
+            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Producto-Detalle',sizeStock,sizes,productoShow,categorias,subcategorias})})
     },
 
     edit: function (req, res) {
@@ -276,14 +276,14 @@ const productsController = {
            description: req.body.description
        }
        
-        if(req.body.relId != undefined){
-            let updateSizeStock = {
-            productId: req.params.id,
-            sizeId: req.body.size,
-            stock: req.body.stock
-        }
-        ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
-        .then(()=>{})
+       if(req.body.relId != undefined){
+           let updateSizeStock = {
+               productId: req.params.id,
+               sizeId: req.body.size,
+               stock: req.body.stock
+            }
+            ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
+            .then(()=>{})
         };
         
         Product.update(updateProduct, {where: {id: req.params.id}})
@@ -327,6 +327,10 @@ const productsController = {
         .findAll({where: {[Op.or]: [{model: {[Op.like]: `%${search}%`}},{brand: {[Op.like]: `%${search}%`}}]}, include: ['images']})
         .then(results => {return res.render(path.resolve(__dirname, '..','views','categories','searchResultsShow'), {results, Title: 'Resultados'})})
         .catch(error => res.send(error))
+    },
+    productEdit: async (req,res) => {return res.json(await Product.findAll({where: {id: req.params.id}},{include: ['subcategory','sizes']}))
+    },
+    productSizes: async (req,res) => {return res.json(await ProductSizeStock.findAll({where: {productId: req.params.id}}))
     }
 }
 
