@@ -39,6 +39,7 @@
                                         <option value="<%= categoria.id %>"><%= categoria.name %></option>
                                         <% }); %>
                                     </select>
+                                    <span id="errorcat"></span>
                                 </div>
 
                                 <div class="form-group">
@@ -63,14 +64,17 @@
                                 <div class="form-group">
                                     <textarea name="description" class="form-control" placeholder="Descripción"
                                          cols="30" rows="10"></textarea>
+                                         <span id="errordescription"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="price" placeholder="Precio">
+                                    <span id="errorprice"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="discount" placeholder="Descuento">
+                                    <span id="errordiscount"></span>
                                 </div>
                                 
                                 <label>Subir imágenes</label>

@@ -35,6 +35,7 @@
                                     <div class="form-group col-md-2">
                                         <label for="inputZip">ID</label>
                                         <input type="text" class="form-control" name="id" value="<%=categoriaEdit.id%>" disabled>
+                                        <span id="errorid"></span>
                                     </div>
                                      <div class="form-group">
                                         <label for="inputAddress"> Categoría </label>
@@ -43,6 +44,7 @@
                                             <% if(typeof errors != 'undefined' && errors.name){  %>
                                             <span class="text-danger"> <%=errors.name.msg%> </span>
                                             <% } %>
+                                            
                                     </div>
                                     
                                     <div class="form-group col-12">
@@ -52,6 +54,7 @@
                                             <% if(typeof errors != 'undefined' && errors.description){  %>
                                             <span class="text-danger"> <%=errors.description.msg%> </span>
                                             <% } %>
+                                            <span id="errordescripcion"></span>
                                     </div>
                              </div>
         
