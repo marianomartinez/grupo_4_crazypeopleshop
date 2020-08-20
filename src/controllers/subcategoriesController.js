@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const db = require('../database/models/')
 
+const Product = db.Product;
 const Subcategory = db.Subcategory;
 const Category = db.Category;
 //Express validator

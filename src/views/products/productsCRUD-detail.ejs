@@ -87,12 +87,12 @@
 
                                 <% if(sizeStock.length > 0) { %>
                                     <% sizeStock.forEach(rel => { %>
-                                        <% let size = sizes.find(size=>size.id == rel.sizeId).eusize; %>
+                                        <% let size = sizes.find(size=>size.id == rel.sizeId); %>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputCity">Talle</label>
                                                 <input type="text" class="form-control" disabled name="size"
-                                                    value="<%=size%>">
+                                                    value="<%=size.eusize%>">
                                             </div>
 
                                             <div class="form-group col-md-2">
