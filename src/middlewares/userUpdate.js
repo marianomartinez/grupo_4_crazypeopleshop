@@ -3,24 +3,24 @@ let { check, validationResult, body } = require('express-validator');
 
 
 module.exports = [
-    check('firstName').isLength({ min: 1 }).withMessage('el nombre no puede quedar vacío'),
-    check('lastName').isLength({ min: 1 }).withMessage('el apellido no puede quedar vacío'),
+    check('firstName').isLength({ min: 2 }).withMessage('el nombre debe tener al mínimo 2 letras'),
+    check('lastName').isLength({ min: 2 }).withMessage('el apellido debe tener al mínimo 2 letras'),
     check('email').isEmail().withMessage('el formato del mail es erroneo'),
    // check('password').isLength({ min: 6, max: 15 }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
     body('password').custom(function (value, { req }) {
-        
-        if (value != '' ) {
-            if (value.length > 5 && value.length < 16 ){
-            console.log('cambio');
+        let regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
+
+        if (regPassword.test(value)) {
+            
             return true
-            }
+            
         }
         if (value == ''){
-            console.log('no cambio');
+            
             return true
         }
         return false
-    }).withMessage('la clave debe ser entre 6 y 15 caracteres'),
+    }).withMessage('la contraseña debe tener entre 9 y 20 caracteres,una minúscula,una mayúscula,un número y un caracter especial'),
     
 
     body('password').custom(function (value, { req }) {

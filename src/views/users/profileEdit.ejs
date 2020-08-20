@@ -74,7 +74,7 @@
                                         <div class="input-group col-12">
                                             <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
                                             <input type="password" class="form-control" name="password"
-                                                placeholder="Nueva contraseña (6 a 15 caracteres)">
+                                                placeholder="Nueva contraseña (8 a 20 caracteres)">
                                         
                                             <div class="input-group-append">
                                                 <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
@@ -87,10 +87,13 @@
                                         <div class="input-group col-12">
                                         
                                             <input type="password" class="form-control password2" name="password2"
-                                                placeholder="Reingrese nueva contraseña (6 a 15 caracteres)">
+                                                placeholder="Reingrese nueva contraseña (8 a 20 caracteres)">
                                             <div class="input-group-append">
                                                 <span class="input-group-text  bg-white" id="togglePassword2"><i class="fas fa-eye"> </i></span>
                                             </div>
+                                            <% if(typeof errors != 'undefined' && errors.password2){  %>
+                                            <span class="text-danger"> <%=errors.password2.msg%> </span>
+                                            <% } %>
                                         </div>
 
 
