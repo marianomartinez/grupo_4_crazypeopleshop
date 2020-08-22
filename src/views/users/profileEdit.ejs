@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
                             <div class="signup-form">
-                                <form action="/users/profileUpdate/<%=usuarioEdit.id%>?_method=put" method="POST"
+                                <form action="/users/profileUpdate/<%=usuarioEdit.id%>?_method=put" class = "formulario" id = "formulario" method="POST"
                                     enctype="multipart/form-data">
                                     <div class="form-group">
 
@@ -46,6 +46,7 @@
                                             <% if(typeof errors != 'undefined' && errors.email){  %>
                                             <span class="text-danger"> <%=errors.email.msg%> </span>
                                             <% } %>
+                                            <span id="erroremail"></span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputCity">Nombre</label>
@@ -54,6 +55,7 @@
                                             <% if(typeof errors != 'undefined' && errors.firstName){  %>
                                             <span class="text-danger"> <%=errors.firstName.msg%> </span>
                                             <% } %>
+                                            <span id="errornombre"></span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputCity">Apellido</label>
@@ -62,6 +64,7 @@
                                             <% if(typeof errors != 'undefined' && errors.lastName){  %>
                                             <span class="text-danger"> <%=errors.lastName.msg%> </span>
                                             <% } %>
+                                            <span id="errorapellido"></span>
                                         </div>
 
 
@@ -69,6 +72,7 @@
                                             <label for="inputAddress">Teléfono</label>
                                             <input type="text" class="form-control" name="phone" placeholder="Telefono"
                                                 value="<%=usuarioEdit.phone%>">
+                                                <span id="errortelefono"></span>
                                         </div>
                                         <label for="inputAddress">Contraseña</label>
                                         <div class="input-group col-12">
@@ -82,6 +86,7 @@
                                                 <% if(typeof errors != 'undefined' && errors.password){  %>
                                                 <span class="text-danger"> <%=errors.password.msg%> </span>
                                                 <% } %>
+                                                <span id="errorpassword"></span>
                                         </div>
                                 <label for="inputAddress">Reingrese Contraseña</label>
                                         <div class="input-group col-12">
@@ -94,6 +99,7 @@
                                             <% if(typeof errors != 'undefined' && errors.password2){  %>
                                             <span class="text-danger"> <%=errors.password2.msg%> </span>
                                             <% } %>
+                                            <span id="errorpassword2"></span>
                                         </div>
 
 
@@ -134,6 +140,7 @@
         <!-- Fin del Container -->
     </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="/js/userEdit.js"></script>
 </body>
 
 </html>
