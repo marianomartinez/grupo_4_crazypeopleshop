@@ -257,7 +257,7 @@ const usersController = {
                     if (req.body.recordame != undefined) {
                        
                         res.cookie('recordame', usuarioaLoguearse[0].email, { maxAge: 1000 * 60 * 60 * 24 })
-                    } else { res.cookie('recordame', 'vacio', { maxAge: 1000 * 60 * 60 * 24 }) }
+                    } 
                     res.redirect('/')
 
            
