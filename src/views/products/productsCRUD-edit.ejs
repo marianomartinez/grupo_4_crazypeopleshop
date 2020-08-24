@@ -29,13 +29,13 @@
                 <div class="row">
                     <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
                         <div class="signup-form">
-    <form action="/products/productsCRUDedit/<%=productoEdit.id%>?_method=put" method="POST">
+    <form action="/products/productsCRUDedit/<%=productoEdit.id%>?_method=put" method="POST" id="formulario">
 
     <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="inputZip">ID</label>
-                    <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" id="productId" disabled>
-                </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">ID</label>
+            <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" id="productId" disabled>
+        </div>
 
         <div class="form-group col-md-6">
             <label for="inputState">Categoría</label>
@@ -57,21 +57,32 @@
                         <%= 'selected' %> <% }; %>><%= subcategoria.name %></option>
                     <% }}); %>
             </select>
-            <span id="errornombre"></span>
         </div>
     </div>
     
     <div class="form-group">
         <label for="inputAddress">Marca</label>
         <input type="text" class="form-control" name="brand" placeholder="marca" value="<%=productoEdit.brand%>">
+        <% if(typeof errors != 'undefined' && errors.brand){  %>
+        <span class="text-danger"> <%=errors.brand.msg%> </span>
+        <% } %>
+        <span id="errorBrand"></span>
     </div>
     <div class="form-group">
         <label for="inputAddress">Modelo</label>
         <input type="text" class="form-control" name="model" placeholder="modelo" value="<%=productoEdit.model%>">
+        <% if(typeof errors != 'undefined' && errors.model){  %>
+        <span class="text-danger"> <%=errors.model.msg%> </span>
+        <% } %>
+        <span id="errorModel"></span>
     </div>
     <div class="form-group">
         <label for="inputAddress2">Descripción</label>
         <input type="text" class="form-control" name="description" placeholder="descripción del producto"value="<%=productoEdit.description%>">
+        <% if(typeof errors != 'undefined' && errors.description){  %>
+        <span class="text-danger"> <%=errors.description.msg%> </span>
+        <% } %>
+        <span id="errorDescription"></span>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -119,7 +130,11 @@
         <% productoEdit.images.forEach(img=> {%>
         <div class="form-group">
             <div class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/prod_img/<%= img.filename%>" alt="">
-                <input type="file" class="form-control" name="imagen" placeholder="Imagen" value="<%=img.filename%>">
+                <input type="file" class="form-control" name="image" placeholder="Imagen" value="<%=img.filename%>">
+                <% if(typeof errors != 'undefined' && errors.image){  %>
+                <span class="text-danger"> <%=errors.image.msg%> </span>
+                <% } %>
+                <span id="errorImage"></span>
             </div>
         <% }); %>
         <% }; %>
@@ -159,6 +174,7 @@
 
     <!-- Scripts para JS -->
     <script src="/js/productEdit.js"></script>
+    <script src="/js/productEditForm.js"></script>
 </body>
 
 </html>

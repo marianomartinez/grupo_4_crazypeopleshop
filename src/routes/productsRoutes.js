@@ -38,7 +38,7 @@ router.post('/products/crud', upload.any(), productsController.save);
 router.get('/products/productsCRUDdetail/:id', productsController.show);
 router.get('/products/delete/:id', productsController.delete);
 router.get('/products/productsCRUDedit/:id', productsController.edit);
-router.put('/products/productsCRUDedit/:id', productsController.update);
+router.put('/products/productsCRUDedit/:id', require('../middlewares/productUpdate'), productsController.update);
 router.get('/products/:category/:id', productsController.productShow);
 router.get('/products/search', productsController.productSearch);
 router.get('/api/productEdit/:id', productsController.productEdit);
