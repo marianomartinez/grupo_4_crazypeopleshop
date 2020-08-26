@@ -1,10 +1,9 @@
 window.addEventListener('load', function() {
-    alert('validación de formularios')
     // VALIDACIONES DE CAMPOS
 
     //capturo formulario
     let formulario = document.querySelector('#formulario')
-    //alert(formulario.elements.email.value)
+    // alert(formulario.elements.brand.value)
     formulario.addEventListener('submit', function (evento) {
 
         if (!validaciones(evento)) {
@@ -45,7 +44,7 @@ window.addEventListener('load', function() {
             } = formulario.elements
             let errores = [];
 
-
+            /*
             //IMAGEN
             let errorImage = document.getElementById('errorImage')
             let acceptFileTypes = /(\.|\/)(gif|jpe?g|png|jpg)$/i
@@ -67,6 +66,7 @@ window.addEventListener('load', function() {
                 errorImage.innerHTML = ''
                 image.classList.remove('is-invalid')
             }
+            */
 
             // MARCA
             let errorBrand = document.getElementById('errorBrand')
@@ -84,17 +84,18 @@ window.addEventListener('load', function() {
             // MODELO
             let errorModel = document.getElementById('errorModel')
             if (model.value.length < 2) {
-                errores.push('El modelo debe tener al mínimo 2 caracteres')
+                errores.push('El modelo debe tener al menos 2 caracteres')
                 model.classList.add('is-invalid')
                 errorModel.classList.add('text-danger')
-                errorModel.innerHTML = 'El modelo debe tener al mínimo 2 caracteres'
-
+                errorModel.innerHTML = 'El modelo debe tener al menos 2 caracteres'
+                
             } else {
                 model.classList.add('is-valid')
                 errorModel.innerHTML = ''
                 model.classList.remove('is-invalid')
             }
 
+            
             // DESCRIPCION
             let errorDescription = document.getElementById('errorDescription')
             if (description.value.length < 2) {
@@ -108,11 +109,11 @@ window.addEventListener('load', function() {
                 errorDescription.innerHTML = ''
                 description.classList.remove('is-invalid')
             }
-
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
 
             if (errores.length > 0) {
                 evento.preventDefault();
+                // alert(errores.length)
                 errores = [];
             } else {
                 return true

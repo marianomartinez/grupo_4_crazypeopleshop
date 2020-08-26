@@ -13,6 +13,10 @@ const ProductImage = db.ProductImage
 
 const { Op } = require("sequelize");
 
+
+//Express validator
+let { check, validationResult, body } = require('express-validator');
+
 const productsController = {
     productShow: function (req, res) {
         /*
@@ -265,29 +269,58 @@ const productsController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON);
         res.redirect('/products/crud');
         */
-       
-       let updateProduct = {
-           model: req.body.model,
-           brand: req.body.brand,
-           price: req.body.price,
-           discount: req.body.discount,
-           show: req.body.show,
-           subcategoryId: req.body.subcategoryId,
-           description: req.body.description
-       }
-       
-       if(req.body.relId != undefined){
-           let updateSizeStock = {
-               productId: req.params.id,
-               sizeId: req.body.size,
-               stock: req.body.stock
+
+
+        /* // Sin validación funciona
+        let updateProduct = {
+            model: req.body.model,
+            brand: req.body.brand,
+            price: req.body.price,
+            discount: req.body.discount,
+            show: req.body.show,
+            subcategoryId: req.body.subcategoryId,
+            description: req.body.description
+        }
+        if(req.body.relId != undefined){
+            let updateSizeStock = {
+                productId: req.params.id,
+                sizeId: req.body.size,
+                stock: req.body.stock
             }
             ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
             .then(()=>{})
         };
-        
         Product.update(updateProduct, {where: {id: req.params.id}})
-        .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
+        .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id)) 
+        */
+
+
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let updateProduct = {
+                model: req.body.model,
+                brand: req.body.brand,
+                price: req.body.price,
+                discount: req.body.discount,
+                show: req.body.show,
+                subcategoryId: req.body.subcategoryId,
+                description: req.body.description
+            }
+            if(req.body.relId != undefined){
+                let updateSizeStock = {
+                    productId: req.params.id,
+                    sizeId: req.body.size,
+                    stock: req.body.stock
+                }
+                ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
+                .then(()=>{})
+            };
+            Product.update(updateProduct, {where: {id: req.params.id}})
+            .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
+        } else {
+            res.redirect('/products/productsCRUDedit/' + req.params.id);
+        }
     } ,
     delete: function (req, res) {
         /*
