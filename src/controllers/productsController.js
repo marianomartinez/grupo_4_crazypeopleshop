@@ -297,6 +297,7 @@ const productsController = {
 
 
         let errors = validationResult(req);
+        console.log(errors);
         if (errors.isEmpty()) {
             let updateProduct = {
                 model: req.body.model,
@@ -319,7 +320,7 @@ const productsController = {
             Product.update(updateProduct, {where: {id: req.params.id}})
             .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
         } else {
-            res.redirect('/products/productsCRUDedit/' + req.params.id);
+            res.redirect('/products/productsCRUDedit/' + req.params.id),{errors: errors.mapped()};
         }
     } ,
     delete: function (req, res) {

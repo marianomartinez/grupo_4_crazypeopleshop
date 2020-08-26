@@ -7,6 +7,5 @@ module.exports = [
     check('brand').isLength({ min: 2 }).withMessage('La marca debe tener al menos 2 caracteres'),
     check('model').isLength({ min: 2 }).withMessage('El modelo debe tener al menos 2 caracteres'),
     check('description').isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
-    check('price').isEmpty().withMessage('El precio no puede estar vacío')
+    check('price').isNumeric().withMessage('El precio debe ser numérico y no estar vacío')
 ]
-    
