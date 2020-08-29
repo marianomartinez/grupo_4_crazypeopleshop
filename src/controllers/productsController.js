@@ -324,6 +324,21 @@ const productsController = {
                 }
                 ProductSizeStock.create(addSizeStock).then(()=>{})
             };
+
+            // ACA VOY A AGREGAR EDICION DE IMAGENES
+            // let newImages = req.files.map(each=> each.filename);
+            // newImages.forEach(img=>{
+            //     let newImage = {filename: img};
+            //     Image.create(newImage)
+            //     .then(async(img)=>{
+            //         let newRel = {
+            //             productId: prod.id,
+            //             imageId: img.id
+            //         }
+            //         await ProductImage.create(newRel)
+            //     })
+            // })
+
             Product.update(updateProduct, {where: {id: req.params.id}})
             .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
         } else {
