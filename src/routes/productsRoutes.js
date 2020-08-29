@@ -34,15 +34,15 @@ const productsController = require(path.resolve(__dirname, '../controllers/produ
 
 router.get('/products/crud', productsController.crud);
 router.get('/products/productsCRUD/add', productsController.add);
-router.post('/products/crud', upload.any(), productsController.save);
 router.get('/products/productsCRUDdetail/:id', productsController.show);
 router.get('/products/delete/:id', productsController.delete);
 router.get('/products/productsCRUDedit/:id', productsController.edit);
-router.put('/products/productsCRUDedit/:id', require('../middlewares/productUpdate'), productsController.update);
 router.get('/products/:category/:id', productsController.productShow);
 router.get('/products/search', productsController.productSearch);
 router.get('/api/productEdit/:id', productsController.productEdit);
 router.get('/api/productSizes/:id', productsController.productSizes);
 router.get('/api/sizeList', productsController.sizeList);
+router.put('/products/productsCRUDedit/:id', require('../middlewares/productUpdate'), productsController.update);
+router.post('/products/crud', upload.any(), require('../middlewares/productCreate'), productsController.save);
 
 module.exports = router;

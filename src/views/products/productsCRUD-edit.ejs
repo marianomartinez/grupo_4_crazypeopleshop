@@ -37,7 +37,7 @@
             <input type="text" class="form-control" name = "id" value="<%=productoEdit.id%>" id="productId" disabled>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-10">
             <label for="inputState">Categoría</label>
             <select class="form-control custom-select" name="categoryId" id="selectedCat">
                 <% categorias.forEach(categoria => { %>
@@ -46,9 +46,13 @@
                     <%= 'selected' %> <% }; %>><%= categoria.name %></option>
                 <% }); %>
             </select>
+            <% if(typeof errors != 'undefined' && errors.categoryId){  %>
+            <span class="text-danger"> <%=errors.categoryId.msg%> </span>
+            <% } %>
+            <span id="errorcategoria"></span>
         </div>
         
-        <div class="form-group col-md-6">
+        <div class="form-group col-12">
             <label for="inputState">Subcategoría</label>
             <select class="form-control" name="subcategoryId" id="dynamicSubcat" required>
                 <%subcategorias.forEach(subcategoria => { %>
@@ -57,6 +61,10 @@
                         <%= 'selected' %> <% }; %>><%= subcategoria.name %></option>
                     <% }}); %>
             </select>
+                <% if(typeof errors != 'undefined' && errors.subcategoryId){  %>
+                <span class="text-danger"> <%=errors.subcategoryId.msg%> </span>
+                <% } %>
+                <span id="errorsubcategoria"></span>
         </div>
     </div>
     
@@ -113,10 +121,18 @@
                 <% }); %>
                 <option value="otherSizes">otros talles</option>
             </select>
+                            <% if(typeof errors != 'undefined' && errors.size){  %>
+                            <span class="text-danger"> <%=errors.size.msg%> </span>
+                            <% } %>
+                            <span id="errorSize"></span>
         </div>
         <div class="form-group col-md-6" id="stockReturn">
             <label for="stock">Stock</label>
             <input type="text" class="form-control" name="stock" value="">
+                    <% if(typeof errors != 'undefined' && errors.stock){  %>
+                    <span class="text-danger"> <%=errors.stock.msg%> </span>
+                    <% } %>
+                    <span id="errorStock"></span>
         </div>
         <div class="d-none" id="relReturn">
             <label for="relId">Rel</label>
@@ -124,16 +140,30 @@
         </div>
     </div>
 
-    <div class="form-row d-none" id="otherSizesRow">
+    <% if(typeof errors != 'undefined'){  %>
+    <div class="form-row" id="otherSizesRow">
+    <% }else{ %>
+         <div class="form-row d-none" id="otherSizesRow">
+    <% } %>
+
+   
         <div class="form-group col-md-6">
             <label for="addSize">Otros talles</label>
             <select class="form-control custom-select" name="addSize" id="otherSizes">
-                <option selected disabled>elegir talle</option>
+                <option selected disabled>elegir talle</option>                    
             </select>
+            <% if(typeof errors != 'undefined' && errors.addSize){  %>
+            <span class="text-danger"> <%=errors.addSize.msg%> </span>
+            <% } %>
+            <span id="erroraddsize"></span>
         </div>
         <div class="form-group col-md-6">
             <label for="addStock">Stock</label>
             <input type="text" class="form-control" name="addStock" value="">
+                <% if(typeof errors != 'undefined' && errors.addStock){  %>
+                <span class="text-danger"> <%=errors.addStock.msg%> </span>
+                <% } %>
+                <span id="erroraddstock"></span>
         </div>
     </div>
 
@@ -198,7 +228,7 @@
 
     <!-- Scripts para JS -->
     <script src="/js/productEdit.js"></script>
-    <script src="/js/productEditForm.js"></script>
+    <script src="/js/productEditDinamico.js"></script>
 </body>
 
 </html>

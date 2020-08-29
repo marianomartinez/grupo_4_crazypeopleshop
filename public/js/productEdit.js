@@ -1,54 +1,240 @@
-window.addEventListener('load',() => {
-    let selectedCat = document.querySelector('#selectedCat');
-    let dynamicSubcat = document.querySelector('#dynamicSubcat');
-    selectedCat.addEventListener('change', async function () {
-        let subcatValue = await fetch(`http://localhost:3000/api/subcategories/${this.value}`);
-        let subcatData = await subcatValue.json();
-        dynamicSubcat.innerHTML = '<option disabled selected> Seleccione Subcategoría </option>';
-        subcatData.forEach(subcategoria => {
-            var option = document.createElement("option");
-            option.value = subcategoria.id;
-            option.text = subcategoria.name;
-            dynamicSubcat.add(option);
-        })
-    })
-    
-    let productId = document.querySelector('#productId').value;
-    let stockReturn = document.querySelector('#stockReturn');
-    let relReturn = document.querySelector('#relReturn');
-    let selectedSize = document.querySelector('#selectedSize');
-    let otherSizesRow = document.querySelector('#otherSizesRow');
-    selectedSize.addEventListener('change', async function () {
-        let sizes = await fetch(`http://localhost:3000/api/productSizes/${productId}`);
-        let sizeData = await sizes.json();
-        sizeData.forEach(rel => {
-            if(rel.sizeId == selectedSize.value){
-                let thisSizeStock = `<label for="inputZip">Stock</label>
-                                    <input type="text" class="form-control" name="stock" value="${rel.stock}">`;
-                let thisSizeRel = `<label for="relId">ProductSizeStock-Relation</label>
-                                    <input type="text" name="relId" value="${rel.id}">`;
-                stockReturn.innerHTML = thisSizeStock;
-                relReturn.innerHTML = thisSizeRel;
-            };
-        });
-        if (selectedSize.value == 'otherSizes') {
-            otherSizesRow.classList.remove('d-none');
-            let sizeList = await fetch(`http://localhost:3000/api/sizeList`);
-            let sizeListData = await sizeList.json();
-            let filteredSizeList = sizeListData;
-            for (let i = 0; i < sizeListData.length; i++) {
-                for (let j = 0; j < sizeData.length; j++) {
-                    if (sizeListData[i].id == sizeData[j].sizeId) {
-                        filteredSizeList.splice(i, 1);
-                    }
+window.addEventListener('load', function() {
+    // VALIDACIONES DE CAMPOS
+
+    //capturo formulario
+    let formulario = document.querySelector('#formulario')
+    // alert(formulario.elements.brand.value)
+    formulario.addEventListener('submit', function (evento) {
+
+        if (!validaciones(evento)) {
+
+            evento.preventDefault();
+        } else {
+            evento.preventDefault();
+            Swal.fire({
+                title: '¿Está seguro que desea actualizar el producto?',
+                text: "Esta acción no se puede revertir",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, actualizar datos!'
+            }).then((result) => {
+                if (result.value) {
+                    //ir a la ruta
+                    Swal.fire(
+                        'Actualizado',
+                        'El producto ha sido actualizado.',
+                        'success'
+                    ).then(result => formulario.submit());
                 }
-            }
-            filteredSizeList.forEach(otherSize => {
-                var sizeOption = document.createElement("option");
-                sizeOption.value = otherSize.id;
-                sizeOption.text = otherSize.eusize;
-                otherSizes.add(sizeOption);
             })
+
         }
-    });
-});
+
+        function validaciones(evento) {
+            let {
+                categoryId,
+                subcategoryId,
+                brand,
+                model,
+                description,
+                price,
+                discount,
+                stock,
+                size,
+                addStock,
+                addSize,
+                image
+            } = formulario.elements
+            let errores = [];
+
+            /*
+            //IMAGEN
+            let errorImage = document.getElementById('errorImage')
+            let acceptFileTypes = /(\.|\/)(gif|jpe?g|png|jpg)$/i
+            if (image.value != '') {
+                if (!acceptFileTypes.test(image.value)) {
+                    errores.push('La imagen debe ser jpg, jpeg, gif o png')
+                    image.classList.add('is-invalid')
+                    errorImage.classList.add('text-danger')
+                    errorImage.innerHTML = 'La imagen debe ser jpg, jpeg, gif o png'
+
+
+                } else {
+                    image.classList.add('is-valid')
+                    errorImage.innerHTML = ''
+                    image.classList.remove('is-invalid')
+                }
+            } else {
+                image.classList.add('is-valid')
+                errorImage.innerHTML = ''
+                image.classList.remove('is-invalid')
+            }
+            */
+
+            //CATEGORIAS
+            let errorCat = document.getElementById('errorcategoria')
+            if (categoryId.value > 0) {
+                categoryId.classList.add('is-valid')
+                errorCat.innerHTML = ''
+                categoryId.classList.remove('is-invalid')
+
+
+                //errores['firstName'] = 'El nombre no puede estar vacío'
+            } else {
+                errores.push('la categoria no puede quedar vacia')
+                categoryId.classList.add('is-invalid')
+                errorCat.classList.add('text-danger')
+                errorCat.innerHTML = 'la categoria no puede quedar vacia'
+            }
+
+            //SUBCATEGORIAS
+            let errorSubcat = document.getElementById('errorsubcategoria')
+            if (subcategoryId.value > 0) {
+                subcategoryId.classList.add('is-valid')
+                errorSubcat.innerHTML = ''
+                subcategoryId.classList.remove('is-invalid')
+
+
+                //errores['firstName'] = 'El nombre no puede estar vacío'
+            } else {
+                errores.push('la subcategoria no puede quedar vacia')
+                subcategoryId.classList.add('is-invalid')
+                errorSubcat.classList.add('text-danger')
+                errorSubcat.innerHTML = 'la subcategoria no puede quedar vacia'
+            }
+
+
+            // MARCA
+            let errorBrand = document.getElementById('errorBrand')
+            if (brand.value.length < 2) {
+                errores.push('La marca debe tener al menos 2 caracteres')
+                brand.classList.add('is-invalid')
+                errorBrand.classList.add('text-danger')
+                errorBrand.innerHTML = 'La marca debe tener al menos 2 caracteres'
+            } else {
+                brand.classList.add('is-valid')
+                errorBrand.innerHTML = ''
+                brand.classList.remove('is-invalid')
+            }
+
+            // MODELO
+            let errorModel = document.getElementById('errorModel')
+            if (model.value.length < 2) {
+                errores.push('El modelo debe tener al menos 2 caracteres')
+                model.classList.add('is-invalid')
+                errorModel.classList.add('text-danger')
+                errorModel.innerHTML = 'El modelo debe tener al menos 2 caracteres'
+                
+            } else {
+                model.classList.add('is-valid')
+                errorModel.innerHTML = ''
+                model.classList.remove('is-invalid')
+            }
+
+            
+            // DESCRIPCION
+            let errorDescription = document.getElementById('errorDescription')
+            if (description.value.length < 20) {
+                errores.push('La descripción debe tener al menos 20 caracteres')
+                description.classList.add('is-invalid')
+                errorDescription.classList.add('text-danger')
+                errorDescription.innerHTML = 'La descripción debe tener al menos 20 caracteres'
+
+            } else {
+                description.classList.add('is-valid')
+                errorDescription.innerHTML = ''
+                description.classList.remove('is-invalid')
+            }
+
+            // PRECIO
+            let errorPrice = document.getElementById('errorPrice')
+
+            if (price.value >= 0) {
+                price.classList.add('is-valid')
+                errorPrice.innerHTML = ''
+                price.classList.remove('is-invalid')
+
+
+
+                //errores['firstName'] = 'El nombre no puede estar vacío'
+            } else {
+                errores.push('la precio no puede quedar vacio')
+                price.classList.add('is-invalid')
+                errorPrice.classList.add('text-danger')
+                errorPrice.innerHTML = 'El precio debe ser 0 o mayor a 0'
+
+            }
+
+            // // STOCK
+            let errorStock = document.getElementById('errorStock')
+            if (stock.value == '' && size.value > 0) {
+                alert(stock.value)
+                errores.push('El talle no puede quedar vació si carga stock')
+                stock.classList.add('is-invalid')
+                errorStock.classList.add('text-danger')
+                errorStock.innerHTML = 'El stock no puede ser nulo sin selecciona un talle'
+            }   else {
+                alert('entra tambien aca 2')
+                stock.classList.add('is-valid')
+                errorStock.innerHTML = ''
+                stock.classList.remove('is-invalid')
+            }
+
+
+
+
+
+
+            // SIZE
+            let errorSize = document.getElementById('errorSize')
+          
+            if (stock.value == '') {
+                size.classList.add('is-valid')
+                errorSize.innerHTML = ''
+                size.classList.remove('is-invalid')
+            } else if (stock.value >= 0 && size.value > 0) {
+                size.classList.add('is-valid')
+                errorSize.innerHTML = ''
+                size.classList.remove('is-invalid')
+            } else {
+                errores.push('El talle no puede quedar vació si carga stock')
+                size.classList.add('is-invalid')
+                errorSize.classList.add('text-danger')
+                errorSize.innerHTML = 'El talle no puede quedar vació si carga stock'
+            }
+
+
+            
+
+            
+
+
+            // DESCUENTO
+            let errorDiscount = document.getElementById('errorDiscount')
+            if (discount.value >= 0 && discount.value <= 100) {
+                discount.classList.add('is-valid')
+                errorDiscount.innerHTML = ''
+                discount.classList.remove('is-invalid')
+
+            } else {
+                errores.push('el descuento no puede quedar vacio')
+                discount.classList.add('is-invalid')
+                errorDiscount.classList.add('text-danger')
+                errorDiscount.innerHTML = 'El descuento debe ser un numero entre 0 y 100'
+
+            }
+
+            //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
+
+            if (errores.length > 0) {
+                evento.preventDefault();
+                // alert(errores.length)
+                errores = [];
+            } else {
+                return true
+            };
+        }
+    })
+})
