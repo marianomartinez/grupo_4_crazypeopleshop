@@ -39,6 +39,9 @@
                                         <option value="<%= categoria.id %>"><%= categoria.name %></option>
                                         <% }); %>
                                     </select>
+                                    <% if(typeof errors != 'undefined' && errors.categoryId){  %>
+                                    <span class="text-danger"> <%=errors.categoryId.msg%> </span>
+                                    <% } %>
                                     <span id="errorcat"></span>
                                 </div>
 
@@ -46,36 +49,67 @@
                                     <select class="form-control custom-select" name="subcategoryId" id="dynamicSubcat">
                                         <option disabled selected>Primero seleccione Categoría</option>
                                     </select>
+                                        <% if(typeof errors != 'undefined' && errors.subcategoryId){  %>
+                                        <span class="text-danger"> <%=errors.subcategoryId.msg%> </span>
+                                        <% } %>
                                     <span id="errorsubcategoria"></span>
                                 </div>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="brand" placeholder="Marca"
-                                        >
-                                    <span id="errorbrand"></span>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="brand" placeholder="Marca"
+                                    value="<%=typeof old == 'undefined' ? null : old.brand%>">
+                                <% if(typeof errors != 'undefined' && errors.brand){  %>
+                                <span class="text-danger"> <%=errors.brand.msg%> </span>
+                                <% } %>
+                                <span id="errorbrand"></span>
+                            </div>
+                            
+                            
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="model" placeholder="Modelo"
+                                    value="<%=typeof old == 'undefined' ? null : old.model%>">
+                                <% if(typeof errors != 'undefined' && errors.model){  %>
+                                <span class="text-danger"> <%=errors.model.msg%> </span>
+                                <% } %>
+                                <span id="errormodelo"></span>
+                            </div>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="model" placeholder="Modelo"
-                                        r>
-                                        <span id="errormodelo"></span>
-                                </div>
+                 
+                            <div class="form-group">
+                                <textarea name="description" class="form-control" placeholder="Descripción"
+                                cols="30" rows="10"
+                            ><%=typeof old == 'undefined' ? null : old.description%></textarea>
+                                  
+                                <% if(typeof errors != 'undefined' && errors.description){  %>
+                                <span class="text-danger"> <%=errors.description.msg%> </span>
+                                <% } %>
+                                <span id="errordescription"></span>
+                            </div>
 
-                                <div class="form-group">
-                                    <textarea name="description" class="form-control" placeholder="Descripción"
-                                         cols="30" rows="10"></textarea>
-                                         <span id="errordescription"></span>
-                                </div>
+  
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="price" placeholder="Precio">
-                                    <span id="errorprice"></span>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="price" placeholder="Precio"
+                                    value="<%=typeof old == 'undefined' ? null : old.price%>">
+                                <% if(typeof errors != 'undefined' && errors.price){  %>
+                                <span class="text-danger"> <%=errors.price.msg%> </span>
+                                <% } %>
+                                <span id="errorprice"></span>
+                            </div>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="discount" placeholder="Descuento">
-                                    <span id="errordiscount"></span>
-                                </div>
+
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="discount" placeholder="Descuento"
+                                    value="<%=typeof old == 'undefined' ? null : old.discount%>">
+                                <% if(typeof errors != 'undefined' && errors.discount){  %>
+                                <span class="text-danger"> <%=errors.discount.msg%> </span>
+                                <% } %>
+                                <span id="errordiscount"></span>
+                            </div>
+                       
+
                                 
                                 <label>Subir imágenes</label>
                                 <input type="file" name="image" multiple>
@@ -96,6 +130,8 @@
     </section>
     <!-- Footer -->
     <%- include ('../partials/footer') %>
+
+    <%- include ('../partials/scripts') %>
     <!-- Scripts para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -108,7 +144,7 @@
         crossorigin="anonymous"></script>
         
     <!-- Scripts para JS -->
-    <script src="/js/dynamicSubcat.js"></script>    
+    <script src="/js/dynamicSubcat.js"></script> 
     <script src="/js/productCreate.js"></script>
 </body>
 

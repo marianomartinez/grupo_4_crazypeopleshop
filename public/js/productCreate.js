@@ -6,9 +6,28 @@ window.addEventListener('load', function () {
     formulario.addEventListener('submit', function (evento) {
 
         if (!validaciones(evento)){ 
+            
             evento.preventDefault(); 
         } else { 
-            formulario.submit();
+            evento.preventDefault();
+            Swal.fire({
+                title: '¿Está seguro que desea crear el producto?',
+                text: "Esta acción no se puede revertir",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, crear producto!'
+            }).then((result) => {
+                if (result.value) {
+                    //ir a la ruta
+                    Swal.fire(
+                        'Creado',
+                        'El producto ha sido creado.',
+                        'success'
+                    ).then(result => formulario.submit());
+                }
+            })
         }
 
         function validaciones(evento) {
@@ -16,22 +35,22 @@ window.addEventListener('load', function () {
  
             let errores = [];
 
+            //CATEGORIAS
+            let errorCat = document.getElementById('errorcat')
+            if (categoryId.value > 0) {
+                categoryId.classList.add('is-valid')
+                errorCat.innerHTML = ''
+                categoryId.classList.remove('is-invalid')
 
-             //CATEGORIAS
-             let errorCat = document.getElementById('errorcat')
-             if (categoryId.value > 0) {
-                 categoryId.classList.add('is-valid')
-                 errorCat.innerHTML = ''
-                 categoryId.classList.remove('is-invalid')
- 
- 
-                 //errores['firstName'] = 'El nombre no puede estar vacío'
-             } else {
-                 errores.push('la categoria no puede quedar vacia')
-                 categoryId.classList.add('is-invalid')
-                 errorCat.classList.add('text-danger')
-                 errorCat.innerHTML = 'la categoria no puede quedar vacia'
-             }
+
+                //errores['firstName'] = 'El nombre no puede estar vacío'
+            } else {
+                errores.push('la categoria no puede quedar vacia')
+                categoryId.classList.add('is-invalid')
+                errorCat.classList.add('text-danger')
+                errorCat.innerHTML = 'la categoria no puede quedar vacia'
+            }
+
 
             //SUBCATEGORIAS
             let errorSubcat = document.getElementById('errorsubcategoria')
@@ -49,11 +68,9 @@ window.addEventListener('load', function () {
                 errorSubcat.innerHTML = 'la subcategoria no puede quedar vacia'
             }
 
-
-            
             //BRAND
             let errorBrand = document.getElementById('errorbrand')
-            if (brand.value.length < 2 ) {
+            if (brand.value.length < 2) {
                 errores.push('la marca no puede tener menos de 2 caracteres')
                 brand.classList.add('is-invalid')
                 errorBrand.classList.add('text-danger')
@@ -65,7 +82,8 @@ window.addEventListener('load', function () {
                 errorBrand.innerHTML = ''
                 brand.classList.remove('is-invalid')
             }
-            
+
+
             //MODEL
             let errorModel = document.getElementById('errormodelo')
             if (model.value.length < 2) {
@@ -79,47 +97,8 @@ window.addEventListener('load', function () {
                 errorModel.innerHTML = ''
                 model.classList.remove('is-invalid')
             }
-            //precio
-            let errorPrice = document.getElementById('errorprice')
-            
-            if (price.value > 0) {
-                price.classList.add('is-valid')
-                errorPrice.innerHTML = ''
-                price.classList.remove('is-invalid')
 
-                
-
-                //errores['firstName'] = 'El nombre no puede estar vacío'
-            } else {
-                errores.push('la precio no puede quedar vacio')
-                price.classList.add('is-invalid')
-                errorPrice.classList.add('text-danger')
-                errorPrice.innerHTML = 'El precio debe ser un numero'
-              
-            }
-
-             //discount
-             let errorDiscount = document.getElementById('errordiscount')
-             
-             if (discount.value > 0) {
-                discount.classList.add('is-valid') 
-                 errorDiscount.innerHTML = ''
-                 discount.classList.remove('is-invalid')
- 
-                 
- 
-                 //errores['firstName'] = 'El nombre no puede estar vacío'
-             } else {
-                 errores.push('El descuento no puede quedar vacio')
-                 discount.classList.add('is-invalid')
-                 errorDiscount.classList.add('text-danger')
-                 errorDiscount.innerHTML = 'El descuento debe ser un numero'
-               
-             }
-             
-           
-            
-
+  
             //Descripcion
             let errorDescription = document.getElementById('errordescription')
             if (description.value.length < 20 ) {
@@ -135,34 +114,48 @@ window.addEventListener('load', function () {
                 description.classList.remove('is-invalid')
             }
            
-            //IMAGEN
-            let errorImagen = document.getElementById('errorimagen')
-            let acceptFileTypes = /(\.|\/)(gif|jpe?g|png|jpg)$/i
-            if (image.value != '') {
-                if (!acceptFileTypes.test(image.value)) {
-                    errores.push('la imagen debe ser jpg,jepg,gif o png')
-                    image.classList.add('is-invalid')
-                    errorImagen.classList.add('text-danger')
-                    errorImagen.innerHTML = 'la imagen debe ser jpg,jepg,gif o png'
+    
+            //precio
+            let errorPrice = document.getElementById('errorprice')
+
+            if (price.value >= 0) {
+                price.classList.add('is-valid')
+                errorPrice.innerHTML = ''
+                price.classList.remove('is-invalid')
 
 
-                } else {
-                    image.classList.add('is-valid')
-                    errorImagen.innerHTML = ''
-                    image.classList.remove('is-invalid')
-                }
+
+                //errores['firstName'] = 'El nombre no puede estar vacío'
             } else {
-                image.classList.add('is-valid')
-                errorImagen.innerHTML = ''
-                image.classList.remove('is-invalid')
+                errores.push('la precio no puede quedar vacio')
+                price.classList.add('is-invalid')
+                errorPrice.classList.add('text-danger')
+                errorPrice.innerHTML = 'El precio debe ser 0 o mayor a 0'
+
             }
 
-
+            //descuento
+            let errorDiscount = document.getElementById('errordiscount')
             
+            if (discount.value >= 0 && discount.value <= 100 ) {
+                discount.classList.add('is-valid')
+                errorDiscount.innerHTML = ''
+                discount.classList.remove('is-invalid')
+
+            } else {
+                errores.push('el descuento no puede quedar vacio')
+                discount.classList.add('is-invalid')
+                errorDiscount.classList.add('text-danger')
+                errorDiscount.innerHTML = 'El descuento debe ser un numero entre 0 y 100'
+
+            }
+
+        
 
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
 
             if (errores.length > 0) {
+                
                 evento.preventDefault();
 
                 errores = [];

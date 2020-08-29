@@ -138,7 +138,9 @@ const productsController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/productos.json'), productoJSON)
         res.redirect('/products/crud');
         */
-
+        let errors = validationResult(req);
+        console.log(errors);
+        if (errors.isEmpty()) {
         let newProduct = {
             model: req.body.model,
             brand: req.body.brand,
@@ -163,7 +165,31 @@ const productsController = {
                 })
             })
         })
-        return res.redirect('/products/crud')
+        return res.redirect('/products/crud')}
+        else{
+            let categoryProm = Category.findAll();
+            let subcategoryProm = Subcategory.findAll();
+            Promise.all([categoryProm, subcategoryProm])
+                .then(([allCat, allSubcat]) => {
+                    let categorias = allCat.sort(function (a, b) {
+                        if (a.categoria > b.categoria) { return 1; }
+                        if (a.categoria < b.categoria) { return -1; }
+                        // a debe ser igual a b
+                        return 0;
+                    });
+
+                    let subcategorias = allSubcat.sort(function (a, b) {
+                        if (a.subcategoria > b.subcategoria) { return 1; }
+                        if (a.subcategoria < b.subcategoria) { return -1; }
+                        // a debe ser igual a b
+                        return 0;
+                    });
+                    
+                  
+                    
+                    res.render(path.resolve(__dirname, '../views/products/productsCRUD-add'), { Title: 'Producto-Crear', categorias, subcategorias, old: req.body, errors: errors.mapped() });
+                })
+        }
     },
 
     show: function (req, res) {
@@ -342,8 +368,33 @@ const productsController = {
             Product.update(updateProduct, {where: {id: req.params.id}})
             .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
         } else {
-            // return res.send(errors.mapped())
-            res.redirect('/products/productsCRUDedit/' + req.params.id),{errors: errors.mapped()};
+            
+            let promSizeStock = ProductSizeStock.findAll({ where: { productId: req.params.id } });
+            let promSizes = Size.findAll();
+            let categoryProm = Category.findAll();
+            let subcategoryProm = Subcategory.findAll();
+            let productProm = Product.findByPk(req.params.id, { include: ['subcategory', 'images'] })
+            Promise.all([promSizeStock, promSizes, categoryProm, subcategoryProm, productProm])
+                .then(([sizeStock, sizes, allCat, allSubcat, productoEdit]) => {
+                    let categorias = allCat.sort(function (a, b) {
+                        if (a.categoria > b.categoria) { return 1; }
+                        if (a.categoria < b.categoria) { return -1; }
+                        // a debe ser igual a b
+                        return 0;
+                    });
+
+                    let subcategorias = allSubcat.sort(function (a, b) {
+                        if (a.subcategoria > b.subcategoria) { return 1; }
+                        if (a.subcategoria < b.subcategoria) { return -1; }
+                        // a debe ser igual a b
+                        return 0;
+                    });
+                    res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-edit'), { productoEdit , Title: 'Producto-Editar', sizeStock, sizes, categorias, subcategorias, errors: errors.mapped() })
+                })
+
+
+
+
         }
     } ,
     delete: function (req, res) {

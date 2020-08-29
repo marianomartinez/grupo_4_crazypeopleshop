@@ -24,7 +24,7 @@ module.exports = [
     
 
     body('password').custom(function (value, { req }) {
-        console.log(value);
+        
         if (req.body.password2 == value) {
             return true
         }

@@ -7,5 +7,57 @@ module.exports = [
     check('brand').isLength({ min: 2 }).withMessage('La marca debe tener al menos 2 caracteres'),
     check('model').isLength({ min: 2 }).withMessage('El modelo debe tener al menos 2 caracteres'),
     check('description').isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
-    check('price').isNumeric().withMessage('El precio debe ser numérico y no estar vacío')
+    check('price').isNumeric().withMessage('El precio debe ser numérico y no estar vacío'),
+    check('discount').isNumeric().withMessage('El descuento debe ser numérico y no estar vacío'),
+    body('price').custom(function (value) {
+
+        if (value >= 0) {
+            return true
+        }
+        return false
+    }).withMessage('El precio debe ser 0 o mayor a 0.'),
+    body('discount').custom(function (value) {
+
+        if (value >= 0 && value <= 100) {
+            return true
+        }
+        return false
+    }).withMessage('El descuento no puede ser mayor a 100'),
+    body('stock').custom(function (value) {
+        if (value == ''){
+            return true
+        }
+        if (value >= 0)  {
+            return true
+        }
+        return false
+    }).withMessage('El stock debe ser positivo y numerico'),
+    body('size').custom(function (value,{ req }) {
+        if (req.body.stock == '') {
+            return true
+        }
+        if (req.body.stock >= 0 && value > 0) {
+            return true
+        }
+        return false
+    }).withMessage('El talle no puede quedar vació si carga stock'),
+    body('addSize').custom(function (value, { req }) {
+        if (req.body.addStock == '') {
+            return true
+        }
+        if (req.body.addStock >= 0 && value > 0) {
+            return true
+        }
+        return false
+    }).withMessage('El talle no puede quedar vació si carga stock'),
+    body('addStock').custom(function (value) {
+        if (value == '') {
+            return true
+        }
+        if (value >= 0) {
+            return true
+        }
+        return false
+    }).withMessage('El stock debe ser positivo y numerico'),
+ 
 ]
