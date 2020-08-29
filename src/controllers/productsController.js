@@ -314,12 +314,20 @@ const productsController = {
                     sizeId: req.body.size,
                     stock: req.body.stock
                 }
-                ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}})
-                .then(()=>{})
+                ProductSizeStock.update(updateSizeStock,{where: {id: req.body.relId}}).then(()=>{})
+            };
+            if(req.body.addSize != undefined){
+                let addSizeStock = {
+                    productId: Number(req.params.id),
+                    sizeId: Number(req.body.addSize),
+                    stock: Number(req.body.addStock)
+                }
+                ProductSizeStock.create(addSizeStock).then(()=>{})
             };
             Product.update(updateProduct, {where: {id: req.params.id}})
             .then(() => res.redirect('/products/productsCRUDdetail/' + req.params.id))  
         } else {
+            // return res.send(errors.mapped())
             res.redirect('/products/productsCRUDedit/' + req.params.id),{errors: errors.mapped()};
         }
     } ,
@@ -365,6 +373,8 @@ const productsController = {
     productEdit: async (req,res) => {return res.json(await Product.findAll({where: {id: req.params.id}},{include: ['subcategory','sizes']}))
     },
     productSizes: async (req,res) => {return res.json(await ProductSizeStock.findAll({where: {productId: req.params.id}}))
+    },
+    sizeList: async (req,res) => {return res.json(await Size.findAll())
     }
 }
 

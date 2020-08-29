@@ -99,16 +99,43 @@ window.addEventListener('load', function() {
             // DESCRIPCION
             let errorDescription = document.getElementById('errorDescription')
             if (description.value.length < 2) {
-                errores.push('La descripción debe tener al mínimo 20 caracteres')
+                errores.push('La descripción debe tener al menos 20 caracteres')
                 description.classList.add('is-invalid')
                 errorDescription.classList.add('text-danger')
-                errorDescription.innerHTML = 'La descripción debe tener al mínimo 20 caracteres'
+                errorDescription.innerHTML = 'La descripción debe tener al menos 20 caracteres'
 
             } else {
                 description.classList.add('is-valid')
                 errorDescription.innerHTML = ''
                 description.classList.remove('is-invalid')
             }
+
+            // PRECIO
+            let errorPrice = document.getElementById('errorPrice')
+            if (isNaN(price.value)) {
+                errores.push('El precio debe ser numérico')
+                price.classList.add('is-invalid')
+                errorPrice.classList.add('text-danger')
+                errorPrice.innerHTML = 'El precio debe ser numérico'
+            } else {
+                price.classList.add('is-valid')
+                errorPrice.innerHTML = ''
+                price.classList.remove('is-invalid')
+            };
+
+            // DESCUENTO
+            // let errorDiscount = document.getElementById('errorDiscount')
+            // if (isNaN(discount.value)) {
+            //     errores.push('El descuento debe ser numérico')
+            //     discount.classList.add('is-invalid')
+            //     errorDiscount.classList.add('text-danger')
+            //     errorDiscount.innerHTML = 'El descuento debe ser numérico'
+            // } else {
+            //     discount.classList.add('is-valid')
+            //     errorDiscount.innerHTML = ''
+            //     discount.classList.remove('is-invalid')
+            // };
+
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
 
             if (errores.length > 0) {
@@ -117,7 +144,7 @@ window.addEventListener('load', function() {
                 errores = [];
             } else {
                 return true
-            }
+            };
         }
     })
 })

@@ -43,5 +43,6 @@ router.get('/products/:category/:id', productsController.productShow);
 router.get('/products/search', productsController.productSearch);
 router.get('/api/productEdit/:id', productsController.productEdit);
 router.get('/api/productSizes/:id', productsController.productSizes);
+router.get('/api/sizeList', productsController.sizeList);
 
 module.exports = router;

@@ -88,33 +88,54 @@
         <div class="form-group col-md-6">
             <label for="inputCity">Precio</label>
             <input type="text" class="form-control" name="price" value="<%=productoEdit.price%>">
+            <% if(typeof errors != 'undefined' && errors.price){  %>
+            <span class="text-danger"> <%=errors.price.msg%> </span>
+            <% } %>
+            <span id="errorPrice"></span>
         </div>
-
         <div class="form-group col-md-6">
             <label for="inputZip">Descuento</label>
-            <input type="text" class="form-control" name="discount"value="<%=productoEdit.discount%>">
+            <input type="text" class="form-control" name="discount" value="<%=productoEdit.discount%>">
+            <% if(typeof errors != 'undefined' && errors.discount){  %>
+            <span class="text-danger"> <%=errors.discount.msg%> </span>
+            <% } %>
+            <span id="errorDiscount"></span>
         </div>
     </div>
 
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="size">Talle</label>
+            <label for="size">Actualizar talle</label>
             <select class="form-control custom-select" name="size" id="selectedSize">
-                <option selected disabled>Talles</option>
+                <option selected disabled>elegir talle</option>
                 <% sizeStock.forEach(size => { %>
                     <option value="<%= size.sizeId %>"><%= size.sizeId %></option>
                 <% }); %>
+                <option value="otherSizes">otros talles</option>
             </select>
         </div>
         <div class="form-group col-md-6" id="stockReturn">
-            <label for="inputZip">Stock</label>
+            <label for="stock">Stock</label>
             <input type="text" class="form-control" name="stock" value="">
         </div>
         <div class="d-none" id="relReturn">
-            <label for="inputZip">Rel</label>
+            <label for="relId">Rel</label>
             <input type="text" class="form-control" name="relId" value="">
         </div>
-    </div>    
+    </div>
+
+    <div class="form-row d-none" id="otherSizesRow">
+        <div class="form-group col-md-6">
+            <label for="addSize">Otros talles</label>
+            <select class="form-control custom-select" name="addSize" id="otherSizes">
+                <option selected disabled>elegir talle</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="addStock">Stock</label>
+            <input type="text" class="form-control" name="addStock" value="">
+        </div>
+    </div>
 
     <div class="form-row"></div>
         <div class="form-group ml-4">
@@ -177,7 +198,7 @@
 
     <!-- Scripts para JS -->
     <script src="/js/productEdit.js"></script>
-    <!-- <script src="/js/productEditForm.js"></script> -->
+    <script src="/js/productEditForm.js"></script>
 </body>
 
 </html>
