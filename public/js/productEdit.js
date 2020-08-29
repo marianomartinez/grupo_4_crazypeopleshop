@@ -195,7 +195,7 @@ window.addEventListener('load', function() {
                 errorSize.innerHTML = ''
                 errores.push('El stock no puede ser negativo')
 
-                alert('entra con stock negativo')
+                //alert('entra con stock negativo')
             }
         
             
@@ -207,7 +207,7 @@ window.addEventListener('load', function() {
                 errorStock.classList.add('text-danger')
                 errores.push('El stock no puede quedar vació si carga talle')
 
-                alert('entra con stock vacio y talle postivo')
+                //alert('entra con stock vacio y talle postivo')
             }
             
             if (stock.value == '' && size.value == 'elegir talle'){
@@ -217,7 +217,7 @@ window.addEventListener('load', function() {
                 errorStock.innerHTML = ''
                 size.classList.remove('is-invalid')
                 stock.classList.remove('is-invalid')
-                alert('entra con stock vacio y talle vacio')
+                //alert('entra con stock vacio y talle vacio')
             }
            
             if (stock.value >= '0' && size.value == 'elegir talle') {
@@ -228,7 +228,7 @@ window.addEventListener('load', function() {
                 errorSize.classList.add('text-danger')
                 errores.push('Se debe elegir un talle')
                 stock.classList.remove('is-invalid')
-                alert('entra con stock vacio y talle vacio')
+                //alert('entra con stock vacio y talle vacio')
             }
 
 
