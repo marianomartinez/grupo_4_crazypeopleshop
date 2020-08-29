@@ -166,51 +166,6 @@ window.addEventListener('load', function() {
                 errorPrice.innerHTML = 'El precio debe ser 0 o mayor a 0'
 
             }
-
-            // // STOCK
-            let errorStock = document.getElementById('errorStock')
-            if (stock.value == '' && size.value > 0) {
-                alert(stock.value)
-                errores.push('El talle no puede quedar vació si carga stock')
-                stock.classList.add('is-invalid')
-                errorStock.classList.add('text-danger')
-                errorStock.innerHTML = 'El stock no puede ser nulo sin selecciona un talle'
-            }   else {
-                alert('entra tambien aca 2')
-                stock.classList.add('is-valid')
-                errorStock.innerHTML = ''
-                stock.classList.remove('is-invalid')
-            }
-
-
-
-
-
-
-            // SIZE
-            let errorSize = document.getElementById('errorSize')
-          
-            if (stock.value == '') {
-                size.classList.add('is-valid')
-                errorSize.innerHTML = ''
-                size.classList.remove('is-invalid')
-            } else if (stock.value >= 0 && size.value > 0) {
-                size.classList.add('is-valid')
-                errorSize.innerHTML = ''
-                size.classList.remove('is-invalid')
-            } else {
-                errores.push('El talle no puede quedar vació si carga stock')
-                size.classList.add('is-invalid')
-                errorSize.classList.add('text-danger')
-                errorSize.innerHTML = 'El talle no puede quedar vació si carga stock'
-            }
-
-
-            
-
-            
-
-
             // DESCUENTO
             let errorDiscount = document.getElementById('errorDiscount')
             if (discount.value >= 0 && discount.value <= 100) {
@@ -226,11 +181,110 @@ window.addEventListener('load', function() {
 
             }
 
+
+        
+            // SIZE
+            let errorSize = document.getElementById('errorSize')
+            let errorStock = document.getElementById('errorStock')
+
+
+            if (stock.value < 0) {
+                stock.classList.add('is-invalid')
+                errorStock.classList.add('text-danger')
+                errorStock.innerHTML = 'El stock no puede ser negativo'
+                errorSize.innerHTML = ''
+                errores.push('El stock no puede ser negativo')
+
+                alert('entra con stock negativo')
+            }
+        
+            
+            if ((stock.value === '')  && size.value > 0) {
+                size.classList.add('is-valid')
+                stock.classList.add('is-invalid')
+                errorSize.innerHTML = ''
+                errorStock.innerHTML = 'El stock no puede quedar vació si carga talle'
+                errorStock.classList.add('text-danger')
+                errores.push('El stock no puede quedar vació si carga talle')
+
+                alert('entra con stock vacio y talle postivo')
+            }
+            
+            if (stock.value == '' && size.value == 'elegir talle'){
+                size.classList.add('is-valid')
+                stock.classList.add('is-valid')
+                errorSize.innerHTML = ''
+                errorStock.innerHTML = ''
+                size.classList.remove('is-invalid')
+                stock.classList.remove('is-invalid')
+                alert('entra con stock vacio y talle vacio')
+            }
+           
+            if (stock.value >= '0' && size.value == 'elegir talle') {
+                size.classList.add('is-invalid')
+                stock.classList.add('is-valid')
+                errorSize.innerHTML = 'Debe elegir un talle si hay stock'
+                errorStock.innerHTML = ''
+                errorSize.classList.add('text-danger')
+                errores.push('Se debe elegir un talle')
+                stock.classList.remove('is-invalid')
+                alert('entra con stock vacio y talle vacio')
+            }
+
+
+            if (stock.value >= '0' && size.value > 0) {
+                size.classList.add('is-valid')
+                stock.classList.add('is-valid')
+                //errorStock.innerHTML = ''
+                errorSize.innerHTML = ''
+               size.classList.remove('is-invalid')
+                stock.classList.remove('is-invalid')
+                alert('entra con stock positivo y talle postivo')
+            }
+
+
+
+            // if (stock.value == '') {
+            //     size.classList.add('is-valid')
+            //     errorSize.innerHTML = ''
+            //     size.classList.remove('is-invalid')
+            // } else if (stock.value >= 0 && size.value > 0) {
+            //     size.classList.add('is-valid')
+            //     errorSize.innerHTML = ''
+            //     size.classList.remove('is-invalid')
+            // } else {
+            //     errores.push('El talle no puede quedar vació si carga stock')
+            //     size.classList.add('is-invalid')
+            //     errorSize.classList.add('text-danger')
+            //     errorSize.innerHTML = 'El talle no puede quedar vació si carga stock'
+            // }
+
+            // // // STOCK
+            
+            // if (stock.value == '' && size.value > 0) {
+            //     alert(stock.value)
+            //     alert(size.value)
+            //     errores.push('El talle no puede quedar vació si carga stock')
+            //     stock.classList.add('is-invalid')
+            //     errorStock.classList.add('text-danger')
+            //     errorStock.innerHTML = 'El stock no puede ser nulo sin selecciona un talle'
+            // } else {
+            //     alert('entra tambien aca 2')
+            //     stock.classList.add('is-valid')
+            //     errorStock.innerHTML = ''
+            //     stock.classList.remove('is-invalid')
+            // }
+
+            
+
+            
+
+
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
 
             if (errores.length > 0) {
                 evento.preventDefault();
-                // alert(errores.length)
+                alert(errores.length)
                 errores = [];
             } else {
                 return true
