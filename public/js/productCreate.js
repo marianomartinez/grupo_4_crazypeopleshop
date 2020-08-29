@@ -135,7 +135,28 @@ window.addEventListener('load', function () {
                 description.classList.remove('is-invalid')
             }
            
-            
+            //IMAGEN
+            let errorImagen = document.getElementById('errorimagen')
+            let acceptFileTypes = /(\.|\/)(gif|jpe?g|png|jpg)$/i
+            if (image.value != '') {
+                if (!acceptFileTypes.test(image.value)) {
+                    errores.push('la imagen debe ser jpg,jepg,gif o png')
+                    image.classList.add('is-invalid')
+                    errorImagen.classList.add('text-danger')
+                    errorImagen.innerHTML = 'la imagen debe ser jpg,jepg,gif o png'
+
+
+                } else {
+                    image.classList.add('is-valid')
+                    errorImagen.innerHTML = ''
+                    image.classList.remove('is-invalid')
+                }
+            } else {
+                image.classList.add('is-valid')
+                errorImagen.innerHTML = ''
+                image.classList.remove('is-invalid')
+            }
+
 
             
 
