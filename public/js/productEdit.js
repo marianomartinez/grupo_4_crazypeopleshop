@@ -239,7 +239,7 @@ window.addEventListener('load', function() {
                 errorSize.innerHTML = ''
                size.classList.remove('is-invalid')
                 stock.classList.remove('is-invalid')
-                alert('entra con stock positivo y talle postivo')
+                //alert('entra con stock positivo y talle postivo')
             }
 
 
@@ -284,7 +284,7 @@ window.addEventListener('load', function() {
 
             if (errores.length > 0) {
                 evento.preventDefault();
-                alert(errores.length)
+                //alert(errores.length)
                 errores = [];
             } else {
                 return true
