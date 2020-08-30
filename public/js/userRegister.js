@@ -4,8 +4,9 @@ window.addEventListener('load', function() {
 let formulario = document.querySelector('.formulario')
 //alert(formulario.elements.email.value)
 formulario.addEventListener('submit',function(evento){
+let j = validaciones(evento)
 
-if(!validaciones(evento)){
+if(!j){
     evento.preventDefault();
 }else{
     formulario.submit();
@@ -72,6 +73,9 @@ function validaciones(evento){
     }
 
 //MAIL
+
+    
+  
     let errorEmail = document.getElementById('erroremail')
     let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!regEmail.test(email.value)) {
@@ -82,10 +86,24 @@ function validaciones(evento){
 
 
     } else {
-        email.classList.add('is-valid')
-        errorEmail.innerHTML = ''
-        email.classList.remove('is-invalid')
+        validacionMail(email.value).then(existe => {
+            if (existe) {
+                errores.push('el email ya existe')
+                email.classList.add('is-invalid')
+                errorEmail.classList.add('text-danger')
+                errorEmail.innerHTML = 'el mail ya existe'
+
+            } else {
+                email.classList.add('is-valid')
+                errorEmail.innerHTML = ''
+                email.classList.remove('is-invalid')
+
+            }
+        })
     }
+
+    
+
 
     //PASSWORD
     let errorPassword = document.getElementById('errorpassword')
@@ -131,6 +149,13 @@ function validaciones(evento){
     }
 
  
+}
+async function validacionMail(emailbuscado){
+    let request = await fetch('http://localhost:3000/users/registrados')
+    let res = await request.json()
+        return (Array.from(res).find(usuario => usuario.email == emailbuscado) != null)
+    
+    
 }
 
 }

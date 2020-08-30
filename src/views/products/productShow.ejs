@@ -72,6 +72,7 @@
                      
                             <input type="hidden" id = "producto" value = "<%= productToShow.id %>">
                             <label class="my-1" for="sel1">Talle:</label>
+                            <span class="mb-4" id="errortalle"></span>
                             <select class="form-control mb-4" id="talle" name = "talle">
                                 <option selected disabled>-elegir talle-</option>
                                 <% for (i=0;i<productToShow.sizes.length;i++) { %>
@@ -79,7 +80,7 @@
                                 <% }; %>
                                 
                             </select>
-                            <span id="errortalle"></span>
+                            
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">
                         <a type="button" class="w-100 botcar text-center" href="/category/<%=productToShow.subcategory.categoryId%>">Volver</a>   
                     </form>

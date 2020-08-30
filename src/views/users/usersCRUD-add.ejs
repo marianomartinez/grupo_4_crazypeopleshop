@@ -61,7 +61,7 @@
                                     <span id="erroremail"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña (6 a 15 caracteres)"
+                                    <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña (8 a 20 caracteres)"
                                         value = "<%=typeof old == 'undefined' ? null : old.password%>">
                                         <% if(typeof errors != 'undefined' && errors.password){  %>
                                         <span class="text-danger"> <%=errors.password.msg%> </span>
@@ -69,11 +69,12 @@
                                     <span id="errorpassword"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="password2" placeholder="Reingrese contraseña (6 a 15 caracteres)">
+                                    <input type="password" class="form-control" name="password2" placeholder="Reingrese contraseña (8 a 20 caracteres)">
                                     <span id="errorpassword2"></span>
                                 </div>
                                 <div class="form-group">
                                     <input type="file" class="form-control" name="image" placeholder="Imagen">
+                                    <span id="errorimagen"></span>
                                 </div>
                                 
                                  
@@ -114,7 +115,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <script src="/js/userRegister.js"></script>
+        <script src="/js/userAdd.js"></script>
 </body>
 
 </html>

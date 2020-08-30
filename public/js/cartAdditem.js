@@ -18,11 +18,8 @@ window.addEventListener('load', function () {
             
             evento.preventDefault();
         } else {
-            //si todo anda bien
-             
-            i++
-            iconCart.innerHTML = "(" + i + ")"
-            alert(localStorage.getItem("producto"))
+       
+            formulario.submit();
         }   
 
         function validaciones(evento) {
@@ -45,16 +42,7 @@ window.addEventListener('load', function () {
 
             }
 
-            if(agregotem()){
-                //lo agrego
-                }
-                else{
-                    //ya existia
-                errores.push('el producto ya existe')
-                talle.classList.add('is-invalid')
-                errorTalle.classList.add('text-danger')
-                errorTalle.innerHTML = 'Este producto ya existe en el carrito'
-                }
+         
 
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
 
@@ -70,20 +58,7 @@ window.addEventListener('load', function () {
 
         }
 
-        function agregotem(){
-            
-            arrayProductos.push(localStorage.getItem("producto"))
-            arrayProductos.forEach(element => {
-                alert ('for each'+ element)
-                
-            });
-            arrayProductos.push(producto.value + "-" + talle.value)
-           
-            localStorage.setItem("producto", arrayProductos)
-            
-               return true
-        }
-     
+       
    
         })
 

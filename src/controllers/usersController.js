@@ -104,6 +104,14 @@ const usersController = {
             .catch(error => res.send(error))
 
     },
+    usuariosregistrados: function(req,res){
+        User.findAll()
+                .then(usuarios => {
+                return res.send (usuarios)
+            })
+            .catch(error => res.send(error))
+    },
+
 
     add: function (req, res) {
         res.render(path.resolve(__dirname, '../views/users/usersCRUD-add'), {

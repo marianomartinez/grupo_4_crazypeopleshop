@@ -31,6 +31,7 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 // Métodos en nuestros controladores: index - show - edit - delete 
 
 router.get('/users/login', usersController.login);
+router.get('/users/registrados', usersController.usuariosregistrados);
 router.get('/users/profileShow', usersController.profileShow);
 router.get('/users/profileEdit', usersController.profileEdit);
 router.get('/users/register',usersController.register);

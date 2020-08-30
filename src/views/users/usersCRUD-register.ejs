@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="password"
-                    placeholder="Contraseña (6-15 car./minús/mayús/número)"
+                    placeholder="Ingrese contraseña (8 a 20 caracteres)"
                       value = "<%=typeof old == 'undefined' ? null : old.password%>">
                       <% if(typeof errors != 'undefined' && errors.password){  %>
                       <span class="text-danger"> <%=errors.password.msg%> </span>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="password2"
-                    placeholder="Reingrese contraseña"
+                    placeholder="Reingrese contraseña (8 a 20 caracteres)"
                       value = "<%=typeof old == 'undefined' ? null : old.password2%>">
                       <% if(typeof errors != 'undefined' && errors.password2){  %>
                       <span class="text-danger"> <%=errors.password2.msg%> </span>
