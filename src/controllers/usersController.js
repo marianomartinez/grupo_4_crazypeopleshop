@@ -63,7 +63,12 @@ const usersController = {
                     where: { id: req.params.id }
                 })
                 .then(usuario => {
-                    res.redirect('/users/profileShow');
+                    User.findByPk(req.params.id)
+                    .then(usuario => {
+                        req.session.usuarioLogueado = usuario
+                        res.redirect('/users/profileShow');
+                    })
+                    
                 })
 
         }
@@ -231,9 +236,14 @@ const usersController = {
                 .update(_body,{
                     where : {id : req.params.id}
                 })
-                .then(usuario => {
-                  res.redirect('/users/crud');
-                })
+                    .then(usuario => {
+                        User.findByPk(req.params.id)
+                            .then(usuario => {
+                                req.session.usuarioLogueado = usuario
+                                res.redirect('/users/crud');
+                            })
+
+                    })
 
         }
         else {

@@ -199,7 +199,7 @@ window.addEventListener('load', function() {
             }
         
             
-            if ((stock.value === '')  && size.value > 0) {
+            if (stock.value == ''  && size.value > '0') {
                 size.classList.add('is-valid')
                 stock.classList.add('is-invalid')
                 errorSize.innerHTML = ''
@@ -281,7 +281,7 @@ window.addEventListener('load', function() {
 
 
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
-
+            debugger
             if (errores.length > 0) {
                 evento.preventDefault();
                 //alert(errores.length)
