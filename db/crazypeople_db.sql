@@ -117,7 +117,7 @@ CREATE TABLE `product_size_stock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productId` int(11) NOT NULL,
   `sizeId` int(11) NOT NULL,
-  `stock` int(11) NOT NULL DEFAULT 0,
+  `stock` int(11) NOT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   `deletedAt` timestamp NULL DEFAULT NULL,
@@ -305,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-15 22:59:54
+-- Dump completed on 2020-08-30  0:25:03
