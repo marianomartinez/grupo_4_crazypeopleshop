@@ -21,32 +21,34 @@
                 </div>
                 <div class="row justify-content-between">
                     <% galleryShow.forEach (product => { %> 
-                    <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
-                        <a href="/products/<%= product.subcategoryId %>/<%= product.id %>">
-                            <figure class="card-img-top d-flex justify-content-center"><img class="w-100 mh-auto"
-                                <% if (product.images.length == 0) { %>
-                                src="/img/web/noImage.jpg"
-                                <% } else { %>
-                                src="/img/prod_img/<%= product.images[0].filename %>"
-                                <% }; %>
-                                    alt="<%= product.brand + ' ' + product.model + ' $' + product.price %>"></figure>
-                            
-                            <!-- 
-                            <figure class="card-img-top d-flex justify-content-center"><img
-                                    src="/img/products/patines/inline/images (7).jpg" alt=""></figure>
-                            -->
-
-                            <div class="card-body d-flex flex-wrap">
-                                <div class="col-12 card-title text-center tarjetaprecio">
-                                    <h4><%= product.brand + ' ' + product.model %></h4>
-                                </div>
-                                <div class="col-12 text-center align-self-end">
-                                    <p>$<%= product.price %></p>
-                                    <button class="butt"> <%= product.discount %> % OFF </button>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
+                        <% if(product.show == 1) { %>
+                            <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
+                                <a href="/products/<%= product.subcategoryId %>/<%= product.id %>">
+                                    <figure class="card-img-top d-flex justify-content-center"><img class="w-100 mh-auto"
+                                        <% if (product.images.length == 0) { %>
+                                        src="/img/web/noImage.jpg"
+                                        <% } else { %>
+                                        src="/img/prod_img/<%= product.images[0].filename %>"
+                                        <% }; %>
+                                            alt="<%= product.brand + ' ' + product.model + ' $' + product.price %>"></figure>
+                                        
+                                    <!-- 
+                                    <figure class="card-img-top d-flex justify-content-center"><img
+                                            src="/img/products/patines/inline/images (7).jpg" alt=""></figure>
+                                    -->
+                                
+                                    <div class="card-body d-flex flex-wrap">
+                                        <div class="col-12 card-title text-center tarjetaprecio">
+                                            <h4><%= product.brand + ' ' + product.model %></h4>
+                                        </div>
+                                        <div class="col-12 text-center align-self-end">
+                                            <p>$<%= product.price %></p>
+                                            <button class="butt"> <%= product.discount %> % OFF </button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>                        
+                        <% } %>
                     <% }) %>
                 </div>
             </section>
