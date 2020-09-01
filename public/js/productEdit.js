@@ -151,10 +151,10 @@ window.addEventListener('load', function() {
 
             // PRECIO
             let errorPrice = document.getElementById('errorPrice')
-            alert (price.value)
+          
 
             if (price.value >= 0) {
-                alert('igual entra aca')
+              
                 price.classList.add('is-valid')
                 errorPrice.innerHTML = ''
                 price.classList.remove('is-invalid')
@@ -284,7 +284,7 @@ window.addEventListener('load', function() {
 
 
             //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
-            debugger
+         
             if (errores.length > 0) {
                 evento.preventDefault();
                 //alert(errores.length)
