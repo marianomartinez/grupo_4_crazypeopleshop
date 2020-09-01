@@ -56,13 +56,15 @@ const categoriesController = {
 
         Category.findByPk(req.params.id, {include: 'subcategory'})
         .then(selectedCategory => {
-            Product.findAll({include: ['subcategory','images']})
+            Product.findAll(/*{where: {show: 1}},*/{include: ['subcategory','images']}) // !!! si pongo el filtro show:1, gallery show no tiene nada
             .then(results => {
+                // return res.send(results)
                 let galleryShow = results.filter(product => 
                     product.subcategory.categoryId == selectedCategory.id
-                )
+                    )
                 return res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {galleryShow, Title: selectedCategory.name})
             })
+            .catch(error => res.send(error))
         })
 
         // Product.findByPk(req.params.id, {include: 'images'})
@@ -76,7 +78,6 @@ const categoriesController = {
         //     return res.send(galleryShow);
         //     return res.render(path.resolve(__dirname, '../views/categories/categoryShow'), {galleryShow, Title: selectedCategory})
         // })
-        .catch(error => res.send(error))
     },
     crud: function (req, res) {
         Category.findAll()

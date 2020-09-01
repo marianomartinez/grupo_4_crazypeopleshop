@@ -75,10 +75,13 @@
                             <span class="mb-4" id="errortalle"></span>
                             <select class="form-control mb-4" id="talle" name = "talle">
                                 <option selected disabled>-elegir talle-</option>
+                                <% if(productToShow.sizes.length == 0) { %>
+                                    <option selected disabled>sin stock</option>
+                                <% } else { %>
                                 <% for (i=0;i<productToShow.sizes.length;i++) { %>
                                 <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
+                                <% } %>
                                 <% }; %>
-                                
                             </select>
                             
                         <input class="w-100 botcar" type="submit" value="Agregar al carrito">

@@ -330,7 +330,7 @@ const productsController = {
                 brand: req.body.brand,
                 price: req.body.price,
                 discount: req.body.discount,
-                show: req.body.show,
+                show: req.body.show ? 1 : 0,
                 subcategoryId: req.body.subcategoryId,
                 description: req.body.description
             }
