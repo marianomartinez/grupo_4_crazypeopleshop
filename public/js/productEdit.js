@@ -121,6 +121,7 @@ window.addEventListener('load', function() {
 
             // MODELO
             let errorModel = document.getElementById('errorModel')
+
             if (model.value.length < 2) {
                 errores.push('El modelo debe tener al menos 2 caracteres')
                 model.classList.add('is-invalid')
@@ -150,16 +151,18 @@ window.addEventListener('load', function() {
 
             // PRECIO
             let errorPrice = document.getElementById('errorPrice')
+            alert (price.value)
 
             if (price.value >= 0) {
+                alert('igual entra aca')
                 price.classList.add('is-valid')
                 errorPrice.innerHTML = ''
                 price.classList.remove('is-invalid')
-
-
-
-                //errores['firstName'] = 'El nombre no puede estar vacío'
-            } else {
+            
+            } 
+           
+            
+            else {
                 errores.push('la precio no puede quedar vacio')
                 price.classList.add('is-invalid')
                 errorPrice.classList.add('text-danger')
@@ -187,8 +190,8 @@ window.addEventListener('load', function() {
             let errorSize = document.getElementById('errorSize')
             let errorStock = document.getElementById('errorStock')
 
-
-            if (stock.value < 0) {
+            
+            if (stock.value < 0 ) {
                 stock.classList.add('is-invalid')
                 errorStock.classList.add('text-danger')
                 errorStock.innerHTML = 'El stock no puede ser negativo'
@@ -199,11 +202,11 @@ window.addEventListener('load', function() {
             }
         
             
-            if (stock.value == ''  && size.value > '0') {
+            if (stock.value === ''  && size.value > 0) {
                 size.classList.add('is-valid')
                 stock.classList.add('is-invalid')
                 errorSize.innerHTML = ''
-                errorStock.innerHTML = 'El stock no puede quedar vació si carga talle'
+                errorStock.innerHTML = 'Ell stock no puede quedar vació si carga talle'
                 errorStock.classList.add('text-danger')
                 errores.push('El stock no puede quedar vació si carga talle')
 
@@ -211,12 +214,12 @@ window.addEventListener('load', function() {
             }
             
             if (stock.value == '' && size.value == 'elegir talle'){
-                size.classList.add('is-valid')
-                stock.classList.add('is-valid')
-                errorSize.innerHTML = ''
-                errorStock.innerHTML = ''
-                size.classList.remove('is-invalid')
-                stock.classList.remove('is-invalid')
+                // size.classList.add('is-valid')
+                // stock.classList.add('is-valid')
+                // errorSize.innerHTML = ''
+                // errorStock.innerHTML = ''
+                // size.classList.remove('is-invalid')
+                // stock.classList.remove('is-invalid')
                 //alert('entra con stock vacio y talle vacio')
             }
            

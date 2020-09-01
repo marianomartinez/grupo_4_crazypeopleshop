@@ -24,7 +24,7 @@ window.addEventListener('load',() => {
         sizeData.forEach(rel => {
             if(rel.sizeId == selectedSize.value){
                 let thisSizeStock = `<label for="inputZip">Stock</label>
-                                    <input type="text" class="form-control" name="stock" value="${rel.stock}">`;
+                                    <input type="text" class="form-control" name="stock" value="${rel.stock}"><span id="errorStock"></span>`;
                 let thisSizeRel = `<label for="relId">ProductSizeStock-Relation</label>
                                     <input type="text" name="relId" value="${rel.id}">`;
                 stockReturn.innerHTML = thisSizeStock;

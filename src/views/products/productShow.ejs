@@ -68,7 +68,7 @@
                     <div class="cardPrecio text-center">
                         <p>$<%= productToShow.price %></p>
                     </div>
-                    <form class="form-group" action="/cart/additemCart/<%= productToShow.id%>" class = "formulario" id = "formulario" method="POST">
+                    <form class="form-group" action="/cart/additemCart" class = "formulario" id = "formulario" method="POST">
                         <div class = "mb-5">
                             <input type="hidden" id = "producto" value = "<%= productToShow.id %>">
                             <label class="my-1" for="sel1">Talle:</label>
@@ -111,7 +111,7 @@
     <!-- Scripts de scripts.ejs -->
     <%- include ('../partials/scripts') %>
 
-    <script src="/js/cartAdditem.js"></script>
+    <!--   <script src="/js/cartAdditem.js"></script>
 
     <!-- Fin del Container -->
     </div>

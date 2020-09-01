@@ -128,7 +128,7 @@
         </div>
         <div class="form-group col-md-6" id="stockReturn">
             <label for="stock">Stock</label>
-            <input type="text" class="form-control" name="stock" >
+            <input type="number" class="form-control" name="stock" >
                     <% if(typeof errors != 'undefined' && errors.stock){  %>
                     <span class="text-danger"> <%=errors.stock.msg%> </span>
                     <% } %>
