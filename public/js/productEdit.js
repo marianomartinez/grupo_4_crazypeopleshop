@@ -186,7 +186,7 @@ window.addEventListener('load', function() {
 
 
         
-            // SIZE
+            // STOCK
             let errorSize = document.getElementById('errorSize')
             let errorStock = document.getElementById('errorStock')
 
