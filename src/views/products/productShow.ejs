@@ -33,7 +33,6 @@
                                 <figure class="d-flex justify-content-center align-items-center">
                                     <img class="mm-imgLimit" src="/img/prod_img/<%= productToShow.images[i].filename %>"
                                         alt="...">
-                                    <!-- <img src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" class="img-fluid"  alt="..."> -->
                                 </figure>
                             </div>
                             <% }; %>
@@ -50,17 +49,7 @@
                         <% }; %>
                     </div>
                 </figure>
-    
-                
-    
-    <!--
-                <figure class="card-img-top col-12 col-md-7 bg-white mt-5 m-0 pt-3">
-                    <img class="w-100" src="/img/products/patines/inline/ps-powerskating-r4-lg.jpg" alt="">
-                </figure>
-    -->
-                
-                
-                
+
                 <section class="card-body col-12 col-md-5 bg-white m-0 mt-5 p-3 sombra">
                     <div class="card-title text-center pt-5">
                         <h2><%= productToShow.brand + ' ' + productToShow.model %></h2>
@@ -103,16 +92,7 @@
                     </form>
                 </section>
                 <section class="row col-12 bg-white mt-1 d-flex justify-content-center sombras text-1">
-                    <p>
-                        <%= productToShow.description %>
-                    </p>
-                    <p>
-                        The Powerslide Phuzion Xenon Men Triskate is a high-performance fitness skate. Constructed using a 
-                        glass-fiber reinforced outer shell and cuff and combined with the TRINITY mounting system it provides 
-                        an amazing stable platform that improves power transfer, reduces vibrations and creates a super low 
-                        center of gravity for more and better balance. 
-
-                    </p>
+                    <p><%= productToShow.description %></p>
                 </section>
             </article>
         </section>
@@ -122,8 +102,6 @@
 
     <!-- Scripts de scripts.ejs -->
     <%- include ('../partials/scripts') %>
-
-    
 
     <!-- Fin del Container -->
     </div>
