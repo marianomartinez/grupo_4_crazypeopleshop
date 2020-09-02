@@ -33,7 +33,7 @@ module.exports = [
         return false
     }).withMessage('El stock debe ser positivo y numerico'),
     body('size').custom(function (value,{ req }) {
-        if (req.body.stock == '') {
+        if (value == '' && req.body.stock == '') {
             return true
         }
         if (req.body.stock >= 0 && value > 0) {
@@ -42,7 +42,7 @@ module.exports = [
         return false
     }).withMessage('El talle no puede quedar vació si carga stock'),
     body('addSize').custom(function (value, { req }) {
-        if (req.body.addStock == '') {
+        if (value == '' && req.body.addStock == '') {
             return true
         }
         if (req.body.addStock >= 0 && value > 0) {
