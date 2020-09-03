@@ -2,18 +2,17 @@ window.addEventListener('load', function () {
 
     //capturo formulario
     let formulario = document.getElementById('formulario')
-    
-    let botonAgregar = document.getElementById('botagregar')
-   
-    if (formulario.elements.talle.value == 'sin stock'){
-        
-       
-        botonAgregar.classList.remove('botcar')
-        
-       
 
-        
-    }
+    if (formulario.elements.talle.value =='sin stock'){
+    let botonagregar = document.getElementById('botagregar')
+    botonagregar.classList.add('botcarDisabled')
+    botonagregar.classList.remove('botcar')
+    formulario.elements.talle.classList.add('is-invalid')    
+}
+    
+
+    
+
     
     formulario.addEventListener('submit', function (evento) {
         
@@ -23,6 +22,8 @@ window.addEventListener('load', function () {
             evento.preventDefault();
         } else {
             //evento.preventDefault();
+
+
 
             Swal.fire({
                 position: 'center',
