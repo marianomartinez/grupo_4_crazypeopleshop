@@ -3,6 +3,18 @@ window.addEventListener('load', function () {
     //capturo formulario
     let formulario = document.getElementById('formulario')
     
+    let botonAgregar = document.getElementById('botagregar')
+   
+    if (formulario.elements.talle.value == 'sin stock'){
+        
+       
+        botonAgregar.classList.remove('botcar')
+        
+       
+
+        
+    }
+    
     formulario.addEventListener('submit', function (evento) {
         
         
@@ -44,6 +56,9 @@ window.addEventListener('load', function () {
                 errorTalle.innerHTML = ''
                 talle.classList.remove('is-invalid')
             }
+
+       
+
             
             //CANTIDAD
             let errorCant = document.getElementById('errorcantidad')
