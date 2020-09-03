@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
         cb(null, path.resolve(__dirname, '..','..','public','img','prod_img'));    //Aquí deben indicar donde van a guardar la imagen
     },
     filename: function (req, file, cb) {
-        cb(null, 'newProducts/' + 'imagen' + '-' + Date.now() + file.fieldname + path.extname(file.originalname)); //UNIQID() --- PHP
+        cb(null, 'newProducts/' + 'imagen' + '-' + Date.now() + path.extname(file.originalname)); //UNIQID() --- PHP
     }
 })
 
@@ -37,12 +37,15 @@ router.get('/products/productsCRUD/add', productsController.add);
 router.get('/products/productsCRUDdetail/:id', productsController.show);
 router.get('/products/delete/:id', productsController.delete);
 router.get('/products/productsCRUDedit/:id', productsController.edit);
+router.get('/products/productsCRUDeditImages/:id', productsController.editImages);
+router.get('/products/deleteProdImage/:id/:imgId', productsController.deleteProdImage);
 router.get('/products/:category/:id', productsController.productShow);
 router.get('/products/search', productsController.productSearch);
 router.get('/api/productEdit/:id', productsController.productEdit);
 router.get('/api/productSizes/:id', productsController.productSizes);
 router.get('/api/sizeList', productsController.sizeList);
 router.put('/products/productsCRUDedit/:id', require('../middlewares/productUpdate'), productsController.update);
+router.put('/products/productsCRUDeditImages/:id',/* require('../middlewares/productUpdate'),*/ upload.any(), productsController.updateImages);
 router.post('/products/crud', upload.any(), require('../middlewares/productCreate'), productsController.save);
 
 module.exports = router;

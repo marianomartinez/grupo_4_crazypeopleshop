@@ -429,6 +429,45 @@ const productsController = {
             } else {Product.destroy({where: {id: req.params.id}}).then(()=> res.redirect('/products/crud'))}
         })
     },
+    editImages: function (req, res) {
+        let prodProm = Product.findByPk(req.params.id, {include: 'images'});
+        let prodImgRelProm = ProductImage.findAll({where: {productId: req.params.id}});
+        Promise.all([prodProm, prodImgRelProm])
+        .then(([productoEdit,prodImgRel]) => {
+            // return res.send(productoEdit)
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsCRUD-editImages'), { productoEdit, prodImgRel, Title: 'Producto-Editar imágenes' })})
+    },
+    updateImages: function (req, res) {
+        Product.findByPk(req.params.id)
+        .then(prod=>{
+            let newImages = req.files.map(each=> each.filename);
+            newImages.forEach(img=>{
+                let newImage = {filename: img};
+                Image.create(newImage)
+                .then(async(img)=>{
+                    let newRel = {
+                        productId: prod.id,
+                        imageId: img.id
+                    }
+                    await ProductImage.create(newRel)
+                })
+            })
+        })
+        return res.redirect('/products/productsCRUDdetail/' + req.params.id)
+    },
+    deleteProdImage: function (req,res) {
+        // return res.send(req.params.id)
+        ProductImage.destroy({where: {imageId: req.params.imgId}})
+        .then(()=>{
+            Image.findByPk(req.params.imgId)
+            .then(async img=>{
+                // await fs.unlinkSync('/img/prod_img/'+img.filename);
+                await Image.destroy({where: {id: req.params.imgId}})
+                .catch(error=> res.send(error));
+            })
+        })
+        return res.redirect('/products/productsCRUDeditImages/'+req.params.id)
+    },
     productSearch: function(req,res){
         let search = req.query.searchInput.toLowerCase();
         Product

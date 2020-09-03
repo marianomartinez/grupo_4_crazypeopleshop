@@ -23,6 +23,9 @@ module.exports = [
         }
         return false
     }).withMessage('El descuento no puede ser mayor a 100'),
+    
+    // HAY CONFLICTO CON ESTAS VALIDACIONES
+    // --- COMENTAR DESDE ACA ---
     body('stock').custom(function (value) {
         if (value == ''){
             return true
@@ -59,5 +62,6 @@ module.exports = [
         }
         return false
     }).withMessage('El stock debe ser positivo y numerico'),
+    // --- COMENTAR HASTA ACA ---
  
 ]
