@@ -456,17 +456,16 @@ const productsController = {
         return res.redirect('/products/productsCRUDdetail/' + req.params.id)
     },
     deleteProdImage: function (req,res) {
-        // return res.send(req.params.id)
         ProductImage.destroy({where: {imageId: req.params.imgId}})
         .then(()=>{
             Image.findByPk(req.params.imgId)
             .then(async img=>{
                 // await fs.unlinkSync('/img/prod_img/'+img.filename);
                 await Image.destroy({where: {id: req.params.imgId}})
+                return res.redirect('/products/productsCRUDeditImages/'+req.params.id)
                 .catch(error=> res.send(error));
             })
         })
-        return res.redirect('/products/productsCRUDeditImages/'+req.params.id)
     },
     productSearch: function(req,res){
         let search = req.query.searchInput.toLowerCase();

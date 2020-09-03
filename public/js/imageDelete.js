@@ -16,7 +16,8 @@ window.addEventListener('load', () => {
                     'Eliminado',
                     'La imagen ha sido eliminada.',
                     'success'
-                ).then(() => window.location.href = e.target.parentElement.href);
+                ).then(() => window.location.href = e.target.href);
+                
             }
         })
     })})
