@@ -43,7 +43,9 @@
                                         </div>
                                         <div class="col-12 text-center align-self-end">
                                             <p>$<%= product.price %></p>
-                                            <button class="butt"> <%= product.discount %> % OFF </button>
+                                            <% if (product.discount > 0) { %> 
+                                                <button class="butt"> <%= product.discount %> % OFF </button>
+                                            <% } %>
                                         </div>
                                     </div>
                                 </a>

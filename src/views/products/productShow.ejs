@@ -57,6 +57,11 @@
                     <div class="cardPrecio text-center">
                         <p>$<%= productToShow.price %></p>
                     </div>
+                    <div class="cardPrecio text-center">
+                        <% if (productToShow.discount > 0) { %>
+                        <button class="butt"> <%= productToShow.discount %> % OFF </button>
+                        <% } %>
+                    </div>
                     <form class="form-group" action="/cart/additemCart" class = "formulario" id = "formulario" method="POST">
                         <div class = "mb-5">
                             <input type="hidden" id = "producto" name = "producto" value = "<%= productToShow.id %>">

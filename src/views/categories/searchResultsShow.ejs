@@ -40,7 +40,9 @@
                                 </div>
                                 <div class="col-12 text-center align-self-end">
                                     <p>$<%= result.price %></p>
-                                    <button class="butt"> <%= result.discount %> % OFF </button>
+                                    <% if (result.discount > 0) { %>
+                                        <button class="butt"> <%= result.discount %> % OFF </button>
+                                    <% } %>
                                 </div>
                             </div>
                         </a>
