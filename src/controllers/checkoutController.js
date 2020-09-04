@@ -12,7 +12,7 @@ module.exports= {
 
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            
+            console.log('aaaa');
         
         }
         
