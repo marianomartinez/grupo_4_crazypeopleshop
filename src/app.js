@@ -3,6 +3,7 @@ const app = express();
 var logMiddleware = require('./middlewares/logMiddleware')
 var cookieAuthMiddleware = require('./middlewares/cookieAuthMiddleware')
 const navMW = require('./middlewares/navMW');
+const cartQuantityMiddleware = require('./middlewares/cartQuantity');
 
 //Sesion
 var session= require('express-session');
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use(logMiddleware);
 app.use(cookieAuthMiddleware);
 app.use(navMW);
+app.use(cartQuantityMiddleware)
 
 
 //Debemos decirle a node - Donde estan nuestros archivos estáticos

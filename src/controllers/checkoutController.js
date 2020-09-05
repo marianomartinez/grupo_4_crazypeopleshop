@@ -17,10 +17,31 @@ module.exports= {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             Product.findByPk(req.body.producto,{
-                include : ['subcategory']
+                include: ['subcategory','images'],
+        
+               
             })
             .then(productos=>{
-                return res.send(productos)
+                
+                let price = productos.discount > 0 ?
+                Number(productos.price) * ((100 - productos.discount) / 100) : Number(productos.price)
+                
+                //Creao los items
+               return Item.create({
+                    grossPrice: productos.price,    
+                    netPrice: price,
+                    quantity: req.body.cantidad,
+                   discount: productos.discount,
+                    subtotal: req.body.cantidad * price,
+                    status: 1,
+                    sizeId: req.body.talle,
+                    userId: req.session.usuarioLogueado.id,
+                    productId: productos.id,
+                    cartId: null
+                }).then(item => res.redirect('/category/1'))
+                    .catch(error => console.log(error)) 
+            
+
             })
         
         }

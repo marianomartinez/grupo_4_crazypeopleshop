@@ -8,8 +8,12 @@ module.exports = function (sequelize, dataTypes) {
             autoIncrement: true,
             allowNull: false
         },
+        grossPrice: {
+            type: dataTypes.DECIMAL,
+            allowNull: false
+        },
 
-        salePrice: {
+        netPrice: {
             type: dataTypes.DECIMAL,
             allowNull: false
         },
@@ -18,6 +22,10 @@ module.exports = function (sequelize, dataTypes) {
             allowNull: false
         },
         quantity: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        sizeId: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
