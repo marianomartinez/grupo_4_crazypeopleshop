@@ -27,6 +27,7 @@ module.exports = [
     // HAY CONFLICTO CON ESTAS VALIDACIONES
     // --- COMENTAR DESDE ACA ---
     body('stock').custom(function (value) {
+       
         if (value == ''){
             return true
         }
@@ -36,7 +37,9 @@ module.exports = [
         return false
     }).withMessage('El stock debe ser positivo y numerico'),
     body('size').custom(function (value,{ req }) {
-        if (value == '' && req.body.stock == '') {
+        
+        
+        if ((value == undefined || value == 'otherSizes') && req.body.stock == '') {
             return true
         }
         if (req.body.stock >= 0 && value > 0) {
@@ -45,7 +48,7 @@ module.exports = [
         return false
     }).withMessage('El talle no puede quedar vació si carga stock'),
     body('addSize').custom(function (value, { req }) {
-        if (value == '' && req.body.addStock == '') {
+        if (value == undefined && req.body.addStock == '') {
             return true
         }
         if (req.body.addStock >= 0 && value > 0) {

@@ -118,7 +118,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="size">Actualizar talle</label>
                                             <select class="form-control custom-select" name="size" id="selectedSize">
-                                                <option selected disabled>elegir talle</option>
+                                                <option value = 'elegir talle'selected disabled>elegir talle</option>
                                                 <% sizeStock.forEach(size => { %>
                                                     <option value="<%= size.sizeId %>"><%= size.sizeId %></option>
                                                 <% }); %>

@@ -70,7 +70,7 @@ module.exports= {
         })
             .then((items) => {
                 let total = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
-               
+                //res.send(items)
                 res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cart'), {Title : 'Carrito', cartProducto: items, total });
             })
 

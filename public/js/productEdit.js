@@ -189,6 +189,8 @@ window.addEventListener('load', function() {
             // STOCK
             let errorSize = document.getElementById('errorSize')
             let errorStock = document.getElementById('errorStock')
+            let erroraddSize = document.getElementById('erroraddsize')
+            let erroraddStock = document.getElementById('erroraddstock')
 
             
             if (stock.value < 0 ) {
@@ -213,15 +215,14 @@ window.addEventListener('load', function() {
                 //alert('entra con stock vacio y talle postivo')
             }
             
-            if (stock.value == '' && size.value == 'elegir talle'){
-                // size.classList.add('is-valid')
-                // stock.classList.add('is-valid')
-                // errorSize.innerHTML = ''
-                // errorStock.innerHTML = ''
-                // size.classList.remove('is-invalid')
-                // stock.classList.remove('is-invalid')
-                //alert('entra con stock vacio y talle vacio')
-            }
+            if (stock.value == '' && (size.value == 'elegir talle' || size.value == 'otherSizes') ){
+                size.classList.add('is-valid')
+                stock.classList.add('is-valid')
+                errorSize.innerHTML = ''
+                errorStock.innerHTML = ''
+                size.classList.remove('is-invalid')
+                stock.classList.remove('is-invalid')
+            }       
            
             if (stock.value >= '0' && size.value == 'elegir talle') {
                 size.classList.add('is-invalid')
@@ -245,38 +246,62 @@ window.addEventListener('load', function() {
                 //alert('entra con stock positivo y talle postivo')
             }
 
+            //ADD SIZE Y STOCK
+
+            if (addStock.value < 0) {
+                addStock.classList.add('is-invalid')
+                erroraddStock.classList.add('text-danger')
+                erroraddStock.innerHTML = 'El stock no puede ser negativo'
+                erroraddSize.innerHTML = ''
+                errores.push('El stock no puede ser negativo')
+
+                //alert('entra con stock negativo')
+            }
 
 
-            // if (stock.value == '') {
-            //     size.classList.add('is-valid')
-            //     errorSize.innerHTML = ''
-            //     size.classList.remove('is-invalid')
-            // } else if (stock.value >= 0 && size.value > 0) {
-            //     size.classList.add('is-valid')
-            //     errorSize.innerHTML = ''
-            //     size.classList.remove('is-invalid')
-            // } else {
-            //     errores.push('El talle no puede quedar vació si carga stock')
-            //     size.classList.add('is-invalid')
-            //     errorSize.classList.add('text-danger')
-            //     errorSize.innerHTML = 'El talle no puede quedar vació si carga stock'
-            // }
+            if (addStock.value === '' && addSize.value > 0) {
+                addSize.classList.add('is-valid')
+                addStock.classList.add('is-invalid')
+                erroraddSize.innerHTML = ''
+                erroraddStock.innerHTML = 'Ell stock no puede quedar vació si carga talle'
+                erroraddStock.classList.add('text-danger')
+                errores.push('El stock no puede quedar vació si carga talle')
 
-            // // // STOCK
-            
-            // if (stock.value == '' && size.value > 0) {
-            //     alert(stock.value)
-            //     alert(size.value)
-            //     errores.push('El talle no puede quedar vació si carga stock')
-            //     stock.classList.add('is-invalid')
-            //     errorStock.classList.add('text-danger')
-            //     errorStock.innerHTML = 'El stock no puede ser nulo sin selecciona un talle'
-            // } else {
-            //     alert('entra tambien aca 2')
-            //     stock.classList.add('is-valid')
-            //     errorStock.innerHTML = ''
-            //     stock.classList.remove('is-invalid')
-            // }
+                //alert('entra con stock vacio y talle postivo')
+            }
+
+            if (addStock.value == '' && addSize.value == 'elegir talle') {
+                addSize.classList.add('is-valid')
+                addStock.classList.add('is-valid')
+                erroraddSize.innerHTML = ''
+                erroraddStock.innerHTML = ''
+                addSize.classList.remove('is-invalid')
+                addStock.classList.remove('is-invalid')
+            }
+
+            if (addStock.value >= '0' && addSize.value == 'elegir talle') {
+                addSize.classList.add('is-invalid')
+                addStock.classList.add('is-valid')
+                erroraddSize.innerHTML = 'Debe elegir un talle si hay stock'
+                erroraddStock.innerHTML = ''
+                erroraddSize.classList.add('text-danger')
+                errores.push('Se debe elegir un talle')
+                addStock.classList.remove('is-invalid')
+                //alert('entra con stock vacio y talle vacio')
+            }
+
+
+            if (addStock.value >= '0' && addSize.value > 0) {
+                addSize.classList.add('is-valid')
+                addStock.classList.add('is-valid')
+                //errorStock.innerHTML = ''
+                erroraddSize.innerHTML = ''
+                addSize.classList.remove('is-invalid')
+                addStock.classList.remove('is-invalid')
+                //alert('entra con stock positivo y talle postivo')
+            }
+
+
 
             
 
