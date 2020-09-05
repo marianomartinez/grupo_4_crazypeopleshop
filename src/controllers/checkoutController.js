@@ -1,6 +1,10 @@
 const path =require("path")
 const db = require('../database/models/')
 const Product = db.Product;
+const Cart = db.Cart;
+const Item = db.Item;
+const User = db.User;
+
 //Express validator
 let { check, validationResult, body } = require('express-validator');
 
@@ -12,7 +16,12 @@ module.exports= {
 
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            console.log('aaaa');
+            Product.findByPk(req.body.producto,{
+                include : ['subcategory']
+            })
+            .then(productos=>{
+                return res.send(productos)
+            })
         
         }
         

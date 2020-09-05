@@ -62,39 +62,43 @@
                         <button class="butt"> <%= productToShow.discount %> % OFF </button>
                         <% } %>
                     </div>
-                    <form class="form-group" action="/cart/additemCart" class = "formulario" id = "formulario" method="POST">
-                        <div class = "mb-5">
-                            <input type="hidden" id = "producto" name = "producto" value = "<%= productToShow.id %>">
-                            <div class = "mb-4">
-                            <label class="my-1" for="sel1">Talle:</label>
-                            <select class="form-control " id="talle" name = "talle">
-                                <option selected disabled>-elegir talle-</option>
-                                <% if(productToShow.sizes.length == 0) { %>
+                    <form class="form-group" action="/cart/additemCart" class="formulario" id="formulario" method="POST">
+                        <div class="row  mb-5">
+                            <input type="hidden" id="producto" name="producto" value="<%= productToShow.id %>">
+                            <div class="mb-4 col-6">
+                                <label class="my-1" for="sel1">Talle:</label>
+                                <select class="form-control col-6" id="talle" name="talle">
+                                    <option selected disabled>-elegir talle-</option>
+                                    <% if(productToShow.sizes.length == 0) { %>
                                     <option selected disabled>sin stock</option>
-                                <% } else { %>
-                                <% for (i=0;i<productToShow.sizes.length;i++) { %>
-                                <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
+                                    <% } else { %>
+                                    <% for (i=0;i<productToShow.sizes.length;i++) { %>
+                                    <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
+                                    <% } %>
+                                    <% }; %>
+                                </select>
+                                <% if(typeof errors != 'undefined' && errors.talle){  %>
+                                <span class="text-danger mb-4"> <%=errors.talle.msg%> </span>
                                 <% } %>
-                                <% }; %>
-                            </select>
-                            <% if(typeof errors != 'undefined' && errors.talle){  %>
-                            <span class="text-danger mb-4"> <%=errors.talle.msg%> </span>
-                            <% } %>
-                            <span class="mb-4" id="errortalle"></span>
+                                <span class="mb-4" id="errortalle"></span>
                             </div>
-                           
+                            <div class = "mb-4 col-6">
                             <label for="cantidad">Cantidad</label>
-                            <input class="form-control" type="number" id="cantidad" name="cantidad" value="1">
-                        <% if(typeof errors != 'undefined' && errors.cantidad){  %>
-                        <span class="text-danger"> <%=errors.cantidad.msg%> </span>
-                        <% } %>
-                        <span id="errorcantidad"></span>
+                            <input class="form-control col-6" type="number" id="cantidad" name="cantidad" value="1">
+                            <% if(typeof errors != 'undefined' && errors.cantidad){  %>
+                            <span class="text-danger"> <%=errors.cantidad.msg%> </span>
+                            <% } %>
+                            <span id="errorcantidad"></span>
+                            </div>
                         </div>
-
-
-                            <input class="w-100 botcar " id="botagregar" type="submit" value="Agregar al carrito">
-                        <a type="button" class="w-100 botcar text-center " href="/category/<%=productToShow.subcategory.categoryId%>">Volver</a>   
+                    
+                        <div class="row px-5">
+                            <input class="w-100 botcar mb-1 " id="botagregar" type="submit" value="Agregar al carrito">
+                            <a type="button" class="w-100 botcar text-center mt-1 "
+                                href="/category/<%=productToShow.subcategory.categoryId%>">Volver</a>
+                        </div>
                     </form>
+
                 </section>
                 <section class="row col-12 bg-white mt-1 d-flex justify-content-center sombras text-1">
                     <p><%= productToShow.description %></p>
