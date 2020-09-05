@@ -118,6 +118,7 @@ CREATE TABLE `items` (
   `subtotal` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `userId` int(11) NOT NULL,
+  `sizeId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `cartId` int(11) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
@@ -367,4 +368,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-04 23:26:30
+-- Dump completed on 2020-09-04 23:46:56
