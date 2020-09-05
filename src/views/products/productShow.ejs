@@ -65,6 +65,7 @@
                     <form class="form-group" action="/cart/additemCart" class="formulario" id="formulario" method="POST">
                         <div class="mb-5 row">
                             <input type="hidden" id="producto" name="producto" value="<%= productToShow.id %>">
+                            <input type="hidden" id="categoria" name="categoria" value="<%=productToShow.subcategory.categoryId %>">     
                             <div class="mb-4 col-8">
                                 <label class="my-1" for="sel1">Talle:</label>
                                 <select class="form-control" id="talle" name="talle">

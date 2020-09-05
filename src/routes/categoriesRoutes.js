@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 let multer = require('multer');
 
+
 //Multer Code
 
 const storage = multer.diskStorage({
@@ -21,7 +22,7 @@ const categoriesController = require(path.resolve(__dirname, '../controllers/cat
 
 // Métodos en nuestros controladores: index - show - edit - delete 
 
-router.get('/category/:id', categoriesController.showCategory);
+router.get('/category/:id',categoriesController.showCategory);
 // Las 3 rutas de abajo fueron reemplazadas por la de arriba
 //router.get('/category/iSkates', categoriesController.showCategoryISkates);
 //router.get('/category/qSkates', categoriesController.showCategoryQSkates);

@@ -10,14 +10,14 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
- 
+
         <main class="fonditos py-3 px-5 paovh80">
 
             <section class="row bg-white agreg caja mt-3 py-3 pt-1">
                 <div class="col-12 text-center text-md-left py-4 ">
                     <h1 class="col-12 text-center letra agreg mad py-3">CARRITO DE COMPRAS</h1>
                 </div>
-               
+
                 <div class="col-12 bg-white d-flex align-items-center justify-content-end pad-r-43">
 
                     <button class="boton-cantidad ">
@@ -25,139 +25,110 @@
                     </button>
 
                 </div>
-            
-                
+
+
                 <div class="col-12 bg-white px-5">
-                    
+
                     <h5>PRODUCTO</h5>
                     <hr color="">
                 </div>
-                
-                <article class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100  px-5">
-                   
-                    <div class="d-flex justify-content-between align-items-start">
-                        
-                        <figure>
-                            
-                            <img src="/img/products/patines/inline/images.jpg" class="img-fluid" alt="">
-                            
-                        </figure>
-                        <div class="pl-5 mt-5">
-                            <h4>Chaya HR23</h4>
-                            <h4>(40)</h4>
-                            <h4>$ 18.750,00</h4>
-                            
+                <div class="row">
+                    <% cartProducto.forEach (product => { %>
+                    <article
+                        class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100  px-5">
+
+                        <div class="d-flex justify-content-between align-items-start">
+
+                            <figure>
+
+                                <img src="/img/products/patines/inline/images.jpg" class="img-fluid" alt="">
+
+                            </figure>
+                            <div class="pl-5 mt-5">
+                                <h4>Chaya HR23</h4>
+                                <h4>(40)</h4>
+                                <h4>$ 18.750,00</h4>
+
+                            </div>
+
                         </div>
-                        
-                    </div>
-                    <div class="pl-5 align-items-center justify-content-center mt-5"> 
-                        
-                        <h4>Cantidad</h4>
-                        <form action="#" class="d-flex justify-content-center align-items-start">
-                            <button class="boton-cantidad">-</button>
-                        <span class="cantidad text-center"> 1 </span>
-                        <button class="boton-cantidad">+</button>
-                        </form>
-                    </div>
+                        <div class="pl-5 align-items-center justify-content-center mt-5">
 
-
-                    <div class=" d-flex align-items-center justify-content-end mt-5">
-                        <h4>$18.750,00</h4>
-                        <button class="btn-trash border-0 tacho">
-                            <i class="far fa-trash-alt "></i><span class="fin">Eliminar</span>
-                        </button>
-                    </div>
-                </article>
-
-
-                <div class="col-12 bg-white px-5">
-                    
-                    
-                    <hr color="">
-                    
-                </div>
-                <article class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100  px-5">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <figure>
-                            
-                            <img src="/img/products/patines/inline/images (10).jpg" class="img-fluid" alt="">
-                            
-                        </figure>
-                        <div class="pl-5 mt-5">
-                            <h4>Chaya HR23</h4>
-                            <h4>(40)</h4>
-                            <h4>$ 18.750,00</h4>
-                            
+                            <h4>Cantidad</h4>
+                            <form action="#" class="d-flex justify-content-center align-items-start">
+                                <button class="boton-cantidad">-</button>
+                                <span class="cantidad text-center"> 1 </span>
+                                <button class="boton-cantidad">+</button>
+                            </form>
                         </div>
-                        
-                    </div>
-                    <div class="pl-5 align-items-center justify-content-center mt-5"> 
-                        <h4>Cantidad</h4>
-                        <form action="#" class="d-flex justify-content-center align-items-start">
-                            <button class="boton-cantidad">-</button>
-                        <span class="cantidad text-center"> 2 </span>
-                        <button class="boton-cantidad">+</button>
-                        </form>
-                    </div>
 
 
-                    <div class=" d-flex align-items-center justify-content-end mt-5">
-                        <h4>$18.750,00</h4>
-                        <button class="btn-trash border-0 tacho">
-                            <i class="far fa-trash-alt "></i><span class="fin">Eliminar</span>
-                        </button>
+                        <div class=" d-flex align-items-center justify-content-end mt-5">
+                            <h4>$18.750,00</h4>
+                            <button class="btn-trash border-0 tacho">
+                                <i class="far fa-trash-alt "></i><span class="fin">Eliminar</span>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <div class="col-12 bg-white px-5">
+
+
+                        <hr color="">
+
                     </div>
-                </article>
-            
-                <div class="col-12 bg-white px-5">
-                    
-                    
-                    <hr color="">
-                    
+
+                    <div class="col-12 bg-white px-5">
+
+
+                        <hr color="">
+
+                    </div>
+                    <% }) %>
                 </div>
-            
                 <div class="col-6 bg-white px-5">
-                    
+
                     <h5>Subtotal</h5>
-                    
+
                 </div>
                 <div class="col-6 bg-white d-flex align-items-center justify-content-end  px-5">
 
                     <h5>$27.000,00</h5>
 
                 </div>
-            
+
                 <div class="col-12 bg-white px-5">
-                    
-                    
+
+
                     <hr color="">
-                    
+
                 </div>
                 <div class="col-8 bg-white  px-5">
-                    
+
                     <h5>Total</h5>
-                    
+
                 </div>
                 <div class="col-4 bg-white d-flex align-items-center justify-content-end  px-5">
-                    
+
                     <h5>$27.000,00</h5>
 
                 </div>
-               
+
                 <div class="col-12 text-right pad-r-43">
 
                     <button class="finalizar-compra letra agreg">Finalizar Compra</button>
-                    
+
                 </div>
-      
+
                 <div class="col-12 mx-auto text-center">
                     <a class="product letra agreg" href="/">ver mas productos</a>
                 </div>
-            
-             </section>
+
+            </section>
 
         </main>
-    
+
 
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
