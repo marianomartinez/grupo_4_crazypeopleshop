@@ -31,7 +31,7 @@ const subcategoriesController = {
                 include: [{ association: "category" }]
             })
             .then(subcategoriaShow => {
-                res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_display'), { subcategoriaShow: subcategoriaShow, Title: 'Categoría-Visualizar' })
+                res.render(path.resolve(__dirname, '..', 'views', 'subcategories', 'subcategoriesCRUD_display'), { subcategoriaShow: subcategoriaShow, Title: 'Subcategoría-Visualizar' })
             })
 
     },

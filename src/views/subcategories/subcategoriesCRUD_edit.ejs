@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <%- include('../partials/header.ejs')%>
+        <main class="fonditos mb-7 py-3">
 
         <!-- Cuerpo principal -->
         <!--<section class="row">
@@ -20,77 +21,77 @@
                 </div>
             </article>
         </section>-->
-        <div class="col-12 text-center text-md-left py-4 fonditos paovh80">
+        <div class="col-12 text-center text-md-left py-4"> <!-- acá quité paovh80 y fonditos -->
             <h1 class="col-12 text-center mad">Edición de Subcategorías</h1>
         
-        <section class="bg-home">
-            <div class="container pt-4">
-                <div class="row">
-                    <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
-                        <div class="signup-form">
-                            <form action="/subcategories/edit/<%=subcategoriaEdit.id%>?_method=put" id = "formulario" method="POST" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-2">
-                                        <label for="id">ID</label>
-                                        <input type="text" class="form-control" name="id" value="<%=subcategoriaEdit.id%>" disabled>
+            <section class="bg-home min-vh-100">
+                <div class="container pt-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
+                            <div class="signup-form">
+                                <form action="/subcategories/edit/<%=subcategoriaEdit.id%>?_method=put" id = "formulario" method="POST" enctype="multipart/form-data">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="id">ID</label>
+                                            <input type="text" class="form-control" name="id" value="<%=subcategoriaEdit.id%>" disabled>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="subcategoria">Subcategoría</label>
+                                            <input type="text" class="form-control" name="name"
+                                                placeholder="Subcategoría" value="<%=subcategoriaEdit.name%>">
+                                                <% if(typeof errors != 'undefined' && errors.name){  %>
+                                                <span class="text-danger"> <%=errors.name.msg%> </span>
+                                                <% } %>
+                                                <span id="errornombre"></span>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="categoria">Categoría a la que pertenece</label>
+                                            <select class="form-control custom-select" name="categoria" required>
+                                                <%categorias.forEach(categoria => { %>
+                                                <option value="<%= categoria.id %>"
+                                                    <% if (categoria.id == subcategoriaEdit.categoryId) { %> 
+                                                    <%= 'selected' %> <% }; %>> <%= categoria.name %>
+                                                </option>
+                                                <% }); %>
+                                            </select>
+                                            <span id="errorcategoria"></span>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="descripcion">Descripción</label>
+                                            <input type="text" class="form-control" name="description" placeholder="Descripción"
+                                                value="<%=subcategoriaEdit.description%>">
+                                                <% if(typeof errors != 'undefined' && errors.description){  %>
+                                                <span class="text-danger"> <%=errors.description.msg%> </span>
+                                                <% } %>
+                                                <span id="errordescripcion"></span>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-12">
-                                        <label for="subcategoria">Subcategoría</label>
-                                        <input type="text" class="form-control" name="name"
-                                            placeholder="Subcategoría" value="<%=subcategoriaEdit.name%>">
-                                            <% if(typeof errors != 'undefined' && errors.name){  %>
-                                            <span class="text-danger"> <%=errors.name.msg%> </span>
-                                            <% } %>
-                                            <span id="errornombre"></span>
+                             
+                                <!--      <div class="form-group">
+                                        <div class="list-group-item ">Imágen: <img class="img-thumbnail"
+                                            src="/img/web/<%= subcategoriaEdit.image%>" alt="">
+                                            <input type="file" class="form-control" name="image" placeholder="Imagen"
+                                            value="<%=subcategoriaEdit.image%>">
+                                            <input type="hidden" name="image_old" value=<%=subcategoriaEdit.image%>>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-12">
-                                        <label for="categoria">Categoría a la que pertenece</label>
-                                        <select class="form-control custom-select" name="categoria" required>
-                                            <%categorias.forEach(categoria => { %>
-                                            <option value="<%= categoria.id %>"
-                                                <% if (categoria.id == subcategoriaEdit.categoryId) { %> 
-                                                <%= 'selected' %> <% }; %>> <%= categoria.name %>
-                                            </option>
-                                            <% }); %>
-                                        </select>
-                                        <span id="errorcategoria"></span>
+                                -->
+                            
+                                    <div class="form-group d-inline">
+                                        <button type="submit" class="btn btn btn-primary">Actualizar</button>
                                     </div>
-                                    <div class="form-group col-12">
-                                        <label for="descripcion">Descripción</label>
-                                        <input type="text" class="form-control" name="description" placeholder="Descripción"
-                                            value="<%=subcategoriaEdit.description%>">
-                                            <% if(typeof errors != 'undefined' && errors.description){  %>
-                                            <span class="text-danger"> <%=errors.description.msg%> </span>
-                                            <% } %>
-                                            <span id="errordescripcion"></span>
+                                    <div class="form-group d-inline">
+                                        <a type="button" class="btn btn btn-danger" href="/subcategories/crud">Volver</a>
                                     </div>
-                             </div>
-        
-                            <!--      <div class="form-group">
-                                    <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                        src="/img/web/<%= subcategoriaEdit.image%>" alt="">
-                                        <input type="file" class="form-control" name="image" placeholder="Imagen"
-                                        value="<%=subcategoriaEdit.image%>">
-                                        <input type="hidden" name="image_old" value=<%=subcategoriaEdit.image%>>
-                                    </div>
-                                </div>
-                            -->
-        
-                              <div class="form-group d-inline">
-                                    <button type="submit" class="btn btn btn-primary">Actualizar</button>
-                                </div>
-                                <div class="form-group d-inline">
-                                    <a type="button" class="btn btn btn-danger" href="/subcategories/crud">Volver</a>
-                                </div>
-        
-                        </form>
-        
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-        </section>
+        </main>
+    </div>
     <!-- Footer -->
     <%- include ('../partials/footer') %>
     <%- include ('../partials/scripts') %>

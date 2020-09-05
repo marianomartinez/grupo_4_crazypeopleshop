@@ -221,7 +221,7 @@ const productsController = {
         let subcategoriesProm = Subcategory.findAll({include: 'category'});
         Promise.all([promSizeStock, promSizes, productProm, categoriesProm, subcategoriesProm])
         .then(([sizeStock, sizes, productoShow, categorias, subcategorias]) => {
-            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Producto-Detalle',sizeStock,sizes,productoShow,categorias,subcategorias})})
+            return res.render(path.resolve(__dirname, '../views/products/productsCRUD-detail'), {Title: 'Producto-Visualizar',sizeStock,sizes,productoShow,categorias,subcategorias})})
     },
 
     edit: function (req, res) {

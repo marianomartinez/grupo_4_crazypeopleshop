@@ -12,13 +12,12 @@
         <%- include ('../partials/header')  %>
 
 
-        <main  class ="paovh80">
+        <!-- <main  class ="paovh80"> -->
             <!--<h1 class="text-center text-dark display-5 mt-5 pt-2"> Categoría</h1>-->
-            <div class="col-12 text-center text-md-left py-4 fonditos paovh80">
-                <h1 class="col-12 text-center mad">Categoría</h1>
-
-   <section class="bg-home pt-4">
-                <div class="container">
+        <div class="col-12 text-center text-md-left py-4 fonditos"> <!-- quité paovh80 -->
+            <h1 class="col-12 text-center mad">Categoría</h1>
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
                     <div class="row">
                         <div class="col-8 mx-auto bg-light agreg">
                             <div class="card">
@@ -27,30 +26,19 @@
                                     <li class="list-group-item">Categoría: <%=categoriaShow.name %> </li>
                                     <li class="list-group-item">Descripcion: <%=categoriaShow.description %> </li>
                                     <li class="list-group-item">Fecha de Alta: <%=categoriaShow.createdAt %> </li>
-                                    <li class="list-group-item ">Imagen: <img class="img-thumbnail"
-                                            src="/img/web/<%= categoriaShow.image%>" alt=""></li>
-
+                                    <li class="list-group-item ">Imagen: 
+                                        <img class="img-thumbnail" src="/img/web/<%= categoriaShow.image%>" alt="">
+                                    </li>
                                 </ul>
-
                             </div>
-
-                            <a class="btn btn btn-danger" href="/categories/crud">Volver</a>
-
+                            <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/categories/crud">Volver</a>
+                            <a class="btn bg-primary text-white mt-1 mx-md-auto" href="/categories/edit/<%=categoriaShow.id%>">Editar</a>
                         </div>
-
                     </div>
-
-
-
                 </div>
-
-
-
             </section>
-
-
-
-        </main>
+        </div>
+    </div>
 
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
@@ -59,7 +47,6 @@
         <%- include ('../partials/scripts') %>
 
         <!-- Fin del Container -->
-    </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 

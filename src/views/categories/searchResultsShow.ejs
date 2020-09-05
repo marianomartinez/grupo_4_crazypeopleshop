@@ -11,43 +11,43 @@
         <!-- Header de header.ejs -->
         <%- include ('../partials/header') %>
 
-        <main class="fonditos">
+        <main class="fonditos min-vh-100">
         <!-- Galería de productos -->
             <section class="container">
                 <div class="col-12 text-center text-md-left py-4 ">
                     <h2 class="section-title col-12  text-center mad"><%= Title %></h2>
-                </div>
                 
-                <% if(results.length == 0){ %>
-                <div>
-                    <p class="text-center mt-1">No encontramos esa marca o modelo, pero seguro tenemos otro para ofrecerte. Buscá de nuevo o ingresá a Productos.</p>
-                </div>
-                <% }; %>
-                <div class="row justify-content-between">
-                    <% results.forEach (result => { %> 
-                    <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
-                        <a href="/products/<%= result.subcategoryId %>/<%= result.id %>">
-                            <figure class="card-img-top d-flex justify-content-center"><img class="w-100 mh-auto"
-                                <% if (result.images.length == 0) { %>
-                                src="/img/web/noImage.jpg"
-                                <% } else { %>
-                                src="/img/prod_img/<%= result.images[0].filename %>"
-                                <% }; %>
-                                    alt="<%= result.brand + ' ' + result.model + ' $' + result.price %>"></figure>
-                            <div class="card-body d-flex flex-wrap">
-                                <div class="col-12 card-title text-center tarjetaprecio">
-                                    <h4><%= result.brand + ' ' + result.model %></h4>
-                                </div>
-                                <div class="col-12 text-center align-self-end">
-                                    <p>$<%= result.price %></p>
-                                    <% if (result.discount > 0) { %>
-                                        <button class="butt"> <%= result.discount %> % OFF </button>
-                                    <% } %>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                    <% }) %>
+                    <% if(results.length == 0){ %>
+                    <div>
+                        <p class="text-center mt-1">No encontramos esa marca o modelo, pero seguro tenemos otro para ofrecerte. Buscá de nuevo o ingresá a Productos.</p>
+                    </div>
+                    <% }; %>
+                    <div class="row justify-content-between">
+                        <% results.forEach (result => { %> 
+                            <article class="card col-12 col-md-5 col-lg-auto mb-5 py-3 category-product mm-20vw">
+                                <a href="/products/<%= result.subcategoryId %>/<%= result.id %>">
+                                    <figure class="card-img-top d-flex justify-content-center"><img class="w-100 mh-auto"
+                                        <% if (result.images.length == 0) { %>
+                                        src="/img/web/noImage.jpg"
+                                        <% } else { %>
+                                        src="/img/prod_img/<%= result.images[0].filename %>"
+                                        <% }; %>
+                                            alt="<%= result.brand + ' ' + result.model + ' $' + result.price %>"></figure>
+                                    <div class="card-body d-flex flex-wrap">
+                                        <div class="col-12 card-title text-center tarjetaprecio">
+                                            <h4><%= result.brand + ' ' + result.model %></h4>
+                                        </div>
+                                        <div class="col-12 text-center align-self-end">
+                                            <p>$<%= result.price %></p>
+                                            <% if (result.discount > 0) { %>
+                                                <button class="butt"> <%= result.discount %> % OFF </button>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+                        <% }) %>
+                    </div>
                 </div>
             </section>
         </main>
@@ -60,7 +60,7 @@
     <%- include ('../partials/scripts') %>
 
     <!-- Fin del Container -->
-    </div>
+    
 
 </body>
 </html>

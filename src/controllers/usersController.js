@@ -35,7 +35,7 @@ const usersController = {
          User
              .findByPk(req.session.usuarioLogueado.id) 
          .then(usuarioEdit => {
-           res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición' })
+           res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Mi perfil-Edición' })
         })
 
 
@@ -77,7 +77,7 @@ const usersController = {
             User
                 .findByPk(req.params.id)
                 .then(usuarioEdit => {
-                    res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-EEdición', errors: errors.mapped() })
+                    res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { usuarioEdit: usuarioEdit, Title: 'Usuario-Edición', errors: errors.mapped() })
                 })
 
         }

@@ -12,58 +12,45 @@
         <%- include ('../partials/header')  %>
 
 
-        <main class="fonditos paovh80">
+        <!-- <main class="fonditos paovh80"> -->
             <!--<h1 class="text-center text-dark display-5  pt-2"> Detalle de Usuario</h1>-->
-            <div class="col-12 text-center text-md-left py-4">
-                <h1 class="col-12 text-center mad">Mi perfil</h1>
-                <section class="bg-home pt-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-8 mx-auto bg-light agreg">
-                                <div class="card">
-                                    <ul class="list-group">
-                                        <!--
-                                        <li class="list-group-item">ID Usuario: <%=usuarioShow.id %> </li>
-                                        -->
-                                        <li class="list-group-item">Nombre: <%=usuarioShow.firstName %> </li>
-                                        <li class="list-group-item">Apellido: <%=usuarioShow.lastName %> </li>
-                                        <li class="list-group-item">Correo Electrónico: <%=usuarioShow.email %> </li>
-                                        <!--
-                                        <li class="list-group-item">Contraseña: <%=usuarioShow.password %> </li>
-                                        -->
-                                        <li class="list-group-item">Teléfono: <%=usuarioShow.phone %> </li>
-                                        <!--
-                                        <li class="list-group-item">Fecha de Alta: <%=usuarioShow.createdAt %> </li>
-                                        -->
-                                        <!--
-                                        <li class="list-group-item">Tipo Usuario: <%=usuarioShow.role %> </li>
-                                        -->
-                                        <li class="list-group-item"><figure class="avatarprofile"><img
-                                                    src="/img/users/<%= usuarioShow.image%>" alt=""></figure>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
-                                <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/">Inicio</a>
-                                <a class="btn bg-primary text-white mt-1 mx-md-auto" href="/users/profileEdit">Editar</a>
-
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="col-12 text-center mad">Mi perfil</h1>
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-8 mx-auto bg-light agreg">
+                            <div class="card">
+                                <ul class="list-group">
+                                    <!--
+                                    <li class="list-group-item">ID Usuario: <%= // usuarioShow.id %> </li>
+                                    -->
+                                    <li class="list-group-item">Nombre: <%=usuarioShow.firstName %> </li>
+                                    <li class="list-group-item">Apellido: <%=usuarioShow.lastName %> </li>
+                                    <li class="list-group-item">Correo Electrónico: <%=usuarioShow.email %> </li>
+                                    <!--
+                                    <li class="list-group-item">Contraseña: <%= // usuarioShow.password %> </li>
+                                    -->
+                                    <li class="list-group-item">Teléfono: <%=usuarioShow.phone %> </li>
+                                    <!--
+                                    <li class="list-group-item">Fecha de Alta: <%= // usuarioShow.createdAt %> </li>
+                                    -->
+                                    <!--
+                                    <li class="list-group-item">Tipo Usuario: <%= // usuarioShow.role %> </li>
+                                    -->
+                                    <li class="list-group-item"><figure class="avatarprofile"><img
+                                                src="/img/users/<%= usuarioShow.image%>" alt=""></figure>
+                                    </li>
+                                </ul>
                             </div>
-
+                            <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/">Inicio</a>
+                            <a class="btn bg-primary text-white mt-1 mx-md-auto" href="/users/profileEdit">Editar</a>
                         </div>
-
-
-
                     </div>
-
-
-
-                </section>
-
-
-
-        </main>
+                </div>
+            </section>
+        </div>
+    </div>
 
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
@@ -72,7 +59,6 @@
         <%- include ('../partials/scripts') %>
 
         <!-- Fin del Container -->
-    </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 

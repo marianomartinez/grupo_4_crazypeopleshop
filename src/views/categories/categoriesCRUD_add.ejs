@@ -18,49 +18,50 @@
                 </div>
             </article>
         </section>-->
-        <div class="col-12 text-center text-md-left py-4 paovh80 fonditos">
+        <div class="col-12 text-center text-md-left py-4 fonditos">
             <h1 class="col-12 text-center mad">Creación Categoría</h1>
 
-        <section class="bg-home">
-            <div class="container py-4">
-                <div class="row">
-                    <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
-                        <div class="signup-form pb-4">
-                            <form action="/categories/crud" class = "formulario" id = "formulario" method="post" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Categoría">
-                                        <% if(typeof errors != 'undefined' && errors.name){  %>
-                                        <span class="text-danger"> <%=errors.name.msg%> </span>
-                                        <% } %>
-                                        <span id="errornombre"></span>
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="description" class="form-control" id="" placeholder="Descripcion" cols="30"
-                                    rows="10"></textarea>                                               
-                                <% if(typeof errors != 'undefined' && errors.description){  %>
-                                <span class="text-danger"> <%=errors.description.msg%> </span>
-                                <% } %>
-                                <span id="errordescripcion"></span>
-                                </div>
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
+                            <div class="signup-form pb-4">
+                                <form action="/categories/crud" class = "formulario" id = "formulario" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Categoría">
+                                            <% if(typeof errors != 'undefined' && errors.name){  %>
+                                            <span class="text-danger"> <%=errors.name.msg%> </span>
+                                            <% } %>
+                                            <span id="errornombre"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="description" class="form-control" id="" placeholder="Descripción" cols="30"
+                                        rows="10"></textarea>                                               
+                                    <% if(typeof errors != 'undefined' && errors.description){  %>
+                                    <span class="text-danger"> <%=errors.description.msg%> </span>
+                                    <% } %>
+                                    <span id="errordescripcion"></span>
+                                    </div>
 
-                                <div class="form-group">
-                                    <input type="file" class="form-control" name="image" placeholder="Imagen">
-                                </div>
-
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="image" placeholder="Imagen">
+                                    </div>
+                                    
                                     <div class="form-group d-inline">
                                         <button type="submit" class="btn btn btn-info">Crear</button>
                                     </div>
-                                <div class="form-group d-inline">
-                                    <a type="button" class="btn btn btn-danger" href="/categories/crud">Volver</a>
-                                </div>
-                            </form>
-
+                                    
+                                    <div class="form-group d-inline">
+                                        <a type="button" class="btn btn btn-danger" href="/categories/crud">Volver</a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+        </div>
     </div>
-    </section>
     <!-- Footer -->
     <%- include ('../partials/footer') %>
     <%- include ('../partials/scripts') %>

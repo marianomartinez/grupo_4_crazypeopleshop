@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    
     <div class="container">
         <%- include('../partials/header.ejs')%>
+        <main class="fonditos mb-7 py-3">
 
         <!-- Cuerpo principal -->
         <!--<section class="row">
@@ -21,69 +21,65 @@
                 </div>
             </article>
         </section>-->
-        <div class="col-12 text-center text-md-left py-4 fonditos paovh80">
+        <div class="col-12 text-center text-md-left py-4"> <!-- acá quité paovh80 y fonditos -->
             <h1 class="col-12 text-center mad">Edición de Categorías</h1>
         
-        <section class="bg-home pt-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
-                        <div class="signup-form">
-                            <form action="/categories/edit/<%=categoriaEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
-        
-                                <div class="form-row">
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">ID</label>
-                                        <input type="text" class="form-control" name="id" value="<%=categoriaEdit.id%>" disabled>
-                                        <span id="errorid"></span>
-                                    </div>
-                                     <div class="form-group">
-                                        <label for="inputAddress"> Categoría </label>
-                                        <input type="text" class="form-control" name="name" placeholder="Categoria"
-                                            value="<%=categoriaEdit.name%>">
-                                            <% if(typeof errors != 'undefined' && errors.name){  %>
-                                            <span class="text-danger"> <%=errors.name.msg%> </span>
-                                            <% } %>
-                                            
-                                    </div>
-                                    
-                                    <div class="form-group col-12">
-                                        <label for="inputAddress">Descripción</label>
-                                        <input type="text" class="form-control" name="description" placeholder="Descripción"
-                                            value="<%=categoriaEdit.description%>">
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
+                            <div class="signup-form">
+                                <form action="/categories/edit/<%=categoriaEdit.id%>?_method=put" method="POST" enctype="multipart/form-data">
+                                
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="inputZip">ID</label>
+                                            <input type="text" class="form-control" name="id" value="<%=categoriaEdit.id%>" disabled>
+                                            <span id="errorid"></span>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label for="inputAddress"> Categoría </label>
+                                            <input type="text" class="form-control" name="name" placeholder="Categoria"
+                                                value="<%=categoriaEdit.name%>">
+                                                <% if(typeof errors != 'undefined' && errors.name){  %>
+                                                <span class="text-danger"> <%=errors.name.msg%> </span>
+                                                <% } %>
+                                        </div>
+
+                                        <div class="form-group col-12">
+                                            <label for="inputAddress">Descripción</label>
+                                            <input type="text" class="form-control" name="description" placeholder="Descripción"
+                                                value="<%=categoriaEdit.description%>">
                                             <% if(typeof errors != 'undefined' && errors.description){  %>
                                             <span class="text-danger"> <%=errors.description.msg%> </span>
                                             <% } %>
                                             <span id="errordescripcion"></span>
+                                        </div>
                                     </div>
-                             </div>
-        
-                             <div class="form-group">
-                                    <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                        src="/img/web/<%= categoriaEdit.image%>" alt="">
-                                        <input type="hidden" name="image_old" value=<%=categoriaEdit.image%>>
-                                        <input type="file" class="form-control" name="image" placeholder="Imagen"
-                                        value="<%=categoriaEdit.image%>">
+                                
+                                    <div class="form-group">
+                                        <div class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/web/<%= categoriaEdit.image%>" alt="">
+                                            <input type="hidden" name="image_old" value=<%=categoriaEdit.image%>>
+                                            <input type="file" class="form-control" name="image" placeholder="Imagen" value="<%=categoriaEdit.image%>">
+                                        </div>
                                     </div>
-                                </div>
-        
-        
-                              <div class="form-group d-inline">
-                                    <button type="submit" class="btn btn btn-primary">Actualizar</button>
-                                </div>
-                                <div class="form-group d-inline">
-                                    <a type="button" class="btn btn btn-danger" href="/categories/crud">Volver</a>
-                                </div>
-        
-                        </form>
-                    
+                                
+                                    <div class="form-group d-inline">
+                                        <button type="submit" class="btn btn btn-primary">Actualizar</button>
+                                    </div>
+
+                                    <div class="form-group d-inline">
+                                        <a type="button" class="btn btn btn-danger" href="/categories/crud">Volver</a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            
-            </div>
-        
-        </section>
+            </section>
+        </div>
+        </main>
     </div>
     <!-- Footer -->
     <%- include ('../partials/footer') %>

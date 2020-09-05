@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <%- include('../partials/header.ejs')%>
+        <main class="fonditos mb-7 py-3">
 
         <!-- Cuerpo principal -->
         <!--<section class="row">
@@ -20,19 +21,16 @@
                 </div>
             </article>
         </section>-->
-        <div class="col-12 text-center text-md-left py-4 fonditos">
+        <div class="col-12 text-center text-md-left py-4">
             <h1 class="col-12 text-center mad">Edición de Usuarios</h1>
 
-            <section class="bg-home pt-4">
-                <div class="container">
+            <section class="bg-home min-vh-100">
+                <div class="container pt-4">
                     <div class="row">
                         <div class="col-12 col-md-4 mx-md-auto bg-light agreg">
                             <div class="signup-form">
                                 <form action="/users/profileUpdate/<%=usuarioEdit.id%>?_method=put" class = "formulario" id = "formulario" method="POST"
                                     enctype="multipart/form-data">
-                                    <div class="form-group">
-
-                                    </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
                                             <label for="inputZip">ID</label>
@@ -48,7 +46,7 @@
                                             <% } %>
                                             <span id="erroremail"></span>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <label for="inputCity">Nombre</label>
                                             <input type="text" class="form-control" name="firstName"
                                                 placeholder="Nombre" value="<%=usuarioEdit.firstName%>">
@@ -57,7 +55,7 @@
                                             <% } %>
                                             <span id="errornombre"></span>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-12">
                                             <label for="inputCity">Apellido</label>
                                             <input type="text" class="form-control" name="lastName"
                                                 placeholder="Apellido" value="<%=usuarioEdit.lastName%>">
@@ -67,71 +65,77 @@
                                             <span id="errorapellido"></span>
                                         </div>
 
-
                                         <div class="form-group col-md-12">
                                             <label for="inputAddress">Teléfono</label>
                                             <input type="text" class="form-control" name="phone" placeholder="Telefono"
                                                 value="<%=usuarioEdit.phone%>">
                                                 <span id="errortelefono"></span>
                                         </div>
-                                        <label for="inputAddress">Contraseña</label>
+
                                         <div class="input-group col-12">
-                                            <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
-                                            <input type="password" class="form-control" name="password"
-                                                placeholder="Nueva contraseña (8 a 20 caracteres)">
-                                        
-                                            <div class="input-group-append">
-                                                <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
+                                            <div class="row col-12">
+                                                <label for="inputAddress">Contraseña</label>
                                             </div>
-                                                <% if(typeof errors != 'undefined' && errors.password){  %>
-                                                <span class="text-danger"> <%=errors.password.msg%> </span>
-                                                <% } %>
-                                                <span id="errorpassword"></span>
+
+                                            <div class="row col-12">
+                                                <div class="col-11 px-0">
+                                                    <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
+                                                    <input type="password" class="form-control" name="password"
+                                                    placeholder="Nueva contraseña (8 a 20 caracteres)">
+                                                </div>
+                                                <div class="input-group-append col-1 px-0">
+                                                    <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
+                                                </div>
+                                            </div>
+                                            <% if(typeof errors != 'undefined' && errors.password){  %>
+                                            <span class="text-danger"> <%=errors.password.msg%> </span>
+                                            <% } %>
+                                            <span id="errorpassword"></span>
                                         </div>
-                                <label for="inputAddress">Reingrese Contraseña</label>
+
                                         <div class="input-group col-12">
-                                        
-                                            <input type="password" class="form-control password2" name="password2"
-                                                placeholder="Reingrese nueva contraseña (8 a 20 caracteres)">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text  bg-white" id="togglePassword2"><i class="fas fa-eye"> </i></span>
+                                            <div class="row col-12">
+                                                <label for="inputAddress">Reingrese Contraseña</label>
+                                            </div>
+                                            <div class="row col-12">
+                                                <div class="col-11 px-0">
+                                                    <input type="password" class="form-control password2" name="password2"
+                                                    placeholder="Reingrese nueva contraseña (8 a 20 caracteres)">
+                                                </div>
+                                                <div class="input-group-append col-1 px-0">
+                                                    <span class="input-group-text  bg-white" id="togglePassword2"><i class="fas fa-eye"> </i></span>
+                                                </div>
                                             </div>
                                             <% if(typeof errors != 'undefined' && errors.password2){  %>
                                             <span class="text-danger"> <%=errors.password2.msg%> </span>
                                             <% } %>
                                             <span id="errorpassword2"></span>
                                         </div>
-
-
-
-                                        <div class="form-group">
-                                            <div class="list-group-item ">Imágen: <img class="img-thumbnail"
-                                                    value="/img/users/<%= usuarioEdit.image%>"
-                                                    src="/img/users/<%= usuarioEdit.image%>" alt="">
+                                        
+                                        <div class="form-group pt-4">
+                                            <div class="list-group-item ">Imagen: <img class="img-thumbnail" value="/img/users/<%= usuarioEdit.image%>" src="/img/users/<%= usuarioEdit.image%>" alt="">
                                                 <input type="hidden" name="image_old" value=<%=usuarioEdit.image%>>
-                                                <input type="file" class="form-control" name="image"
-                                                    placeholder="Imagen" value=<%=usuarioEdit.image%>>
-                                                    <span id="errorimagen"></span>
+                                                <input type="file" class="form-control" name="image" placeholder="Imagen" value=<%=usuarioEdit.image%>>
+                                                <span id="errorimagen"></span>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group d-inline">
-                                                <button type="submit" class="btn btn btn-primary">Actualizar</button>
-                                            </div>
-                                            <div class="form-group d-inline">
-                                                <a type="button" class="btn btn btn-danger"
-                                                    href="/users/profileShow">Volver</a>
-                                            </div>
-
-                                </form>
-
+                                        <div class="form-group d-inline">
+                                            <button type="submit" class="btn btn btn-primary">Actualizar</button>
+                                        </div>
+                                        <div class="form-group d-inline pl-1">
+                                            <a type="button" class="btn btn btn-danger" href="/users/profileShow">Volver</a>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
+        </main>
     </div>
-</div>
-        </section>
         <!-- Footer de footer.ejs -->
         <%- include ('../partials/footer') %>
 
