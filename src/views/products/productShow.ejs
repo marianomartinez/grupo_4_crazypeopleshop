@@ -63,11 +63,11 @@
                         <% } %>
                     </div>
                     <form class="form-group" action="/cart/additemCart" class="formulario" id="formulario" method="POST">
-                        <div class="row  mb-5">
+                        <div class="mb-5 row">
                             <input type="hidden" id="producto" name="producto" value="<%= productToShow.id %>">
-                            <div class="mb-4 col-6">
+                            <div class="mb-4 col-8">
                                 <label class="my-1" for="sel1">Talle:</label>
-                                <select class="form-control col-6" id="talle" name="talle">
+                                <select class="form-control" id="talle" name="talle">
                                     <option selected disabled>-elegir talle-</option>
                                     <% if(productToShow.sizes.length == 0) { %>
                                     <option selected disabled>sin stock</option>
@@ -82,9 +82,9 @@
                                 <% } %>
                                 <span class="mb-4" id="errortalle"></span>
                             </div>
-                            <div class = "mb-4 col-6">
+                            <div class = "mb-4 col-4">
                             <label for="cantidad">Cantidad</label>
-                            <input class="form-control col-6" type="number" id="cantidad" name="cantidad" value="1">
+                            <input class="form-control" type="number" id="cantidad" name="cantidad" value="1">
                             <% if(typeof errors != 'undefined' && errors.cantidad){  %>
                             <span class="text-danger"> <%=errors.cantidad.msg%> </span>
                             <% } %>
