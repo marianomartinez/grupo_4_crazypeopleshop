@@ -5,7 +5,8 @@ const authMiddleware = require('../middlewares/auth')
 const checkoutController = require(path.resolve(__dirname, '../controllers/checkoutController'));
 router.get("/cart", authMiddleware, checkoutController.cart);
 router.post("/cart/additemCart/", authMiddleware, require('../middlewares/cartAddItem'), checkoutController.additemCart);
-
+router.post('/cart/deleteitemCart/', authMiddleware, checkoutController.deleteitemCart);
+router.post('/cart/shop', authMiddleware, checkoutController.shop);
 
 
 module.exports= router;

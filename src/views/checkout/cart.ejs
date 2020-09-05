@@ -41,12 +41,13 @@
 
                             <figure>
 
-                                <img src= <%="/img/prod_img/" + item.product.images[0].filename %>  class="img-fluid" alt="">
-
+                            <!--<img src= <%="/img/prod_img/" + item.product.images[0].filename %>  class="img-fluid" alt="">-->
+                            <img src="/img/products/patines/inline/images.jpg" class="img-fluid" alt="">
                             </figure>
                             <div class="pl-5 mt-5">
                                 <h4><%=item.product.brand + ' ' + item.product.model   %> </h4>
-                                <h4><%=item.product.subcategory.description%></h4>
+                                
+                                <h4><%='Talle:'+ item.sizeId%></h4>
                                 <h4><%='$ ' + item.netPrice%></h4>
 
                             </div>
@@ -65,9 +66,10 @@
 
                         <div class=" d-flex align-items-center justify-content-end mt-5">
                         <h4><%='$ ' + (item.netPrice * item.quantity)%></h4>
-                            <button class="btn-trash border-0 tacho">
-                                <i class="far fa-trash-alt "></i><span class="fin">Eliminar</span>
-                            </button>
+                            <form action="/cart/deleteitemCart" method="POST" class="mt-4">
+                                <input type="hidden" name="itemId" value="<%=item.id %>">
+                                <button type="submit" class="btn btn-danger ">ELIMINAR</button>
+                            </form>
                         </div>
                     </article>
 
@@ -99,12 +101,17 @@
 
                 <div class="col-12 text-right pad-r-43">
 
-                    <button class="finalizar-compra letra agreg">Finalizar Compra</button>
+                    <hr>
+                    
+                    <form action="/cart/shop" method="POST" style="display: inline-bock">
+                        <button type="submit" class=" btn btn-info  btn-block">COMPRAR</button>
+                    </form>
+                    <hr>
 
                 </div>
 
                 <div class="col-12 mx-auto text-center">
-                    <a class="product letra agreg" href="/">ver mas productos</a>
+                    <a class="product letra agreg" href="/">Agregar productos al carrito</a>
                 </div>
 
             </section>
@@ -117,6 +124,7 @@
 
         <!-- Scripts de scripts.ejs -->
         <%- include ('../partials/scripts') %>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
         <!-- Fin del Container -->
     </div>

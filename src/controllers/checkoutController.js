@@ -75,5 +75,53 @@ module.exports= {
             })
 
     },
+    deleteitemCart: (req, res) => {
+        Item.destroy({
+            where: {
+                id: req.body.itemId,
+                userId: req.session.usuarioLogueado.id
+            }
+        })
+            .then(() => res.redirect('/cart'))
+            .catch(error => console.log(error))
+    
+    
+    },
+    shop: (req, res) => {
+        let totalPrecio = 0;
+        Item.findAll({
+            where: {
+                userId: req.session.usuarioLogueado.id,
+                status: 1
+            }
+        })
+            .then((items) => {
+                totalPrecio = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
+            })
+        Cart.findOne({
+            order: [['createdAt', 'DESC']]
+        })
+            .then((cart) => {
+                return Cart.create({
+                    orderNumber: cart ? cart.orderNumber + 1 : 1,
+                    total: totalPrecio,
+                    userId: req.session.usuarioLogueado.id
+                })
+            })
+            .then(cart => {
+                Item.update({
+                    status: 0,
+                    cartId: cart.id
+                }, {
+                    where: {
+                        userId: req.session.usuarioLogueado.id,
+                        status: 1
+                    }
+                }
+                )
+            })
+            .then(() => res.redirect('/cart'))
+            .catch(error => console.log(error))
+    },
     
 }
