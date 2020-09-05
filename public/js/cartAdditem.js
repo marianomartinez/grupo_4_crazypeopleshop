@@ -25,13 +25,7 @@ window.addEventListener('load', function () {
 
 
 
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Validaciones pasadas',
-                showConfirmButton: false,
-                timer: 140000
-            })
+           
             formulario.submit();
 
         }

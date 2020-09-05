@@ -9,9 +9,7 @@ const User = db.User;
 let { check, validationResult, body } = require('express-validator');
 
 module.exports= {
-    index:(req,res)=>{
-        res.render(path.resolve(__dirname, '../views/checkout/cart'),{ Title: 'Carrito' });
-    },
+   
     additemCart: (req,res)=>{
 
         let errors = validationResult(req);
@@ -38,7 +36,7 @@ module.exports= {
                     userId: req.session.usuarioLogueado.id,
                     productId: productos.id,
                     cartId: null
-                }).then(item => res.redirect('/category/1'))
+                }).then(item => res.redirect('/category/'+ req.body.categoria))
                     .catch(error => console.log(error)) 
             
 
@@ -58,6 +56,24 @@ module.exports= {
         
         }
         
-    }
+    },
+    cart: (req, res) => {
+        Item.findAll({
+            where: {
+                status: 1,
+                userId: req.session.usuarioLogueado.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+            .then((items) => {
+                let total = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
+               
+                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cart'), {Title : 'Carrito', cartProducto: items, total });
+            })
+
+    },
     
 }
