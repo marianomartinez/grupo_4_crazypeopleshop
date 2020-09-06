@@ -1,7 +1,7 @@
 window.addEventListener('load', function () {
 
     //capturo formulario
-    let formulario = document.querySelector('.formulario')
+    let formulario = document.getElementById('formulario')
     //alert(formulario.elements.email.value)
     formulario.addEventListener('submit', function (evento) {
 
@@ -23,33 +23,34 @@ window.addEventListener('load', function () {
         }
 
         function validaciones(evento) {
-            let { id,category, description } = formulario.elements
+            let { id,name, description } = formulario.elements
             //let firstName = formulario.elements.firstName.value
             //let lastName = formulario.elements.lastName.value
             //let email = formulario.elements.email.value
             let errores = [];
-
+            
             //CATEGORY
-            let errorCategory = document.getElementById('errorcategory')
-            if (category.value == '') {
-                errores.push('La categoria no puede quedar vacío')
-                category.classList.add('is-invalid')
+            let errorCategory = document.getElementById('errorname')
+            if (name.value.length == 0 || name.value.length > 45) {
+                errores.push('la categoría no puede quedar vacía ni exceder 45 caracteres')
+                name.classList.add('is-invalid')
                 errorCategory.classList.add('text-danger')
-                errorCategory.innerHTML = 'la categoria no puede quedar vacío'
+                errorCategory.innerHTML = 'la categoría no puede quedar vacía ni exceder 45 caracteres'
 
                 //errores['firstName'] = 'El nombre no puede estar vacío'
             } else {
-                category.classList.add('is-valid')
+                name.classList.add('is-valid')
                 errorCategory.innerHTML = ''
-                category.classList.remove('is-invalid')
+                name.classList.remove('is-invalid')
             }
+          
             //DESCRIPCION
             let errorDescription = document.getElementById('errordescripcion')
-            if (description.value == '') {
-                errores.push('la descripcion no puede quedar vacío')
+            if (description.value.length == 0 || description.value.length > 500) {
+                errores.push('la descripción no puede quedar vacía ni exceder 500 caracteres')
                 description.classList.add('is-invalid')
                 errorDescription.classList.add('text-danger')
-                errorDescription.innerHTML = 'la descripcion no puede quedar vacío'
+                errorDescription.innerHTML = 'la descripción no puede quedar vacía ni exceder 500 caracteres'
 
 
             } else {

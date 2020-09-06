@@ -72,7 +72,7 @@
 
                                 <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center col-6 col-lg-2">
                                     <div>
-                                        <form action="/cart/deleteitemCart" method="POST" class="">
+                                        <form action="/cart/deleteitemCart"  method="POST" class="">
                                             <input type="hidden" name="itemId" value="<%=item.id %>">
                                             <button type="submit" class="border-0 bg-white my-1">
                                                 <i class="far fa-trash-alt border-0 bg-white"></i>
@@ -115,13 +115,13 @@
                             </div>
                             
                             <div class="col-6 bg-white d-flex align-items-center justify-content-end px-5">
-                                <h5>$ <%=total %></h5>
+                                <h5 id="totalcompra">$ <%=total %></h5>
                             </div>
                         </div>
     
                         <div class="col-12 text-right pad-r-43">
                             <form action="/cart/shop" method="POST">
-                                <button type="submit" class="finalizar-compra letra agreg">Finalizar compra</button>
+                                <button type="submit" class="finalizar-compra letra agreg " id ="botonfin">Finalizar compra</button>
                             </form>
                         </div>
     
@@ -141,6 +141,7 @@
         <!-- Scripts de scripts.ejs -->
         <%- include ('../partials/scripts') %>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script src="/js/cartBuy.js"></script>
 
         <!-- Fin del Container -->
 
