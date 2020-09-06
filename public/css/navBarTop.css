@@ -22,7 +22,7 @@
 }
 
 .zindexnavbar{
-      position: relative;
+    position: sticky;
     z-index: 3;
 }
 
