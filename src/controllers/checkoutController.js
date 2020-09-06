@@ -126,6 +126,7 @@ module.exports= {
     },
     cartHistory: (req, res) => {
         Cart.findAll({
+            order: [['createdAt', 'DESC']],
             where: {
                 userId: req.session.usuarioLogueado.id
             },
@@ -141,14 +142,14 @@ module.exports= {
     },
     cartDetail: (req,res)=>{
         Cart.findByPk(req.params.id, {
-            include: {
+                include: {
                 all: true,
                 nested: true
             }
         })
             .then((cart) => {
                 //res.send(cart)
-                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartDetail'), { cart });
+               res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartDetail'), { cart });
             })
 
     }
