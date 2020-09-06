@@ -12,9 +12,10 @@
         <%- include('../partials/header.ejs')%>
 
         <!-- Cuerpo principal -->
-        <!-- <main class="fonditos"> --> <!-- !!! ESTE fonditos AHORA ESTÁ EN EL DIV ANTES DE H1 -->
+        <!-- <main class="fonditos"> -->
+        <!-- !!! ESTE fonditos AHORA ESTÁ EN EL DIV ANTES DE H1 -->
 
-        
+
         <!--<section class="row">
             <article class="col-12 py-0">
                 <div>
@@ -24,53 +25,70 @@
         </section>-->
         <div class="col-12 text-center text-md-left py-4 fonditos">
             <h1 class="col-12 text-center mad">Creación Usuario</h1>
-        
+
             <section class="bg-home min-vh-100">
                 <div class="container py-4">
                     <div class="row">
                         <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
                             <div class="signup-form pb-4">
-                                <form action="/users/create" class = "formulario" id = "formulario" method="post" enctype="multipart/form-data">
+                                <form action="/users/create" class="formulario" id="formulario" method="post"
+                                    enctype="multipart/form-data">
 
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="firstName" placeholder="Nombre"
-                                            value = "<%=typeof old == 'undefined' ? null : old.firstName%>">
+                                            value="<%=typeof old == 'undefined' ? null : old.firstName%>">
                                         <% if(typeof errors != 'undefined' && errors.firstName){  %>
-                                            <span class="text-danger"> <%=errors.firstName.msg%> </span>
+                                        <span class="text-danger"> <%=errors.firstName.msg%> </span>
                                         <% } %>
                                         <span id="errornombre"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="lastName" placeholder="Apellido"
-                                            value = "<%=typeof old == 'undefined' ? null : old.lastName%>">
-                                            <% if(typeof errors != 'undefined' && errors.lastName){  %>
-                                            <span class="text-danger"> <%=errors.lastName.msg%> </span>
-                                            <% } %>
-                                            <span id="errorapellido"></span>
+                                            value="<%=typeof old == 'undefined' ? null : old.lastName%>">
+                                        <% if(typeof errors != 'undefined' && errors.lastName){  %>
+                                        <span class="text-danger"> <%=errors.lastName.msg%> </span>
+                                        <% } %>
+                                        <span id="errorapellido"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="email" class="form-control" name="email" placeholder="e-Mail"
-                                             value = "<%=typeof old == 'undefined' ? null : old.email%>">
-                                            <% if(typeof errors != 'undefined' && errors.email){  %>
-                                            <span class="text-danger"> <%=errors.email.msg%> </span>
+                                            value="<%=typeof old == 'undefined' ? null : old.email%>">
+                                        <% if(typeof errors != 'undefined' && errors.email){  %>
+                                        <span class="text-danger"> <%=errors.email.msg%> </span>
                                         <% } %>
                                         <span id="erroremail"></span>
                                     </div>
-
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña (8 a 20 caracteres)"
-                                            value = "<%=typeof old == 'undefined' ? null : old.password%>">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="password"
+                                                placeholder="Ingrese contraseña (8 a 20 caracteres)"
+                                                value="<%=typeof old == 'undefined' ? null : old.password%>">
                                             <% if(typeof errors != 'undefined' && errors.password){  %>
                                             <span class="text-danger"> <%=errors.password.msg%> </span>
-                                        <% } %>
-                                        <span id="errorpassword"></span>
+                                            <% } %>
+                                            <span id="errorpassword"></span>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text  bg-white" id="togglePassword"><i
+                                                        class="fas fa-eye"> </i></span>
+                                            </div>
+                                        </div>
                                     </div>
-
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password2" placeholder="Reingrese contraseña (8 a 20 caracteres)">
-                                        <span id="errorpassword2"></span>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" id="password2" name="password2"
+                                                placeholder="Reingrese contraseña (8 a 20 caracteres)"
+                                                value="<%=typeof old == 'undefined' ? null : old.password2%>">
+                                            <% if(typeof errors != 'undefined' && errors.password2){  %>
+                                            <span class="text-danger"> <%=errors.password2.msg%> </span>
+                                            <% } %>
+                                            <span id="errorpassword2"></span>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text  bg-white" id="togglePassword2"><i
+                                                        class="fas fa-eye"> </i></span>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -79,15 +97,14 @@
                                     </div>
 
                                     <div class="form-group ml-4">
-                                        <input type="checkbox" class="form-check-input" name="roleId"
-                                            placeholder="">
+                                        <input type="checkbox" class="form-check-input" name="roleId" placeholder="">
                                         <label class="form-check-label" for="exampleCheck1">Es administrador</label>
                                     </div>
 
                                     <div class="form-group d-inline">
                                         <button type="submit" class="btn btn-info">Crear</button>
                                     </div>
-                                    
+
                                     <div class="form-group d-inline">
                                         <a type="button" class="btn btn-danger" href="/users/crud">Volver</a>
                                     </div>
@@ -113,6 +130,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="/js/userAdd.js"></script>
+    <script src="/js/togglePassword.js"></script>
 </body>
 
 </html>
