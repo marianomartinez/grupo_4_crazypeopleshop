@@ -121,8 +121,37 @@ module.exports= {
                 }
                 )
             })
-            .then(() => res.redirect('/cart'))
+            .then(() => res.redirect('/cart/cartHistory'))
             .catch(error => console.log(error))
     },
+    cartHistory: (req, res) => {
+        Cart.findAll({
+            where: {
+                userId: req.session.usuarioLogueado.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+            .then(carts => {
+                //res.send(carts)
+                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartHistory'), { carts, Title: 'Historial'});
+            })
+    },
+    cartDetail: (req,res)=>{
+        Cart.findByPk(req.params.id, {
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+            .then((cart) => {
+                //res.send(cart)
+                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartDetail'), { cart });
+            })
+
+    }
+
     
 }

@@ -36,7 +36,7 @@ module.exports = [
             if (Number(stockCheck[0].stock) >= Number(value)) {
                 return true;
             } else {
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+                
                 return Promise.reject();
                 //return false;
             }

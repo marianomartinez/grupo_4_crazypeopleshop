@@ -32,13 +32,14 @@
                         <div class="row">
                             <div class="col-12 col-md-4 mx-md-auto pt-4 bg-light agreg">
                                 <div class="signup-form pb-4">
-                                    <form action="/users/login" method="POST">
+                                    <form action="/users/login" method="POST" id = "formulario">
 
                                         <div class="form-group">
                                             <% if (typeof errors != 'undefined') { %>
                                             <ul class="list-group-item text-danger">
 
                                                 <li> Credenciales Inválidas </li>
+                                              
 
                                             </ul>
                                             <% } %>
@@ -49,6 +50,7 @@
 
                                             <small id="emailHelp" class="form-text text-muted">Tus datos no serán nunca
                                                 compartidos con terceros.</small>
+                                                <span id="erroremail"></span>
                                         </div>
                                         <label for="exampleInputEmail1">Contraseña</label>
                                             <div class="input-group">
@@ -59,7 +61,7 @@
                                                 <div class="input-group-append">
                                                     <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye" > </i></span>
                                                   </div>
-                                                
+                                                <span id="errorpassword"></span>
                                             </div>
 
                                        
@@ -90,12 +92,13 @@
             </div>
         </main>
     </div>
-    
+ 
 </body>
         <!-- Footer -->
-        
         <%- include ('../partials/footer') %>
         <%- include ('../partials/scripts') %>
+     
+
 
         <!-- Scripts para Bootstrap -->
 
