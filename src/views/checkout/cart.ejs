@@ -10,112 +10,101 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
-
-        <main class="fonditos py-3 px-5 paovh80">
-
-            <section class="row bg-white agreg caja mt-3 py-3 pt-1">
-                <div class="col-12 text-center text-md-left py-4 ">
-                    <h1 class="col-12 text-center letra agreg mad py-3">CARRITO DE COMPRAS</h1>
-                </div>
-
-                <div class="col-12 bg-white d-flex align-items-center justify-content-end pad-r-43">
-
-                    <button class="boton-cantidad ">
-                        &times;
-                    </button>
-
-                </div>
-
-
-                <div class="col-12 bg-white px-5">
-
-                    <h5>PRODUCTO</h5>
-                    <hr color="">
-                </div>
-                <div class="row">
-                    <% cartProducto.forEach (item => { %>
-                    <article
-                        class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100  px-5">
-
-                        <div class="d-flex justify-content-between align-items-start">
-
-                            <figure>
-
-                            <!--<img src= <%="/img/prod_img/" + item.product.images[0].filename %>  class="img-fluid" alt="">-->
-                            <img src="/img/products/patines/inline/images.jpg" class="img-fluid" alt="">
-                            </figure>
-                            <div class="pl-5 mt-5">
-                                <h4><%=item.product.brand + ' ' + item.product.model   %> </h4>
-                                
-                                <h4><%='Talle:'+ item.sizeId%></h4>
-                                <h4><%='$ ' + item.netPrice%></h4>
-
-                            </div>
-
-                        </div>
-                        <div class="pl-5 align-items-center justify-content-center mt-5">
-
-                            <h4>Cantidad</h4>
-                            <form action="#" class="d-flex justify-content-center align-items-start">
-                                <button class="boton-cantidad">-</button>
-                                <span class="cantidad text-center"><%=item.quantity %> </span>
-                                <button class="boton-cantidad">+</button>
-                            </form>
-                        </div>
-
-
-                        <div class=" d-flex align-items-center justify-content-end mt-5">
-                        <h4><%='$ ' + (item.netPrice * item.quantity)%></h4>
-                            <form action="/cart/deleteitemCart" method="POST" class="mt-4">
-                                <input type="hidden" name="itemId" value="<%=item.id %>">
-                                <button type="submit" class="btn btn-danger ">ELIMINAR</button>
-                            </form>
-                        </div>
-                    </article>
-
-
-                    <div class="col-12 bg-white px-5">
-
-
-                        <hr color="">
-
+        <main class="fonditos min-vh-100">
+            <section class="container py-5">
+                <div class="row bg-white agreg">
+                    <div class="col-12 text-center text-md-left py-4 ">
+                        <h1 class="col-12 text-center letra agreg mad py-3">CARRITO DE COMPRAS</h1>
                     </div>
-    
+
                     <div class="col-12 bg-white d-flex align-items-center justify-content-end pad-r-43">
                         <button class="boton-cantidad ">
                             &times;
                         </button>
                     </div>
-    
+
                     <div class="col-12 bg-white px-5">
                         <h5>PRODUCTO</h5>
                         <hr color="">
                     </div>
-                    <% }) %>
-                <div class="col-8 bg-white  px-5">
 
-                    <h5>Total</h5>
+                    <div class="row">
+                        <% cartProducto.forEach (item => { %>
+                        <article class="d-flex flex-column flex-lg-row justify-content-between align-items-start w-100  px-5">
+                            <!-- <div class="col-12 bg-white mx-5">
+                                    <hr color="">
+                                </div> -->
 
-                </div>
-                <div class="col-4 bg-white d-flex align-items-center justify-content-end  px-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <figure>
+                                <!--<img src= <%="/img/prod_img/" + item.product.images[0].filename %>  class="img-fluid" alt="">-->
+                                <img src="/img/products/patines/inline/images.jpg" class="img-fluid" alt="">
+                                </figure>
+                                <div class="pl-5 mt-5">
+                                    <h4><%=item.product.brand + ' ' + item.product.model   %> </h4>
+                                    <h4><%='Talle:'+ item.sizeId%></h4>
+                                    <h4><%='$ ' + item.netPrice%></h4>
+                                </div>
+                            </div>
 
-                    <h5><%=total %> </h5>
+                            <div class="pl-5 align-items-center justify-content-center mt-5">
+                                <h4>Cantidad</h4>
+                                <form action="#" class="d-flex justify-content-center align-items-start">
+                                    <button class="boton-cantidad">-</button>
+                                    <span class="cantidad text-center"><%=item.quantity %> </span>
+                                    <button class="boton-cantidad">+</button>
+                                </form>
+                            </div>
 
-                </div>
+                            <div class=" d-flex align-items-center justify-content-end mt-5">
+                                <h4><%='$ ' + (item.netPrice * item.quantity)%></h4>
+                            </div>
+                            
+                            <div>
+                                <form action="/cart/deleteitemCart" method="POST" class="mt-4">
+                                    <input type="hidden" name="itemId" value="<%=item.id %>">
+                                    <button type="submit" class="btn btn-danger ">ELIMINAR</button>
+                                </form>
+                            </div>
 
-                <div class="col-12 text-right pad-r-43">
+                            <!-- <div class="col-12 bg-white mx-5">
+                                <hr color="">
+                            </div> -->
+                        </article>
+                        <% }) %>
+                    </div>
 
-                    <hr>
-                    
-                    <form action="/cart/shop" method="POST" style="display: inline-bock">
-                        <button type="submit" class=" btn btn-info  btn-block">COMPRAR</button>
-                    </form>
-                    <hr>
+                    <section class="row col-12">
+                        <div class="col-6 bg-white px-5">
+                            <h5>Subtotal</h5>
+                        </div>
 
-                </div>
+                        <div class="col-6 bg-white d-flex align-items-center justify-content-end  px-5">
+                            <h5>$ <%=total %></h5>
+                        </div>
 
-                <div class="col-12 mx-auto text-center">
-                    <a class="product letra agreg" href="/">Agregar productos al carrito</a>
+                        <div class="col-12 bg-white px-5">
+                            <hr color="">
+                        </div>
+
+                        <div class="col-6 bg-white  px-5">
+                            <h5>Total</h5>
+                        </div>
+
+                        <div class="col-6 bg-white d-flex align-items-center justify-content-end  px-5">
+                            <h5>$ <%=total %></h5>
+                        </div>
+    
+                        <div class="col-12 text-right pad-r-43">
+                            <form action="/cart/shop" method="POST">
+                                <button type="submit" class="finalizar-compra letra agreg">Finalizar compra</button>
+                            </form>
+                        </div>
+    
+                        <div class="col-12 mx-auto text-center py-3">
+                            <a class="product letra agreg" href="/">ver más productos</a>
+                        </div>
+                    </section>
                 </div>
             </section>
         </main>
