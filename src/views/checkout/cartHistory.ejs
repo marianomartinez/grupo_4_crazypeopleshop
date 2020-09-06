@@ -6,49 +6,47 @@
     <link rel="stylesheet" href="/css/CRUD.css">
 </head>
 
-
 <body>
     <div class="container">
         <%- include('../partials/header.ejs')%>
-
-
-        <div class="col-12 text-center text-md-left py-4 ">
-            <h1 class="col-12 text-center mad">Historial de Pedidos</h1>
-
-            <table class="table table-striped">
-                <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Nro Pedido</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Monto</th>
-                        <th scope="col">mail</th>
-                        <th scope="col">Visualizar</th>
-                        <th scope="col">Repetir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% carts.forEach(cart => { %>
-                    <tr>
-                        <th scope="row"><%=cart.orderNumber  %> </th>
-                        <td><%= new Date(cart.createdAt).toLocaleDateString() %></td>
-                        <td><%='$ '+ cart.total  %></td>
-                        <td><%=cart.user.email  %></td>
-                        <td><a href="/cart/detail/<%=cart.id%> ">
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </a></td>
-                            <td><a href="/cart/repeat/<%=cart.id%> ">
+        <main class="fonditos min-vh-100">
+            <section class="container py-5">
+                <div class="row bg-white agreg">
+                    <div class="col-12 text-center text-md-left py-4 ">
+                        <h1 class="col-12 text-center mad">Historial de Pedidos</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="table-primary">
+                                    <th scope="col">Nro Pedido</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Monto</th>
+                                    <th scope="col">mail</th>
+                                    <th scope="col">Visualizar</th>
+                                    <th scope="col">Repetir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ion-icon name="refresh-outline"></ion-icon>
+                                <% carts.forEach(cart => { %>
+                                <tr>
+                                    <th scope="row"><%=cart.orderNumber  %> </th>
+                                    <td><%= new Date(cart.createdAt).toLocaleDateString() %></td>
+                                    <td><%='$ '+ cart.total  %></td>
+                                    <td><%=cart.user.email  %></td>
+                                    <td><a href="/cart/detail/<%=cart.id%> ">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </a></td>
+                                    <td><a href="/cart/repeat/<%=cart.id%> ">
                                         <ion-icon name="refresh-outline"></ion-icon>
-                                </a></td>
-
-
-                            <ion-icon name="refresh-outline"></ion-icon>
-                    </tr>
-                <% }) %> 
-                </tbody>
-            </table>
-
-
-        </div>
+                                    </a></td>
+                                </tr>
+                                <% }) %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
     <!-- Footer -->
     <%- include ('../partials/footer') %>
@@ -58,7 +56,7 @@
 
 
     <!-- Scripts para JS -->
-
+    
 </body>
 
 </html>
