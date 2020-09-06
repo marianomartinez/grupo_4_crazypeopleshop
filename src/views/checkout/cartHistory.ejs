@@ -8,53 +8,56 @@
 
 <body>
     <div class="container">
-        <%- include('../partials/header.ejs')%>
-        <main class="fonditos min-vh-100">
-            <section class="container py-5">
-                <div class="row bg-white agreg">
-                    <div class="col-12 text-center text-md-left py-4 ">
-                        <h1 class="col-12 text-center mad">Historial de Pedidos</h1>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr class="table-primary">
-                                    <th scope="col">Nro Pedido</th>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Monto</th>
-                                    <th scope="col">mail</th>
-                                    <th scope="col">Visualizar</th>
-                                    <th scope="col">Repetir</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <ion-icon name="refresh-outline"></ion-icon>
-                                <% carts.forEach(cart => { %>
-                                <tr>
-                                    <th scope="row"><%=cart.orderNumber  %> </th>
-                                    <td><%= new Date(cart.createdAt).toLocaleDateString() %></td>
-                                    <td><%='$ '+ cart.total  %></td>
-                                    <td><%=cart.user.email  %></td>
-                                    <td><a href="/cart/detail/<%=cart.id%> ">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </a></td>
-                                    <td><a href="/cart/repeat/<%=cart.id%> ">
-                                        <ion-icon name="refresh-outline"></ion-icon>
-                                    </a></td>
-                                </tr>
-                                <% }) %> 
-                            </tbody>
-                        </table>
+        <%- include('../partials/header') %>
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="col-12 text-center mad">Historial de Pedidos</h1>
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-8 mx-auto bg-light agreg">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="table-primary">
+                                        <th scope="col">Nro Pedido</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Monto</th>
+                                        <th scope="col">mail</th>
+                                        <th scope="col">Visualizar</th>
+                                        <th scope="col">Repetir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% carts.forEach(cart => { %>
+                                        <tr>
+                                            <th scope="row"><%=cart.orderNumber  %> </th>
+                                        <td><%= new Date(cart.createdAt).toLocaleDateString() %></td>
+                                        <td><%='$ '+ cart.total  %></td>
+                                        <td><%=cart.user.email  %></td>
+                                        <td class="text-center" ><a href="/cart/detail/<%=cart.id%> ">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </a></td>
+                                        <td class="text-center" ><a href="/cart/repeat/<%=cart.id%> ">
+                                            <ion-icon name="refresh-outline"></ion-icon>
+                                        </a></td>
+                                    </tr>
+                                    <% }) %> 
+                                </tbody>
+                            </table>
+                            <a type="button" class="btn btn btn-danger text-white mt-1 mx-md-auto" href="/">Volver</a>
+                        </div>
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     </div>
+
     <!-- Footer -->
     <%- include ('../partials/footer') %>
-
+    
     <%- include ('../partials/scripts') %>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
-
+    
+    
     <!-- Scripts para JS -->
     
 </body>
