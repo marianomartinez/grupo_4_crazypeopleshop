@@ -24,40 +24,10 @@ window.addEventListener('load', function () {
 
         function validaciones(evento) {
             let { categoria,name, description } = formulario.elements
-            //let firstName = formulario.elements.firstName.value
-            //let lastName = formulario.elements.lastName.value
-            //let email = formulario.elements.email.value
+          
             let errores = [];
 
-            //NOMBRE
-            let errorNombre = document.getElementById('errornombre')
-            if (name.value == '') {
-                errores.push('la subcategoría no puede quedar vacía')
-                name.classList.add('is-invalid')
-                errorNombre.classList.add('text-danger')
-                errorNombre.innerHTML = 'la subcategoría no puede quedar vacía'
-
-                //errores['firstName'] = 'El nombre no puede estar vacío'
-            } else {
-                name.classList.add('is-valid')
-                errorNombre.innerHTML = ''
-                name.classList.remove('is-invalid')
-            }
-            //APELLIDO
-            let errorDescripcion = document.getElementById('errordescripcion')
-            if (description.value == '') {
-                errores.push('la descripción no puede quedar vacía')
-                description.classList.add('is-invalid')
-                errorDescripcion.classList.add('text-danger')
-                errorDescripcion.innerHTML = 'la descripción no puede quedar vacía'
-
-
-            } else {
-                description.classList.add('is-valid')
-                errorDescripcion.innerHTML = ''
-                description.classList.remove('is-invalid')
-            }
-
+            
 
             let errorCategoria = document.getElementById('errorcategoria')
             if (categoria.value > 0) {
@@ -76,9 +46,45 @@ window.addEventListener('load', function () {
 
 
 
-            //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
+            //NOMBRE SUBCATEGORIA
+            
+            let errorNombre = document.getElementById('errornombre')
+            if (name.value.length == 0 || name.value.length > 45) {
+                errores.push('la subcategoría no puede quedar vacía ni exceder 45 caracteres')
+                name.classList.add('is-invalid')
+                errorNombre.classList.add('text-danger')
+                errorNombre.innerHTML = 'la subcategoría no puede quedar vacía ni exceder 45 caracteres'
 
+                //errores['firstName'] = 'El nombre no puede estar vacío'
+            } else {
+                name.classList.add('is-valid')
+                errorNombre.innerHTML = ''
+                name.classList.remove('is-invalid')
+            }
+            //DESCRIPCION
+            
+            let errorDescripcion = document.getElementById('errordescripcion')
+            if (description.value.length == 0 || description.value.length > 500) {
+                errores.push('la descripción no puede quedar vacía')
+                description.classList.add('is-invalid')
+                errorDescripcion.classList.add('text-danger')
+                errorDescripcion.innerHTML = 'la descripción no puede quedar vacía ni exceder 500 caracteres'
+
+
+            } else {
+                alert('ENTRA CON DESCRIPCION BIEN')
+                description.classList.add('is-valid')
+                errorDescripcion.innerHTML = ''
+                description.classList.remove('is-invalid')
+            }
+
+
+
+
+            //VALIDO SI HUBO ERRORES EN TODO EL PROCESO.
+            
             if (errores.length > 0) {
+                
                 evento.preventDefault();
 
                 errores = [];

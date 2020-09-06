@@ -31,11 +31,11 @@ window.addEventListener('load', function () {
 
             //NOMBRE
             let errorNombre = document.getElementById('errornombre')
-            if (name.value == '') {
-                errores.push('la subcategoría no puede quedar vacía')
+            if (name.value.length == 0 || name.value.length > 45) {
+                errores.push('la subcategoría no puede quedar vacía ni exceder 45 caracteres')
                 name.classList.add('is-invalid')
                 errorNombre.classList.add('text-danger')
-                errorNombre.innerHTML = 'la subcategoría no puede quedar vacía'
+                errorNombre.innerHTML = 'la subcategoría no puede quedar vacía ni exceder 45 caracteres'
 
                 //errores['firstName'] = 'El nombre no puede estar vacío'
             } else {
@@ -45,11 +45,11 @@ window.addEventListener('load', function () {
             }
             //APELLIDO
             let errorDescripcion = document.getElementById('errordescripcion')
-            if (description.value == '') {
-                errores.push('la descripción no puede quedar vacía')
+            if (description.value.length == 0 || description.value.length > 500) {
+                errores.push('la descripción no puede quedar vacía ni exceder 500 caracteres')
                 description.classList.add('is-invalid')
                 errorDescripcion.classList.add('text-danger')
-                errorDescripcion.innerHTML = 'la descripción no puede quedar vacía'
+                errorDescripcion.innerHTML = 'la descripción no puede quedar vacía ni exceder 500 caracteres'
 
 
             } else {

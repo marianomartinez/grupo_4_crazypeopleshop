@@ -31,11 +31,11 @@ window.addEventListener('load', function () {
 
             //NOMBRE
             let errorNombre = document.getElementById('errornombre')
-            if (name.value == '') {
-                errores.push('el nombre no puede quedar vacío')
+            if (name.value.length == 0 || name.value.length > 45) {
+                errores.push('la categoría no puede quedar vacía ni exceder 45 caracteres')
                 name.classList.add('is-invalid')
                 errorNombre.classList.add('text-danger')
-                errorNombre.innerHTML = 'el nombre no puede quedar vacío'
+                errorNombre.innerHTML = 'la categoría no puede quedar vacía ni exceder 45 caracteres'
 
                 //errores['firstName'] = 'El nombre no puede estar vacío'
             } else {
@@ -45,11 +45,11 @@ window.addEventListener('load', function () {
             }
             //APELLIDO
             let errorDescripcion = document.getElementById('errordescripcion')
-            if (description.value == '') {
-                errores.push('el apellido no puede quedar vacío')
+            if (description.value.length == 0 || description.value.length > 500) {
+                errores.push('la descripcion no puede quedar vacía')
                 description.classList.add('is-invalid')
                 errorDescripcion.classList.add('text-danger')
-                errorDescripcion.innerHTML = 'el apellido no puede quedar vacío'
+                errorDescripcion.innerHTML = 'la descripción no puede quedar vacía ni exceder 500 caracteres'
 
 
             } else {
