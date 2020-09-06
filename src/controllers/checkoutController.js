@@ -13,6 +13,7 @@ module.exports= {
     additemCart: (req,res)=>{
 
         let errors = validationResult(req);
+        console.log(errors);
         if (errors.isEmpty()) {
             Product.findByPk(req.body.producto,{
                 include: ['subcategory','images'],
@@ -46,7 +47,7 @@ module.exports= {
         
         else {
 
-            console.log(req.body.producto)
+           
             Product.findByPk(req.body.producto, { include: ['subcategory', 'images', 'sizes'] })
                 .then(productToShow => {
                     // return res.send(productToShow)
