@@ -30,45 +30,56 @@
 
                     <div class="row">
                         <% cartProducto.forEach (item => { %>
-                        <article class="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100 px-5">
+                        <article class="d-flex flex-lg-row justify-content-between align-items-center w-100 px-5 py-2">
                             <!-- <div class="col-12 bg-white mx-5">
                                     <hr color="">
                                 </div> -->
 
-                            <div class="d-flex justify-content-between align-items-center col-8">
-                                <figure class="card-img-top d-flex justify-content-center col-3 m-0">
+                            <div class="d-flex justify-content-between align-items-center col-6 col-lg-2">
+                                <figure class="card-img-top d-flex justify-content-center m-0">
                                 <img src= <%="/img/prod_img/" + item.product.images[0].filename %> class="img-fluid w-100 m-auto" alt="">
                                 <!-- <img src="/img/products/patines/inline/images.jpg" class="img-fluid w-100 mh-auto" alt=""> -->
                                 </figure>
-                                <div class="pl-5 col-9 py-3">
-                                    <p class="text-center my-1"><%=item.product.brand + ' ' + item.product.model   %> </p>
-                                    <p class="text-center my-1"><%='Talle: '+ item.sizeId%></p>
-                                    <p class="text-center my-1"><%=' Precio de lista: $ ' + item.netPrice%></p>
-                                </div>
                             </div>
+                            
+                            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center col-6 col-lg-10">
 
-                            <div class="d-flex justify-content-between align-items-center col-3">
-                                <div class="align-items-center justify-content-center">
-                                    <h6>Cantidad</h6>
-                                    <form action="#" class="d-flex justify-content-center align-items-center">
-                                        <button class="boton-cantidad">-</button>
-                                        <span class="cantidad text-center"><%=item.quantity %> </span>
-                                        <button class="boton-cantidad">+</button>
-                                    </form>
+                            
+                                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center col-6 col-lg-4">
+                                    <div class="py-3">
+                                        <p class="text-center my-1"><%=item.product.brand + ' ' + item.product.model   %> </p>
+                                        <p class="text-center my-1"><%='Talle: '+ item.sizeId%></p>
+                                        <p class="text-center my-1"><%=' Precio: $' + item.netPrice%></p>
+                                    </div>
                                 </div>
 
-                                <div class=" d-flex align-items-center justify-center">
-                                    <p class="m-0"><%='$ ' + (item.netPrice * item.quantity)%></p>
+                                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center col-6 col-lg-2">
+                                    <div class="align-items-center justify-content-center">
+                                        <h6>Cantidad</h6>
+                                        <form action="#" class="d-flex justify-content-center align-items-center">
+                                            <button class="boton-cantidad">-</button>
+                                            <span class="cantidad text-center"><%=item.quantity %> </span>
+                                            <button class="boton-cantidad">+</button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="d-flex justify-content-center align-items-center col-1">
-                                <div>
-                                    <form action="/cart/deleteitemCart" method="POST" class="">
-                                        <input type="hidden" name="itemId" value="<%=item.id %>">
-                                        <button type="submit"><i
-                                                class="far fa-trash-alt "></i><span class="fin"></span></button>
-                                    </form>
+                                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center col-6 col-lg-2">
+                                    <div class=" d-flex align-items-center justify-center">
+                                        <p class="my-1"><%='$' + (item.netPrice * item.quantity)%></p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center col-6 col-lg-2">
+                                    <div>
+                                        <form action="/cart/deleteitemCart" method="POST" class="">
+                                            <input type="hidden" name="itemId" value="<%=item.id %>">
+                                            <button type="submit" class="border-0 bg-white my-1">
+                                                <i class="far fa-trash-alt border-0 bg-white"></i>
+                                                <span class="fin"></span>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
 
@@ -76,20 +87,20 @@
                                 <hr color="">
                             </div> -->
                         </article>
+
+                        <div class="col-12 px-5">
+                            <hr color="">
+                        </div>
                         <% }) %>
                     </div>
 
                     <section class="row col-12">
-                        <div class="col-12 bg-white px-5">
-                            <hr color="">
-                        </div>
-
                         <div class="col-12 d-flex justify-content-between">
-                            <div class="col-2 bg-white px-5">
+                            <div class="col-6 bg-white px-5">
                                 <h5>Subtotal</h5>
                             </div>
                             
-                            <div class="col-2 bg-white d-flex align-items-center justify-content-end px-5">
+                            <div class="col-6 bg-white d-flex align-items-center justify-content-end px-5">
                                 <h5>$ <%=total %></h5>
                             </div>
                         </div>
