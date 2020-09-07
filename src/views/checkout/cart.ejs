@@ -60,6 +60,7 @@
                                             <form action="/cart/restounidad" method="POST" class="">
                                                 <input type="hidden" name="itemId" value="<%=item.id %>">
                                                 <input type="hidden" name="quantity" value="<%=item.quantity %>">
+                                                <input type="hidden" name="netPrice" value="<%=item.netPrice %>">
                                                 <button type="submit" class="boton-cantidad mr-2">
                                                     -
                                                 </button>
@@ -71,6 +72,8 @@
                                             <form action="/cart/sumounidad" method="POST" class="">
                                                 <input type="hidden" name= "itemId" value="<%=item.id %>">
                                                 <input type="hidden" name="quantity" value="<%=item.quantity %>">
+                                                <input type="hidden" name="netPrice" value="<%=item.netPrice %>">
+                                                
                                                 <button type="submit" class="boton-cantidad ml-2">
                                                     +
                                                 </button>
