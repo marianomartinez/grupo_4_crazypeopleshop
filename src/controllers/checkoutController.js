@@ -7,6 +7,7 @@ const User = db.User;
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
+const { LOADIPHLPAPI } = require("dns");
 
 module.exports= {
    
@@ -168,43 +169,32 @@ module.exports= {
     },
 
     cartCopy: (req, res) => {
+       
 
         Item.findAll({
             where: {
                 userId: req.session.usuarioLogueado.id,
-                status: 1
+                status: 0,
+                cartId : req.params.id
+                
+
             }
         })
             .then((items) => {
-                totalPrecio = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
+                res.send(items)
+                // return Item.create({
+                //     grossPrice: items.grossPrice,
+                //     discount: items.discount,
+                //      netPrice: items.netPrice,
+                //      quantity : items.quantity,
+                //      subtotal : items.subtotal,
+                //      status:1,
+                //     userId: req.session.usuarioLogueado.id,
+                //     sizeId : items.sizeId,
+                //     productId : 17
+                // })
             })
-        Cart.findOne({
-            order: [['createdAt', 'DESC']]
-        })
-            .then((cart) => {
-                return Cart.create({
-                    orderNumber: cart ? cart.orderNumber + 1 : 1,
-                    total: totalPrecio,
-                    userId: req.session.usuarioLogueado.id
-                })
-            })
-            .then(cart => {
-                Item.update({
-                    status: 0,
-                    cartId: cart.id
-                }, {
-                    where: {
-                        userId: req.session.usuarioLogueado.id,
-                        status: 1
-                    }
-                }
-                )
-            })
-            .then(() => res.redirect('/cart/cartHistory'))
-            .catch(error => console.log(error))
-
-
-
+    
         
     }
 
