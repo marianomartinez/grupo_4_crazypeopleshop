@@ -208,7 +208,9 @@ module.exports= {
     },
     cartSumounidad: (req, res) => {
       
-        Item.update({quantity : Number(req.body.quantity) + 1},{
+        Item.update(
+            {quantity : Number(req.body.quantity) + 1,
+                subtotal: (Number(req.body.quantity) + 1) * req.body.netPrice },{
                 where: {
                     id: req.body.itemId        
                 }
@@ -220,7 +222,12 @@ module.exports= {
     },
     cartRestounidad: (req, res) => {
 
-        Item.update({ quantity: req.body.quantity == 1 ? 1 : Number(req.body.quantity) - 1 }, {
+
+        Item.update(
+            {
+                quantity: req.body.quantity == 1 ? 1 : Number(req.body.quantity) - 1,
+                subtotal: (req.body.quantity == 1 ? 1 * req.body.netPrice : (Number(req.body.quantity) - 1) * req.body.netPrice) 
+            }, {
             where: {
                 id: req.body.itemId
             }
@@ -228,6 +235,8 @@ module.exports= {
         }).then(resultado => {
             return res.redirect('/cart')
         })
+
+    
 
     }
 
