@@ -5,6 +5,8 @@ let multer = require('multer');
 let fs = require('fs');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models/')
+const authIsadmin = require('../middlewares/authIsadmin')
+const authMiddleware = require('../middlewares/auth')
 
 
 const User = db.User;
@@ -31,15 +33,15 @@ const usersController = require(path.resolve(__dirname, '../controllers/usersCon
 // Métodos en nuestros controladores: index - show - edit - delete 
 
 router.get('/users/login', usersController.login);
-router.get('/users/registrados', usersController.usuariosregistrados);
-router.get('/users/profileShow', usersController.profileShow);
-router.get('/users/profileEdit', usersController.profileEdit);
+router.get('/users/registrados', authMiddleware, authIsadmin, usersController.usuariosregistrados);
+router.get('/users/profileShow', authMiddleware, usersController.profileShow);
+router.get('/users/profileEdit', authMiddleware,usersController.profileEdit);
 router.get('/users/register',usersController.register);
-router.get('/users/crud', usersController.crud);
-router.get('/users/usersCRUD/add', usersController.add);
-router.get('/users/detail/:id', usersController.show);
-router.get('/users/delete/:id', usersController.delete);
-router.get('/users/edit/:id', usersController.edit);
+router.get('/users/crud', authMiddleware ,authIsadmin, usersController.crud);
+router.get('/users/usersCRUD/add', authMiddleware, authIsadmin, usersController.add);
+router.get('/users/detail/:id', authMiddleware, authIsadmin,usersController.show);
+router.get('/users/delete/:id', authMiddleware, authIsadmin, usersController.delete);
+router.get('/users/edit/:id', authMiddleware, authIsadmin,usersController.edit);
 
 
 //PUT Y POST
