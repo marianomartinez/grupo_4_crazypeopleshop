@@ -72,7 +72,7 @@ window.addEventListener('load', function () {
 
 
             } else {
-                alert('ENTRA CON DESCRIPCION BIEN')
+                // alert('ENTRA CON DESCRIPCION BIEN')
                 description.classList.add('is-valid')
                 errorDescripcion.innerHTML = ''
                 description.classList.remove('is-invalid')

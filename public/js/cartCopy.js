@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
                     
                     Swal.fire(
                         '¡Creado!',
-                        'El carrito se ha creado.Será redireccionado al mismo.',
+                        'El carrito se ha creado. Será redireccionado al mismo.',
                         'success'
                     )
                     formulario.submit();

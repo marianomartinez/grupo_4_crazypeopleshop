@@ -44,10 +44,10 @@ window.addEventListener('load', function () {
             let acceptFileTypes = /(\.|\/)(gif|jpe?g|png|jpg)$/i
             if (image.value != '') {
                 if (!acceptFileTypes.test(image.value)) {
-                    errores.push('la imagen debe ser jpg,jepg,gif o png')
+                    errores.push('la imagen debe ser jpg, jpeg, gif o png')
                     image.classList.add('is-invalid')
                     errorImagen.classList.add('text-danger')
-                    errorImagen.innerHTML = 'la imagen debe ser jpg,jepg,gif o png'
+                    errorImagen.innerHTML = 'la imagen debe ser jpg, jpeg, gif o png'
 
 
                 } else {
