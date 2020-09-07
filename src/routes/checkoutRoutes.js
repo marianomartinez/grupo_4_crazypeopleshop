@@ -10,7 +10,7 @@ router.post('/cart/shop', authMiddleware, checkoutController.shop);
 router.get('/cart/cartHistory', authMiddleware, checkoutController.cartHistory);
 router.get('/cart/detail/:id', authMiddleware, checkoutController.cartDetail);
 router.get('/cart/repeat/:id', authMiddleware,checkoutController.cartRepeat);
-router.post("/cart/copy/", authMiddleware, checkoutController.cartCopy);
+router.post("/cart/copy/:id", authMiddleware, checkoutController.cartCopy);
 
 
 module.exports= router;
