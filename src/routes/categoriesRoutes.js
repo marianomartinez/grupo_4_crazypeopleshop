@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 let multer = require('multer');
+const authIsadmin = require('../middlewares/authIsadmin')
+const authMiddleware = require('../middlewares/auth')
 
 
 //Multer Code
@@ -28,12 +30,12 @@ router.get('/category/:id',categoriesController.showCategory);
 //router.get('/category/qSkates', categoriesController.showCategoryQSkates);
 //router.get('/category/accesories', categoriesController.showCategoryAccesories);
 
-router.get('/categories/crud', categoriesController.crud);
-router.get('/categories/categoriasCRUD/add', categoriesController.add);
-router.get('/categories/detail/:id', categoriesController.show);
-router.get('/categories/edit/:id', categoriesController.edit);
-router.get('/categories/delete/:id', categoriesController.delete);
-router.get('/api/categories/:id', categoriesController.allCategories);
+router.get('/categories/crud', authMiddleware, authIsadmin, categoriesController.crud);
+router.get('/categories/categoriasCRUD/add', authMiddleware, authIsadmin, categoriesController.add);
+router.get('/categories/detail/:id', authMiddleware, authIsadmin, categoriesController.show);
+router.get('/categories/edit/:id', authMiddleware, authIsadmin, categoriesController.edit);
+router.get('/categories/delete/:id', authMiddleware, authIsadmin, categoriesController.delete);
+router.get('/api/categories/:id', authMiddleware, authIsadmin, categoriesController.allCategories);
 // router.get('/subcategories/crud', categoriesController.crudsubcat);
 router.put('/categories/edit/:id', upload.single('image'), require('../middlewares/categoryUpdate'), categoriesController.update);
 router.post('/categories/crud', upload.single('image'), require('../middlewares/categoryCreate'),categoriesController.save);

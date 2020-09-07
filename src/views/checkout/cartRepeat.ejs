@@ -43,8 +43,8 @@
                                 </ul>
                             </div>
                             
-                            <form action="/cart/copy" method="POST">
-                                <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/cart/cartHistory">Volver</a>
+                            <form action="/cart/copy/<%= cart.id %>" id = "formulario" method="POST">
+                                <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/cart/cartHistory/">Volver</a>
                                 <button class="btn btn-success" type="submit">AGREGAR AL CARRITO</button>
                             </form>
                         </div>

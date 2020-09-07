@@ -74,7 +74,7 @@
                                     <option selected disabled>sin stock</option>
                                     <% } else { %>
                                     <% for (i=0;i<productToShow.sizes.length;i++) { %>
-                                    <option value="<%= productToShow.sizes[i].eusize %>"><%= productToShow.sizes[i].eusize %></option>
+                                    <option value="<%= productToShow.sizes[i].id %>"><%= productToShow.sizes[i].eusize %></option>
                                     <% } %>
                                     <% }; %>
                                 </select>

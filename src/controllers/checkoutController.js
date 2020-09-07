@@ -7,6 +7,7 @@ const User = db.User;
 
 //Express validator
 let { check, validationResult, body } = require('express-validator');
+const { LOADIPHLPAPI } = require("dns");
 
 module.exports= {
    
@@ -168,45 +169,68 @@ module.exports= {
     },
 
     cartCopy: (req, res) => {
-
+       
         Item.findAll({
+            include: {
+                all: true,
+                nested: true
+            },
             where: {
                 userId: req.session.usuarioLogueado.id,
-                status: 1
+                status: 0,
+                cartId : req.params.id
             }
         })
-            .then((items) => {
-                totalPrecio = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
-            })
-        Cart.findOne({
-            order: [['createdAt', 'DESC']]
-        })
-            .then((cart) => {
-                return Cart.create({
-                    orderNumber: cart ? cart.orderNumber + 1 : 1,
-                    total: totalPrecio,
-                    userId: req.session.usuarioLogueado.id
+            .then(async(items) => {
+               //res.send(items)
+               for(let i=0;i < items.length;i++){
+               await Item.create({
+                    grossPrice: items[i].product.price ,
+                    discount: items[i].product.discount,
+                    netPrice: items[i].product.price * ((100 - items[i].product.discount)/100),
+                    quantity: items[i].quantity,
+                    subtotal: items[i].quantity * (items[i].product.price * ((100 - items[i].product.discount) / 100)),
+                     status:1,
+                    userId: req.session.usuarioLogueado.id,
+                    sizeId: items[i].sizeId,
+                    productId: items[i].productId
                 })
-            })
-            .then(cart => {
-                Item.update({
-                    status: 0,
-                    cartId: cart.id
-                }, {
-                    where: {
-                        userId: req.session.usuarioLogueado.id,
-                        status: 1
-                    }
                 }
-                )
+                // .then(result=>{
+                   //res.send(result)
+                return res.redirect('/cart')
+                   
             })
-            .then(() => res.redirect('/cart/cartHistory'))
-            .catch(error => console.log(error))
-
-
-
+                   .catch(err=>res.send(err))
         
+    
+        
+    },
+    cartSumounidad: (req, res) => {
+      
+        Item.update({quantity : Number(req.body.quantity) + 1},{
+                where: {
+                    id: req.body.itemId        
+                }
+               
+            }).then(resultado=>{
+                return res.redirect('/cart')
+            })
+
+    },
+    cartRestounidad: (req, res) => {
+
+        Item.update({ quantity: req.body.quantity == 1 ? 1 : Number(req.body.quantity) - 1 }, {
+            where: {
+                id: req.body.itemId
+            }
+
+        }).then(resultado => {
+            return res.redirect('/cart')
+        })
+
     }
+
 
 
 

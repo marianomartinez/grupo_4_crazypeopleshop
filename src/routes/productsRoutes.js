@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
+const authIsadmin = require('../middlewares/authIsadmin')
+const authMiddleware = require('../middlewares/auth')
 
 
 //Multer Code
@@ -32,20 +34,20 @@ const productsController = require(path.resolve(__dirname, '../controllers/produ
 
 
 
-router.get('/products/crud', productsController.crud);
-router.get('/products/productsCRUD/add', productsController.add);
-router.get('/products/productsCRUDdetail/:id', productsController.show);
-router.get('/products/delete/:id', productsController.delete);
-router.get('/products/productsCRUDedit/:id', productsController.edit);
-router.get('/products/productsCRUDeditImages/:id', productsController.editImages);
-router.get('/products/deleteProdImage/:id/:imgId', productsController.deleteProdImage);
-router.get('/products/:category/:id', productsController.productShow);
-router.get('/products/search', productsController.productSearch);
-router.get('/api/productEdit/:id', productsController.productEdit);
-router.get('/api/productSizes/:id', productsController.productSizes);
-router.get('/api/sizeList', productsController.sizeList);
-router.put('/products/productsCRUDedit/:id', require('../middlewares/productUpdate'), productsController.update);
-router.put('/products/productsCRUDeditImages/:id',/* require('../middlewares/productUpdate'),*/ upload.any(), productsController.updateImages);
-router.post('/products/crud', upload.any(), require('../middlewares/productCreate'), productsController.save);
+router.get('/products/crud', authMiddleware, authIsadmin, productsController.crud);
+router.get('/products/productsCRUD/add', authMiddleware, authIsadmin,productsController.add);
+router.get('/products/productsCRUDdetail/:id', authMiddleware, authIsadmin, productsController.show);
+router.get('/products/delete/:id', authMiddleware, authIsadmin, productsController.delete);
+router.get('/products/productsCRUDedit/:id', authMiddleware, authIsadmin, productsController.edit);
+router.get('/products/productsCRUDeditImages/:id', authMiddleware, authIsadmin, productsController.editImages);
+router.get('/products/deleteProdImage/:id/:imgId', authMiddleware, authIsadmin,productsController.deleteProdImage);
+router.get('/products/:category/:id',productsController.productShow);
+router.get('/products/search',productsController.productSearch);
+router.get('/api/productEdit/:id' ,productsController.productEdit);
+router.get('/api/productSizes/:id' ,productsController.productSizes);
+router.get('/api/sizeList',  productsController.sizeList);
+router.put('/products/productsCRUDedit/:id', authMiddleware, authIsadmin, require('../middlewares/productUpdate'), productsController.update);
+router.put('/products/productsCRUDeditImages/:id',/* require('../middlewares/productUpdate'),*/ upload.any(), authMiddleware, authIsadmin,productsController.updateImages);
+router.post('/products/crud', upload.any(), require('../middlewares/productCreate'), authMiddleware, authIsadmin, productsController.save);
 
 module.exports = router;
