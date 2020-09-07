@@ -70,39 +70,26 @@
                                             <span id="errortelefono"></span>
                                     </div>
 
-<<<<<<< HEAD
-                                    <div class="form-group col-12">
-                                        <label for="inputAddress2">Cambiar contraseña</label>
-                                        <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
-                                        <input type="password" class="form-control" name="password" 
-                                            placeholder="Nueva contraseña (6 a 15 caracteres)">
+                                        <div class="form-group col-12">
+                                            <div class="row col-12">
+                                                <label for="inputAddress">Cambiar contraseña</label>
+                                            </div>
+                                        
+                                            <div class="row col-12">
+                                                <div class="col-11 px-0">
+                                                    <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
+                                                    <input type="password" class="form-control" name="password"
+                                                        placeholder="Nueva contraseña (8 a 20 caracteres)">
+                                                </div>
+                                                <div class="input-group-append col-1 px-0">
+                                                    <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
+                                                </div>
+                                            </div>
                                             <% if(typeof errors != 'undefined' && errors.password){  %>
                                             <span class="text-danger"> <%=errors.password.msg%> </span>
                                             <% } %>
                                             <span id="errorpassword"></span>
-                                    </div>
-=======
-                                                <div class="input-group col-12">
-                                                    <div class="row col-12">
-                                                        <label for="inputAddress">Contraseña</label>
-                                                    </div>
-                                                
-                                                    <div class="row col-12">
-                                                        <div class="col-11 px-0">
-                                                            <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
-                                                            <input type="password" class="form-control" name="password"
-                                                                placeholder="Nueva contraseña (8 a 20 caracteres)">
-                                                        </div>
-                                                        <div class="input-group-append col-1 px-0">
-                                                            <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
-                                                        </div>
-                                                    </div>
-                                                    <% if(typeof errors != 'undefined' && errors.password){  %>
-                                                    <span class="text-danger"> <%=errors.password.msg%> </span>
-                                                    <% } %>
-                                                    <span id="errorpassword"></span>
-                                                </div>
->>>>>>> papacho
+                                        </div>
 
                                         <div class="input-group col-12">
                                             <div class="row col-12">
