@@ -1,7 +1,7 @@
 
 <!-- Header - Primera linea-->
 <header class="container-fluid bg-white">
-    <nav class="row mx-0 px-1 w-100 d-flex justify-content-between align-items-center">
+    <nav class="row mx-0 pr-3 w-100">
         <figure class="d-none d-md-block col-md-4 m-0 p-0">
             <a class="" href="/">
                 <!-- Si usamos imagen jpg reemplazar <img src="_logo_" alt="_logo de la marca_"></a> -->
@@ -12,7 +12,7 @@
 
             </a>
         </figure>
-        <figure class="col-4 col-md-4 m-0 p-0">
+        <figure class="col-6 col-md-4 m-0 p-0">
             <!-- Si usamos imagen jpg reemplazar <img src="_weAreBladers_" alt="_la marca_"></a> -->
             <!-- Por ahora uso este SVG -->
             <a href="/">
@@ -20,7 +20,7 @@
             </a>
 
         </figure>
-        <div class="col-8 col-md-4 mx-0 my-auto p-0 d-flex justify-content-end align-items-center">
+        <div class="col-6 col-md-4 mx-0 my-auto p-0 d-flex justify-content-end align-items-center">
             <form class="search-form m-0 pr-1" action="/products/search" method="GET">
                 <input class="form-control input-sm" type="search" name="searchInput" maxlength="50"
                     placeholder="Buscar..." aria-label="Search">
@@ -42,7 +42,7 @@
             <figure class="avatar  text-align-center ml-3"><a href="/users/profileShow"><img
                         src="/img/users/<%= locals.usuarioLogueado.image %>" alt="" class="avatar"></a></figure>
             
-            <ul class="navbar-nav px-1 ">
+            <ul class="navbar-nav ml-1 ">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active piquitoavatar" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -55,11 +55,8 @@
                     </div>
                 </li>
             </ul>
-            <div class="col-2 d-flex flex-column justify-content-center px-1">
-                
-                <a class="" id="headercart" href="/cart"><i class="fas fa-shopping-cart regist" ></i>(<%=locals.cartQuantity %>) </a>
-            </div>
-                
+            <a id="headercart" href="/cart"><i class="fas fa-shopping-cart regist ml-3" ></i>(<%=locals.cartQuantity %>) </a>
+            
             
             <% } %>
 
@@ -67,6 +64,7 @@
 
 
 
+        </div>
         </div>
     </nav>
 
