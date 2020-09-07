@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+    
     let togglePassword = document.querySelector('#togglePassword');
     let password = document.querySelector("input[type='password']");
 

@@ -9,6 +9,8 @@ router.post('/cart/deleteitemCart/', authMiddleware, checkoutController.deleteit
 router.post('/cart/shop', authMiddleware, checkoutController.shop);
 router.get('/cart/cartHistory', authMiddleware, checkoutController.cartHistory);
 router.get('/cart/detail/:id', authMiddleware, checkoutController.cartDetail);
+router.get('/cart/repeat/:id', authMiddleware,checkoutController.cartRepeat);
+router.post("/cart/copy/", authMiddleware, checkoutController.cartCopy);
 
 
 module.exports= router;
