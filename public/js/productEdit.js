@@ -214,7 +214,9 @@ window.addEventListener('load', function() {
 
                 //alert('entra con stock vacio y talle postivo')
             }
+          
             
+
             if (stock.value == '' && (size.value == 'elegir talle' || size.value == 'otherSizes') ){
                 size.classList.add('is-valid')
                 stock.classList.add('is-valid')
@@ -223,8 +225,8 @@ window.addEventListener('load', function() {
                 size.classList.remove('is-invalid')
                 stock.classList.remove('is-invalid')
             }       
-           
-            if (stock.value >= '0' && size.value == 'elegir talle') {
+          
+            if (Number(stock.value) > 0 && size.value == 'elegir talle') {
                 size.classList.add('is-invalid')
                 stock.classList.add('is-valid')
                 errorSize.innerHTML = 'Debe elegir un talle si hay stock'
@@ -246,6 +248,15 @@ window.addEventListener('load', function() {
                 //alert('entra con stock positivo y talle postivo')
             }
 
+           
+            if (isNaN(Number(stock.value))) {
+                stock.classList.add('is-invalid')
+                stock.classList.remove('is-valid')
+                errorStock.classList.add('text-danger')
+                errorStock.innerHTML = 'El stock debe ser numérico'
+                errorSize.innerHTML = ''
+                errores.push('El stock debe ser numérico')
+            }
             //ADD SIZE Y STOCK
 
             if (addStock.value < 0) {
@@ -301,7 +312,14 @@ window.addEventListener('load', function() {
                 //alert('entra con stock positivo y talle postivo')
             }
 
-
+            if (isNaN(Number(addStock.value))) {
+                addStock.classList.add('is-invalid')
+                addStock.classList.remove('is-valid')
+                erroraddStock.classList.add('text-danger')
+                erroraddStock.innerHTML = 'El stock debe ser numérico'
+                erroraddSize.innerHTML = ''
+                errores.push('El stock debe ser numérico')
+            }
 
             
 

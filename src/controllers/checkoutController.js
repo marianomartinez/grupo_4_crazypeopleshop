@@ -205,7 +205,32 @@ module.exports= {
         
     
         
+    },
+    cartSumounidad: (req, res) => {
+      
+        Item.update({quantity : Number(req.body.quantity) + 1},{
+                where: {
+                    id: req.body.itemId        
+                }
+               
+            }).then(resultado=>{
+                return res.redirect('/cart')
+            })
+
+    },
+    cartRestounidad: (req, res) => {
+
+        Item.update({ quantity: req.body.quantity == 1 ? 1 : Number(req.body.quantity) - 1 }, {
+            where: {
+                id: req.body.itemId
+            }
+
+        }).then(resultado => {
+            return res.redirect('/cart')
+        })
+
     }
+
 
 
 

@@ -13,6 +13,9 @@ router.get('/cart/cartHistory', authMiddleware, checkoutController.cartHistory);
 router.get('/cart/detail/:id', authMiddleware, checkoutController.cartDetail);
 router.get('/cart/repeat/:id', authMiddleware,checkoutController.cartRepeat);
 router.post("/cart/copy/:id", authMiddleware, checkoutController.cartCopy);
+router.post("/cart/sumounidad/", authMiddleware, checkoutController.cartSumounidad);
+router.post("/cart/restounidad/", authMiddleware, checkoutController.cartRestounidad);
+
 
 
 module.exports= router;

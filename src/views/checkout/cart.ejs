@@ -56,11 +56,27 @@
                                 <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center col-6 col-lg-2">
                                     <div class="align-items-center justify-content-center">
                                         <h6>Cantidad</h6>
-                                        <form action="#" class="d-flex justify-content-center align-items-center">
-                                            <button class="boton-cantidad">-</button>
-                                            <span class="cantidad text-center"><%=item.quantity %> </span>
-                                            <button class="boton-cantidad">+</button>
-                                        </form>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <form action="/cart/restounidad" method="POST" class="">
+                                                <input type="hidden" name="itemId" value="<%=item.id %>">
+                                                <input type="hidden" name="quantity" value="<%=item.quantity %>">
+                                                <button type="submit" class="boton-cantidad mr-2">
+                                                    -
+                                                </button>
+                                            </form>
+                                            <p class="cantidad text-center m-0">
+                                            <%=item.quantity %>
+
+                                            </p>
+                                            <form action="/cart/sumounidad" method="POST" class="">
+                                                <input type="hidden" name= "itemId" value="<%=item.id %>">
+                                                <input type="hidden" name="quantity" value="<%=item.quantity %>">
+                                                <button type="submit" class="boton-cantidad ml-2">
+                                                    +
+                                                </button>
+                                            </form>
+                                        </div>
+                                            
                                     </div>
                                 </div>
 
