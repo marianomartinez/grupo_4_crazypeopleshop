@@ -126,6 +126,7 @@ module.exports= {
     },
     cartHistory: (req, res) => {
         Cart.findAll({
+            order: [['createdAt', 'DESC']],
             where: {
                 userId: req.session.usuarioLogueado.id
             },
@@ -141,6 +142,19 @@ module.exports= {
     },
     cartDetail: (req,res)=>{
         Cart.findByPk(req.params.id, {
+                include: {
+                all: true,
+                nested: true
+            }
+        })
+            .then((cart) => {
+                //res.send(cart)
+               res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartDetail'), { cart });
+            })
+
+    },
+    cartRepeat: (req, res) => {
+        Cart.findByPk(req.params.id, {
             include: {
                 all: true,
                 nested: true
@@ -148,10 +162,53 @@ module.exports= {
         })
             .then((cart) => {
                 //res.send(cart)
-                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartDetail'), { cart });
+                res.render(path.resolve(__dirname, '..', 'views', 'checkout', 'cartRepeat'), { cart });
             })
 
+    },
+
+    cartCopy: (req, res) => {
+
+        Item.findAll({
+            where: {
+                userId: req.session.usuarioLogueado.id,
+                status: 1
+            }
+        })
+            .then((items) => {
+                totalPrecio = items.reduce((total, item) => (total = total + Number(item.subtotal)), 0)
+            })
+        Cart.findOne({
+            order: [['createdAt', 'DESC']]
+        })
+            .then((cart) => {
+                return Cart.create({
+                    orderNumber: cart ? cart.orderNumber + 1 : 1,
+                    total: totalPrecio,
+                    userId: req.session.usuarioLogueado.id
+                })
+            })
+            .then(cart => {
+                Item.update({
+                    status: 0,
+                    cartId: cart.id
+                }, {
+                    where: {
+                        userId: req.session.usuarioLogueado.id,
+                        status: 1
+                    }
+                }
+                )
+            })
+            .then(() => res.redirect('/cart/cartHistory'))
+            .catch(error => console.log(error))
+
+
+
+        
     }
+
+
 
     
 }

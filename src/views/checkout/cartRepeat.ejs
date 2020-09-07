@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Incorporo el Head -->
+
+<head>
+    <%- include('../partials/head', {Title: 'Repetir pedido: ' + cart.orderNumber, image: ''}) %>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Incorporo el navbar -->
+        <%- include('../partials/header') %>
+
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="col-12 text-center mad">Repetir Compra</h1>
+            <section class="bg-home min-vh-100">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-8 mx-auto bg-light agreg">
+                            <div class="card">
+                                <ul class="list-group">
+                                    <li class="list-group-item">Numero de orden: </strong><%= cart.orderNumber %></li>
+                                    <input type="text" name = "idCart" value ="<%= cart.id %>"  >
+                                    <% cart.items.forEach(item => { %>
+                                    <div class="d-flex p-3">
+                                        <div class="col-3">
+                                            <figure class="card-img-top d-flex justify-content-center m-0">
+                                                <img class="img-fluid w-100 m-auto"
+                                                    src="/img/prod_img/<%= item.product.images[0].filename %>" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="col-9">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <%= item.product.brand + ' ' + item.product.model %></li>
+                                                <li class="list-group-item">Talle: <%= item.sizeId %></li>
+                                                <li class="list-group-item">Cantidad: <%= item.quantity %></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+                                    <li class="list-group-item">Total: $<%= cart.total %></li>
+                                </ul>
+                            </div>
+                            
+                            <form action="/cart/copy" method="POST">
+                                <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/cart/cartHistory">Volver</a>
+                                <button class="btn btn-success" type="submit">AGREGAR AL CARRITO</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer de footer.ejs -->
+    <%- include ('../partials/footer') %>
+
+    <!-- Scripts de scripts.ejs -->
+    <%- include ('../partials/scripts') %>
+
+    <!-- Fin del Container -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="/js/cartCopy.js"></script>
+
+</body>
+
+</html>

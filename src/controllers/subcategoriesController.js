@@ -58,6 +58,7 @@ const subcategoriesController = {
     },
     save: function (req, res) {
         let errors = validationResult(req);
+      
         if (errors.isEmpty()) {
             const _body = req.body
             _body.categoryId = req.body.categoria
@@ -70,7 +71,7 @@ const subcategoriesController = {
 
         }
         else {
-            console.log(req.body);
+          
             Category
                 .findAll()
                 .then(categorias => {

@@ -4,6 +4,7 @@
 <head>
     <%- include ('../partials/head')  %>
     <link rel="stylesheet" href="/css/edit.css">
+    <script src="/js/togglePassword.js"></script>
 </head>
 
 <body>
@@ -69,6 +70,7 @@
                                             <span id="errortelefono"></span>
                                     </div>
 
+<<<<<<< HEAD
                                     <div class="form-group col-12">
                                         <label for="inputAddress2">Cambiar contraseña</label>
                                         <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
@@ -79,13 +81,48 @@
                                             <% } %>
                                             <span id="errorpassword"></span>
                                     </div>
+=======
+                                                <div class="input-group col-12">
+                                                    <div class="row col-12">
+                                                        <label for="inputAddress">Contraseña</label>
+                                                    </div>
+                                                
+                                                    <div class="row col-12">
+                                                        <div class="col-11 px-0">
+                                                            <input type="hidden" name="password_old" value=<%=usuarioEdit.password%>>
+                                                            <input type="password" class="form-control" name="password"
+                                                                placeholder="Nueva contraseña (8 a 20 caracteres)">
+                                                        </div>
+                                                        <div class="input-group-append col-1 px-0">
+                                                            <span class="input-group-text  bg-white" id="togglePassword"><i class="fas fa-eye"> </i></span>
+                                                        </div>
+                                                    </div>
+                                                    <% if(typeof errors != 'undefined' && errors.password){  %>
+                                                    <span class="text-danger"> <%=errors.password.msg%> </span>
+                                                    <% } %>
+                                                    <span id="errorpassword"></span>
+                                                </div>
+>>>>>>> papacho
 
-                                    <div class="form-group col-12">
-                                        <label for="inputAddress2">Reingrese Contraseña</label>
-                                        <input type="password" class="form-control" name="password2"  placeholder="Reingrese nueva contraseña (6 a 15 caracteres)"
-                                        >
-                                        <span id="errorpassword2"></span>
-                                    </div>
+                                        <div class="input-group col-12">
+                                            <div class="row col-12">
+                                                <label for="inputAddress">Reingrese Contraseña</label>
+                                            </div>
+                                            <div class="row col-12">
+                                                <div class="input-group col-11 px-0">
+                                                    <input type="password" class="form-control password2" name="password2" id="password2"
+                                                        placeholder="Reingrese nueva contraseña (8 a 20 caracteres)">
+                                                </div>
+                                                <div class="input-group-append col-1 px-0">
+                                                    <span class="input-group-text  bg-white" id="togglePassword2"><i class="fas fa-eye"> </i></span>
+                                                </div>
+                                            </div>
+                                            <% if(typeof errors != 'undefined' && errors.password2){  %>
+                                            <span class="text-danger"> <%=errors.password2.msg%> </span>
+                                            <% } %>
+                                            <span id="errorpassword2"></span>
+                                        </div>
+                                    
 
                                     <div class="form-row">
                                         <div class="form-group ml-12 posi">
@@ -129,6 +166,7 @@
     </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="/js/userEdit.js"></script>
+    
     </body>
     
     </html>
