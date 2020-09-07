@@ -10,71 +10,64 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
-
-
-        <main>
-            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Sub Categorías</h1>
-            <section>
-
-                <a class="display-5 mt-5 agreg" href="/subcategories/subcategoriesCRUD/add">Agregar Sub Categoría</a>
-
-            </section>
-
-
-            <div class="container-fluid">
-                <table class='table mt-5'>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Subcategoría</th>
-                            <th>Categoría</th>
-                            <th>Descripcion</th>
-                            <th>Ver</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-
-                        <% subcategorias.forEach(subcategoria => { %>
-                            <% let cateId = subcategoria.categoryId %>
-                            <% let cate = categorias.find(c =>c.id == cateId).name %>
-                        <tr>
-                            <td><%= subcategoria.id %></td>
-                            <td><%= subcategoria.name %></td>
-                            <td><%= cate %></td>
-                            <td><%= subcategoria.description %></td>
-
-                            <td><a href="/subcategories/detail/<%=subcategoria.id%> ">
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad">Administrador de Sub Categorías</h1>
+            <section class="bg-home min-vh-100">
+                <a class="display-5 my-3 agreg btn btn-primary text-white" href="/subcategories/subcategoriesCRUD/add">Agregar Sub Categoría</a>
+                <div class="container-fluid bg-white agreg">
+                    <div class="row">
+                        <table class='table mt-4'>
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Subcategoría</th>
+                                <th>Categoría</th>
+                                <th>Descripcion</th>
+                                <th>Ver</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            
+                            <% subcategorias.forEach(subcategoria => { %>
+                                <% let cateId = subcategoria.categoryId %>
+                                <% let cate = categorias.find(c =>c.id == cateId).name %>
+                                <tr>
+                                    <td><%= subcategoria.id %></td>
+                                <td><%= subcategoria.name %></td>
+                                <td><%= cate %></td>
+                                <td><%= subcategoria.description %></td>
+                                
+                                <td><a href="/subcategories/detail/<%=subcategoria.id%> ">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/subcategories/edit/<%=subcategoria.id%> ">
+                                <td><a href="/subcategories/edit/<%=subcategoria.id%> ">
                                     <ion-icon name="create-outline"></ion-icon>
                                 </a></td>
-                            <td><a href="/subcategories/delete/<%=subcategoria.id%> "class = "eliminarsubcat">
+                                <td><a href="/subcategories/delete/<%=subcategoria.id%> "class = "eliminarsubcat">
                                     <ion-icon name="trash-outline"></ion-icon>
-                                </a></td>
+                                    </a></td>
+                                    
+                                </tr>
 
-                        </tr>
+                                <% });%>
+                                
 
-                        <% });%>
-
-
-                    </tbody>
-
-                </table>
-            </div>
-
-
-
-        </main>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
         <%- include ('../partials/footer') %>
         <!-- Scripts de scripts.ejs -->
         <%- include ('../partials/scripts') %>
 
         <!-- Fin del Container -->
-    </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="/js/subCategoryDelete.js"></script>
 </body>

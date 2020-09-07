@@ -10,69 +10,57 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad">Administrador de Categorías</h1>
+            <section class="bg-home min-vh-100">
+                <a class="display-5 my-3 agreg btn btn-primary text-white" href="/categories/categoriasCRUD/add">Agregar Categoría</a>
+                <div class="container-fluid bg-white agreg">
+                    <div class="row">
 
+                        <table class='table mt-4'>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Categoría</th>
+                                    <th>Descripcion</th>
+                                    <th>Ver</th>
+                                    <th>Editar</th>
+                                    <th>Borrar</th>
+                                </tr>
 
-        <main class = "paovh80">
-            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Categorías</h1>
-            <section>
+                            </thead>
+                            <tbody>
 
-                <a class="display-5 mt-5 agreg" href="/categories/categoriasCRUD/add">Agregar Categoría</a>
-
+                                <% categorias.forEach(categoria => { %>
+                                    <tr>
+                                        <td><%=categoria.id %></td>
+                                        <td><%=categoria.name %></td>
+                                        <td><%=categoria.description %></td>
+                                        <td><a href="/categories/detail/<%=categoria.id%> ">
+                                                <ion-icon name="eye-outline"></ion-icon>
+                                            </a></td>
+                                        <td><a href="/categories/edit/<%=categoria.id%> ">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </a></td>
+                                        <td><a href="/categories/delete/<%=categoria.id%> " class = "eliminarcat">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </a></td>
+                                    </tr>
+                                    <% });%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
-
-
-            <div class="container-fluid">
-                <table class='table mt-5'>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Categoría</th>
-                             <th>Descripcion</th>
-                             <th>Ver</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-
-                        <% categorias.forEach(categoria => { %>
-                        <tr>
-                            <td><%=categoria.id %></td>
-                            <td><%=categoria.name %></td>
-                             <td><%=categoria.description %></td>
- 
-                            <td><a href="/categories/detail/<%=categoria.id%> ">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/categories/edit/<%=categoria.id%> ">
-                                    <ion-icon name="create-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/categories/delete/<%=categoria.id%> " class = "eliminarcat">
-                                    <ion-icon name="trash-outline"></ion-icon>
-                                </a></td>
-
-                        </tr>
-
-                        <% });%>
-
-
-                    </tbody>
-
-                </table>
-            </div>
-
-
-
-        </main>
+        </div>
+    </div>
         <%- include ('../partials/footer') %>
         <!-- Scripts de scripts.ejs -->
         <%- include ('../partials/scripts') %>
         
         <!-- Fin del Container -->
-    </div>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-        <script src="/js/categoryDelete.js"></script>
+    <script src="/js/categoryDelete.js"></script>
 </body>
 
 </html>

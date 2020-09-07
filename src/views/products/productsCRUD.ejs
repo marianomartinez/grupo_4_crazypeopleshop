@@ -10,84 +10,69 @@
     <div class="container">
         <!-- Header de header.ejs -->
         <%- include ('../partials/header')  %>
-
-
-        <main>
-            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad"> Administrador de Productos</h1>
-            <section>
-
-                <a class="display-5 mt-5 agreg" href="/products/productsCRUD/add">Agregar Productos</a>
-                
+        <div class="col-12 text-center text-md-left py-4 fonditos">
+            <h1 class="text-center text-dark display-5 mt-5 pt-2 mad">Administrador de Productos</h1>
+            <section class="bg-home min-vh-100">
+                <a class="display-5 my-3 agreg btn btn-primary text-white" href="/products/productsCRUD/add">Agregar Productos</a>
+                <div class="container-fluid bg-white agreg">
+                    <div class="row">
+                        <table class='table mt-4'>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Categoría</th>
+                                    <th>Subcategoría</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>Precio</th>
+                                    <th>Ver</th>
+                                    <th>Editar</th>
+                                    <th>Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% products.forEach(producto => { %>
+                                    <% let subcat = producto.subcategoryId %>
+                                    <% let cateId = subcategories.find(sc =>sc.id == subcat).categoryId %>
+                                    <% let cate = categories.find(c =>c.id == cateId).name %>
+                                <% //let cate = subcategories.find(c =>c.id == subcat).categoryId %>
+                                <tr>
+                                    <td><%=producto.id %></td>
+                                    <td><%= cate %></td>
+                                    <!--<td><%= //categories.find(c =>c.categoryId == cate).name %></td>-->
+                                    <!--<td><%= //categorias.find(c =>c.id_categoria == cate).categoria %></td>-->
+                                    <td><%= producto.subcategory.name %></td>
+                                    <td><%=producto.brand %></td>
+                                    <td><%=producto.model %></td>
+                                    <td><%=producto.price %></td>
+                                    <td><a href="/products/productsCRUDdetail/<%=producto.id%>">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </a></td>
+                                    <td><a href="/products/productsCRUDedit/<%=producto.id%>">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </a>
+                                    </td>
+                                    <td><a href="/products/delete/<%=producto.id%>" class="eliminarcheck">
+                                        <ion-icon name="trash-outline"></ion-icon>
+                                    </a>
+                                </td>
+                                </tr>
+                                <% });%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
-
-
-            <div class="container-fluid">
-                <table class='table mt-5'>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Categoría</th>
-                            <th>Subcategoría</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Ver</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-
-                        <% products.forEach(producto => { %>
-                        <% let subcat = producto.subcategoryId %>
-                        <% let cateId = subcategories.find(sc =>sc.id == subcat).categoryId %>
-                        <% let cate = categories.find(c =>c.id == cateId).name %>
-                        <% //let cate = subcategories.find(c =>c.id == subcat).categoryId %>
-                          
-                        <tr>
-                            <td><%=producto.id %></td>
-                            <td><%= cate %></td>
-                            <!--<td><%= //categories.find(c =>c.categoryId == cate).name %></td>-->
-                            <!--<td><%= //categorias.find(c =>c.id_categoria == cate).categoria %></td>-->
-                            <td><%= producto.subcategory.name %></td>
-                            <td><%=producto.brand %></td>
-                            <td><%=producto.model %></td>
-                            <td><%=producto.description %></td>
-                            <td><%=producto.price %></td>
-                            <td><a href="/products/productsCRUDdetail/<%=producto.id%>">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/products/productsCRUDedit/<%=producto.id%>">
-                                    <ion-icon name="create-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/products/delete/<%=producto.id%>" class="eliminarcheck">
-                                    <ion-icon name="trash-outline"></ion-icon>
-                                </a></td>
-
-                        </tr>
-
-                        <% });%>
-
-
-                    </tbody>
-
-                </table>
-            </div>
-
-
-
-        </main>
-        <%- include ('../partials/footer') %>
+        </div>
+    </div>
+    <%- include ('../partials/footer') %>
         <!-- Scripts de scripts.ejs -->
         <%- include ('../partials/scripts') %>
-
+        
         <!-- Fin del Container -->
-    </div>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="/js/productDelete.js"></script>
-</body>
-
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script src="/js/productDelete.js"></script>
+    </body>
+    
 </html>
