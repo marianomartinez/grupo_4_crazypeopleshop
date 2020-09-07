@@ -20,7 +20,7 @@
                             <div class="card">
                                 <ul class="list-group">
                                     <li class="list-group-item">Numero de orden: </strong><%= cart.orderNumber %></li>
-                                    <input type="text" name = "idCart" value ="<%= cart.id %>"  >
+                                    <input type="hidden" name = "idCart" value ="<%= cart.id %>"  >
                                     <% cart.items.forEach(item => { %>
                                     <div class="d-flex p-3">
                                         <div class="col-3">
@@ -45,7 +45,7 @@
                             
                             <form action="/cart/copy/<%= cart.id %>" id = "formulario" method="POST">
                                 <a class="btn bg-danger text-white mt-1 mx-md-auto" href="/cart/cartHistory/">Volver</a>
-                                <button class="btn btn-success" type="submit">AGREGAR AL CARRITO</button>
+                                <button class="btn bg-primary text-white mt-1 mx-md-auto" type="submit">Generar Carrito</button>
                             </form>
                         </div>
                     </div>
